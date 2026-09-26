@@ -21,25 +21,25 @@ Create a clean 3DRIED unfolding project without modifying the existing TomoSAR-T
 
 ## Tasks
 
-- [ ] create repository/project directory structure;
-- [ ] initialize Git if needed;
-- [ ] record Python, PyTorch, CUDA, GPU, OS versions;
-- [ ] create `configs/`, `src/`, `scripts/`, `tests/`, `results/`, `docs/`;
-- [ ] place the six AI-native control files at repository root;
-- [ ] add `.gitignore`;
-- [ ] create minimal environment/smoke test;
-- [ ] verify dataset path is readable;
-- [ ] make no changes to raw dataset.
+- [x] create repository/project directory structure;
+- [x] initialize Git if needed;
+- [x] record Python, PyTorch, CUDA, GPU, OS versions;
+- [x] create `configs/`, `src/`, `scripts/`, `tests/`, `results/`, `docs/`;
+- [x] place the six AI-native control files at repository root;
+- [x] add `.gitignore`;
+- [x] create minimal environment/smoke test;
+- [x] verify dataset path is readable;
+- [x] make no changes to raw dataset.
 
 ## Acceptance criteria
 
 PASS only if:
 
-- [ ] repository runs a minimal Python smoke test;
-- [ ] GPU availability is recorded;
-- [ ] Hammer dataset path is readable;
-- [ ] raw dataset remains untouched;
-- [ ] working tree is clean after initial commit.
+- [x] repository runs a minimal Python smoke test;
+- [x] GPU availability is recorded;
+- [x] Hammer dataset path is readable;
+- [x] raw dataset remains untouched;
+- [x] working tree is clean after initial commit.
 
 ## Deliverable
 
@@ -63,26 +63,26 @@ using read-only inspection.
 
 ## Required questions
 
-- [ ] What files exist?
-- [ ] What are their formats?
-- [ ] What variables/keys are stored?
-- [ ] What is the actual shape?
-- [ ] What is the dtype?
-- [ ] Is the echo already complex-valued?
-- [ ] Which axis is ADC/range-fast-time?
-- [ ] Which axis is horizontal aperture?
-- [ ] Which axis is vertical aperture?
-- [ ] Which axis is Rx?
-- [ ] What acquisition/system metadata is present?
-- [ ] Are reference images included?
-- [ ] Is there preprocessing or reference MATLAB/Python code nearby?
+- [x] What files exist?
+- [x] What are their formats?
+- [x] What variables/keys are stored?
+- [x] What is the actual shape?
+- [x] What is the dtype?
+- [x] Is the echo already complex-valued?
+- [x] Which axis is ADC/range-fast-time?
+- [x] Which axis is horizontal aperture?
+- [x] Which axis is vertical aperture?
+- [x] Which axis is Rx?
+- [x] What acquisition/system metadata is present?
+- [x] Are reference images included?
+- [x] Is there preprocessing or reference MATLAB/Python code nearby?
 
 ## Single-Rx rule
 
-- [ ] identify available Rx channels;
-- [ ] select ONE Rx only;
-- [ ] document the selected Rx index;
-- [ ] do not average or fuse Rx channels.
+- [x] identify available Rx channels;
+- [x] select ONE Rx only;
+- [x] document the selected Rx index;
+- [x] do not average or fuse Rx channels.
 
 ## Required script
 
@@ -196,12 +196,12 @@ The report must answer:
 
 PASS only if:
 
-- [ ] RMA code completes without NaN/Inf;
-- [ ] reconstructed target is recognizable as Hammer;
-- [ ] target is located at a physically plausible range;
-- [ ] target orientation is plausible;
-- [ ] outputs are reproducible from config;
-- [ ] all important assumptions are documented.
+- [x] RMA code completes without NaN/Inf;
+- [x] reconstructed target is recognizable as Hammer;
+- [x] target is located at a physically plausible range;
+- [x] target orientation is plausible;
+- [x] outputs are reproducible from config;
+- [x] all important assumptions are documented.
 
 ## Human checkpoint
 

@@ -168,3 +168,27 @@ Use the bundled MATLAB RMA's default FFT scaling (forward transform
 unnormalized, inverse transform scaled by `1/N`) instead of the preferred
 orthonormal convention. This is an explicit reference-reproduction exception
 to AGENTS.md section 5.3. The output remains complex through reconstruction.
+
+---
+
+## D013 — M2 range-bin and coordinate convention
+
+**Status:** FIXED FOR M2
+
+Reconstruct MATLAB range bins 12--24 with the bundled reference range
+formula, including its direct use of the one-based bin number. Use x as the
+horizontal aperture coordinate, y as range, and z as vertical, with the
+reference display offsets x=-50 mm and z=+120 mm. Retain the full 512×512
+complex grid and apply a 500 mm x-z ROI only to visualizations.
+
+---
+
+## D014 — Preserve reference x handedness pending review
+
+**Status:** HUMAN REVIEW REQUIRED
+
+The focused Hammer is diagonal and recognizable, but its horizontal slope is
+opposite the supplied 2-D JPEG under the bundled RMA coordinate labels. Do
+not silently flip x: the MATLAB scan ordering and offsets are reproduced as
+written, and the absolute aperture direction is not independently calibrated.
+Human review is required before M3 fixes an operator coordinate convention.

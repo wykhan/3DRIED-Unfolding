@@ -24,8 +24,8 @@ EXP-20260926-001
 
 ## EXP-YYYYMMDD-###
 
-**Milestone:**  
-**Purpose:**  
+**Milestone:**
+**Purpose:**
 **Status:** PLANNED / RUNNING / PASS / FAILED / BLOCKED
 
 ### Code
@@ -118,8 +118,8 @@ other metrics:
 
 ## EXP-M0-001 — Environment smoke test
 
-**Milestone:** M0  
-**Purpose:** Verify Python/PyTorch/GPU/project paths.  
+**Milestone:** M0
+**Purpose:** Verify Python/PyTorch/GPU/project paths.
 **Status:** PASS
 
 Expected checks:
@@ -140,8 +140,8 @@ and read-only HDF5 access verified. Output: `results/m0_environment.json`.
 
 ## EXP-M1-001 — Hammer raw data inspection
 
-**Milestone:** M1  
-**Purpose:** Identify actual file structure, array shape, dtype, axes, metadata, and Rx layout.  
+**Milestone:** M1
+**Purpose:** Identify actual file structure, array shape, dtype, axes, metadata, and Rx layout.
 **Status:** PASS
 
 Dataset:
@@ -170,9 +170,9 @@ Result: 82,278 complex frames of MATLAB shape `[1,4,256]`; aperture is
 
 ## EXP-M2-001 — Minimal Hammer RMA smoke reconstruction
 
-**Milestone:** M2  
-**Purpose:** Run the smallest useful RMA path on a restricted range interval or reduced debugging subset.  
-**Status:** PLANNED
+**Milestone:** M2
+**Purpose:** Run the smallest useful RMA path on a restricted range interval or reduced debugging subset.
+**Status:** PASS
 
 Goal:
 
@@ -182,13 +182,22 @@ Goal:
 
 This is a debugging experiment, not the final baseline.
 
+Command: `python3 scripts/run_rma.py --config configs/hammer_smoke.yaml`
+
+Config: Rx1 only; MATLAB bins 15--19; 407×200 full aperture; 512×512
+spatial FFT. Output: `results/rma_hammer_smoke/`.
+
+Result: complex64 volume `[5,512,512]`, 0 NaN/Inf, 13.74 s. Peak at
+MATLAB bin 17 / 614.310 mm. The head and diagonal handle were visibly
+focused, so the same reference phase convention proceeded to the full run.
+
 ---
 
 ## EXP-M2-002 — Full Hammer single-Rx RMA baseline
 
-**Milestone:** M2  
-**Purpose:** Produce the reproducible conventional RMA reference reconstruction.  
-**Status:** PLANNED
+**Milestone:** M2
+**Purpose:** Produce the reproducible conventional RMA reference reconstruction.
+**Status:** PASS
 
 Required outputs:
 
@@ -212,3 +221,55 @@ After this experiment:
 ```text
 STOP FOR HUMAN REVIEW
 ```
+
+### Code
+
+Initial implementation commit: `ec78736` on `master`. Final milestone commit
+is recorded in the Git history containing this ledger update.
+
+### Environment
+
+Python 3.8.17; NumPy 1.23.5; PyTorch 2.0.1+cu118; CUDA 11.8 available;
+two NVIDIA GeForce RTX 4090 GPUs. RMA execution used CPU NumPy FFTs.
+
+### Data and command
+
+Dataset: `/home/superws/dataset/3DRIED/Hammer/Hammer (1)`
+Rx: MATLAB 1 / Python 0 only
+Raw: 82,278 frames, each `[1,4,256]` complex single
+Corrected single-Rx echo: `[200,407,256]` complex64
+
+```bash
+/home/superws/anaconda3/envs/ComplexValue/bin/python3 scripts/run_rma.py --config configs/hammer.yaml
+```
+
+### Outputs and quantitative results
+
+Output: `results/rma_hammer/`
+Volume: `[13,512,512]` complex64, 27,263,104 bytes
+Bins/range: MATLAB 12--24 / 0.406069--0.905848 m
+Peak: bin 17, 0.614310 m, x=42.5 mm, z=141 mm
+NaN/Inf: 0/0
+Runtime: approximately 14.3 s
+Repeatability: identical volume SHA-256
+`257bc8c26a38af67ba4b2e5c10242930335031201cb16e0d10cecab4c6c4a40a`
+across two consecutive runs.
+
+### Qualitative result and interpretation
+
+PASS. The 500 mm ROI clearly resolves a claw-like head and long straight
+diagonal handle. Strong returns lie at 0.573--0.656 m and agree with the
+supplied reference depth. The horizontal slope is mirrored relative to the
+JPEG; this absolute x-handedness uncertainty is documented and deliberately
+not corrected without human review.
+
+### Problems and changes
+
+`pytest` was unavailable, so tests were expressed with the standard-library
+`unittest` runner (3/3 pass). The first full diagnostic plotted the entire
+periodic 512 grid; applying the already-configured 500 mm visualization ROI
+removed wraparound replicas while retaining the full saved complex volume.
+
+### Next action
+
+STOP for human review. M3 remains locked.

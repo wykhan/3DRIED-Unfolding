@@ -3,7 +3,7 @@
 ## Current overall status
 
 ```text
-M0 PASS / M1 PASS / M2 IN PROGRESS
+M0 PASS / M1 PASS / M2 PASS — AWAITING HUMAN REVIEW
 ```
 
 Current authorized execution:
@@ -44,7 +44,7 @@ Other Rx channels must not be fused or averaged.
 
 - [x] M0 Repository Initialization
 - [x] M1 Hammer Dataset Audit
-- [ ] M2 Conventional RMA Baseline
+- [x] M2 Conventional RMA Baseline
 
 ### Human checkpoint
 
@@ -62,7 +62,7 @@ Other Rx channels must not be fused or averaged.
 
 ## Current task
 
-Run the configured full single-Rx RMA reconstruction for M2.
+Stop after M2 and request human review. Do not begin M3.
 
 ---
 
@@ -88,19 +88,21 @@ Rx1, aperture axes, motion correction, and all required radar parameters.
 
 ## Decisions required from human
 
-None before M2 unless a Stop Condition in AGENTS.md or PLAN.md is triggered.
+Human review of the M2 image and the documented horizontal-handedness
+uncertainty is required before unlocking M3.
 
 ---
 
 ## Last completed milestone
 
-M1 Hammer Dataset Audit.
+M2 Conventional RMA Baseline.
 
 ---
 
 ## Next action
 
-Execute and evaluate M2 according to PLAN.md, then stop for human review.
+Human inspection of `results/rma_hammer/` and
+`docs/M2_RMA_HAMMER_REPORT.md`; M3 remains locked.
 
 ---
 
@@ -122,22 +124,32 @@ Human decision required: YES / NO
 
 ---
 
-Timestamp: 2026-09-26 Asia/Shanghai  
-Milestone: M0  
-Task: Repository initialization and environment smoke test  
-Status: PASS  
-Command: `python3 scripts/smoke_test.py --output results/m0_environment.json`  
-Result: Python environment, two RTX 4090 GPUs, and Hammer HDF5 readability verified.  
-Evidence: `results/m0_environment.json`, `docs/M0_REPOSITORY_REPORT.md`  
-Next action: M1 dataset audit  
+Timestamp: 2026-09-26 Asia/Shanghai
+Milestone: M0
+Task: Repository initialization and environment smoke test
+Status: PASS
+Command: `python3 scripts/smoke_test.py --output results/m0_environment.json`
+Result: Python environment, two RTX 4090 GPUs, and Hammer HDF5 readability verified.
+Evidence: `results/m0_environment.json`, `docs/M0_REPOSITORY_REPORT.md`
+Next action: M1 dataset audit
 Human decision required: NO
 
-Timestamp: 2026-09-26 Asia/Shanghai  
-Milestone: M1  
-Task: Read-only Hammer audit  
-Status: PASS  
-Command: `python3 scripts/inspect_hammer.py --hash-files --output results/hammer_audit.json`  
-Result: Complex `[frame=82278, chirp=1, Rx=4, ADC=256]` capture interpreted; Rx1 selected and 407×200 aperture conventions established from bundled reference code.  
-Evidence: `results/hammer_audit.json`, `docs/HAMMER_DATA_AUDIT.md`  
-Next action: M2 conventional RMA  
+Timestamp: 2026-09-26 Asia/Shanghai
+Milestone: M1
+Task: Read-only Hammer audit
+Status: PASS
+Command: `python3 scripts/inspect_hammer.py --hash-files --output results/hammer_audit.json`
+Result: Complex `[frame=82278, chirp=1, Rx=4, ADC=256]` capture interpreted; Rx1 selected and 407×200 aperture conventions established from bundled reference code.
+Evidence: `results/hammer_audit.json`, `docs/HAMMER_DATA_AUDIT.md`
+Next action: M2 conventional RMA
 Human decision required: NO
+
+Timestamp: 2026-09-26 Asia/Shanghai
+Milestone: M2
+Task: Minimal diagnostic and full single-Rx conventional RMA
+Status: PASS
+Command: `/home/superws/anaconda3/envs/ComplexValue/bin/python3 scripts/run_rma.py --config configs/hammer.yaml`
+Result: Recognizable complex Hammer volume, peak at 614.310 mm, 0 NaN/Inf, deterministic volume across repeated runs.
+Evidence: `results/rma_hammer/`, `docs/M2_RMA_HAMMER_REPORT.md`
+Next action: STOP and obtain human review before M3
+Human decision required: YES

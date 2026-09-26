@@ -80,7 +80,7 @@ def main() -> None:
         handler.setFormatter(formatter)
         log.addHandler(handler)
 
-    command = " ".join(shlex.quote(value) for value in sys.argv)
+    command = " ".join(shlex.quote(value) for value in [sys.executable] + sys.argv)
     (output / "command.txt").write_text(command + "\n", encoding="utf-8")
     shutil.copyfile(args.config, output / "config_used.yaml")
     (output / "environment.txt").write_text(environment_text(), encoding="utf-8")
@@ -120,24 +120,31 @@ def main() -> None:
     )
     np.savez(output / "coordinates.npz", x_mm=x_mm, z_mm=z_mm, range_m=ranges_m, matlab_range_bins=np.asarray(bins))
     dynamic = float(rma_cfg["display_dynamic_range_db"])
+    crop_half = float(rma_cfg["crop_size_mm"]) / 2.0
+    x_keep = np.abs(x_mm) <= crop_half
+    z_keep = np.abs(z_mm) <= crop_half
+    x_roi = x_mm[x_keep]
+    z_roi = z_mm[z_keep]
 
     # x-z MIP over physical range; this is the view shown by the supplied 2-D reference.
     mip = np.max(np.abs(volume), axis=0)
-    mip_db = db_normalized(mip)
-    save_plane(output / "mip_xz.png", mip_db, [x_mm[0], x_mm[-1], z_mm[0], z_mm[-1]], "Hammer RMA: x-z maximum-intensity projection", "Horizontal x (mm)", "Vertical z (mm)", dynamic)
+    mip_db = db_normalized(mip[np.ix_(z_keep, x_keep)])
+    save_plane(output / "mip_xz.png", mip_db, [x_roi[0], x_roi[-1], z_roi[0], z_roi[-1]], "Hammer RMA: x-z maximum-intensity projection", "Horizontal x (mm)", "Vertical z (mm)", dynamic)
 
     representative = sorted(set([0, len(bins) // 3, len(bins) // 2, 2 * len(bins) // 3, len(bins) - 1]))
     for index in representative:
         save_plane(
             slices_dir / "bin_{:03d}_{:.1f}mm.png".format(bins[index], ranges_m[index] * 1e3),
-            db_normalized(volume[index]), [x_mm[0], x_mm[-1], z_mm[0], z_mm[-1]],
+            db_normalized(volume[index][np.ix_(z_keep, x_keep)]), [x_roi[0], x_roi[-1], z_roi[0], z_roi[-1]],
             "MATLAB range bin {} ({:.1f} mm)".format(bins[index], ranges_m[index] * 1e3),
             "Horizontal x (mm)", "Vertical z (mm)", dynamic,
         )
 
     volume_db = db_normalized(volume)
     threshold = float(rma_cfg["point_cloud_threshold_db"])
-    points = np.argwhere(volume_db >= threshold)
+    roi_mask = np.zeros(volume.shape[1:], dtype=bool)
+    roi_mask[np.ix_(z_keep, x_keep)] = True
+    points = np.argwhere((volume_db >= threshold) & roi_mask[None, :, :])
     # Deterministic cap keeps the plotted artifact compact while metrics retain all points.
     if len(points) > 60_000:
         choice = np.random.choice(len(points), 60_000, replace=False)
@@ -171,6 +178,10 @@ def main() -> None:
         "range_m": ranges_m.tolist(),
         "x_range_mm": [float(x_mm[0]), float(x_mm[-1])],
         "z_range_mm": [float(z_mm[0]), float(z_mm[-1])],
+        "visualization_roi_mm": {
+            "x": [float(x_roi[0]), float(x_roi[-1])],
+            "z": [float(z_roi[0]), float(z_roi[-1])],
+        },
         "peak": {
             "matlab_range_bin": bins[peak_range_index],
             "range_m": float(ranges_m[peak_range_index]),
@@ -180,6 +191,10 @@ def main() -> None:
         },
         "point_count_at_threshold": int(len(points)),
         "point_cloud_threshold_db": threshold,
+        "strong_return_range_m_at_threshold": (
+            [float(ranges_m[points[:, 0]].min()), float(ranges_m[points[:, 0]].max())]
+            if len(points) else None
+        ),
         "load_metadata": load_metadata,
         "fft_normalization": "NumPy default (MATLAB-compatible: forward unnormalized, inverse 1/N)",
     }
@@ -192,4 +207,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-

@@ -1,0 +1,31 @@
+seed: 20260926
+dataset_dir: "/home/superws/dataset/3DRIED/Hammer/Hammer (1)"
+output_dir: "results/rma_hammer_smoke"
+
+data:
+  rx_index: 0
+  nx: 407
+  nz: 200
+  motion_error_samples: 43
+  serpentine_correct: true
+
+radar:
+  sample_rate_hz: 5000000.0
+  chirp_slope_hz_s: 70295000000000.0
+  center_frequency_hz: 78800000000.0
+  instrument_delay_s: 6.2516e-10
+
+aperture:
+  dx_m: 0.001
+  dz_m: 0.002
+
+rma:
+  n_range_fft: 256
+  n_fft_space: 512
+  matlab_range_bins: [15, 16, 17, 18, 19]
+  x_offset_mm: -50.0
+  z_offset_mm: 120.0
+  crop_size_mm: 500.0
+  display_dynamic_range_db: 40.0
+  point_cloud_threshold_db: -18.0
+
