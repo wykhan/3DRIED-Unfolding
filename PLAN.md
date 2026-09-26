@@ -6,7 +6,8 @@ Current execution authorization:
 
 ```text
 UNLOCKED: M0, M1, M2
-LOCKED:   M3, M4, M5, M6, M7
+UNLOCKED: M3, M4
+LOCKED:   M5, M6, M7
 ```
 
 Codex must stop after M2 and request human review.

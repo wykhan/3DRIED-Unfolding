@@ -2,6 +2,20 @@
 
 ## Current overall status
 
+M0 PASS — human reviewed
+M1 PASS — human reviewed
+M2 PASS — human reviewed
+
+Current authorized execution:
+M3 → M4 → EXTERNAL REVIEW
+
+M5 and later milestones are locked.
+
+
+## history below
+
+## Current overall status
+
 ```text
 M0 PASS / M1 PASS / M2 PASS — AWAITING HUMAN REVIEW
 ```
