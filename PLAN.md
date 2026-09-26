@@ -10,7 +10,7 @@ UNLOCKED: M3, M4
 LOCKED:   M5, M6, M7
 ```
 
-Codex must stop after M2 and request human review.
+M0--M2 have passed human review. Codex must stop after M4 for external review.
 
 ---
 
@@ -221,7 +221,7 @@ Request human review.
 Status:
 
 ```text
-LOCKED
+PASS (Codex self-review; external review pending)
 ```
 
 Planned after M2 review.
@@ -245,7 +245,7 @@ e_{\rm adj}<10^{-5}.
 Status:
 
 ```text
-LOCKED
+UNLOCKED
 ```
 
 Planned goals:

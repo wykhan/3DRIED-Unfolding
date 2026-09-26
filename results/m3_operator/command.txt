@@ -1,0 +1,1 @@
+/home/superws/anaconda3/envs/ComplexValue/bin/python3 scripts/validate_operator.py --config configs/m3_operator.yaml

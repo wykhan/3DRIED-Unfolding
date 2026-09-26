@@ -107,43 +107,38 @@ Do not hard-code unverified dimensions or distances.
 
 ---
 
-## 6. Planned forward operator
+## 6. Validated forward operator
 
-After M2 is reviewed, the intended forward operator for each range slice is:
-
-\[
-A_r(x)
-=
-M \odot
-\mathcal F^{-1}_{2D}
-\left[
-\mathcal F_{2D}(x)
-\odot
-e^{-j k_y y_r}
-\right]
-\]
-
-where:
-
-- \(x\) is the complex scattering image of one range slice;
-- \(M\) is the physical aperture-support mask;
-- \(k_y\) is determined by system geometry;
-- \(y_r\) is the range coordinate of the slice.
-
-The corresponding adjoint is intended to be:
+M3 reconciles the abstract model with the validated M2 implementation. Let
+\(P\) center-pad the physical aperture to the image grid and let
+\(C=P^H\) center-crop the image grid back to the aperture. Define
 
 \[
-A_r^H(y)
-=
-\mathcal F^{-1}_{2D}
-\left[
-\mathcal F_{2D}(M\odot y)
-\odot
-e^{+j k_y y_r}
-\right].
+H_r=\operatorname{fftshift}\!\left(k_y e^{-j k_y y_r}\right),
+\qquad
+k_y=\sqrt{4k^2-k_x^2-k_z^2},
 \]
 
-This operator is planned but is NOT authorized for implementation until M2 review is completed.
+with non-propagating samples set to zero. The validated image-to-measurement
+operator is
+
+\[
+A_r(x)=C\,\mathcal F^{-1}_{2D}
+\left[\overline{H_r}\odot\mathcal F_{2D}(x)\right],
+\]
+
+and its exact Hilbert adjoint is
+
+\[
+A_r^H(y)=\mathcal F^{-1}_{2D}
+\left[H_r\odot\mathcal F_{2D}(P y)\right].
+\]
+
+The \(k_y\) amplitude/obliquity factor is required because it is present in
+the human-validated M2 RMA. The earlier abstract equation omitted this
+factor. Both transforms use the explicit MATLAB-compatible `backward` FFT
+normalization. This update fixes the implementation-level representation; it
+does not change the physical coordinate or propagation model.
 
 ---
 

@@ -273,3 +273,55 @@ removed wraparound replicas while retaining the full saved complex volume.
 ### Next action
 
 STOP for human review. M3 remains locked.
+
+---
+
+## EXP-M3-001 — Holography operator validation
+
+**Milestone:** M3
+**Purpose:** Validate the generic forward/adjoint pair and its consistency
+with the approved M2 reconstruction.
+**Status:** PASS (Codex self-review)
+
+### Command
+
+```bash
+PYTHONPATH=src python3 -m unittest discover -s tests -v
+python3 scripts/validate_operator.py --config configs/m3_operator.yaml
+```
+
+### Configuration and data
+
+Seed set: 7, 23, 101; sensitivity seed 313. Tests use complex64 and
+complex128 on CPU plus complex64 on CUDA. Hammer consistency uses the same
+Rx1 corrected `[200,407,256]` echo, MATLAB bins 12--24, 512×512 image grid,
+and M2 physical parameters.
+
+### Quantitative results
+
+- seven complete unit tests passed;
+- maximum complex64 adjoint relative error: `1.4088693e-6`;
+- maximum CPU complex128 error: `1.6636601e-15`;
+- CUDA complex64 error: `3.2709124e-7`;
+- intentional wrong-phase control error: `1.1021071`;
+- M2/M3 unaligned complex relative difference: `2.2377741e-7`;
+- M2/M3 magnitude relative difference: `1.8396511e-7`;
+- magnitude Pearson correlation: `0.9999999999999872`;
+- least-squares comparison scalar: `1.000000119 - 1.375e-9j`;
+- Hammer consistency runtime: 13.52 s;
+- NaN/Inf: none.
+
+The initial implementation built the complex64 wavenumber grid in float32,
+producing an `8.39e-5` M2 complex discrepancy despite exact adjoint tests.
+Matching M2's float64 grid construction reduced the discrepancy to
+`2.24e-7`. No physical parameter or coordinate convention changed.
+
+### Outputs
+
+`results/m3_operator/metrics.json`, `m2_consistency.png`, saved config,
+command, and environment. Report: `docs/M3_OPERATOR_REPORT.md`.
+
+### Next action
+
+Commit and push M3, then proceed to M4 because every blocking M3 self-review
+item passes.

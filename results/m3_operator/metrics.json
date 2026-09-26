@@ -1,0 +1,170 @@
+{
+  "adjoint_tests": [
+    {
+      "device": "cpu",
+      "dtype": "torch.complex64",
+      "relative_error": 3.8596402873736224e-07,
+      "seed": 7
+    },
+    {
+      "device": "cpu",
+      "dtype": "torch.complex64",
+      "relative_error": 1.4088692523728241e-06,
+      "seed": 23
+    },
+    {
+      "device": "cpu",
+      "dtype": "torch.complex64",
+      "relative_error": 1.370635004604992e-06,
+      "seed": 101
+    },
+    {
+      "device": "cpu",
+      "dtype": "torch.complex128",
+      "relative_error": 1.6636601271415705e-15,
+      "seed": 7
+    },
+    {
+      "device": "cpu",
+      "dtype": "torch.complex128",
+      "relative_error": 1.0243040614477358e-15,
+      "seed": 23
+    },
+    {
+      "device": "cpu",
+      "dtype": "torch.complex128",
+      "relative_error": 1.5960992374060847e-15,
+      "seed": 101
+    },
+    {
+      "device": "cuda",
+      "dtype": "torch.complex64",
+      "relative_error": 3.270912429798045e-07,
+      "seed": 7
+    }
+  ],
+  "geometry": {
+    "aperture": {
+      "dx_m": 0.001,
+      "dz_m": 0.002
+    },
+    "data": {
+      "motion_error_samples": 43,
+      "nx": 407,
+      "nz": 200,
+      "rx_index": 0,
+      "serpentine_correct": true
+    },
+    "dataset_dir": "/home/superws/dataset/3DRIED/Hammer/Hammer (1)",
+    "m2_results_dir": "results/rma_hammer",
+    "operator": {
+      "adjoint_test_seeds": [
+        7,
+        23,
+        101
+      ],
+      "image_shape": [
+        512,
+        512
+      ],
+      "matlab_range_bins": [
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24
+      ],
+      "sensitivity_seed": 313
+    },
+    "output_dir": "results/m3_operator",
+    "radar": {
+      "center_frequency_hz": 78800000000.0,
+      "chirp_slope_hz_s": 70295000000000.0,
+      "instrument_delay_s": 6.2516e-10,
+      "sample_rate_hz": 5000000.0
+    },
+    "seed": 20260926
+  },
+  "load_metadata": {
+    "available_rx": 4,
+    "motion_error_samples": 43,
+    "output_dtype": "complex64",
+    "output_layout": [
+      "vertical_z",
+      "horizontal_x",
+      "fast_time"
+    ],
+    "output_shape": [
+      200,
+      407,
+      256
+    ],
+    "rx_index_matlab": 1,
+    "rx_index_python": 0,
+    "serpentine_corrected": true,
+    "source_frame_first_last_zero_based": [
+      [
+        0,
+        406
+      ],
+      [
+        81036,
+        81442
+      ]
+    ]
+  },
+  "m2_consistency": {
+    "bins": [
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24
+    ],
+    "complex_relative_error_after_scalar_alignment": 1.959601689804913e-07,
+    "complex_relative_error_unaligned": 2.2377740549472946e-07,
+    "least_squares_global_scalar_imag": -1.3750155458680524e-09,
+    "least_squares_global_scalar_real": 1.0000001192092896,
+    "m2_source": "results/rma_hammer/volume.npy",
+    "magnitude_pearson_correlation": 0.9999999999999872,
+    "magnitude_relative_error": 1.8396511336504773e-07,
+    "ranges_m": [
+      0.4060693594570925,
+      0.44771756662198686,
+      0.4893657737868813,
+      0.5310139809517757,
+      0.5726621881166699,
+      0.6143103952815643,
+      0.6559586024464586,
+      0.6976068096113531,
+      0.7392550167762475,
+      0.7809032239411418,
+      0.8225514311060361,
+      0.8641996382709305,
+      0.905847845435825
+    ]
+  },
+  "max_adjoint_relative_error": 1.4088692523728241e-06,
+  "runtime_seconds": 13.983466856181622,
+  "sensitivity_control": {
+    "correct_relative_error": 7.254648475365205e-16,
+    "wrong_phase_relative_error": 1.1021071251858034
+  },
+  "status": "PASS"
+}

@@ -5,6 +5,8 @@
 M0 PASS — human reviewed
 M1 PASS — human reviewed
 M2 PASS — human reviewed
+M3 PASS — Codex self-review; external review pending
+M4 UNLOCKED — next authorized milestone
 
 Current authorized execution:
 M3 → M4 → EXTERNAL REVIEW
@@ -17,16 +19,16 @@ M5 and later milestones are locked.
 ## Current overall status
 
 ```text
-M0 PASS / M1 PASS / M2 PASS — AWAITING HUMAN REVIEW
+M0 PASS / M1 PASS / M2 PASS / M3 PASS / M4 NEXT
 ```
 
 Current authorized execution:
 
 ```text
-M0 → M1 → M2 → HUMAN REVIEW
+M3 → M4 → EXTERNAL REVIEW
 ```
 
-M3 and later milestones are locked.
+M5 and later milestones are locked.
 
 ---
 
@@ -62,12 +64,15 @@ Other Rx channels must not be fused or averaged.
 
 ### Human checkpoint
 
-- [ ] Review M2 RMA reconstruction
+- [x] Review M2 RMA reconstruction
+
+### Current authorized milestones
+
+- [x] M3 Forward / Adjoint Operator Validation (self-review PASS)
+- [ ] M4 Kernel-ISTA
 
 ### Locked
 
-- [ ] M3 Forward / Adjoint Operator Validation
-- [ ] M4 Kernel-ISTA
 - [ ] M5 ISTA-Unfolding
 - [ ] M6 Hammer Inference
 - [ ] M7 Baseline Freeze
@@ -76,7 +81,7 @@ Other Rx channels must not be fused or averaged.
 
 ## Current task
 
-Stop after M2 and request human review. Do not begin M3.
+Implement and validate M4 Kernel-ISTA on synthetic complex sparse scenes.
 
 ---
 
@@ -102,21 +107,19 @@ Rx1, aperture axes, motion correction, and all required radar parameters.
 
 ## Decisions required from human
 
-Human review of the M2 image and the documented horizontal-handedness
-uncertainty is required before unlocking M3.
+No blocker for M4. External review is required after M4 before M5.
 
 ---
 
 ## Last completed milestone
 
-M2 Conventional RMA Baseline.
+M3 Forward / Adjoint Operator Validation (Codex self-review).
 
 ---
 
 ## Next action
 
-Human inspection of `results/rma_hammer/` and
-`docs/M2_RMA_HAMMER_REPORT.md`; M3 remains locked.
+Proceed to M4 only; stop before M5.
 
 ---
 
@@ -167,3 +170,14 @@ Result: Recognizable complex Hammer volume, peak at 614.310 mm, 0 NaN/Inf, deter
 Evidence: `results/rma_hammer/`, `docs/M2_RMA_HAMMER_REPORT.md`
 Next action: STOP and obtain human review before M3
 Human decision required: YES
+
+Timestamp: 2026-09-26 Asia/Shanghai
+Milestone: M3
+Task: Reusable holography forward/adjoint implementation and validation
+Status: PASS (Codex self-review; external review pending)
+Command: `python3 scripts/validate_operator.py --config configs/m3_operator.yaml`
+Result: worst adjoint error 1.409e-6; complex128 error <=1.664e-15; intentional wrong-phase error 1.102; M2 complex relative difference 2.238e-7.
+Evidence: `results/m3_operator/`, `docs/M3_OPERATOR_REPORT.md`
+Commit: pending M3 milestone commit
+Next action: commit/push M3, then execute M4
+Human decision required: NO

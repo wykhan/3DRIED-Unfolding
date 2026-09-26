@@ -192,3 +192,22 @@ opposite the supplied 2-D JPEG under the bundled RMA coordinate labels. Do
 not silently flip x: the MATLAB scan ordering and offsets are reproduced as
 written, and the absolute aperture direction is not independently calibrated.
 Human review is required before M3 fixes an operator coordinate convention.
+
+---
+
+## D015 — Define M3 as the exact Hilbert pair of M2 RMA
+
+**Status:** FIXED
+
+For a range slice, define the M3 adjoint to be exactly the validated M2
+operation `ifft2(fft2(center_pad(y)) * H)`, with
+`H=fftshift(ky*exp(-j*range*ky))`. The forward is its Hilbert adjoint:
+`center_crop(ifft2(fft2(x)*conj(H)))`. This preserves M2's `ky`
+amplitude/obliquity factor, centered aperture support, phase sign, and
+MATLAB-compatible FFT scaling. The previous abstract specification omitted
+the `ky` factor and did not make pad/crop explicit; `RESEARCH_SPEC.md` is
+updated accordingly without changing the physical model.
+
+Wavenumber grids are computed in float64, as in M2, before casting the final
+kernel to the complex input dtype. This avoids a measured range-phase error
+from float32 grid construction while preserving complex64 operator I/O.
