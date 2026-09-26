@@ -189,6 +189,6 @@ Status: PASS (Codex self-review; external review pending)
 Command: `python3 scripts/run_ista.py --config configs/kernel_ista_baseline.yaml`
 Result: NMSE improved from 0.648365 to 5.88191e-6 in 250 iterations; objective was monotone within float32 tolerance; output was bitwise reproducible.
 Evidence: `results/m4_kernel_ista/`, `docs/M4_KERNEL_ISTA_REPORT.md`
-Commit: pending M4 milestone commit
+M4 implementation commit: `d553c1b08f2a1e8b3584ad5461436eca67f7be3c`
 Next action: commit/push M4, then STOP for independent review
 Human decision required: YES
