@@ -178,6 +178,6 @@ Status: PASS (Codex self-review; external review pending)
 Command: `python3 scripts/validate_operator.py --config configs/m3_operator.yaml`
 Result: worst adjoint error 1.409e-6; complex128 error <=1.664e-15; intentional wrong-phase error 1.102; M2 complex relative difference 2.238e-7.
 Evidence: `results/m3_operator/`, `docs/M3_OPERATOR_REPORT.md`
-Commit: pending M3 milestone commit
+M3 implementation commit: `f77f61ab69b615d3ebc7bd723f9b41876ef0a42a`
 Next action: commit/push M3, then execute M4
 Human decision required: NO

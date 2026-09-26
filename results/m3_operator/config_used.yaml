@@ -25,4 +25,3 @@ operator:
   matlab_range_bins: [12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24]
   adjoint_test_seeds: [7, 23, 101]
   sensitivity_seed: 313
-

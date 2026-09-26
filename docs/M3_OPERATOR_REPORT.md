@@ -1,6 +1,6 @@
 # M3 Forward / Adjoint Operator Report
 
-Date: 2026-09-26 (Asia/Shanghai)  
+Date: 2026-09-26 (Asia/Shanghai)
 Status: **PASS (Codex self-review; external review pending)**
 
 ## Final operator
@@ -114,4 +114,3 @@ The absolute x-axis handedness noted at M2 remains an external-coordinate
 uncertainty. M3 preserves the approved convention exactly, so it does not
 affect adjointness or M2 equivalence. External review is still required; M5
 remains locked.
-
