@@ -185,13 +185,15 @@ complex grid and apply a 500 mm x-z ROI only to visualizations.
 
 ## D014 — Preserve reference x handedness pending review
 
-**Status:** HUMAN REVIEW REQUIRED
+**Status:** ACCEPTED CONVENTION; EXTERNAL UNCERTAINTY RETAINED
 
 The focused Hammer is diagonal and recognizable, but its horizontal slope is
 opposite the supplied 2-D JPEG under the bundled RMA coordinate labels. Do
 not silently flip x: the MATLAB scan ordering and offsets are reproduced as
 written, and the absolute aperture direction is not independently calibrated.
-Human review is required before M3 fixes an operator coordinate convention.
+M0--M2 human review accepted continuing with this convention. M3 preserves
+it exactly; the absolute external x sign remains documented rather than
+silently changed.
 
 ---
 
@@ -211,3 +213,21 @@ updated accordingly without changing the physical model.
 Wavenumber grids are computed in float64, as in M2, before casting the final
 kernel to the complex input dtype. This avoids a measured range-phase error
 from float32 grid construction while preserving complex64 operator I/O.
+
+---
+
+## D016 — M4 step size, initialization, and regularization
+
+**Status:** FIXED FOR M4 BASELINE
+
+For `A = C U^H diag(conj(H)) U`, centered cropping has norm one and the
+unitary-equivalent FFT factors cancel, so `||A||² <= max|H|²`. Use the safe
+step `tau = 0.95 / max|H|²`; retain a seeded 60-step power iteration as an
+independent tightness check. In the accepted run, the power estimate is
+99.207% of the analytic upper bound.
+
+Initialize with one scaled adjoint/gradient step from zero,
+`x0 = tau A^H y`. Set `lambda = 0.002 max|A^H y|`, making the soft threshold
+`lambda*tau`. These rules depend only on the operator and measurement, never
+on synthetic ground truth. The fraction was declared in the config before
+the first M4 run and was not tuned against NMSE.

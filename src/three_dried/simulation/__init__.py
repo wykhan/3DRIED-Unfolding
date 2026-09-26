@@ -1,0 +1,1 @@
+"""Synthetic oracle scene generation."""

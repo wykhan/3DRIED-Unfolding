@@ -325,3 +325,66 @@ command, and environment. Report: `docs/M3_OPERATOR_REPORT.md`.
 
 Commit and push M3, then proceed to M4 because every blocking M3 self-review
 item passes.
+
+---
+
+## EXP-M4-001 — Noise-free synthetic Kernel-ISTA
+
+**Milestone:** M4
+**Purpose:** Demonstrate conventional sparse recovery using the validated M3
+operator before any real-data use.
+**Status:** PASS (Codex self-review)
+
+### Command
+
+```bash
+PYTHONPATH=src python3 -m unittest discover -s tests -v
+python3 scripts/run_ista.py --config configs/kernel_ista_baseline.yaml
+```
+
+### Synthetic data and operator
+
+Seed 20260926 generates eight independently positioned complex point
+scatterers with amplitudes uniform on `[0.5,1]` and phases uniform on
+`[0,2*pi)`. The scene is 64×64, the centered measurement aperture is 40×48,
+and the range is 0.614310 m. The M3 operator generates the noise-free
+measurement. Ground truth is used only after reconstruction for NMSE and
+plots.
+
+### Solver parameters
+
+- power iteration: 60 steps, seed 20260927;
+- analytic Lipschitz upper bound `max|H|²`: `10907043`;
+- power estimate: `10820560` (99.207% of upper bound);
+- step: `0.95 / 10907043 = 8.7099684e-8`;
+- lambda: `0.002 max|A^H y| = 5444.368`;
+- complex soft threshold: `lambda*step = 4.7420273e-4`;
+- initialization: `step*A^H y`;
+- iterations: 250.
+
+### Quantitative results
+
+- initial NMSE: `0.64836472`;
+- final NMSE: `5.8819060e-6`;
+- improvement factor: `110230.38`;
+- initial/final objective: `1,016,695.06` / `31,133.37`;
+- initial/final data fidelity: `830,735.63` / `38.3237`;
+- runtime for power iteration plus primary ISTA: 0.484 s on RTX 4090;
+- final NMSE after a 0.1% initialization perturbation: `5.8817363e-6`;
+- finite output: yes; objective monotone within float32 tolerance;
+- repeated-run reconstruction SHA-256:
+  `beb92dfd881d5b0850ae98b2979c79639c95019b28d9a842cafa2f8312da263f`.
+
+All ten repository unit tests pass, including soft-threshold phase,
+reproducible scene generation, and decreasing ISTA objective tests.
+
+### Outputs and interpretation
+
+`results/m4_kernel_ista/` contains arrays, config, environment, command,
+metrics/history, `comparison.png`, and `convergence.png`. Kernel-ISTA recovers
+all eight point locations and materially improves over the scaled adjoint.
+No parameter is trainable.
+
+### Next action
+
+Commit and push M4, then stop for independent review. M5 remains locked.

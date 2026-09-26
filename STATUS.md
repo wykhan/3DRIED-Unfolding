@@ -6,7 +6,7 @@ M0 PASS — human reviewed
 M1 PASS — human reviewed
 M2 PASS — human reviewed
 M3 PASS — Codex self-review; external review pending
-M4 UNLOCKED — next authorized milestone
+M4 PASS — Codex self-review; external review pending
 
 Current authorized execution:
 M3 → M4 → EXTERNAL REVIEW
@@ -19,7 +19,7 @@ M5 and later milestones are locked.
 ## Current overall status
 
 ```text
-M0 PASS / M1 PASS / M2 PASS / M3 PASS / M4 NEXT
+M0 PASS / M1 PASS / M2 PASS / M3 PASS / M4 PASS
 ```
 
 Current authorized execution:
@@ -34,7 +34,8 @@ M5 and later milestones are locked.
 
 ## Current objective
 
-Build a conventional single-Rx RMA baseline for the 3DRIED Hammer target before implementing any learning-based reconstruction.
+Validate the M2-consistent physics operator and conventional non-learned
+Kernel-ISTA baseline, then stop before M5 for independent review.
 
 ---
 
@@ -69,7 +70,7 @@ Other Rx channels must not be fused or averaged.
 ### Current authorized milestones
 
 - [x] M3 Forward / Adjoint Operator Validation (self-review PASS)
-- [ ] M4 Kernel-ISTA
+- [x] M4 Kernel-ISTA (self-review PASS)
 
 ### Locked
 
@@ -81,7 +82,7 @@ Other Rx channels must not be fused or averaged.
 
 ## Current task
 
-Implement and validate M4 Kernel-ISTA on synthetic complex sparse scenes.
+Stop after M4 and request independent review. Do not begin M5.
 
 ---
 
@@ -100,26 +101,25 @@ Implement and validate M4 Kernel-ISTA on synthetic complex sparse scenes.
 
 ## Current blockers
 
-None. M1 found no blocking ambiguity: bundled reference scripts identify
-Rx1, aperture axes, motion correction, and all required radar parameters.
+None. M3 and M4 pass every blocking Codex self-review gate.
 
 ---
 
 ## Decisions required from human
 
-No blocker for M4. External review is required after M4 before M5.
+No implementation blocker. External review is required before M5.
 
 ---
 
 ## Last completed milestone
 
-M3 Forward / Adjoint Operator Validation (Codex self-review).
+M4 Kernel-ISTA (Codex self-review).
 
 ---
 
 ## Next action
 
-Proceed to M4 only; stop before M5.
+Push the completed M3-M4 branch and request independent review. M5 remains locked.
 
 ---
 
@@ -181,3 +181,14 @@ Evidence: `results/m3_operator/`, `docs/M3_OPERATOR_REPORT.md`
 M3 implementation commit: `f77f61ab69b615d3ebc7bd723f9b41876ef0a42a`
 Next action: commit/push M3, then execute M4
 Human decision required: NO
+
+Timestamp: 2026-09-26 Asia/Shanghai
+Milestone: M4
+Task: Non-learned Kernel-ISTA on a noise-free complex sparse slice
+Status: PASS (Codex self-review; external review pending)
+Command: `python3 scripts/run_ista.py --config configs/kernel_ista_baseline.yaml`
+Result: NMSE improved from 0.648365 to 5.88191e-6 in 250 iterations; objective was monotone within float32 tolerance; output was bitwise reproducible.
+Evidence: `results/m4_kernel_ista/`, `docs/M4_KERNEL_ISTA_REPORT.md`
+Commit: pending M4 milestone commit
+Next action: commit/push M4, then STOP for independent review
+Human decision required: YES

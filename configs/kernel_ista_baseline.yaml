@@ -1,0 +1,27 @@
+seed: 20260926
+output_dir: "results/m4_kernel_ista"
+device: "cuda"
+dtype: "complex64"
+
+geometry:
+  image_shape: [64, 64]
+  aperture_shape: [40, 48]
+  range_m: 0.6143103952815643
+  center_frequency_hz: 78800000000.0
+  dx_m: 0.001
+  dz_m: 0.002
+
+synthetic:
+  num_scatterers: 8
+  margin: 6
+  noise_snr_db: null
+
+power_iteration:
+  iterations: 60
+  seed: 20260927
+
+ista:
+  iterations: 250
+  step_scale: 0.95
+  lambda_fraction_of_max_adjoint: 0.002
+  perturbation_fraction: 0.001

@@ -245,7 +245,7 @@ e_{\rm adj}<10^{-5}.
 Status:
 
 ```text
-UNLOCKED
+PASS (Codex self-review; external review pending)
 ```
 
 Planned goals:

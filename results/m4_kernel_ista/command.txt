@@ -1,0 +1,1 @@
+/home/superws/anaconda3/envs/ComplexValue/bin/python3 scripts/run_ista.py --config configs/kernel_ista_baseline.yaml
