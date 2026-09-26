@@ -16,15 +16,15 @@ Codex must not silently change the scientific problem, physical model, data inte
 
 ## 2. Current authorization scope
 
-The currently authorized autonomous scope is:
+M0--M2 are complete and human-reviewed. The currently authorized autonomous
+scope is:
 
-- M0: repository initialization
-- M1: Hammer dataset audit
-- M2: conventional RMA baseline reconstruction
+- M3: forward / adjoint operator validation
+- M4: conventional Kernel-ISTA
 
-After M2 passes, STOP and request human review.
+After M4 passes, STOP and request independent review.
 
-Do not begin M3 or later milestones until PLAN.md explicitly marks them as unlocked.
+Do not begin M5 or later milestones until PLAN.md explicitly marks them as unlocked.
 
 ---
 
@@ -72,7 +72,9 @@ ISTA-Unfolding
 Hammer inference
 ```
 
-For the currently authorized M0-M2 phase, only the first four stages are implemented.
+For the currently authorized M3-M4 phase, implement only the validated
+forward/adjoint operator and conventional Kernel-ISTA stages. M0--M2 are
+already complete; M5 and later stages remain locked.
 
 Do not introduce:
 

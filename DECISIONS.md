@@ -108,13 +108,14 @@ Artificial sparse-height, sparse-frequency, or sparse-position experiments are d
 
 ---
 
-## D008 — M0-M2 are the only currently unlocked milestones
+## D008 — Milestone authorization gate
 
-**Status:** FIXED
+**Status:** UPDATED AFTER M2 HUMAN REVIEW
 
-Codex must stop after M2 and wait for human review.
+M0--M2 completed human review. M3--M4 were subsequently unlocked and Codex
+must stop after M4 for independent review and human approval.
 
-M3-M7 remain locked until PLAN.md is explicitly updated.
+M5--M7 remain locked until PLAN.md is explicitly updated.
 
 ---
 
