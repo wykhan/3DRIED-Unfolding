@@ -116,6 +116,88 @@ other metrics:
 
 # Initial planned experiments
 
+## EXP-20260927-008 — M8 fixed-model sim-to-real diagnostic
+
+**Milestone:** M8
+
+**Purpose:** Explain why accepted synthetic RMIST gain collapses on Hammer.
+
+**Status:** PASS — SCALE_MISMATCH_SUPPORTED — AWAITING REVIEW
+
+### Code
+
+```text
+branch: milestone/rmist-m8
+```
+
+### Environment
+
+```text
+GPU: NVIDIA GeForce RTX 4090
+Python: 3.11.4
+PyTorch: 2.2.2+cu121
+CUDA: 12.1
+```
+
+### Data
+
+```text
+synthetic: first 32 accepted M6 validation samples
+real: accepted Rx1 Hammer bins 12-24; primary bin 17
+model: accepted M6 epoch 99, unchanged
+```
+
+### Command
+
+```bash
+PYTHONPATH=src python3 scripts/diagnose_rmist_sim2real.py --config configs/rmist_sim2real_diagnostic.yaml
+```
+
+### Outputs
+
+```text
+results/review/M8/
+```
+
+### Quantitative results
+
+```text
+runtime: 22.12 s
+synthetic alpha0 RMS median: 0.01376872018
+Hammer bin17 alpha0 RMS: 31810917.7538
+real/synthetic RMS ratio: 2.310375789e9
+c_align: 4.328300204e-10
+raw final E_RMA: 1.141222e-6
+aligned final E_RMA: 0.7151915
+trace vs ordinary output: exact
+```
+
+### Qualitative result
+
+At raw scale, Hammer thresholds and shrinkage are effectively inactive. Scale
+alignment restores phase activity comparable to the synthetic control.
+
+### Interpretation
+
+`SCALE_MISMATCH_SUPPORTED`. This is diagnostic evidence only; broader
+distribution mismatch is not excluded and no production normalization is authorized.
+
+### Problems encountered
+
+None. An initial root-category rule conflated downstream correction activity
+with an independent residual cause; phase-1 evidence clarified that residual
+and correction ratios are initially comparable while shrinkage differs by
+about `2.9e10`-fold.
+
+### Changes made
+
+Added external tracing, metric/statistic helpers, fixed-control diagnostic,
+counterfactual scale sweep, tests, plots, and report. No model state changed.
+
+### Next action
+
+STOP for independent review.
+
 ## EXP-20260927-007 — Strict M7-R Hammer inference
 
 **Milestone:** M7-R

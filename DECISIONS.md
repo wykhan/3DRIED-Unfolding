@@ -395,3 +395,45 @@ commit the procedural dataset or local checkpoints.
 - The next scientific question is diagnostic: determine why synthetic learned
   gain collapses to an almost identity/RMA mapping on real data.
 - M8 sim-to-real diagnostics remain locked pending separate human authorization.
+
+## D034 — M8 sim-to-real diagnostic authorized
+
+**Status:** FIXED
+
+- M8 may trace the accepted fixed epoch-99 model on the accepted M6 validation
+  control and accepted M7 Hammer inputs.
+- Counterfactual input scaling is diagnostic evidence only and must not be
+  added to the production pipeline.
+- No training, fine-tuning, production normalization, domain adaptation,
+  optimizer, or learned-parameter update is authorized.
+
+## D035 — M8 diagnostic protocol and classification
+
+**Status:** FIXED — DIAGNOSTIC EVIDENCE ONLY
+
+- Use 32 deterministic accepted M6 validation samples and all 13 accepted M7
+  Hammer slices, with bin 17 as the primary phase trace.
+- External tracing must be output-identical to accepted `RMISTNet.forward()`.
+- Define `c_align` from median synthetic alpha0 RMS divided by Hammer bin-17
+  alpha0 RMS; it is `4.3283002043e-10` for this diagnostic.
+- The Hammer/synthetic alpha0 RMS ratio is `2.3104e9`, raw-scale threshold
+  activity is negligible, and counterfactual alignment restores
+  synthetic-order phase activity.
+- Classify the observed inactivity mechanism as `SCALE_MISMATCH_SUPPORTED`.
+- This does not select a production scale, establish improved Hammer image
+  quality, exclude broader distribution mismatch, or authorize any model fix.
+
+## D036 — M8 independent review accepted
+
+**Status:** FIXED
+
+- Hammer/synthetic initialization amplitude scale mismatch is accepted as the
+  dominant demonstrated mechanism behind M7 RMIST inactivity.
+- Real/synthetic `alpha0` RMS differs by approximately `2.3104e9` on the
+  primary Hammer slice.
+- Counterfactual scale alignment restores threshold/shrinkage and phase-update
+  activity without changing learned parameters.
+- Residual degeneracy is not the dominant phase-1 explanation.
+- Normalization as an image-improvement method is **not yet validated**.
+- M9 may test scale-normalized inference without retraining, but remains
+  locked pending separate explicit authorization.

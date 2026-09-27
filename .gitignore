@@ -33,3 +33,13 @@ results/review/M7/*
 !results/review/M7/comparison_mip.png
 !results/review/M7/representative_slices.png
 !results/review/M7/parameter_values.json
+!results/review/M8/
+results/review/M8/*
+!results/review/M8/summary_metrics.json
+!results/review/M8/scale_statistics.json
+!results/review/M8/phase_metrics_synthetic.csv
+!results/review/M8/phase_metrics_hammer.csv
+!results/review/M8/scale_sweep.csv
+!results/review/M8/scale_comparison.png
+!results/review/M8/phase_activity.png
+!results/review/M8/threshold_activity.png

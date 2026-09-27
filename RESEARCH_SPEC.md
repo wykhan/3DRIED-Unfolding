@@ -22,7 +22,9 @@ The completed foundation establishes:
 
 RMIST-Net Eq. (20)-(26) and M6-R strict synthetic training Eq. (27)-(31) are
 independently reviewed PASS. M7-R Eq. (32) real Hammer inference is technically
-PASS with a recognizable real-data result and awaits independent review.
+independently reviewed technical PASS with recognizable Hammer transfer but
+no demonstrated learned improvement. M8 diagnosis supports scale mismatch as
+the inactivity mechanism and awaits independent review.
 
 Novelty is not an objective of this baseline stage.
 
@@ -251,9 +253,10 @@ The baseline is considered successful when:
    without using Hammer RMA as supervised ground truth.
 
 M0-M2 are human-reviewed. M3-R through M6-R are independently reviewed and
-accepted. M7-R real Hammer inference is technically PASS / real-data SUCCESS
-and awaits independent review; no learned improvement over the sparse
-baselines is claimed.
+accepted. M7-R real Hammer inference is independently reviewed technical PASS;
+no learned improvement over the sparse baselines is demonstrated. M8
+non-invasive tracing and counterfactual diagnosis support a scale mismatch;
+no production normalization or model change is authorized.
 
 ---
 

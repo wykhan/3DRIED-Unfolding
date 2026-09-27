@@ -168,3 +168,16 @@ for inference/evaluation only.
 
 M7-R external review: **TECHNICAL PASS WITH IMPORTANT SCIENTIFIC LIMITATION —
 independently reviewed**. This is not a learned-superiority finding.
+
+# M8 diagnostic gate
+
+- [x] Accepted epoch-99 parameters and M6 mask are unchanged.
+- [x] External tracing matches ordinary RMIST output exactly.
+- [x] Synthetic active control and all Hammer slices are quantified.
+- [x] Counterfactual scaling is diagnostic only.
+- [x] Root classification is `SCALE_MISMATCH_SUPPORTED`.
+- [x] No production normalization, training, adaptation, or parameter update occurred.
+
+M8 external review: **PASS — independently reviewed**. Root cause supported:
+`SCALE_MISMATCH_SUPPORTED`. Normalization image-quality benefit is **NOT YET
+VALIDATED**. M9 remains locked; no M9 work is authorized.

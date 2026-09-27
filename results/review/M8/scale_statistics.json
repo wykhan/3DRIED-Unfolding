@@ -1,0 +1,292 @@
+{
+  "c_align": 4.328300204319825e-10,
+  "hammer_13_slices": {
+    "alpha0_all_pixels": {
+      "max": {
+        "mean_across_samples": 89550373.92307693,
+        "median_across_samples": 43521260.0,
+        "std_across_samples": 143041379.94897872
+      },
+      "mean": {
+        "mean_across_samples": 6361287.561371163,
+        "median_across_samples": 3660811.9288221113,
+        "std_across_samples": 5051739.199983503
+      },
+      "median": {
+        "mean_across_samples": 5262127.25,
+        "median_across_samples": 3118817.375,
+        "std_across_samples": 4117191.9337426624
+      },
+      "p90": {
+        "mean_across_samples": 11716100.630769232,
+        "median_across_samples": 7763941.500000002,
+        "std_across_samples": 8708553.35476243
+      },
+      "p95": {
+        "mean_across_samples": 14426509.917307688,
+        "median_across_samples": 9690384.649999999,
+        "std_across_samples": 10955097.217276836
+      },
+      "p99": {
+        "mean_across_samples": 24532269.988846164,
+        "median_across_samples": 14537165.03000001,
+        "std_across_samples": 24568149.220634434
+      },
+      "rms": {
+        "mean_across_samples": 8302875.468567067,
+        "median_across_samples": 4820061.099664447,
+        "std_across_samples": 7414034.790059043
+      }
+    },
+    "measurement_all_pixels": {
+      "max": {
+        "mean_across_samples": 39117.479041466344,
+        "median_across_samples": 18728.58984375,
+        "std_across_samples": 50754.5329308627
+      },
+      "mean": {
+        "mean_across_samples": 860.1497340212014,
+        "median_across_samples": 541.0592974788851,
+        "std_across_samples": 618.4200808411266
+      },
+      "median": {
+        "mean_across_samples": 0.0,
+        "median_across_samples": 0.0,
+        "std_across_samples": 0.0
+      },
+      "p90": {
+        "mean_across_samples": 3252.419258000302,
+        "median_across_samples": 2202.2634521484374,
+        "std_across_samples": 1826.9684304299813
+      },
+      "p95": {
+        "mean_across_samples": 6591.351361553478,
+        "median_across_samples": 4376.507202148435,
+        "std_across_samples": 4334.097157678386
+      },
+      "p99": {
+        "mean_across_samples": 13017.571191406263,
+        "median_across_samples": 7865.223251953126,
+        "std_across_samples": 10314.379303039665
+      },
+      "rms": {
+        "mean_across_samples": 2933.201653897439,
+        "median_across_samples": 1703.805540876477,
+        "std_across_samples": 2540.5675470093647
+      }
+    },
+    "measurement_observed_support": {
+      "max": {
+        "mean_across_samples": 39117.479041466344,
+        "median_across_samples": 18728.58984375,
+        "std_across_samples": 50754.5329308627
+      },
+      "mean": {
+        "mean_across_samples": 5542.576369776652,
+        "median_across_samples": 3486.4423695566798,
+        "std_across_samples": 3984.9347050788133
+      },
+      "median": {
+        "mean_across_samples": 4614.21040226863,
+        "median_across_samples": 3090.619140625,
+        "std_across_samples": 2843.82610428943
+      },
+      "p90": {
+        "mean_across_samples": 11145.344689002404,
+        "median_across_samples": 7046.1353515625015,
+        "std_across_samples": 8055.5732990588485
+      },
+      "p95": {
+        "mean_across_samples": 14256.189396784846,
+        "median_across_samples": 8303.059228515624,
+        "std_across_samples": 12160.289740821998
+      },
+      "p99": {
+        "mean_across_samples": 22774.956961388252,
+        "median_across_samples": 11027.816513671884,
+        "std_across_samples": 26810.131439969846
+      },
+      "rms": {
+        "mean_across_samples": 7445.789162789293,
+        "median_across_samples": 4325.027164396249,
+        "std_across_samples": 6449.106655766919
+      }
+    }
+  },
+  "hammer_bin17": {
+    "alpha0_all_pixels": {
+      "max": 574303488.0,
+      "mean": 21481466.32249235,
+      "median": 16864806.0,
+      "p90": 37972054.00000001,
+      "p95": 48022136.599999994,
+      "p99": 103989317.20000002,
+      "rms": 31810917.753848057
+    },
+    "measurement_all_pixels": {
+      "max": 210739.78125,
+      "mean": 2694.972076558901,
+      "median": 0.0,
+      "p90": 7320.493554687501,
+      "p95": 18727.03779296875,
+      "p99": 44767.03425781256,
+      "rms": 10996.596603507613
+    },
+    "measurement_observed_support": {
+      "max": 210739.78125,
+      "mean": 17365.68408724882,
+      "median": 12010.7021484375,
+      "p90": 35036.84960937501,
+      "p95": 52560.41621093746,
+      "p99": 112134.64679687517,
+      "rms": 27914.32348647703
+    }
+  },
+  "real_bin17_to_synthetic_median_ratios": {
+    "alpha0_all_pixels": {
+      "max": 1149728044.0647407,
+      "mean": 2046118297.0032065,
+      "median": 1730632657.6490183,
+      "p90": 2138763013.612626,
+      "p95": 2369280169.0587206,
+      "p99": 4131334776.8911223,
+      "rms": 2310375789.0960474
+    },
+    "measurement_all_pixels": {
+      "max": 6897171640.613792,
+      "mean": 640420098.8663092,
+      "median": 0.0,
+      "p90": 651044087.2730939,
+      "p95": 1390782585.4350827,
+      "p99": 2552415153.771595,
+      "rms": 1749127949.149199
+    },
+    "measurement_observed_support": {
+      "max": 6897171640.613792,
+      "mean": 2208610543.990635,
+      "median": 1626007771.7910671,
+      "p90": 2601953631.8728843,
+      "p95": 3425397287.000982,
+      "p99": 5889655953.628616,
+      "rms": 3147162185.094275
+    }
+  },
+  "statistic_definitions": {
+    "active_or_observed_support": "accepted binary measurement mask equals one",
+    "percentiles": "linear quantiles of |x| over stated pixels",
+    "rms": "sqrt(mean(|x|^2)) over stated pixels"
+  },
+  "synthetic_32_samples": {
+    "alpha0_all_pixels": {
+      "max": {
+        "mean_across_samples": 0.49850386939942837,
+        "median_across_samples": 0.4995124638080597,
+        "std_across_samples": 0.00679447965365157
+      },
+      "mean": {
+        "mean_across_samples": 0.010523026779008092,
+        "median_across_samples": 0.010498643384380373,
+        "std_across_samples": 0.00027962085119488683
+      },
+      "median": {
+        "mean_across_samples": 0.009758067826624028,
+        "median_across_samples": 0.00974487909115851,
+        "std_across_samples": 0.00025879756116755764
+      },
+      "p90": {
+        "mean_across_samples": 0.017803331842878835,
+        "median_across_samples": 0.017754212953150276,
+        "std_across_samples": 0.00048328236080691345
+      },
+      "p95": {
+        "mean_across_samples": 0.020314392118598326,
+        "median_across_samples": 0.02026866101659833,
+        "std_across_samples": 0.0005480761252009663
+      },
+      "p99": {
+        "mean_across_samples": 0.025256525320000958,
+        "median_across_samples": 0.02517087643966079,
+        "std_across_samples": 0.0006851018832449864
+      },
+      "rms": {
+        "mean_across_samples": 0.013826943729557024,
+        "median_across_samples": 0.01376872018135817,
+        "std_across_samples": 0.00032383201915048965
+      }
+    },
+    "measurement_all_pixels": {
+      "max": {
+        "mean_across_samples": 3.0683896909522446e-05,
+        "median_across_samples": 3.0554521799786016e-05,
+        "std_across_samples": 1.2748493163661035e-06
+      },
+      "mean": {
+        "mean_across_samples": 4.222456220203704e-06,
+        "median_across_samples": 4.208131633172696e-06,
+        "std_across_samples": 1.1391229914950619e-07
+      },
+      "median": {
+        "mean_across_samples": 1.245814905459497e-06,
+        "median_across_samples": 1.2408543170749908e-06,
+        "std_across_samples": 3.3809501481878175e-08
+      },
+      "p90": {
+        "mean_across_samples": 1.1290842044786588e-05,
+        "median_across_samples": 1.1244236293350696e-05,
+        "std_across_samples": 3.0521138103315885e-07
+      },
+      "p95": {
+        "mean_across_samples": 1.3504419666787718e-05,
+        "median_across_samples": 1.3465108054333534e-05,
+        "std_across_samples": 3.6389917532094655e-07
+      },
+      "p99": {
+        "mean_across_samples": 1.7591808611427956e-05,
+        "median_across_samples": 1.753908810314898e-05,
+        "std_across_samples": 4.6923063183384045e-07
+      },
+      "rms": {
+        "mean_across_samples": 6.308458865697395e-06,
+        "median_across_samples": 6.286902344026071e-06,
+        "std_across_samples": 1.7006277517651093e-07
+      }
+    },
+    "measurement_observed_support": {
+      "max": {
+        "mean_across_samples": 3.0683896909522446e-05,
+        "median_across_samples": 3.0554521799786016e-05,
+        "std_across_samples": 1.2748493163661035e-06
+      },
+      "mean": {
+        "mean_across_samples": 7.889567341418672e-06,
+        "median_across_samples": 7.862718999734368e-06,
+        "std_across_samples": 2.1283420446634956e-07
+      },
+      "median": {
+        "mean_across_samples": 7.4148330782009e-06,
+        "median_across_samples": 7.386620382021647e-06,
+        "std_across_samples": 2.0182567411534583e-07
+      },
+      "p90": {
+        "mean_across_samples": 1.350489827700585e-05,
+        "median_across_samples": 1.3465593383443775e-05,
+        "std_across_samples": 3.638887097917897e-07
+      },
+      "p95": {
+        "mean_across_samples": 1.540309143877039e-05,
+        "median_across_samples": 1.5344327039201744e-05,
+        "std_across_samples": 4.1199381009438766e-07
+      },
+      "p99": {
+        "mean_across_samples": 1.9063954965758967e-05,
+        "median_across_samples": 1.9039252492802916e-05,
+        "std_across_samples": 5.05081473591008e-07
+      },
+      "rms": {
+        "mean_across_samples": 8.90009031964116e-06,
+        "median_across_samples": 8.869680634409644e-06,
+        "std_across_samples": 2.399300008706186e-07
+      }
+    }
+  }
+}
