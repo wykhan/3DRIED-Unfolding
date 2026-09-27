@@ -181,3 +181,16 @@ independently reviewed**. This is not a learned-superiority finding.
 M8 external review: **PASS — independently reviewed**. Root cause supported:
 `SCALE_MISMATCH_SUPPORTED`. Normalization image-quality benefit is **NOT YET
 VALIDATED**. M9 remains locked; no M9 work is authorized.
+
+
+# M9 independent review
+
+- [x] N0 reproduces accepted M7 raw RMIST.
+- [x] N1--N4 restore phase dynamics without training or parameter changes.
+- [x] All four normalized variants fail the predeclared combined proxy-benefit gate.
+- [x] Mean observed consistency degrades from about 0.085 (raw RMIST) to 0.735--0.919.
+- [x] Range-profile similarity degrades from 0.99991 to 0.96585 or below.
+- [x] M2 remains explicitly a reference proxy, not ground truth.
+- [x] No production normalization is accepted.
+
+M9 external review: **PASS — independently reviewed**. Scientific outcome: **NORMALIZATION_DEGRADES_REAL_RECONSTRUCTION** under the tested proxy framework.
