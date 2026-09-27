@@ -450,7 +450,7 @@ commit the procedural dataset or local checkpoints.
 
 ## D038 — M9 fixed evaluation criteria and result
 
-**Status:** FIXED — AWAITING INDEPENDENT REVIEW
+**Status:** FIXED
 
 - Compute scale as `s_ref / (s_real + float64 epsilon)` without clipping.
 - Before viewing final comparisons, define material range degradation as a
@@ -461,3 +461,16 @@ commit the procedural dataset or local checkpoints.
   gate. Record `NORMALIZATION_DEGRADES_REAL_RECONSTRUCTION`.
 - N1 is least degraded but is not validated for production use. No adaptive
   scaling, training, or parameter changes are authorized.
+
+
+## D039 — M9 independent review accepted
+
+**Status:** FIXED
+
+- M9 is independently reviewed and accepted as a technically valid inference-only evaluation.
+- All N1--N4 normalization rules restore RMIST phase dynamics on Hammer.
+- None passes the predeclared combined proxy-benefit gate; observed-sample consistency and range-profile preservation degrade materially.
+- Scientific outcome remains `NORMALIZATION_DEGRADES_REAL_RECONSTRUCTION` under the tested proxy framework.
+- M2 agreement is a reference proxy, not ground truth; the result does not prove universal image-quality degradation.
+- N1 global RMS is the least degraded tested normalization but is not accepted for production use.
+- No adaptive scaling, retraining, fine-tuning, or learned-parameter modification is authorized by M9.
