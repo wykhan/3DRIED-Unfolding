@@ -8,7 +8,7 @@ Current execution authorization:
 COMPLETED + HUMAN APPROVED: M0, M1, M2
 COMPLETED + EXTERNALLY REVIEWED: M3-R (PASS), M4-R (PASS), M5-R (PASS), M6-R (PASS)
 HISTORICAL / NOT MERGED: previous generic M3-M4 branch
-LOCKED: M7-R
+UNLOCKED: M7-R — real Hammer inference/evaluation only
 ```
 
 Define milestones:
@@ -296,8 +296,8 @@ COMPLETED + EXTERNALLY REVIEWED PASS WITH NON-BLOCKING ISSUES
 
 The strict RMIST synthetic training protocol in Eq. (27)-(31) completed all
 100 epochs and is independently reviewed PASS. The modest validation gain and
-environment difference are accepted non-blocking observations. M7-R remains
-locked pending separate human authorization.
+environment difference are accepted non-blocking observations. M7-R is now
+authorized for inference/evaluation only.
 
 ---
 
@@ -306,8 +306,10 @@ locked pending separate human authorization.
 Status:
 
 ```text
-LOCKED
+UNLOCKED — REAL INFERENCE ONLY
 ```
 
 Apply an accepted, reviewed RMIST model independently by range slice to the
 single-Rx Hammer data. Hammer RMA must not be used as supervised ground truth.
+No training, fine-tuning, domain adaptation, calibration learning, optimizer,
+or learned-parameter modification is authorized.

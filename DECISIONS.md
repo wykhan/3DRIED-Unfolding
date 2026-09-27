@@ -357,3 +357,13 @@ commit the procedural dataset or local checkpoints.
   range-dependent RM kernels and must accurately disclose the fixed SR=0.5
   mask training condition.
 - M7-R remains locked pending separate human authorization.
+
+## D031 — M7-R real Hammer inference authorized
+
+**Status:** FIXED
+
+- M6-R is independently reviewed and accepted with no blocking scientific issues.
+- M7-R is unlocked for strict Eq. (32) real Hammer inference/evaluation only.
+- Use the accepted M6 best-validation parameters and exact fixed SR=0.5 mask.
+- Training, fine-tuning, domain adaptation, calibration learning, optimizers,
+  and learned-parameter changes remain prohibited.

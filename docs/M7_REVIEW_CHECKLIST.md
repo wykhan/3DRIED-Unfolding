@@ -4,8 +4,8 @@
 
 ## Governance
 
-- [ ] Branch is `milestone/rmist-m7`.
-- [ ] Branch starts from accepted M6 main.
+- [x] Branch is `milestone/rmist-m7`.
+- [x] Branch starts from accepted M6 main.
 - [ ] No training/fine-tuning/domain adaptation occurred.
 - [ ] Rx1-only policy preserved.
 - [ ] Raw data unchanged.

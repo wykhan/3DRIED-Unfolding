@@ -20,9 +20,9 @@ The completed foundation establishes:
 4. strict RMIST `RM` / `RM_dagger` kernels;
 5. strict RM-kernel ISTA Eq. (16)-(19).
 
-RMIST-Net Eq. (20)-(26) is independently reviewed PASS. M6-R strict synthetic
-training Eq. (27)-(31) is self-validated PASS and awaiting independent review;
-M7-R remains locked.
+RMIST-Net Eq. (20)-(26) and M6-R strict synthetic training Eq. (27)-(31) are
+independently reviewed PASS. M7-R Eq. (32) real Hammer inference is explicitly
+authorized for inference/evaluation only.
 
 Novelty is not an objective of this baseline stage.
 
@@ -250,9 +250,8 @@ The baseline is considered successful when:
 6. when authorized, Eq. (32) produces a recognizable Hammer reconstruction
    without using Hammer RMA as supervised ground truth.
 
-M0-M2 are human-reviewed. M3-R, M4-R, and M5-R are independently reviewed and
-accepted. M6-R synthetic training is self-validated PASS and awaiting
-independent review. M7-R remains locked.
+M0-M2 are human-reviewed. M3-R through M6-R are independently reviewed and
+accepted. M7-R real Hammer inference is unlocked for inference/evaluation only.
 
 ---
 

@@ -18,7 +18,8 @@ The RMIST-Net paper and `docs/RMIST_REPRO_SPEC.md` are authoritative. A mathemat
 - [x] All RMIST deviations are classified in `DECISIONS.md`.
 - [x] M3-R/M4-R accepted history is preserved.
 - [x] M5-R architecture is independently reviewed PASS.
-- [x] M6-R synthetic training is explicitly unlocked; M7-R remains locked.
+- [x] M6-R synthetic training is independently reviewed PASS.
+- [x] M7-R is explicitly unlocked for real inference/evaluation only.
 - [x] M5-R review gates are defined in `docs/M5_REVIEW_CHECKLIST.md`.
 
 # M3-R — RM / RM_dagger
@@ -150,4 +151,5 @@ M7-R real inference remain closed.
 - [x] Hammer RMA is not supervised GT.
 
 M6-R external review: **PASS WITH NON-BLOCKING ISSUES — independently
-reviewed**. Blocking scientific issues: **NONE**. M7-R remains locked.
+reviewed**. Blocking scientific issues: **NONE**. M7-R is explicitly unlocked
+for inference/evaluation only.

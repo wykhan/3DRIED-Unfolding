@@ -10,7 +10,7 @@ M3-R PASS — independently reviewed
 M4-R PASS — independently reviewed
 M5-R PASS — independently reviewed
 M6-R PASS — independently reviewed with non-blocking observations
-M7-R LOCKED
+M7-R UNLOCKED — real inference only
 
 Previous generic M3/M4:
 Historical only
@@ -18,12 +18,13 @@ Preserved on `milestone/m3-m4`
 Not merged to `main`
 
 Active work branch:
-`milestone/rmist-m6`
+`milestone/rmist-m7`
 
 Current task:
-Record accepted M6-R review state and merge M6-R to `main`.
+Run strict Eq. (32) single-Rx Hammer slice-wise inference and evaluation.
 
-M7-R remains locked. No real Hammer inference is authorized.
+M7-R is authorized for inference/evaluation only. Training, fine-tuning,
+adaptation, calibration learning, and learned-parameter changes remain prohibited.
 ```
 
 M3-R PASS (2026-09-27). Strict RMIST kernels reproduce M2 with complex
