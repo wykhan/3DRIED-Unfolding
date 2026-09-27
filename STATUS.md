@@ -8,22 +8,24 @@ M1 PASS — human reviewed
 M2 PASS — human reviewed
 M3-R PASS — independently reviewed
 M4-R PASS — independently reviewed
+M5-R UNLOCKED — architecture validation only
+M6-R LOCKED
+M7-R LOCKED
 
 Previous generic M3/M4:
 Historical only
 Preserved on `milestone/m3-m4`
 Not merged to `main`
 
-Accepted work branch:
-`milestone/rmist-m3-m4`
+Active work branch:
+`milestone/rmist-m5`
 
-Current state:
-Repository governance cleanup and merge after successful external review
+Current task:
+Implement and validate strict 9-phase RMIST-Net Eq. (20)-(26).
+Stop after M5-R for independent review.
 
-Next:
-Human must explicitly unlock M5-R
-
-M5-R and later milestones remain locked.
+M6-R and M7-R remain locked. No training or real Hammer inference is
+authorized.
 ```
 
 M3-R PASS (2026-09-27). Strict RMIST kernels reproduce M2 with complex

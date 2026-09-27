@@ -16,7 +16,10 @@ The RMIST-Net paper and `docs/RMIST_REPRO_SPEC.md` are authoritative. A mathemat
 - [x] Raw 3DRIED data remain read-only/untracked.
 - [x] `docs/RMIST_REPRO_SPEC.md` is present.
 - [x] All RMIST deviations are classified in `DECISIONS.md`.
-- [x] M5-R and later remain locked.
+- [x] M3-R/M4-R accepted history is preserved.
+- [x] M5-R architecture validation is explicitly unlocked.
+- [x] M6-R and M7-R remain locked.
+- [x] M5-R review gates are defined in `docs/M5_REVIEW_CHECKLIST.md`.
 
 # M3-R — RM / RM_dagger
 
@@ -125,9 +128,10 @@ Before M5-R:
 - [x] M4-R externally reviewed and accepted with non-blocking observations.
 - [x] No blocking discrepancy with RMIST Eq. (13)-(19).
 - [x] Accepted M3-R/M4-R branch approved for merge to `main`.
-- [ ] Human explicitly unlocks M5-R.
+- [x] Human explicitly unlocks M5-R.
 
-The M5-R gate remains closed. Repository merge alone does not authorize M5-R.
+The M5-R architecture-validation gate is open. M6-R training and M7-R real
+inference remain closed.
 
 # Future M5-R/M6-R fidelity
 
