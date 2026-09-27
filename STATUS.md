@@ -11,7 +11,7 @@ M4-R PASS — independently reviewed
 M5-R PASS — independently reviewed
 M6-R PASS — independently reviewed with non-blocking observations
 M7-R INDEPENDENTLY REVIEWED — TECHNICAL PASS WITH IMPORTANT SCIENTIFIC LIMITATION
-M8 SIM-TO-REAL DIAGNOSTIC — LOCKED
+M8 SIM-TO-REAL DIAGNOSTIC — UNLOCKED, DIAGNOSTIC ONLY
 
 Previous generic M3/M4:
 Historical only
@@ -19,16 +19,17 @@ Preserved on `milestone/m3-m4`
 Not merged to `main`
 
 Active work branch:
-`milestone/rmist-m7`
+`milestone/rmist-m8`
 
 Current task:
-M7-R is accepted. Stop; M8 sim-to-real diagnostics remain locked.
+Diagnose why accepted M6 learned gain collapses on real Hammer without changing the model.
 
 M7-R is independently accepted as a technical PASS. Hammer remains recognizable
 and range/orientation are preserved. RMIST50 is numerically almost identical to
 RMA50/Ini-ISTA50, so learned improvement on real Hammer is NOT DEMONSTRATED.
-M8 diagnostics, training, fine-tuning, adaptation, calibration learning, and
-learned-parameter changes remain prohibited.
+M8 tracing, scale statistics, and counterfactual input-scale sweeps are
+authorized. Training, fine-tuning, production normalization, domain
+adaptation, calibration learning, and learned-parameter changes remain prohibited.
 ```
 
 M3-R PASS (2026-09-27). Strict RMIST kernels reproduce M2 with complex

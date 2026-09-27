@@ -4,8 +4,8 @@
 
 ## Governance
 
-- [ ] Branch is `milestone/rmist-m8`.
-- [ ] Branch starts from accepted M7 main.
+- [x] Branch is `milestone/rmist-m8`.
+- [x] Branch starts from accepted M7 main.
 - [ ] M8 contains no training/fine-tuning.
 - [ ] Learned tau/theta unchanged.
 - [ ] M6 mask/operator conventions unchanged.

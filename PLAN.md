@@ -9,7 +9,7 @@ COMPLETED + HUMAN APPROVED: M0, M1, M2
 COMPLETED + EXTERNALLY REVIEWED: M3-R (PASS), M4-R (PASS), M5-R (PASS), M6-R (PASS)
 HISTORICAL / NOT MERGED: previous generic M3-M4 branch
 COMPLETED + EXTERNALLY REVIEWED: M7-R — technical PASS with important scientific limitation
-LOCKED: M8 sim-to-real diagnostic
+UNLOCKED: M8 sim-to-real diagnostic only
 ```
 
 Define milestones:
@@ -318,4 +318,20 @@ or learned-parameter modification is authorized.
 The Hammer remains recognizable with its accepted range/orientation, but the
 trained result is numerically almost identical to sparse RMA and Ini-ISTA.
 Learned improvement on real Hammer is **NOT DEMONSTRATED**. The next scientific
-question is an M8 sim-to-real diagnostic, which remains locked.
+question is the now-authorized M8 sim-to-real diagnostic.
+
+---
+
+# M8 — Sim-to-Real Diagnostic
+
+Status:
+
+```text
+UNLOCKED — DIAGNOSTIC ONLY
+```
+
+Quantify synthetic-versus-Hammer scale, threshold activity, residual/update
+dynamics, cumulative movement from RMA, and a counterfactual input-scale
+sweep under `docs/M8_SIM2REAL_DIAGNOSTIC_SPEC.md`. No training, fine-tuning,
+production normalization, domain adaptation, optimizer, or parameter update
+is authorized.

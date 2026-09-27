@@ -395,3 +395,14 @@ commit the procedural dataset or local checkpoints.
 - The next scientific question is diagnostic: determine why synthetic learned
   gain collapses to an almost identity/RMA mapping on real data.
 - M8 sim-to-real diagnostics remain locked pending separate human authorization.
+
+## D034 — M8 sim-to-real diagnostic authorized
+
+**Status:** FIXED
+
+- M8 may trace the accepted fixed epoch-99 model on the accepted M6 validation
+  control and accepted M7 Hammer inputs.
+- Counterfactual input scaling is diagnostic evidence only and must not be
+  added to the production pipeline.
+- No training, fine-tuning, production normalization, domain adaptation,
+  optimizer, or learned-parameter update is authorized.
