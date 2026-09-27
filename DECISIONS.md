@@ -262,3 +262,24 @@ M2 agreement without changing valid-support kernel semantics.
 Use PyTorch's default `backward` FFT convention to reproduce M2/MATLAB, and
 center-pad the physical `[z=200,x=407]` single-Rx echo to `[512,512]` with
 `z=(156,156)` and `x=(52,53)`. This is the approved 3DRIED grid mapping.
+
+## D024 — M4-R initialization and diagnostic tuning
+
+**Status:** FIXED — PAPER UNSPECIFIED IMPLEMENTATION CHOICE
+
+Initialize conventional strict RM-kernel ISTA with `RM_dagger(S)`. Preserve
+the paper-reported network initialization values as an explicit Ini-ISTA
+mode: `tau=1e-4`, `theta=1e-3`, and 9 iterations. The paper does not report
+final Tuned-ISTA values. For a separate 3DRIED diagnostic, grid-search
+`tau=[0.25,0.5,0.75,1.0]` and
+`theta=[0.0001,0.0005,0.001,0.005,0.01,0.02]` on the fixed 20 dB full-data
+synthetic case; the selected values are `tau=1.0`, `theta=0.01`.
+
+## D025 — M4-R small synthetic protocol
+
+**Status:** FIXED — PAPER UNSPECIFIED IMPLEMENTATION CHOICE
+
+Use a deterministic 128×128, 12-point, random-phase scene at 0.5 m for the
+M4-R smoke/diagnostic validation. Keep it explicitly separate from the later
+512×512, 100-target, 50-trial paper-style benchmark. The additional 50%
+Bernoulli sampling case is classified as an **EXPERIMENTAL EXTENSION**.

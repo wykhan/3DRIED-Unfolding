@@ -23,7 +23,11 @@ M5-R and later milestones are locked.
 
 M3-R PASS (2026-09-27). Strict RMIST kernels reproduce M2 with complex
 relative difference `2.2378e-7`; reciprocal and full-domain round-trip tests
-pass. M4-R is now in progress. M5-R remains locked.
+pass.
+
+M4-R PASS (2026-09-27). Strict Eq. (16)--(19) Ini-ISTA and separately tuned
+synthetic diagnostics pass. **STOP FOR INDEPENDENT REVIEW.** M5-R and all
+training remain locked.
 
 Keep historical M0-M2 entries below.
 
@@ -193,3 +197,13 @@ Result: Reciprocal max error `4.4755e-16`; complex64/128 round trips `4.1301e-7`
 Evidence: `results/m3_rmist_kernel/`, `docs/M3_RMIST_KERNEL_REPORT.md`
 Next action: M4-R strict conventional RM-kernel ISTA
 Human decision required: NO
+
+Timestamp: 2026-09-27 Asia/Shanghai
+Milestone: M4-R
+Task: Strict RM-kernel ISTA Eq. (16)--(19) synthetic validation
+Status: PASS
+Command: `/home/superws/anaconda3/envs/ComplexValue/bin/python3 scripts/run_rmist_ista.py --config configs/rmist_ista.yaml`
+Result: Ini-ISTA NRMSE `0.037414` noise-free and `0.045532` at 20 dB; separate tuned diagnostic NRMSE `0.010156` and `0.010271`; all finite.
+Evidence: `results/m4_rmist_ista/`, `docs/M4_RMIST_ISTA_REPORT.md`
+Next action: STOP for independent review; do not begin M5-R
+Human decision required: YES

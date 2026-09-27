@@ -161,5 +161,5 @@ class RMISTKernel:
             raise TypeError("{} must be complex-valued".format(name))
         if value.shape[-2:] != (self.n_fft_space, self.n_fft_space):
             raise ValueError(
-                "{} must end in [{1}, {1}]".format(name, self.n_fft_space)
+                "{0} must end in [{1}, {1}]".format(name, self.n_fft_space)
             )

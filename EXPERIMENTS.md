@@ -314,3 +314,41 @@ smoke checks passed. No NaN or Inf occurred.
 PASS. The strict reciprocal RMIST pair is compatible with approved M2
 without changing its `1/ky` / `ky` structure. Proceed to M4-R conventional
 RM-kernel ISTA only.
+
+## EXP-RMIST-M4-001 — Strict RM-kernel ISTA synthetic validation
+
+**Milestone:** M4-R
+**Purpose:** Reproduce RMIST Eq. (16)--(19) with Ini-ISTA parameters, then
+separately evaluate a documented tuned diagnostic and 50% mask extension.
+**Status:** PASS
+
+### Code and environment
+
+Branch: `milestone/rmist-m3-m4`. Python 3.8.17 and PyTorch 2.0.1+cu118.
+The 128×128 validation ran on CPU; CUDA remained available.
+
+### Command and data
+
+```bash
+/home/superws/anaconda3/envs/ComplexValue/bin/python3 scripts/run_rmist_ista.py --config configs/rmist_ista.yaml
+```
+
+Twelve unit complex point scatterers with uniform random phase, strict RM
+echo generation, `Mask=1` noise-free first, separate 20 dB complex AWGN,
+and a separate 50% Bernoulli-mask extension. Seed: 20260927.
+
+### Results
+
+Output: `results/m4_rmist_ista/`. Total runtime: 1.88 s. Ini-ISTA
+(`tau=1e-4`, `theta=1e-3`, 9 iterations) NRMSE was `0.037414` noise-free
+and `0.045532` at 20 dB. A 24-point, nine-iteration grid search on the fixed
+20 dB full-data case selected diagnostic `tau=1.0`, `theta=0.01`, yielding
+NRMSE `0.010156` noise-free and `0.010271` at 20 dB. At 20 dB with a
+realized 0.50549 sampling rate, Ini/tuned NRMSE was `0.695072`/`0.671940`.
+All outputs were finite.
+
+### Interpretation and next action
+
+PASS. Eq. (19), complex shrinkage, provenance labeling, and synthetic tests
+meet M4-R gates. The paper-style 512×512 Monte Carlo benchmark is explicitly
+deferred. Stop for independent review; M5-R remains locked.
