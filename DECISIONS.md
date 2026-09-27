@@ -326,3 +326,34 @@ reparameterization or learned operator is introduced.
 - PyTorch complex internal representation remains a paper-unspecified
   implementation choice.
 - M6-R remains locked until separate human authorization.
+
+## D029 — M6-R strict synthetic training choices
+
+**Status:** FIXED — PAPER UNSPECIFIED IMPLEMENTATION CHOICE
+
+For the first strict M6 model, use one 512×512, 0.5 m, SR=0.5 condition with
+100 discrete point scatterers per oracle, amplitudes uniform on `[0.5,1.0]`,
+one fixed deterministic mask, 200 disjoint validation pairs, batch size 8,
+deterministic seeds and epoch shuffling, and best-checkpoint selection by
+minimum validation Eq. (27) loss. Use the displayed Eq. (27) mean per-sample
+complex L2 norm. Cache accepted fixed-range kernel tensors as an
+**IMPLEMENTATION PERFORMANCE OPTIMIZATION — algorithm unchanged**. Do not
+commit the procedural dataset or local checkpoints.
+
+## D030 — M6-R independent review accepted
+
+**Status:** FIXED
+
+- Strict RMIST Eq. (27)-(31) synthetic training accepted.
+- 1000 training pairs, 20 dB AWGN, Adam `lr=1e-4`, 9 phases, and 100 epochs
+  verified.
+- Held-out validation NRMSE improved from `0.6148313` to `0.5302653`.
+- The improvement is accepted as a baseline result, not as reproduction of
+  the paper's exact table values.
+- M6 paper-unspecified choices remain documented.
+- The Python 3.11 / PyTorch 2.2.2 / CUDA 12.1 M6 environment differs from
+  earlier milestones but is accepted because all regression tests pass.
+- Future inference must use the accepted best scalar parameters with
+  range-dependent RM kernels and must accurately disclose the fixed SR=0.5
+  mask training condition.
+- M7-R remains locked pending separate human authorization.

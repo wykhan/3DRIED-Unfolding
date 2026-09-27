@@ -23,7 +23,7 @@ Milestone state:
 - M3-R: strict `RM` / `RM_dagger`, externally reviewed PASS;
 - M4-R: strict RM-kernel ISTA Eq. (16)-(19), externally reviewed and accepted;
 - M5-R: RMIST-Net Eq. (20)-(26), independently reviewed PASS;
-- M6-R: synthetic training Eq. (27)-(31), LOCKED;
+- M6-R: synthetic training Eq. (27)-(31), independently reviewed PASS with non-blocking observations;
 - M7-R: real Hammer slice-wise inference Eq. (32), LOCKED.
 
 The previous generic `milestone/m3-m4` implementation was independently reviewed and is not the accepted physics basis for learning.
@@ -35,8 +35,8 @@ Algorithmic source of truth:
 3. human-approved 3DRIED M0-M2 geometry and preprocessing.
 
 M5-R architecture implementation and validation are complete and independently
-accepted. M6-R and M7-R remain locked. No dataset generation,
-optimization/training, or real Hammer inference is authorized.
+accepted. M6-R synthetic training is independently accepted. M7-R remains
+locked; no real Hammer inference is authorized.
 
 Codex must not replace RMIST's `RM` / `RM_dagger` inverse-kernel structure with a Hilbert-adjoint pair, FISTA, LISTA, Gamma-Net, Toe-LISTA, CNN proximal blocks, or another architecture.
 

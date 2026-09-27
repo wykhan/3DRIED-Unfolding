@@ -1,0 +1,166 @@
+{
+  "batch_size": 8,
+  "best_checkpoint": "results/m6_rmist_training/checkpoints/best_validation.pt",
+  "best_epoch": 99,
+  "best_parameters": {
+    "tau": [
+      0.5937483906745911,
+      0.8911924362182617,
+      0.6666185855865479,
+      0.5207378268241882,
+      0.4257192015647888,
+      0.36413881182670593,
+      0.3140591084957123,
+      0.27295276522636414,
+      0.23918990790843964
+    ],
+    "theta": [
+      0.023229464888572693,
+      0.018347833305597305,
+      0.013454137369990349,
+      0.010298018343746662,
+      0.005588064901530743,
+      0.00541455764323473,
+      0.005628446117043495,
+      0.005992802791297436,
+      0.006337540224194527
+    ]
+  },
+  "checkpoints_committed": false,
+  "command": "/home/superws/anaconda3/bin/python3 scripts/train_rmist.py --config configs/rmist_train.yaml",
+  "device": "NVIDIA GeForce RTX 4090",
+  "early_stopping": false,
+  "environment": [
+    "Python: 3.11.4",
+    "Platform: Linux-6.8.0-138-generic-x86_64-with-glibc2.35",
+    "NumPy: 1.23.5",
+    "PyTorch: 2.2.2+cu121",
+    "CUDA runtime: 12.1",
+    "CUDA available: True",
+    "GPUs: ['NVIDIA GeForce RTX 4090', 'NVIDIA GeForce RTX 4090']"
+  ],
+  "epoch_100_checkpoint": "results/m6_rmist_training/checkpoints/epoch_100.pt",
+  "epochs_completed": 100,
+  "final_parameters": {
+    "tau": [
+      0.5966605544090271,
+      0.9007101058959961,
+      0.6699608564376831,
+      0.5221960544586182,
+      0.42656755447387695,
+      0.3647766709327698,
+      0.3145510256290436,
+      0.27334073185920715,
+      0.23950640857219696
+    ],
+    "theta": [
+      0.023298533633351326,
+      0.018464114516973495,
+      0.013445413671433926,
+      0.010252019390463829,
+      0.0054993657395243645,
+      0.00533370953053236,
+      0.005556376650929451,
+      0.005929646547883749,
+      0.006280664820224047
+    ]
+  },
+  "gradient_clipping": false,
+  "hammer_inference_performed": false,
+  "improves_nrmse_over_untrained": true,
+  "ini_ista_9_step": {
+    "loss": 4.688688945770264,
+    "nrmse": 0.6148313045501709,
+    "psnr_db": 40.72046691894531,
+    "tbr_db": 3.28918194770813
+  },
+  "initial_parameters": {
+    "tau": [
+      9.999999747378752e-05,
+      9.999999747378752e-05,
+      9.999999747378752e-05,
+      9.999999747378752e-05,
+      9.999999747378752e-05,
+      9.999999747378752e-05,
+      9.999999747378752e-05,
+      9.999999747378752e-05,
+      9.999999747378752e-05
+    ],
+    "theta": [
+      0.0010000000474974513,
+      0.0010000000474974513,
+      0.0010000000474974513,
+      0.0010000000474974513,
+      0.0010000000474974513,
+      0.0010000000474974513,
+      0.0010000000474974513,
+      0.0010000000474974513,
+      0.0010000000474974513
+    ]
+  },
+  "kernel_cache": "IMPLEMENTATION PERFORMANCE OPTIMIZATION \u2014 algorithm unchanged",
+  "learning_rate": 0.0001,
+  "loss": "mean over batch of per-sample complex L2 reconstruction norm (displayed Eq. 27)",
+  "mask": {
+    "binary": true,
+    "classification": "PAPER UNSPECIFIED IMPLEMENTATION CHOICE",
+    "fixed_for_training_and_validation": true,
+    "realized_sampling_rate": 0.4999198913574219,
+    "seed": 20260928,
+    "sha256_uint8": "43f423a8eef01c1efa632b9945cf0f4146dc065d94cee001a3cca6f1b7374de2",
+    "shape": [
+      512,
+      512
+    ],
+    "target_sampling_rate": 0.5,
+    "trainable": false
+  },
+  "method": "strict RMIST synthetic training Eq. (27)-(31)",
+  "noise": {
+    "achieved_validation_mean_snr_db": 20.0,
+    "requested_snr_db": 20.0
+  },
+  "optimizer": "Adam",
+  "peak_gpu_memory_mb": 629.00390625,
+  "preflight": {
+    "achieved_snr_db": 20.0,
+    "all_18_gradients_finite": true,
+    "all_tau_gradients_finite": true,
+    "all_theta_gradients_finite": true,
+    "cached_kernels_exact": true,
+    "dataset_deterministic": true,
+    "mask_binary": true,
+    "mask_realized_sampling_rate": 0.4999198913574219,
+    "one_batch_loss": 4.732817649841309,
+    "requested_snr_db": 20.0,
+    "tiny_overfit_final_loss": 4.120744705200195,
+    "tiny_overfit_initial_loss": 4.732817649841309,
+    "tiny_overfit_reduced": true,
+    "tiny_overfit_steps": 20
+  },
+  "scheduler": null,
+  "status": "PASS",
+  "total_runtime_seconds": 228.53473758604378,
+  "train_loss_final_epoch": 4.048266733169556,
+  "train_loss_first_epoch": 4.1157097816467285,
+  "trained_best_validation": {
+    "loss": 4.043289279937744,
+    "nrmse": 0.5302653121948242,
+    "psnr_db": 42.00496948242188,
+    "snr_db": 20.0,
+    "tbr_db": 17.775211029052734
+  },
+  "training_pairs": 1000,
+  "untrained": {
+    "loss": 4.688688945770264,
+    "nrmse": 0.6148313045501709,
+    "psnr_db": 40.72046691894531,
+    "snr_db": 20.0,
+    "tbr_db": 3.28918194770813
+  },
+  "validation_loss_best": 4.043289279937744,
+  "validation_loss_final": 4.04344030380249,
+  "validation_loss_initial": 4.688688945770264,
+  "validation_pairs": 200,
+  "weight_decay": 0.0
+}

@@ -107,5 +107,5 @@ M6-R remains locked until:
 
 - [x] M5-R independent review is complete.
 - [x] no blocking discrepancy with RMIST Eq. (20)-(26).
-- [ ] accepted M5-R is merged to `main`.
-- [ ] human explicitly unlocks M6-R.
+- [x] accepted M5-R is merged to `main`.
+- [x] human explicitly unlocks M6-R.

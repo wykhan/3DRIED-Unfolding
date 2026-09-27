@@ -1,0 +1,8 @@
+{
+  "epoch": 99,
+  "exists": true,
+  "fallback_reconstruction_possible_from_committed_best_parameters": true,
+  "parameter_match": true,
+  "path": "results/m6_rmist_training/checkpoints/best_validation.pt",
+  "sha256": "4b1925f2a6d361a848a81b7e70a2dedc2dc3e520726a29b2ac92a6de999c26ce"
+}

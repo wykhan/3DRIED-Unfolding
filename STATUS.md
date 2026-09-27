@@ -9,7 +9,7 @@ M2 PASS — human reviewed
 M3-R PASS — independently reviewed
 M4-R PASS — independently reviewed
 M5-R PASS — independently reviewed
-M6-R LOCKED
+M6-R PASS — independently reviewed with non-blocking observations
 M7-R LOCKED
 
 Previous generic M3/M4:
@@ -18,13 +18,12 @@ Preserved on `milestone/m3-m4`
 Not merged to `main`
 
 Active work branch:
-`milestone/rmist-m5`
+`milestone/rmist-m6`
 
 Current task:
-Record accepted M5-R review state and merge M5-R to `main`.
+Record accepted M6-R review state and merge M6-R to `main`.
 
-M6-R and M7-R remain locked. No training or real Hammer inference is
-authorized.
+M7-R remains locked. No real Hammer inference is authorized.
 ```
 
 M3-R PASS (2026-09-27). Strict RMIST kernels reproduce M2 with complex
@@ -44,6 +43,21 @@ repository tests pass, including CUDA, batch, representation, and all-phase
 gradient checks. No optimizer/training or Hammer inference was started. Stop
 for independent review; M6-R/M7-R remain locked. Independent review
 subsequently accepted M5-R with no blocking scientific issues.
+
+M6-R PASS (2026-09-27). Exactly 1000 training pairs and 200 disjoint
+validation pairs were generated procedurally at 512×512 with a fixed realized
+sampling rate of `0.4999198914` and achieved 20 dB complex AWGN. Adam at
+`1e-4` completed all 100 epochs with batch size 8. Best validation epoch was
+99; NRMSE improved from `0.6148313` untrained to `0.5302653`, PSNR improved
+from `40.7205` to `42.0050` dB, and TBR improved from `3.2892` to `17.7752`
+dB. All 27 tests pass. No Hammer inference occurred. Stop for independent
+review; M7-R remains locked.
+
+Independent review accepted M6-R with no blocking scientific issues. The
+NRMSE improvement (`0.6148313` to `0.5302653`) is a modest baseline result,
+not reproduction of the paper's exact tables. M6 ran under Python 3.11.4,
+PyTorch 2.2.2, and CUDA 12.1; all regressions pass. Best-checkpoint provenance
+is recorded for future inference-only use. M7-R remains locked.
 
 The remainder of this file is an immutable chronological history. Statements
 about then-current locks or objectives below are historical, not active
@@ -234,4 +248,14 @@ Command: `PYTHONPATH=src /home/superws/anaconda3/envs/ComplexValue/bin/python3 s
 Result: Exact 18-scalar architecture; alpha0 difference 0; M4-to-M5 differences 0 (complex64) and 1.21362588613636e-13 (complex128); finite nonzero gradients in every phase; 22/22 tests pass.
 Evidence: `results/review/M5/`, `docs/M5_RMIST_NET_REPORT.md`
 Next action: STOP for independent review; do not begin M6-R.
+Human decision required: YES
+
+Timestamp: 2026-09-27 Asia/Shanghai
+Milestone: M6-R
+Task: Strict RMIST synthetic training Eq. (27)--(31)
+Status: PASS — AWAITING INDEPENDENT REVIEW
+Command: `PYTHONPATH=src python3 scripts/train_rmist.py --config configs/rmist_train.yaml`
+Result: 100/100 epochs on 1000 training pairs; best validation epoch 99; held-out NRMSE improved from 0.6148313 to 0.5302653; all 27 tests pass.
+Evidence: `results/review/M6/`, `docs/M6_RMIST_TRAINING_REPORT.md`
+Next action: STOP for independent review; do not begin M7-R.
 Human decision required: YES

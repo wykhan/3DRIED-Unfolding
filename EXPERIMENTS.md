@@ -405,3 +405,48 @@ representation is a paper-unspecified implementation choice recorded in
 D027. No optimizer was created, no optimizer step was taken, no training
 dataset was generated, and no real Hammer inference was performed. M5-R
 passes self-validation and stops for independent review; M6-R remains locked.
+
+## EXP-RMIST-M6-001 — Strict RMIST synthetic training
+
+**Milestone:** M6-R
+**Purpose:** Reproduce RMIST Eq. (27)--(31) synthetic training using the
+accepted nine-phase architecture.
+**Status:** PASS — AWAITING INDEPENDENT REVIEW
+
+### Code, environment, and command
+
+Branch: `milestone/rmist-m6`. Python 3.11.4, PyTorch 2.2.2+cu121, CUDA 12.1,
+NVIDIA GeForce RTX 4090. Seed: 20260927.
+
+```bash
+PYTHONPATH=src python3 scripts/train_rmist.py --config configs/rmist_train.yaml
+```
+
+### Data and strict training settings
+
+Exactly 1000 procedural training pairs and 200 separately seeded validation
+pairs; 512×512 grid; 100 unique complex point scatterers; amplitude
+`Uniform(0.5,1.0)`; phase `Uniform(0,2*pi)`; range 0.5 m; one fixed binary
+50% mask; strict RM echoes; 20 dB circular complex AWGN. Adam used learning
+rate `1e-4`, batch size 8, nine phases, and exactly 100 epochs. Training loss
+was the displayed Eq. (27) mean per-sample complex L2 norm.
+
+### Results
+
+Preflight passed determinism, realized mask rate `0.4999198914`, achieved SNR
+`20.0` dB, all-18-gradient finiteness, exact kernel-cache equivalence, and a
+tiny-overfit reduction from `4.732818` to `4.120745`. Full training completed
+in `228.535` s with peak allocated GPU memory `629.004` MiB. Train loss was
+`4.115710` at epoch 1 and `4.048267` at epoch 100. Validation loss was
+`4.688689` untrained, best `4.043289` at epoch 99, and `4.043440` final.
+
+Held-out untrained/Ini-ISTA NRMSE was `0.614831`; the best trained model
+reached `0.530265`. Trained PSNR/TBR were `42.00497`/`17.77521` dB versus
+`40.72047`/`3.28918` dB untrained. All 27 repository tests pass.
+
+### Artifacts and next action
+
+Lightweight artifacts are under `results/review/M6/`. Best-validation and
+epoch-100 checkpoints remain local under ignored `results/m6_rmist_training/`.
+No full dataset was stored or committed, and no Hammer inference occurred.
+Stop for independent review; M7-R remains locked.

@@ -20,8 +20,9 @@ The completed foundation establishes:
 4. strict RMIST `RM` / `RM_dagger` kernels;
 5. strict RM-kernel ISTA Eq. (16)-(19).
 
-RMIST-Net Eq. (20)-(26) architecture validation is implemented and
-self-validated. It awaits independent review; M6-R training remains locked.
+RMIST-Net Eq. (20)-(26) is independently reviewed PASS. M6-R strict synthetic
+training Eq. (27)-(31) is self-validated PASS and awaiting independent review;
+M7-R remains locked.
 
 Novelty is not an objective of this baseline stage.
 
@@ -148,7 +149,7 @@ Gamma-Net, or Toe-LISTA parameterization is allowed.
 
 ---
 
-## 7. Planned synthetic training data (M6-R, locked)
+## 7. Authorized synthetic training data (M6-R)
 
 Training does not use the Hammer RMA image as ground truth.
 
@@ -194,7 +195,7 @@ Structured surface-like targets are deferred unless a clear synthetic-to-real fa
 
 ---
 
-## 8. Planned loss (M6-R, locked)
+## 8. Authorized loss (M6-R)
 
 Use RMIST's averaged L2/RMSE-style reconstruction loss defined by Eq. (27).
 NMSE/NRMSE, PSNR, and TBR are evaluation metrics, not the strict training
@@ -249,9 +250,9 @@ The baseline is considered successful when:
 6. when authorized, Eq. (32) produces a recognizable Hammer reconstruction
    without using Hammer RMA as supervised ground truth.
 
-M0-M2 are human-reviewed. M3-R and M4-R are independently reviewed and
-accepted. M5-R is self-validated and awaiting independent review. M6-R and
-M7-R remain locked.
+M0-M2 are human-reviewed. M3-R, M4-R, and M5-R are independently reviewed and
+accepted. M6-R synthetic training is self-validated PASS and awaiting
+independent review. M7-R remains locked.
 
 ---
 

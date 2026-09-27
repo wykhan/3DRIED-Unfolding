@@ -18,7 +18,7 @@ The RMIST-Net paper and `docs/RMIST_REPRO_SPEC.md` are authoritative. A mathemat
 - [x] All RMIST deviations are classified in `DECISIONS.md`.
 - [x] M3-R/M4-R accepted history is preserved.
 - [x] M5-R architecture is independently reviewed PASS.
-- [x] M6-R and M7-R remain locked.
+- [x] M6-R synthetic training is explicitly unlocked; M7-R remains locked.
 - [x] M5-R review gates are defined in `docs/M5_REVIEW_CHECKLIST.md`.
 
 # M3-R — RM / RM_dagger
@@ -139,12 +139,15 @@ M7-R real inference remain closed.
 - [x] Only `tau_t`, `theta_t` trainable.
 - [x] `tau_t` init `1e-4`.
 - [x] `theta_t` init `1e-3`.
-- [ ] Adam.
-- [ ] learning rate `1e-4`.
-- [ ] 100 epochs.
-- [ ] 1000 synthetic training pairs.
-- [ ] default 20 dB complex AWGN.
-- [ ] phase uniform on `[0,2*pi)`.
-- [ ] RMIST averaged L2/RMSE-style reconstruction loss.
-- [ ] batch size labeled paper-unspecified.
-- [ ] Hammer RMA is not supervised GT.
+- [x] Adam.
+- [x] learning rate `1e-4`.
+- [x] 100 epochs.
+- [x] 1000 synthetic training pairs.
+- [x] default 20 dB complex AWGN.
+- [x] phase uniform on `[0,2*pi)`.
+- [x] RMIST averaged L2/RMSE-style reconstruction loss.
+- [x] batch size labeled paper-unspecified.
+- [x] Hammer RMA is not supervised GT.
+
+M6-R external review: **PASS WITH NON-BLOCKING ISSUES — independently
+reviewed**. Blocking scientific issues: **NONE**. M7-R remains locked.
