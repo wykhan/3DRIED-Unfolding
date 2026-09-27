@@ -10,7 +10,7 @@ COMPLETED + EXTERNALLY REVIEWED: M3-R (PASS), M4-R (PASS), M5-R (PASS), M6-R (PA
 HISTORICAL / NOT MERGED: previous generic M3-M4 branch
 COMPLETED + EXTERNALLY REVIEWED: M7-R — technical PASS with important scientific limitation
 COMPLETED + EXTERNALLY REVIEWED: M8 — SCALE_MISMATCH_SUPPORTED
-UNLOCKED: M9 scale-normalized inference feasibility only
+COMPLETED + EXTERNALLY REVIEWED: M9 — NORMALIZATION_DEGRADES_REAL_RECONSTRUCTION
 ```
 
 Define milestones:
@@ -351,10 +351,7 @@ under the separately authorized M9 feasibility milestone.
 Status:
 
 ```text
-UNLOCKED — INFERENCE/EVALUATION ONLY
+COMPLETED + EXTERNALLY REVIEWED PASS — NORMALIZATION_DEGRADES_REAL_RECONSTRUCTION
 ```
 
-Evaluate exactly N0 raw RMIST and the fixed N1--N4 deterministic scale
-normalizations defined in `docs/M9_SCALE_NORMALIZED_RMIST_SPEC.md`. No
-training, fine-tuning, adaptive learned scale estimator, arbitrary Hammer
-scale tuning, or learned-parameter modification is authorized.
+The fixed N0/N1--N4 inference-only evaluation is complete and independently reviewed. All normalized variants restored dynamics but degraded the predeclared combined real-data proxy evidence. No production normalization is accepted, and no training, fine-tuning, adaptive learned scale estimator, arbitrary Hammer scale tuning, or learned-parameter modification is authorized.
