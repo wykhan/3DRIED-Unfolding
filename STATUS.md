@@ -11,7 +11,8 @@ M4-R PASS — independently reviewed
 M5-R PASS — independently reviewed
 M6-R PASS — independently reviewed with non-blocking observations
 M7-R INDEPENDENTLY REVIEWED — TECHNICAL PASS WITH IMPORTANT SCIENTIFIC LIMITATION
-M8 PASS — SCALE_MISMATCH_SUPPORTED, awaiting independent review
+M8 INDEPENDENTLY REVIEWED PASS — SCALE_MISMATCH_SUPPORTED
+M9 SCALE-NORMALIZED INFERENCE QUALITY — LOCKED
 
 Previous generic M3/M4:
 Historical only
@@ -22,16 +23,17 @@ Active work branch:
 `milestone/rmist-m8`
 
 Current task:
-STOP after completed M8 diagnosis; obtain independent review.
+M8 is accepted. Stop; M9 remains locked.
 
 M7-R is independently accepted as a technical PASS. Hammer remains recognizable
 and range/orientation are preserved. RMIST50 is numerically almost identical to
 RMA50/Ini-ISTA50, so learned improvement on real Hammer is NOT DEMONSTRATED.
-M8 tracing found a `2.3104e9` Hammer/synthetic alpha0 RMS ratio. At the raw
-scale, final movement from RMA is `1.1412e-6`; counterfactual RMS alignment
-raises it to `0.7152`. This supports `SCALE_MISMATCH_SUPPORTED`. Training,
-fine-tuning, production normalization, domain adaptation, calibration
-learning, learned-parameter changes, and M9 work remain prohibited.
+M8 independently establishes `SCALE_MISMATCH_SUPPORTED`: the `alpha0` RMS
+ratio is approximately `2.3104e9`, raw Hammer phase-1 residual/correction
+activity is comparable to synthetic, raw threshold activity is effectively
+zero, and counterfactual alignment restores strong phase dynamics. It does
+not establish improved Hammer image quality. M9, training, fine-tuning,
+production normalization, and parameter changes remain prohibited.
 ```
 
 M3-R PASS (2026-09-27). Strict RMIST kernels reproduce M2 with complex
@@ -87,6 +89,12 @@ control has median alpha0 RMS `0.0137687`, while Hammer bin 17 has RMS
 `3.18109e7` (`2.3104e9` times larger). Unscaled Hammer shrinkage is effectively
 zero; counterfactual scale alignment restores synthetic-order phase activity.
 Classification: `SCALE_MISMATCH_SUPPORTED`. Stop for independent review.
+
+Independent review accepted M8 with no blocking implementation issues.
+Scale mismatch is the dominant demonstrated mechanism behind M7 inactivity;
+residual degeneracy is not the dominant phase-1 explanation. Normalization as
+an image-improvement method remains unvalidated. M9 may evaluate it without
+retraining only after separate authorization and is currently locked.
 
 The remainder of this file is an immutable chronological history. Statements
 about then-current locks or objectives below are historical, not active

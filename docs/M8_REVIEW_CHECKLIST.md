@@ -2,6 +2,10 @@
 
 # M8 Sim-to-Real Diagnostic Review
 
+Independent review verdict: **PASS**. Root cause supported:
+`SCALE_MISMATCH_SUPPORTED`. Counterfactual alignment restores internal phase
+dynamics but does not establish improved real-data reconstruction quality.
+
 ## Governance
 
 - [x] Branch is `milestone/rmist-m8`.
@@ -84,4 +88,5 @@ One classification selected:
 [ ] FAIL
 ```
 
-After M8, STOP for independent review.
+M8 is independently accepted. M9 scale-normalized inference-quality
+evaluation remains locked pending separate explicit authorization.

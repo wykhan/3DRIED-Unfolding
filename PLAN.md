@@ -9,7 +9,8 @@ COMPLETED + HUMAN APPROVED: M0, M1, M2
 COMPLETED + EXTERNALLY REVIEWED: M3-R (PASS), M4-R (PASS), M5-R (PASS), M6-R (PASS)
 HISTORICAL / NOT MERGED: previous generic M3-M4 branch
 COMPLETED + EXTERNALLY REVIEWED: M7-R — technical PASS with important scientific limitation
-COMPLETED, AWAITING EXTERNAL REVIEW: M8 — SCALE_MISMATCH_SUPPORTED
+COMPLETED + EXTERNALLY REVIEWED: M8 — SCALE_MISMATCH_SUPPORTED
+LOCKED: M9 scale-normalized inference-quality evaluation
 ```
 
 Define milestones:
@@ -327,7 +328,7 @@ question is the now-authorized M8 sim-to-real diagnostic.
 Status:
 
 ```text
-PASS — SCALE_MISMATCH_SUPPORTED — AWAITING INDEPENDENT REVIEW
+INDEPENDENTLY REVIEWED PASS — SCALE_MISMATCH_SUPPORTED
 ```
 
 Quantify synthetic-versus-Hammer scale, threshold activity, residual/update
@@ -339,4 +340,6 @@ is authorized.
 The fixed model is effectively inactive at the raw Hammer amplitude scale.
 Counterfactual scale alignment restores synthetic-order phase activity, which
 supports scale mismatch as the observed mechanism without authorizing a
-production normalization fix. Stop for independent review.
+production normalization fix. Normalization image-quality benefit is not yet
+validated. M9 may test scale-normalized inference without retraining only
+after separate explicit authorization; M9 remains locked.

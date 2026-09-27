@@ -422,3 +422,18 @@ commit the procedural dataset or local checkpoints.
 - Classify the observed inactivity mechanism as `SCALE_MISMATCH_SUPPORTED`.
 - This does not select a production scale, establish improved Hammer image
   quality, exclude broader distribution mismatch, or authorize any model fix.
+
+## D036 — M8 independent review accepted
+
+**Status:** FIXED
+
+- Hammer/synthetic initialization amplitude scale mismatch is accepted as the
+  dominant demonstrated mechanism behind M7 RMIST inactivity.
+- Real/synthetic `alpha0` RMS differs by approximately `2.3104e9` on the
+  primary Hammer slice.
+- Counterfactual scale alignment restores threshold/shrinkage and phase-update
+  activity without changing learned parameters.
+- Residual degeneracy is not the dominant phase-1 explanation.
+- Normalization as an image-improvement method is **not yet validated**.
+- M9 may test scale-normalized inference without retraining, but remains
+  locked pending separate explicit authorization.

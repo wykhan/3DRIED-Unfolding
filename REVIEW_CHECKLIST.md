@@ -178,4 +178,6 @@ independently reviewed**. This is not a learned-superiority finding.
 - [x] Root classification is `SCALE_MISMATCH_SUPPORTED`.
 - [x] No production normalization, training, adaptation, or parameter update occurred.
 
-M8 is complete and awaits independent review. No M9 work is authorized.
+M8 external review: **PASS — independently reviewed**. Root cause supported:
+`SCALE_MISMATCH_SUPPORTED`. Normalization image-quality benefit is **NOT YET
+VALIDATED**. M9 remains locked; no M9 work is authorized.
