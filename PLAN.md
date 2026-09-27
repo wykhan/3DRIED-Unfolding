@@ -6,9 +6,8 @@ Current execution authorization:
 
 ```text
 COMPLETED + HUMAN APPROVED: M0, M1, M2
-COMPLETED + EXTERNALLY REVIEWED: M3-R (PASS), M4-R (PASS), M5-R (PASS)
+COMPLETED + EXTERNALLY REVIEWED: M3-R (PASS), M4-R (PASS), M5-R (PASS), M6-R (PASS)
 HISTORICAL / NOT MERGED: previous generic M3-M4 branch
-SELF-VALIDATED PASS — AWAITING INDEPENDENT REVIEW: M6-R
 LOCKED: M7-R
 ```
 
@@ -292,12 +291,13 @@ PASS only if:
 Status:
 
 ```text
-SELF-VALIDATED PASS — AWAITING INDEPENDENT REVIEW
+COMPLETED + EXTERNALLY REVIEWED PASS WITH NON-BLOCKING ISSUES
 ```
 
 The strict RMIST synthetic training protocol in Eq. (27)-(31) completed all
-100 epochs and passes the M6 acceptance criteria. Stop for independent review;
-M7-R remains locked.
+100 epochs and is independently reviewed PASS. The modest validation gain and
+environment difference are accepted non-blocking observations. M7-R remains
+locked pending separate human authorization.
 
 ---
 

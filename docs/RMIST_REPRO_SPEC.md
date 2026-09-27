@@ -285,7 +285,7 @@ Trainable parameters only:
 
 No CNN proximal, attention, learned measurement matrix, Gamma-Net support selection, or Toe-LISTA parameterization.
 
-# 10. M6-R — Training (SELF-VALIDATED; AWAITING INDEPENDENT REVIEW)
+# 10. M6-R — Training (EXTERNALLY REVIEWED PASS)
 
 Generate complex oracle images with random target positions and random phase \(U(0,2\pi)\). Generate echoes by:
 

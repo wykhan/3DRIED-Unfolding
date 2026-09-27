@@ -148,3 +148,6 @@ M7-R real inference remain closed.
 - [x] RMIST averaged L2/RMSE-style reconstruction loss.
 - [x] batch size labeled paper-unspecified.
 - [x] Hammer RMA is not supervised GT.
+
+M6-R external review: **PASS WITH NON-BLOCKING ISSUES — independently
+reviewed**. Blocking scientific issues: **NONE**. M7-R remains locked.

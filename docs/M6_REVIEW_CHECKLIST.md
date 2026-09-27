@@ -92,6 +92,22 @@
 [ ] FAIL
 ```
 
+External verdict: **PASS WITH NON-BLOCKING ISSUES — independently reviewed**.
+
+Blocking scientific issues: **NONE**.
+
+Accepted observations:
+
+- held-out NRMSE improvement is real but modest and is not claimed as exact
+  reproduction of an RMIST paper table;
+- M6 used Python 3.11.4, PyTorch 2.2.2, and CUDA 12.1 while all regression
+  tests remained passing;
+- best-checkpoint provenance is recorded, with exact reconstruction possible
+  from the committed 18 best parameters;
+- the trained scalar parameters correspond to the fixed SR=0.5, range=0.5 m
+  training condition; any future M7 use must retain range-dependent RM kernels
+  and accurately describe mask usage.
+
 ## M7 unlock
 
 M7-R remains locked until:

@@ -9,7 +9,7 @@ M2 PASS — human reviewed
 M3-R PASS — independently reviewed
 M4-R PASS — independently reviewed
 M5-R PASS — independently reviewed
-M6-R PASS — self-validated, awaiting independent review
+M6-R PASS — independently reviewed with non-blocking observations
 M7-R LOCKED
 
 Previous generic M3/M4:
@@ -21,8 +21,7 @@ Active work branch:
 `milestone/rmist-m6`
 
 Current task:
-STOP after strict RMIST synthetic training Eq. (27)-(31) and obtain
-independent review.
+Record accepted M6-R review state and merge M6-R to `main`.
 
 M7-R remains locked. No real Hammer inference is authorized.
 ```
@@ -53,6 +52,12 @@ sampling rate of `0.4999198914` and achieved 20 dB complex AWGN. Adam at
 from `40.7205` to `42.0050` dB, and TBR improved from `3.2892` to `17.7752`
 dB. All 27 tests pass. No Hammer inference occurred. Stop for independent
 review; M7-R remains locked.
+
+Independent review accepted M6-R with no blocking scientific issues. The
+NRMSE improvement (`0.6148313` to `0.5302653`) is a modest baseline result,
+not reproduction of the paper's exact tables. M6 ran under Python 3.11.4,
+PyTorch 2.2.2, and CUDA 12.1; all regressions pass. Best-checkpoint provenance
+is recorded for future inference-only use. M7-R remains locked.
 
 The remainder of this file is an immutable chronological history. Statements
 about then-current locks or objectives below are historical, not active

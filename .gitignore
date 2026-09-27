@@ -23,3 +23,4 @@ results/review/M6/*
 !results/review/M6/mask_summary.json
 !results/review/M6/training_curves.png
 !results/review/M6/parameter_curves.png
+!results/review/M6/checkpoint_provenance.json
