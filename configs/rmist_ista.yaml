@@ -1,0 +1,26 @@
+seed: 20260927
+output_dir: "results/m4_rmist_ista"
+
+geometry:
+  center_frequency_hz: 78800000000.0
+  dx_m: 0.001
+  dz_m: 0.002
+  grid_size: 128
+  range_m: 0.5
+  ky_epsilon: 1.0e-12
+
+synthetic:
+  point_count: 12
+  snr_db: 20.0
+  sparse_sampling_rate: 0.5
+
+ini_ista:
+  tau: 1.0e-4
+  theta: 1.0e-3
+  iterations: 9
+
+tuned_diagnostic:
+  selection_case: "20db_full_data"
+  tau_candidates: [0.25, 0.5, 0.75, 1.0]
+  theta_candidates: [0.0001, 0.0005, 0.001, 0.005, 0.01, 0.02]
+  iterations: 9

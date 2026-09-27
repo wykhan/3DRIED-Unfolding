@@ -6,7 +6,8 @@ This repository implements a reproducible learning-based imaging baseline for th
 
 The current project goal is:
 
-> Build a physics-based ISTA unfolding baseline for 3DRIED 3-D reconstruction, starting from the Hammer target.
+> Reproduce the physics-based RMIST-Net method for 3DRIED 3-D reconstruction,
+> starting from the Hammer target.
 
 Codex acts as the implementation and experiment agent. It may autonomously inspect data, write code, run tests, debug ordinary implementation problems, execute approved experiments, update project records, and prepare milestone reports.
 
@@ -16,15 +17,27 @@ Codex must not silently change the scientific problem, physical model, data inte
 
 ## 2. Current authorization scope
 
-The currently authorized autonomous scope is:
+Milestone state:
 
-- M0: repository initialization
-- M1: Hammer dataset audit
-- M2: conventional RMA baseline reconstruction
+- M0-M2: complete and human-reviewed;
+- M3-R: strict `RM` / `RM_dagger`, externally reviewed PASS;
+- M4-R: strict RM-kernel ISTA Eq. (16)-(19), externally reviewed and accepted;
+- M5-R: RMIST-Net Eq. (20)-(26), LOCKED until explicit human authorization;
+- M6-R: synthetic training Eq. (27)-(31), LOCKED;
+- M7-R: real Hammer slice-wise inference Eq. (32), LOCKED.
 
-After M2 passes, STOP and request human review.
+The previous generic `milestone/m3-m4` implementation was independently reviewed and is not the accepted physics basis for learning.
 
-Do not begin M3 or later milestones until PLAN.md explicitly marks them as unlocked.
+Algorithmic source of truth:
+
+1. RMIST-Net paper;
+2. `docs/RMIST_REPRO_SPEC.md`;
+3. human-approved 3DRIED M0-M2 geometry and preprocessing.
+
+The current authorization is repository governance only. M5-R and later work
+remain locked; branch merge does not unlock implementation or training.
+
+Codex must not replace RMIST's `RM` / `RM_dagger` inverse-kernel structure with a Hilbert-adjoint pair, FISTA, LISTA, Gamma-Net, Toe-LISTA, CNN proximal blocks, or another architecture.
 
 ---
 
@@ -63,16 +76,19 @@ range preprocessing / range FFT
     ↓
 conventional RMA reconstruction
     ↓
-validated forward / adjoint operator
+strict RM / RM_dagger kernels
     ↓
-Kernel-ISTA
+strict RM-kernel ISTA Eq. (16)-(19)
     ↓
-ISTA-Unfolding
+RMIST-Net Eq. (20)-(26), when explicitly unlocked
     ↓
-Hammer inference
+synthetic RMIST training Eq. (27)-(31), when explicitly unlocked
+    ↓
+real Hammer slice-wise inference Eq. (32), when explicitly unlocked
 ```
 
-For the currently authorized M0-M2 phase, only the first four stages are implemented.
+The pipeline is implemented and accepted through strict RM-kernel ISTA.
+Later stages shown above remain locked.
 
 Do not introduce:
 
@@ -193,12 +209,17 @@ Stop before doing any of the following:
 4. replacing the single-Rx rule;
 5. using an RMA image as supervised ground truth;
 6. skipping a milestone acceptance test;
-7. changing the core algorithm from ISTA unfolding;
+7. changing the core algorithm from strict RMIST reproduction;
 8. modifying raw dataset files;
 9. deleting non-generated project files;
-10. starting M3 or later before M2 review;
+10. starting any locked milestone without explicit human authorization;
 11. running an experiment estimated to require more than 6 GPU-hours;
-12. using an undocumented assumption to resolve an ambiguous radar parameter.
+12. using an undocumented assumption to resolve an ambiguous radar parameter;
+13. changing the RMIST `1/ky` forward and `ky` inverse-kernel structure;
+14. changing the RMIST 9-phase network structure;
+15. changing RMIST-reported training hyperparameters;
+16. substituting a mathematically different operator because it has better adjoint properties;
+17. treating an unspecified paper parameter as if it were reported.
 
 ---
 
@@ -235,7 +256,8 @@ At the end of every milestone:
 6. create a milestone summary under `docs/`;
 7. commit changes.
 
-For M2 specifically, stop after producing the RMA baseline report and request human review.
+Milestone-specific stop and review gates are defined in `PLAN.md` and
+`docs/RMIST_REPRO_SPEC.md`.
 
 ---
 

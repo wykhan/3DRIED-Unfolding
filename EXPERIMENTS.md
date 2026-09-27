@@ -273,3 +273,93 @@ removed wraparound replicas while retaining the full saved complex volume.
 ### Next action
 
 STOP for human review. M3 remains locked.
+
+# RMIST reproduction series
+
+The experiments below belong to the strict RMIST reproduction baseline.
+Earlier generic M3/M4 experiments remain historical and are not acceptance evidence for M3-R/M4-R.
+
+## EXP-RMIST-M3-001 — Strict RMIST kernel validation
+
+**Milestone:** M3-R
+**Purpose:** Validate RMIST Eqs. (13)--(15), physical padding, numerical
+support handling, full-domain inversion, and Hammer M2 consistency.
+**Status:** PASS
+
+### Code and environment
+
+Branch: `milestone/rmist-m3-m4`. Python 3.8.17, PyTorch 2.0.1+cu118,
+CUDA 11.8, two RTX 4090 GPUs. CPU was used for the reference metrics and
+one GPU for the CUDA smoke test.
+
+### Data and command
+
+Hammer `output_rawdata.mat`, MATLAB Rx1 / Python index 0 only. Corrected
+physical echo `[200,407,256]`; RM domain `[512,512]`.
+
+```bash
+/home/superws/anaconda3/envs/ComplexValue/bin/python3 scripts/run_rmist_kernel_validation.py --config configs/rmist_kernel.yaml
+```
+
+### Results
+
+Output: `results/m3_rmist_kernel/`. Runtime: 13.49 s. Reciprocal max/RMS
+error: `4.4755e-16` / `1.1609e-16`. Synthetic full-domain relative error:
+`4.1301e-7` complex64 and `7.2185e-16` complex128. Hammer M2 complex
+relative difference: `2.2378e-7` (target `<1e-5`). Padding/crop and CUDA
+smoke checks passed. No NaN or Inf occurred.
+
+### Interpretation and next action
+
+PASS. The strict reciprocal RMIST pair is compatible with approved M2
+without changing its `1/ky` / `ky` structure. Proceed to M4-R conventional
+RM-kernel ISTA only.
+
+## EXP-RMIST-M4-001 — Strict RM-kernel ISTA synthetic validation
+
+**Milestone:** M4-R
+**Purpose:** Reproduce RMIST Eq. (16)--(19) with Ini-ISTA parameters, then
+separately evaluate a documented tuned diagnostic and 50% mask extension.
+**Status:** PASS
+
+### Code and environment
+
+Branch: `milestone/rmist-m3-m4`. Python 3.8.17 and PyTorch 2.0.1+cu118.
+The 128×128 validation ran on CPU; CUDA remained available.
+
+### Command and data
+
+```bash
+/home/superws/anaconda3/envs/ComplexValue/bin/python3 scripts/run_rmist_ista.py --config configs/rmist_ista.yaml
+```
+
+Twelve unit complex point scatterers with uniform random phase, strict RM
+echo generation, `Mask=1` noise-free first, separate 20 dB complex AWGN,
+and a separate 50% Bernoulli-mask extension. Seed: 20260927.
+
+### Results
+
+Output: `results/m4_rmist_ista/`. Total runtime: 1.88 s. Ini-ISTA
+(`tau=1e-4`, `theta=1e-3`, 9 iterations) NRMSE was `0.037414` noise-free
+and `0.045532` at 20 dB. A 24-point, nine-iteration grid search on the fixed
+20 dB full-data case selected diagnostic `tau=1.0`, `theta=0.01`, yielding
+NRMSE `0.010156` noise-free and `0.010271` at 20 dB. At 20 dB with a
+realized 0.50549 sampling rate, Ini/tuned NRMSE was `0.695072`/`0.671940`.
+All outputs were finite.
+
+### Interpretation and next action
+
+PASS. Eq. (19), complex shrinkage, provenance labeling, and synthetic tests
+meet M4-R gates. The paper-style 512×512 Monte Carlo benchmark is explicitly
+deferred. Stop for independent review; M5-R remains locked.
+
+## REVIEW-GATE-RMIST-M3-M4-001 — Independent external review
+
+**Scope:** M3-R and M4-R
+**Status:** ACCEPTED
+
+Independent external review concluded that M3-R passes and M4-R passes with
+non-blocking observations. The documented non-monotonic Ini-ISTA residual and
+weak 50% sampling diagnostic do not change Eq. (19) and do not block future
+M5-R architecture work. No new experiment was performed for this review-gate
+record. M5-R remains locked until explicit human authorization.

@@ -20,9 +20,10 @@ Reason:
 
 ## D002 — Use ISTA unfolding as the first learning-imaging baseline
 
-**Status:** FIXED
+**Status:** HISTORICAL / SUPERSEDED BY D017-D020
 
-The first learning model is minimal physics-based ISTA unfolding.
+Historical plan: the first learning model was generic physics-based ISTA
+unfolding. It is not the active specification.
 
 Planned per-layer update:
 
@@ -38,7 +39,8 @@ z_t=x_t+\tau_tA^Hr_t
 x_{t+1}=\mathcal S_{\theta_t}(z_t).
 \]
 
-Only per-layer step sizes and thresholds are learned in the initial version.
+The accepted strict replacement is RMIST-Net Eq. (20)-(26), governed by
+`docs/RMIST_REPRO_SPEC.md`.
 
 ---
 
@@ -75,7 +77,8 @@ A failed learning result is not interpretable unless the data preprocessing and 
 
 **Status:** FIXED
 
-The planned forward/adjoint operator is deterministic and geometry-based.
+Historical wording referred to a generic forward/adjoint operator. The
+accepted fixed physics is now the strict `RM` / `RM_dagger` reciprocal pair.
 
 The baseline does not learn the forward operator.
 
@@ -110,25 +113,25 @@ Artificial sparse-height, sparse-frequency, or sparse-position experiments are d
 
 ## D008 — M0-M2 are the only currently unlocked milestones
 
-**Status:** FIXED
+**Status:** HISTORICAL / SUPERSEDED BY CURRENT PLAN
 
-Codex must stop after M2 and wait for human review.
+Historical gate: Codex had to stop after M2 and wait for human review.
 
-M3-M7 remain locked until PLAN.md is explicitly updated.
+That review occurred. Current milestone locks are defined in `PLAN.md`.
 
 ---
 
 ## D009 — Initial unfolding depth
 
-**Status:** PROVISIONAL
+**Status:** SUPERSEDED BY D020
 
-Planned initial network depth:
+Historical planned network depth:
 
 ```text
 T = 5
 ```
 
-May later be increased to 8 or 10 only if synthetic experiments show five layers are insufficient.
+The accepted strict RMIST depth is 9 phases; this historical value is not active.
 
 ---
 
@@ -185,10 +188,117 @@ complex grid and apply a 500 mm x-z ROI only to visualizations.
 
 ## D014 — Preserve reference x handedness pending review
 
-**Status:** HUMAN REVIEW REQUIRED
+**Status:** HISTORICAL / ACCEPTED NON-BLOCKING UNCERTAINTY
 
 The focused Hammer is diagonal and recognizable, but its horizontal slope is
 opposite the supplied 2-D JPEG under the bundled RMA coordinate labels. Do
 not silently flip x: the MATLAB scan ordering and offsets are reproduced as
 written, and the absolute aperture direction is not independently calibrated.
-Human review is required before M3 fixes an operator coordinate convention.
+Human review retained this convention without a silent flip. The strict
+3DRIED RMIST sign mapping was subsequently validated and independently
+accepted; absolute display handedness remains a documented non-blocking
+uncertainty.
+
+
+
+## D017 — RMIST paper becomes algorithmic source of truth
+
+**Status:** FIXED
+
+From M3-R onward, the baseline is a method-level reproduction of RMIST-Net.
+Do not substitute generic ISTA unfolding.
+
+## D018 — RMIST RM / RM_dagger semantics
+
+**Status:** FIXED
+
+Preserve RMIST reciprocal amplitude kernels:
+
+- forward `RM`: `1/ky`;
+- inverse `RM_dagger`: `ky`.
+
+`RM_dagger` is the inverse RM kernel used by RMIST and must not be replaced by a Hilbert adjoint.
+
+## D019 — 3DRIED sign adaptation
+
+**Status:** FIXED — SYSTEM ADAPTATION
+
+M2 validates inverse phase `ky * exp(-j*r*ky)`.
+Therefore the mapped RMIST pair is:
+
+- `Phi_dagger = ky * exp(-j*r*ky)`
+- `Phi = (1/ky) * exp(+j*r*ky)`
+
+## D020 — RMIST training hyperparameters
+
+**Status:** FIXED
+
+Strict baseline:
+
+- 9 phases;
+- Adam;
+- lr = 1e-4;
+- tau_t init = 1e-4;
+- theta_t init = 1e-3;
+- 100 epochs;
+- 1000 synthetic training pairs;
+- default 20 dB complex AWGN.
+
+Batch size is paper-unspecified and must be labeled as an implementation choice.
+
+## D021 — Previous generic M3/M4 branch
+
+**Status:** HISTORICAL / NOT ACCEPTED
+
+`milestone/m3-m4` remains as experimental history but is not the accepted learning-physics baseline and must not be merged into `main`.
+
+## D022 — RMIST singular support and numerical precision
+
+**Status:** FIXED — PAPER UNSPECIFIED IMPLEMENTATION CHOICE
+
+Set both strict kernels to zero for non-propagating samples and for
+`ky <= 1e-12`. Form `ky` and kernel phase in float64 before casting to the
+requested complex dtype. This makes `1/ky` handling explicit and preserves
+M2 agreement without changing valid-support kernel semantics.
+
+## D023 — RMIST FFT normalization and physical padding
+
+**Status:** FIXED — SYSTEM ADAPTATION
+
+Use PyTorch's default `backward` FFT convention to reproduce M2/MATLAB, and
+center-pad the physical `[z=200,x=407]` single-Rx echo to `[512,512]` with
+`z=(156,156)` and `x=(52,53)`. This is the approved 3DRIED grid mapping.
+
+## D024 — M4-R initialization and diagnostic tuning
+
+**Status:** FIXED — PAPER UNSPECIFIED IMPLEMENTATION CHOICE
+
+Initialize conventional strict RM-kernel ISTA with `RM_dagger(S)`. Preserve
+the paper-reported network initialization values as an explicit Ini-ISTA
+mode: `tau=1e-4`, `theta=1e-3`, and 9 iterations. The paper does not report
+final Tuned-ISTA values. For a separate 3DRIED diagnostic, grid-search
+`tau=[0.25,0.5,0.75,1.0]` and
+`theta=[0.0001,0.0005,0.001,0.005,0.01,0.02]` on the fixed 20 dB full-data
+synthetic case; the selected values are `tau=1.0`, `theta=0.01`.
+
+## D025 — M4-R small synthetic protocol
+
+**Status:** FIXED — PAPER UNSPECIFIED IMPLEMENTATION CHOICE
+
+Use a deterministic 128×128, 12-point, random-phase scene at 0.5 m for the
+M4-R smoke/diagnostic validation. Keep it explicitly separate from the later
+512×512, 100-target, 50-trial paper-style benchmark. The additional 50%
+Bernoulli sampling case is classified as an **EXPERIMENTAL EXTENSION**.
+
+## D026 — M3-R/M4-R independent review accepted
+
+**Status:** FIXED
+
+- M3-R is independently reviewed and accepted PASS.
+- M4-R is independently reviewed and accepted with non-blocking observations.
+- Ini-ISTA's non-monotonic residual under the paper initialization values is
+  retained as documented behavior.
+- The weaker 50% sampling diagnostic is not a blocker.
+- Strict RMIST Eq. (13)-(19) is the accepted physics and optimization baseline.
+- M5-R may be planned only after the accepted branch is merged and a human
+  explicitly unlocks it.

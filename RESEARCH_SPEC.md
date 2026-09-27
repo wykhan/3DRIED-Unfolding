@@ -2,7 +2,7 @@
 
 ## 1. Project title
 
-**Physics-Based ISTA Unfolding Baseline for 3DRIED 3-D Reconstruction**
+**Strict RMIST-Net Reproduction Baseline for 3DRIED 3-D Reconstruction**
 
 ---
 
@@ -12,14 +12,16 @@ Construct a minimal, trustworthy, reproducible learning-imaging baseline for the
 
 The project is intentionally baseline-oriented.
 
-The first priority is correctness of:
+The completed foundation establishes:
 
 1. real-data loading;
 2. single-Rx preprocessing;
 3. conventional RMA reconstruction;
-4. later, the forward/adjoint physics operator;
-5. later, Kernel-ISTA;
-6. later, learned ISTA unfolding.
+4. strict RMIST `RM` / `RM_dagger` kernels;
+5. strict RM-kernel ISTA Eq. (16)-(19).
+
+The next planned scientific stage is RMIST-Net Eq. (20)-(26), but M5-R is
+locked until explicit human authorization.
 
 Novelty is not an objective of this baseline stage.
 
@@ -64,16 +66,23 @@ range preprocessing / range FFT
   ↓
 range-focused complex echo cube
   ↓
-2-D near-field holographic operator per range slice
+strict RM / RM_dagger kernels per range slice
   ↓
-Kernel-ISTA
+strict RM-kernel ISTA Eq. (16)-(19)
   ↓
-ISTA-Unfolding
+RMIST-Net Eq. (20)-(26)
+  ↓
+real Hammer slice-wise inference Eq. (32)
   ↓
 3-D complex scattering volume
   ↓
 magnitude / dB / MIP / 3-D visualization
 ```
+
+When separately authorized, M6-R trains the M5-R architecture with the
+synthetic protocol in Eq. (27)-(31); its accepted weights then feed the
+Eq. (32) inference path. Training is not an operation on the real Hammer
+echo and Hammer RMA is not a label.
 
 ---
 
@@ -107,146 +116,39 @@ Do not hard-code unverified dimensions or distances.
 
 ---
 
-## 6. Planned forward operator
+## 6. RMIST reproduction basis
 
-After M2 is reviewed, the intended forward operator for each range slice is:
+All learning-related work from M3-R onward follows `docs/RMIST_REPRO_SPEC.md`.
 
-\[
-A_r(x)
-=
-M \odot
-\mathcal F^{-1}_{2D}
-\left[
-\mathcal F_{2D}(x)
-\odot
-e^{-j k_y y_r}
-\right]
-\]
+The strict baseline is RMIST, not the previous generic ISTA-unfolding design:
 
-where:
+- RM forward kernel with `1/ky`;
+- RM_dagger inverse kernel with `ky`;
+- Eq. (19) RM-kernel ISTA;
+- Eq. (20)-(26) RMIST-Net with only phase-wise `tau_t`, `theta_t` trainable;
+- 9 phases;
+- synthetic RM-generated training echoes;
+- 1000 training pairs;
+- default 20 dB AWGN;
+- Adam, lr=1e-4;
+- tau init=1e-4;
+- theta init=1e-3;
+- 100 epochs;
+- RMIST averaged L2/RMSE-style reconstruction loss;
+- batch size remains paper-unspecified.
 
-- \(x\) is the complex scattering image of one range slice;
-- \(M\) is the physical aperture-support mask;
-- \(k_y\) is determined by system geometry;
-- \(y_r\) is the range coordinate of the slice.
+For 3DRIED, the propagation sign is mapped so `RM_dagger` reproduces the
+validated M2 RMA. This system-coordinate adaptation has passed independent
+review and does not change the reciprocal RMIST amplitude structure.
 
-The corresponding adjoint is intended to be:
-
-\[
-A_r^H(y)
-=
-\mathcal F^{-1}_{2D}
-\left[
-\mathcal F_{2D}(M\odot y)
-\odot
-e^{+j k_y y_r}
-\right].
-\]
-
-This operator is planned but is NOT authorized for implementation until M2 review is completed.
+The strict network has 9 phases. Its only trainable parameters are
+`{tau_t, theta_t}` for each phase. `tau_t` initializes to `1e-4` and
+`theta_t` to `1e-3`. No learned measurement matrix, CNN proximal module,
+Gamma-Net, or Toe-LISTA parameterization is allowed.
 
 ---
 
-## 7. Planned mathematical validation
-
-Before any learning model is trained, the operator must pass the adjoint test:
-
-\[
-e_{\rm adj}
-=
-\frac{
-|\langle Ax,y\rangle-\langle x,A^Hy\rangle|
-}{
-\max(|\langle Ax,y\rangle|,10^{-12})
-}.
-\]
-
-Required:
-
-\[
-e_{\rm adj}<10^{-5}.
-\]
-
-A second validation will require the adjoint reconstruction to be consistent with the established conventional RMA baseline.
-
----
-
-## 8. Planned Kernel-ISTA baseline
-
-After operator validation, solve:
-
-\[
-\hat x
-=
-\arg\min_x
-\frac12\|y-Ax\|_2^2
-+
-\lambda\|x\|_1.
-\]
-
-Iteration:
-
-\[
-x_{t+1}
-=
-\mathcal S_{\theta}
-\left[
-x_t+\tau A^H(y-Ax_t)
-\right]
-\]
-
-with complex soft threshold:
-
-\[
-\mathcal S_{\theta}(z)
-=
-\frac{z}{|z|+\epsilon}
-\max(|z|-\theta,0).
-\]
-
-Kernel-ISTA must first be validated on synthetic sparse targets.
-
----
-
-## 9. Planned ISTA-Unfolding baseline
-
-The learning model will use the same physics operator.
-
-For layer \(t\):
-
-\[
-r_t = y-Ax_t
-\]
-
-\[
-z_t=x_t+\tau_t A^H r_t
-\]
-
-\[
-x_{t+1}=\mathcal S_{\theta_t}(z_t).
-\]
-
-Only the following are trainable in the minimal baseline:
-
-\[
-\{\tau_t,\theta_t\}_{t=1}^{T}.
-\]
-
-Initial depth target:
-
-```text
-T = 5
-```
-
-Increase only if evidence shows five layers are insufficient.
-
-No learned measurement matrix is used.
-
-No CNN proximal module is used.
-
----
-
-## 10. Planned synthetic training data
+## 7. Planned synthetic training data (M6-R, locked)
 
 Training does not use the Hammer RMA image as ground truth.
 
@@ -266,18 +168,24 @@ with:
 
 Amplitude scale may be calibrated from real RMA reconstruction statistics, but the real RMA image is not a supervised label.
 
-Training input is generated through the physics operator:
+Training input is generated through the strict RM kernel:
 
 \[
-y=A(x_{\rm gt})+n.
+S_{\rm cplx}=Mask\odot RM(\alpha_{\rm gt})+n.
 \]
 
-Initial data target:
+Strict RMIST training settings:
 
 ```text
 train samples: 1000
-validation samples: 200
 default SNR: 20 dB
+phases: 9
+optimizer: Adam
+learning rate: 1e-4
+epochs: 100
+tau_t initialization: 1e-4
+theta_t initialization: 1e-3
+batch size: paper-unspecified
 ```
 
 The first version uses point-like scatterers only.
@@ -286,31 +194,23 @@ Structured surface-like targets are deferred unless a clear synthetic-to-real fa
 
 ---
 
-## 11. Planned loss
+## 8. Planned loss (M6-R, locked)
 
-Initial loss:
-
-\[
-\mathcal L_{\rm NMSE}
-=
-\frac{
-\|\hat x-x_{\rm gt}\|_2^2
-}{
-\|x_{\rm gt}\|_2^2+\epsilon
-}.
-\]
+Use RMIST's averaged L2/RMSE-style reconstruction loss defined by Eq. (27).
+NMSE/NRMSE, PSNR, and TBR are evaluation metrics, not the strict training
+loss.
 
 Do not add perceptual, GAN, SSIM, or self-supervised losses in the baseline version.
 
 ---
 
-## 12. Planned evaluation
+## 9. Planned evaluation
 
 ### Synthetic
 
 - NMSE
 - PSNR
-- SSIM
+- TBR
 - runtime
 - peak GPU memory
 
@@ -329,27 +229,32 @@ Use:
 E_{\rm echo}
 =
 \frac{
-\|A\hat x-y\|_2
+\|RM(\hat\alpha)-S\|_2
 }{
-\|y\|_2
+\|S\|_2
 }.
 \]
 
 ---
 
-## 13. Success criteria for the complete baseline
+## 10. Milestone state and success criteria
 
 The baseline is considered successful when:
 
 1. Hammer is reconstructed correctly by conventional RMA;
-2. forward/adjoint operator passes \(e_{\rm adj}<10^{-5}\);
-3. Kernel-ISTA recovers synthetic sparse targets;
-4. 5-10 layer ISTA-Unfolding improves over simple adjoint reconstruction and approaches a multi-iteration Kernel-ISTA baseline;
-5. the trained model produces a recognizable Hammer reconstruction without catastrophic synthetic-to-real failure.
+2. strict `RM` / `RM_dagger` reproduces the reciprocal RMIST kernels and M2;
+3. strict Eq. (19) RM-kernel ISTA recovers synthetic sparse targets;
+4. when authorized, 9-phase RMIST-Net reproduces Eq. (20)-(26);
+5. when authorized, training reproduces Eq. (27)-(31);
+6. when authorized, Eq. (32) produces a recognizable Hammer reconstruction
+   without using Hammer RMA as supervised ground truth.
+
+M0-M2 are human-reviewed. M3-R and M4-R are independently reviewed and
+accepted. M5-R, M6-R, and M7-R remain locked.
 
 ---
 
-## 14. Explicit non-goals
+## 11. Explicit non-goals
 
 This baseline does not attempt to solve:
 

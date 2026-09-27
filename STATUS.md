@@ -2,14 +2,41 @@
 
 ## Current overall status
 
+```markdown
 M0 PASS — human reviewed
 M1 PASS — human reviewed
 M2 PASS — human reviewed
+M3-R PASS — independently reviewed
+M4-R PASS — independently reviewed
 
-Current authorized execution:
-M3 → M4 → EXTERNAL REVIEW
+Previous generic M3/M4:
+Historical only
+Preserved on `milestone/m3-m4`
+Not merged to `main`
 
-M5 and later milestones are locked.
+Accepted work branch:
+`milestone/rmist-m3-m4`
+
+Current state:
+Repository governance cleanup and merge after successful external review
+
+Next:
+Human must explicitly unlock M5-R
+
+M5-R and later milestones remain locked.
+```
+
+M3-R PASS (2026-09-27). Strict RMIST kernels reproduce M2 with complex
+relative difference `2.2378e-7`; reciprocal and full-domain round-trip tests
+pass.
+
+M4-R PASS (2026-09-27). Strict Eq. (16)--(19) Ini-ISTA and separately tuned
+synthetic diagnostics were independently accepted with documented
+non-blocking observations. M5-R and all training remain locked.
+
+The remainder of this file is an immutable chronological history. Statements
+about then-current locks or objectives below are historical, not active
+governance.
 
 
 ## history below
@@ -166,4 +193,24 @@ Command: `/home/superws/anaconda3/envs/ComplexValue/bin/python3 scripts/run_rma.
 Result: Recognizable complex Hammer volume, peak at 614.310 mm, 0 NaN/Inf, deterministic volume across repeated runs.
 Evidence: `results/rma_hammer/`, `docs/M2_RMA_HAMMER_REPORT.md`
 Next action: STOP and obtain human review before M3
+Human decision required: YES
+
+Timestamp: 2026-09-27 Asia/Shanghai
+Milestone: M3-R
+Task: Strict RMIST RM / RM_dagger kernel reproduction and M2 validation
+Status: PASS
+Command: `/home/superws/anaconda3/envs/ComplexValue/bin/python3 scripts/run_rmist_kernel_validation.py --config configs/rmist_kernel.yaml`
+Result: Reciprocal max error `4.4755e-16`; complex64/128 round trips `4.1301e-7`/`7.2185e-16`; M2 difference `2.2378e-7`; CUDA passed.
+Evidence: `results/m3_rmist_kernel/`, `docs/M3_RMIST_KERNEL_REPORT.md`
+Next action: M4-R strict conventional RM-kernel ISTA
+Human decision required: NO
+
+Timestamp: 2026-09-27 Asia/Shanghai
+Milestone: M4-R
+Task: Strict RM-kernel ISTA Eq. (16)--(19) synthetic validation
+Status: PASS
+Command: `/home/superws/anaconda3/envs/ComplexValue/bin/python3 scripts/run_rmist_ista.py --config configs/rmist_ista.yaml`
+Result: Ini-ISTA NRMSE `0.037414` noise-free and `0.045532` at 20 dB; separate tuned diagnostic NRMSE `0.010156` and `0.010271`; all finite.
+Evidence: `results/m4_rmist_ista/`, `docs/M4_RMIST_ISTA_REPORT.md`
+Next action: STOP for independent review; do not begin M5-R
 Human decision required: YES
