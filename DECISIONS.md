@@ -314,3 +314,15 @@ phases still uses the paper's complex RM/RM_dagger operations and one shared
 magnitude shrinkage scale for real and imaginary components. The only
 trainable tensors are independent `tau[9]` and `theta[9]`; no positivity
 reparameterization or learned operator is introduced.
+
+## D028 — M5-R independent review accepted
+
+**Status:** FIXED
+
+- Strict 9-phase RMIST-Net Eq. (20)-(26) accepted.
+- Exactly 18 trainable scalars: `tau[9]`, `theta[9]`.
+- M4-to-M5 regression passed.
+- Gradient-flow validation passed.
+- PyTorch complex internal representation remains a paper-unspecified
+  implementation choice.
+- M6-R remains locked until separate human authorization.

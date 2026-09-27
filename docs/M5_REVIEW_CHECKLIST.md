@@ -97,11 +97,15 @@ After deterministic loss and `backward()`:
 [ ] FAIL
 ```
 
+External verdict: **PASS — independently reviewed**.
+
+Blocking scientific issues: **NONE**.
+
 ## M6-R unlock gate
 
 M6-R remains locked until:
 
-- [ ] M5-R independent review is complete.
-- [ ] no blocking discrepancy with RMIST Eq. (20)-(26).
+- [x] M5-R independent review is complete.
+- [x] no blocking discrepancy with RMIST Eq. (20)-(26).
 - [ ] accepted M5-R is merged to `main`.
 - [ ] human explicitly unlocks M6-R.

@@ -8,7 +8,7 @@ M1 PASS — human reviewed
 M2 PASS — human reviewed
 M3-R PASS — independently reviewed
 M4-R PASS — independently reviewed
-M5-R PASS — self-validated, awaiting independent review
+M5-R PASS — independently reviewed
 M6-R LOCKED
 M7-R LOCKED
 
@@ -21,8 +21,7 @@ Active work branch:
 `milestone/rmist-m5`
 
 Current task:
-STOP after strict 9-phase RMIST-Net Eq. (20)-(26) validation and obtain
-independent review.
+Record accepted M5-R review state and merge M5-R to `main`.
 
 M6-R and M7-R remain locked. No training or real Hammer inference is
 authorized.
@@ -43,7 +42,8 @@ initialization, and literal complex shrinkage. M4-to-M5 relative differences
 are `0.0` (complex64) and `1.21362588613636e-13` (complex128). All 22
 repository tests pass, including CUDA, batch, representation, and all-phase
 gradient checks. No optimizer/training or Hammer inference was started. Stop
-for independent review; M6-R/M7-R remain locked.
+for independent review; M6-R/M7-R remain locked. Independent review
+subsequently accepted M5-R with no blocking scientific issues.
 
 The remainder of this file is an immutable chronological history. Statements
 about then-current locks or objectives below are historical, not active

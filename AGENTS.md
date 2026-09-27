@@ -22,7 +22,7 @@ Milestone state:
 - M0-M2: complete and human-reviewed;
 - M3-R: strict `RM` / `RM_dagger`, externally reviewed PASS;
 - M4-R: strict RM-kernel ISTA Eq. (16)-(19), externally reviewed and accepted;
-- M5-R: RMIST-Net Eq. (20)-(26), self-validated PASS and awaiting independent review;
+- M5-R: RMIST-Net Eq. (20)-(26), independently reviewed PASS;
 - M6-R: synthetic training Eq. (27)-(31), LOCKED;
 - M7-R: real Hammer slice-wise inference Eq. (32), LOCKED.
 
@@ -34,10 +34,9 @@ Algorithmic source of truth:
 2. `docs/RMIST_REPRO_SPEC.md`;
 3. human-approved 3DRIED M0-M2 geometry and preprocessing.
 
-The human explicitly authorized M5-R architecture implementation and
-validation only; that work is now complete and stopped for independent review.
-M6-R and M7-R remain locked. No dataset generation, optimization/training, or
-real Hammer inference is authorized.
+M5-R architecture implementation and validation are complete and independently
+accepted. M6-R and M7-R remain locked. No dataset generation,
+optimization/training, or real Hammer inference is authorized.
 
 Codex must not replace RMIST's `RM` / `RM_dagger` inverse-kernel structure with a Hilbert-adjoint pair, FISTA, LISTA, Gamma-Net, Toe-LISTA, CNN proximal blocks, or another architecture.
 
