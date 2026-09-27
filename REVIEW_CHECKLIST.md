@@ -8,15 +8,18 @@ The RMIST-Net paper and `docs/RMIST_REPRO_SPEC.md` are authoritative. A mathemat
 
 ## Repository / governance
 
-- [x] Branch is `milestone/rmist-m3-m4`.
-- [x] Branch descends from human-approved `main`.
+- [x] M3-R/M4-R review was completed on `milestone/rmist-m3-m4`.
+- [x] M5-R review was completed on `milestone/rmist-m5` from accepted `main`.
 - [x] Old `milestone/m3-m4` remains unmerged.
 - [x] M0-M2 are unchanged except documentation references.
 - [x] Rx1-only policy remains.
 - [x] Raw 3DRIED data remain read-only/untracked.
 - [x] `docs/RMIST_REPRO_SPEC.md` is present.
 - [x] All RMIST deviations are classified in `DECISIONS.md`.
-- [x] M5-R and later remain locked.
+- [x] M3-R/M4-R accepted history is preserved.
+- [x] M5-R architecture is independently reviewed PASS.
+- [x] M6-R and M7-R remain locked.
+- [x] M5-R review gates are defined in `docs/M5_REVIEW_CHECKLIST.md`.
 
 # M3-R — RM / RM_dagger
 
@@ -125,16 +128,17 @@ Before M5-R:
 - [x] M4-R externally reviewed and accepted with non-blocking observations.
 - [x] No blocking discrepancy with RMIST Eq. (13)-(19).
 - [x] Accepted M3-R/M4-R branch approved for merge to `main`.
-- [ ] Human explicitly unlocks M5-R.
+- [x] Human explicitly unlocks M5-R.
 
-The M5-R gate remains closed. Repository merge alone does not authorize M5-R.
+M5-R external review: **PASS — independently reviewed**. M6-R training and
+M7-R real inference remain closed.
 
 # Future M5-R/M6-R fidelity
 
-- [ ] 9 phases.
-- [ ] Only `tau_t`, `theta_t` trainable.
-- [ ] `tau_t` init `1e-4`.
-- [ ] `theta_t` init `1e-3`.
+- [x] 9 phases.
+- [x] Only `tau_t`, `theta_t` trainable.
+- [x] `tau_t` init `1e-4`.
+- [x] `theta_t` init `1e-3`.
 - [ ] Adam.
 - [ ] learning rate `1e-4`.
 - [ ] 100 epochs.

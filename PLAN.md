@@ -6,9 +6,9 @@ Current execution authorization:
 
 ```text
 COMPLETED + HUMAN APPROVED: M0, M1, M2
-COMPLETED + EXTERNALLY REVIEWED: M3-R (PASS), M4-R (PASS)
+COMPLETED + EXTERNALLY REVIEWED: M3-R (PASS), M4-R (PASS), M5-R (PASS)
 HISTORICAL / NOT MERGED: previous generic M3-M4 branch
-LOCKED: M5-R, M6-R, M7-R
+LOCKED: M6-R, M7-R
 ```
 
 Define milestones:
@@ -22,8 +22,9 @@ EXTERNAL REVIEW
 M7-R — real Hammer slice-wise inference Eq. (32)
 ```
 
-The RMIST paper and `docs/RMIST_REPRO_SPEC.md` are the algorithmic authority
-for M3-R onward. Merge completion does not unlock M5-R.
+The RMIST paper, `docs/RMIST_REPRO_SPEC.md`, and
+`docs/M5_RMIST_NET_SPEC.md` are the algorithmic authority for M5-R. Human
+authorization unlocks only M5-R architecture validation.
 ---
 
 # M0 — Repository Initialization
@@ -258,11 +259,30 @@ observations are retained in `REVIEW_CHECKLIST.md`.
 Status:
 
 ```text
-LOCKED
+COMPLETED + EXTERNALLY REVIEWED PASS
 ```
 
-Do not begin without explicit human authorization. When unlocked, reproduce
-the 9-phase RMIST-Net with only phase-wise `tau_t` and `theta_t` trainable.
+The 9-phase RMIST-Net with only phase-wise `tau_t` and `theta_t` trainable is
+implemented and independently reviewed PASS. M6-R remains locked pending
+separate human authorization.
+
+## Acceptance criteria
+
+PASS only if:
+
+- exactly 9 literal Eq. (20) phases execute;
+- initialization is exactly `RM_dagger(S)`;
+- only phase-wise `tau_t` and `theta_t` are trainable, with 18 scalar
+  parameters total and initial values `1e-4` and `1e-3`;
+- Eq. (25)-(26) complex magnitude shrinkage is preserved;
+- complex/two-channel conversion round trips preserve values;
+- the M5 output matches accepted M4 Ini-ISTA for complex64 (`<1e-5`) and
+  complex128 (`<1e-12`);
+- deterministic backward validation gives finite, meaningful gradients to
+  every `tau_t` and `theta_t`, without an optimizer step;
+- supported single/batch and CPU/CUDA checks pass;
+- all repository regression tests pass;
+- no M6-R training or M7-R Hammer inference begins.
 
 ---
 
