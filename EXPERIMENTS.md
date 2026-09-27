@@ -352,3 +352,14 @@ All outputs were finite.
 PASS. Eq. (19), complex shrinkage, provenance labeling, and synthetic tests
 meet M4-R gates. The paper-style 512×512 Monte Carlo benchmark is explicitly
 deferred. Stop for independent review; M5-R remains locked.
+
+## REVIEW-GATE-RMIST-M3-M4-001 — Independent external review
+
+**Scope:** M3-R and M4-R
+**Status:** ACCEPTED
+
+Independent external review concluded that M3-R passes and M4-R passes with
+non-blocking observations. The documented non-monotonic Ini-ISTA residual and
+weak 50% sampling diagnostic do not change Eq. (19) and do not block future
+M5-R architecture work. No new experiment was performed for this review-gate
+record. M5-R remains locked until explicit human authorization.

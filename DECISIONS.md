@@ -20,9 +20,10 @@ Reason:
 
 ## D002 — Use ISTA unfolding as the first learning-imaging baseline
 
-**Status:** FIXED
+**Status:** HISTORICAL / SUPERSEDED BY D017-D020
 
-The first learning model is minimal physics-based ISTA unfolding.
+Historical plan: the first learning model was generic physics-based ISTA
+unfolding. It is not the active specification.
 
 Planned per-layer update:
 
@@ -38,7 +39,8 @@ z_t=x_t+\tau_tA^Hr_t
 x_{t+1}=\mathcal S_{\theta_t}(z_t).
 \]
 
-Only per-layer step sizes and thresholds are learned in the initial version.
+The accepted strict replacement is RMIST-Net Eq. (20)-(26), governed by
+`docs/RMIST_REPRO_SPEC.md`.
 
 ---
 
@@ -75,7 +77,8 @@ A failed learning result is not interpretable unless the data preprocessing and 
 
 **Status:** FIXED
 
-The planned forward/adjoint operator is deterministic and geometry-based.
+Historical wording referred to a generic forward/adjoint operator. The
+accepted fixed physics is now the strict `RM` / `RM_dagger` reciprocal pair.
 
 The baseline does not learn the forward operator.
 
@@ -110,25 +113,25 @@ Artificial sparse-height, sparse-frequency, or sparse-position experiments are d
 
 ## D008 — M0-M2 are the only currently unlocked milestones
 
-**Status:** FIXED
+**Status:** HISTORICAL / SUPERSEDED BY CURRENT PLAN
 
-Codex must stop after M2 and wait for human review.
+Historical gate: Codex had to stop after M2 and wait for human review.
 
-M3-M7 remain locked until PLAN.md is explicitly updated.
+That review occurred. Current milestone locks are defined in `PLAN.md`.
 
 ---
 
 ## D009 — Initial unfolding depth
 
-**Status:** PROVISIONAL
+**Status:** SUPERSEDED BY D020
 
-Planned initial network depth:
+Historical planned network depth:
 
 ```text
 T = 5
 ```
 
-May later be increased to 8 or 10 only if synthetic experiments show five layers are insufficient.
+The accepted strict RMIST depth is 9 phases; this historical value is not active.
 
 ---
 
@@ -185,13 +188,16 @@ complex grid and apply a 500 mm x-z ROI only to visualizations.
 
 ## D014 — Preserve reference x handedness pending review
 
-**Status:** HUMAN REVIEW REQUIRED
+**Status:** HISTORICAL / ACCEPTED NON-BLOCKING UNCERTAINTY
 
 The focused Hammer is diagonal and recognizable, but its horizontal slope is
 opposite the supplied 2-D JPEG under the bundled RMA coordinate labels. Do
 not silently flip x: the MATLAB scan ordering and offsets are reproduced as
 written, and the absolute aperture direction is not independently calibrated.
-Human review is required before M3 fixes an operator coordinate convention.
+Human review retained this convention without a silent flip. The strict
+3DRIED RMIST sign mapping was subsequently validated and independently
+accepted; absolute display handedness remains a documented non-blocking
+uncertainty.
 
 
 
@@ -283,3 +289,16 @@ Use a deterministic 128×128, 12-point, random-phase scene at 0.5 m for the
 M4-R smoke/diagnostic validation. Keep it explicitly separate from the later
 512×512, 100-target, 50-trial paper-style benchmark. The additional 50%
 Bernoulli sampling case is classified as an **EXPERIMENTAL EXTENSION**.
+
+## D026 — M3-R/M4-R independent review accepted
+
+**Status:** FIXED
+
+- M3-R is independently reviewed and accepted PASS.
+- M4-R is independently reviewed and accepted with non-blocking observations.
+- Ini-ISTA's non-monotonic residual under the paper initialization values is
+  retained as documented behavior.
+- The weaker 50% sampling diagnostic is not a blocker.
+- Strict RMIST Eq. (13)-(19) is the accepted physics and optimization baseline.
+- M5-R may be planned only after the accepted branch is merged and a human
+  explicitly unlocks it.

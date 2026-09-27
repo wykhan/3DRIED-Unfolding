@@ -60,6 +60,8 @@ Verdict:
 [ ] FAIL
 ```
 
+External review: **PASS — independently reviewed**.
+
 # M4-R — RM-kernel ISTA Eq. (19)
 
 ## Equation fidelity
@@ -102,21 +104,30 @@ results/m4_rmist_ista/
 Verdict:
 
 ```text
-[x] PASS
-[ ] PASS WITH NON-BLOCKING ISSUES
+[ ] PASS
+[x] PASS WITH NON-BLOCKING ISSUES
 [ ] NEEDS FIX
 [ ] FAIL
 ```
+
+External review: **ACCEPTED — independently reviewed with non-blocking
+observations**.
+
+- Ini-ISTA residual is not monotonic under the paper initialization values.
+- The 50% sampling diagnostic is weak.
+- Neither observation changes Eq. (19) or blocks later M5-R architecture work.
 
 # M5-R unlock gate
 
 Before M5-R:
 
-- [ ] M3-R externally reviewed.
-- [ ] M4-R externally reviewed.
-- [ ] No blocking discrepancy with RMIST Eq. (13)-(19).
-- [ ] Accepted M3-R/M4-R code is merged to `main`.
+- [x] M3-R externally reviewed.
+- [x] M4-R externally reviewed and accepted with non-blocking observations.
+- [x] No blocking discrepancy with RMIST Eq. (13)-(19).
+- [x] Accepted M3-R/M4-R branch approved for merge to `main`.
 - [ ] Human explicitly unlocks M5-R.
+
+The M5-R gate remains closed. Repository merge alone does not authorize M5-R.
 
 # Future M5-R/M6-R fidelity
 

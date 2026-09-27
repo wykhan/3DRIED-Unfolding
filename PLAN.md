@@ -6,8 +6,8 @@ Current execution authorization:
 
 ```text
 COMPLETED + HUMAN APPROVED: M0, M1, M2
+COMPLETED + EXTERNALLY REVIEWED: M3-R (PASS), M4-R (PASS)
 HISTORICAL / NOT MERGED: previous generic M3-M4 branch
-UNLOCKED: M3-R, M4-R
 LOCKED: M5-R, M6-R, M7-R
 ```
 
@@ -16,12 +16,14 @@ Define milestones:
 ```markdown
 M3-R — Strict RM / RM_dagger implementation
 M4-R — RM-kernel ISTA Eq. (16)-(19)
-EXTERNAL REVIEW
 M5-R — RMIST-Net Eq. (20)-(26)
 M6-R — synthetic training Eq. (27)-(31)
 EXTERNAL REVIEW
-M7-R — real Hammer slice-wise inference
+M7-R — real Hammer slice-wise inference Eq. (32)
 ```
+
+The RMIST paper and `docs/RMIST_REPRO_SPEC.md` are the algorithmic authority
+for M3-R onward. Merge completion does not unlock M5-R.
 ---
 
 # M0 — Repository Initialization
@@ -214,19 +216,44 @@ PASS only if:
 - [x] outputs are reproducible from config;
 - [x] all important assumptions are documented.
 
-## Human checkpoint
+## Human checkpoint — completed
 
 After M2:
 
 ```text
-STOP.
-Do not begin M3.
-Request human review.
+M2 was human-reviewed and approved before M3-R began.
 ```
 
 ---
 
-# M3 — Forward / Adjoint Operator Validation
+# M3-R — Strict RM / RM_dagger
+
+Status:
+
+```text
+COMPLETED — EXTERNALLY REVIEWED PASS
+```
+
+Accepted strict reciprocal kernels and M2 consistency evidence are documented
+in `docs/M3_RMIST_KERNEL_REPORT.md`.
+
+---
+
+# M4-R — Strict RM-Kernel ISTA Eq. (16)-(19)
+
+Status:
+
+```text
+COMPLETED — EXTERNALLY REVIEWED PASS
+```
+
+Accepted Eq. (19), complex shrinkage, and synthetic evidence are documented
+in `docs/M4_RMIST_ISTA_REPORT.md`. The independently reviewed non-blocking
+observations are retained in `REVIEW_CHECKLIST.md`.
+
+---
+
+# M5-R — RMIST-Net Architecture Eq. (20)-(26)
 
 Status:
 
@@ -234,23 +261,12 @@ Status:
 LOCKED
 ```
 
-Planned after M2 review.
-
-Goals:
-
-- implement `HolographyOperator`;
-- pass adjoint test;
-- verify adjoint reconstruction is consistent with M2 RMA.
-
-Target:
-
-\[
-e_{\rm adj}<10^{-5}.
-\]
+Do not begin without explicit human authorization. When unlocked, reproduce
+the 9-phase RMIST-Net with only phase-wise `tau_t` and `theta_t` trainable.
 
 ---
 
-# M4 — Kernel-ISTA
+# M6-R — RMIST Synthetic Training Eq. (27)-(31)
 
 Status:
 
@@ -258,16 +274,12 @@ Status:
 LOCKED
 ```
 
-Planned goals:
-
-- implement complex soft threshold;
-- reconstruct synthetic sparse targets;
-- verify residual decreases;
-- compare adjoint initialization vs Kernel-ISTA.
+After M5-R is completed and authorized, reproduce the RMIST synthetic
+training protocol. Then stop for external review.
 
 ---
 
-# M5 — ISTA-Unfolding
+# M7-R — Real Hammer Slice-Wise Inference Eq. (32)
 
 Status:
 
@@ -275,45 +287,5 @@ Status:
 LOCKED
 ```
 
-Planned goals:
-
-- 5-layer unfolding baseline;
-- learn only per-layer step size and threshold;
-- train on synthetic oracle data;
-- compare with multi-iteration Kernel-ISTA.
-
----
-
-# M6 — Hammer Inference
-
-Status:
-
-```text
-LOCKED
-```
-
-Planned goals:
-
-- infer on real Hammer;
-- compare RMA / Kernel-ISTA / ISTA-Unfolding;
-- compute no-reference and measurement-consistency metrics.
-
----
-
-# M7 — Baseline Freeze
-
-Status:
-
-```text
-LOCKED
-```
-
-Planned deliverables:
-
-- final reproducible config;
-- checkpoint;
-- code tag/commit;
-- baseline report;
-- experiment summary;
-- known limitations;
-- next-step recommendations.
+Apply an accepted, reviewed RMIST model independently by range slice to the
+single-Rx Hammer data. Hammer RMA must not be used as supervised ground truth.

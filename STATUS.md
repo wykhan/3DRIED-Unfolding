@@ -6,19 +6,24 @@
 M0 PASS — human reviewed
 M1 PASS — human reviewed
 M2 PASS — human reviewed
+M3-R PASS — independently reviewed
+M4-R PASS — independently reviewed
 
 Previous generic M3/M4:
-NOT ACCEPTED AS LEARNING PHYSICS BASIS
+Historical only
 Preserved on `milestone/m3-m4`
 Not merged to `main`
 
-Current branch:
+Accepted work branch:
 `milestone/rmist-m3-m4`
 
-Current authorized execution:
-M3-R → M4-R → EXTERNAL REVIEW
+Current state:
+Repository governance cleanup and merge after successful external review
 
-M5-R and later milestones are locked.
+Next:
+Human must explicitly unlock M5-R
+
+M5-R and later milestones remain locked.
 ```
 
 M3-R PASS (2026-09-27). Strict RMIST kernels reproduce M2 with complex
@@ -26,10 +31,12 @@ relative difference `2.2378e-7`; reciprocal and full-domain round-trip tests
 pass.
 
 M4-R PASS (2026-09-27). Strict Eq. (16)--(19) Ini-ISTA and separately tuned
-synthetic diagnostics pass. **STOP FOR INDEPENDENT REVIEW.** M5-R and all
-training remain locked.
+synthetic diagnostics were independently accepted with documented
+non-blocking observations. M5-R and all training remain locked.
 
-Keep historical M0-M2 entries below.
+The remainder of this file is an immutable chronological history. Statements
+about then-current locks or objectives below are historical, not active
+governance.
 
 
 ## history below
