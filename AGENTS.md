@@ -26,7 +26,7 @@ Milestone state:
 - M6-R: synthetic training Eq. (27)-(31), independently reviewed PASS with non-blocking observations;
 - M7-R: INDEPENDENTLY REVIEWED — TECHNICAL PASS, with important scientific limitation;
 - M8: INDEPENDENTLY REVIEWED PASS — `SCALE_MISMATCH_SUPPORTED`;
-- M9: scale-normalized inference-quality evaluation, LOCKED.
+- M9: scale-normalized inference-quality evaluation, UNLOCKED — feasibility only.
 
 The previous generic `milestone/m3-m4` implementation was independently reviewed and is not the accepted physics basis for learning.
 
@@ -42,9 +42,10 @@ inference is independently accepted as a technical PASS: the Hammer remains
 recognizable with preserved range/orientation, but learned improvement over
 RMA50/Ini-ISTA50 is not demonstrated. M8 is independently accepted: scale
 mismatch is the dominant demonstrated mechanism of Hammer inactivity, but
-normalization has not been shown to improve real-data image quality. No
-training, fine-tuning, production normalization, domain adaptation,
-calibration learning, parameter changes, or M9 work are authorized.
+normalization has not been shown to improve real-data image quality. M9 is
+authorized to evaluate the four fixed deterministic normalization variants.
+No training, fine-tuning, adaptive learned scale estimator, domain adaptation,
+calibration learning, or learned-parameter changes are authorized.
 
 Codex must not replace RMIST's `RM` / `RM_dagger` inverse-kernel structure with a Hilbert-adjoint pair, FISTA, LISTA, Gamma-Net, Toe-LISTA, CNN proximal blocks, or another architecture.
 

@@ -10,7 +10,7 @@ COMPLETED + EXTERNALLY REVIEWED: M3-R (PASS), M4-R (PASS), M5-R (PASS), M6-R (PA
 HISTORICAL / NOT MERGED: previous generic M3-M4 branch
 COMPLETED + EXTERNALLY REVIEWED: M7-R — technical PASS with important scientific limitation
 COMPLETED + EXTERNALLY REVIEWED: M8 — SCALE_MISMATCH_SUPPORTED
-LOCKED: M9 scale-normalized inference-quality evaluation
+UNLOCKED: M9 scale-normalized inference feasibility only
 ```
 
 Define milestones:
@@ -342,4 +342,19 @@ Counterfactual scale alignment restores synthetic-order phase activity, which
 supports scale mismatch as the observed mechanism without authorizing a
 production normalization fix. Normalization image-quality benefit is not yet
 validated. M9 may test scale-normalized inference without retraining only
-after separate explicit authorization; M9 remains locked.
+under the separately authorized M9 feasibility milestone.
+
+---
+
+# M9 — Scale-Normalized RMIST Feasibility
+
+Status:
+
+```text
+UNLOCKED — INFERENCE/EVALUATION ONLY
+```
+
+Evaluate exactly N0 raw RMIST and the fixed N1--N4 deterministic scale
+normalizations defined in `docs/M9_SCALE_NORMALIZED_RMIST_SPEC.md`. No
+training, fine-tuning, adaptive learned scale estimator, arbitrary Hammer
+scale tuning, or learned-parameter modification is authorized.

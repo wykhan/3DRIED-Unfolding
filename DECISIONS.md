@@ -437,3 +437,13 @@ commit the procedural dataset or local checkpoints.
 - Normalization as an image-improvement method is **not yet validated**.
 - M9 may test scale-normalized inference without retraining, but remains
   locked pending separate explicit authorization.
+
+## D037 — M9 scale-normalized inference feasibility authorized
+
+**Status:** FIXED
+
+- Evaluate only N0 and the four deterministic N1--N4 normalization rules
+  specified before viewing M9 results.
+- M2 full-data RMA is a reference proxy, not ground truth or a tuning target.
+- No training, fine-tuning, adaptive learned scale estimator, arbitrary scale
+  search, or learned-parameter modification is authorized.

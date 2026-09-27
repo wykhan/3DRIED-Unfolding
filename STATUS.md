@@ -12,7 +12,7 @@ M5-R PASS — independently reviewed
 M6-R PASS — independently reviewed with non-blocking observations
 M7-R INDEPENDENTLY REVIEWED — TECHNICAL PASS WITH IMPORTANT SCIENTIFIC LIMITATION
 M8 INDEPENDENTLY REVIEWED PASS — SCALE_MISMATCH_SUPPORTED
-M9 SCALE-NORMALIZED INFERENCE QUALITY — LOCKED
+M9 SCALE-NORMALIZED INFERENCE FEASIBILITY — UNLOCKED
 
 Previous generic M3/M4:
 Historical only
@@ -20,10 +20,10 @@ Preserved on `milestone/m3-m4`
 Not merged to `main`
 
 Active work branch:
-`milestone/rmist-m8`
+`milestone/rmist-m9`
 
 Current task:
-M8 is accepted. Stop; M9 remains locked.
+Evaluate the four fixed M9 normalization variants without training or parameter changes.
 
 M7-R is independently accepted as a technical PASS. Hammer remains recognizable
 and range/orientation are preserved. RMIST50 is numerically almost identical to
@@ -32,8 +32,9 @@ M8 independently establishes `SCALE_MISMATCH_SUPPORTED`: the `alpha0` RMS
 ratio is approximately `2.3104e9`, raw Hammer phase-1 residual/correction
 activity is comparable to synthetic, raw threshold activity is effectively
 zero, and counterfactual alignment restores strong phase dynamics. It does
-not establish improved Hammer image quality. M9, training, fine-tuning,
-production normalization, and parameter changes remain prohibited.
+not establish improved Hammer image quality. M9 fixed-variant inference
+evaluation is authorized. Training, fine-tuning, adaptive learned scaling,
+and learned-parameter changes remain prohibited.
 ```
 
 M3-R PASS (2026-09-27). Strict RMIST kernels reproduce M2 with complex
