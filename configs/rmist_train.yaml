@@ -1,0 +1,38 @@
+seed: 20260927
+output_dir: results/m6_rmist_training
+review_dir: results/review/M6
+
+geometry:
+  center_frequency_hz: 78800000000.0
+  dx_m: 0.001
+  dz_m: 0.002
+  grid_size: 512
+  range_m: 0.5
+  ky_epsilon: 1.0e-12
+
+dataset:
+  training_pairs: 1000
+  validation_pairs: 200
+  scatterers_per_image: 100
+  amplitude_min: 0.5
+  amplitude_max: 1.0
+  phase_distribution: uniform_0_2pi
+  sampling_rate: 0.5
+  snr_db: 20.0
+  fixed_mask: true
+  mask_seed: 20260928
+  training_seed: 20261000
+  validation_seed: 20271000
+
+model:
+  phases: 9
+  tau_init: 1.0e-4
+  theta_init: 1.0e-3
+
+training:
+  optimizer: Adam
+  learning_rate: 1.0e-4
+  epochs: 100
+  batch_size: 8
+  shuffle_seed: 20260929
+  tiny_overfit_steps: 20

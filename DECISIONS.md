@@ -326,3 +326,16 @@ reparameterization or learned operator is introduced.
 - PyTorch complex internal representation remains a paper-unspecified
   implementation choice.
 - M6-R remains locked until separate human authorization.
+
+## D029 — M6-R strict synthetic training choices
+
+**Status:** FIXED — PAPER UNSPECIFIED IMPLEMENTATION CHOICE
+
+For the first strict M6 model, use one 512×512, 0.5 m, SR=0.5 condition with
+100 discrete point scatterers per oracle, amplitudes uniform on `[0.5,1.0]`,
+one fixed deterministic mask, 200 disjoint validation pairs, batch size 8,
+deterministic seeds and epoch shuffling, and best-checkpoint selection by
+minimum validation Eq. (27) loss. Use the displayed Eq. (27) mean per-sample
+complex L2 norm. Cache accepted fixed-range kernel tensors as an
+**IMPLEMENTATION PERFORMANCE OPTIMIZATION — algorithm unchanged**. Do not
+commit the procedural dataset or local checkpoints.

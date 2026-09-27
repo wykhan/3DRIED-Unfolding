@@ -139,12 +139,12 @@ M7-R real inference remain closed.
 - [x] Only `tau_t`, `theta_t` trainable.
 - [x] `tau_t` init `1e-4`.
 - [x] `theta_t` init `1e-3`.
-- [ ] Adam.
-- [ ] learning rate `1e-4`.
-- [ ] 100 epochs.
-- [ ] 1000 synthetic training pairs.
-- [ ] default 20 dB complex AWGN.
-- [ ] phase uniform on `[0,2*pi)`.
-- [ ] RMIST averaged L2/RMSE-style reconstruction loss.
-- [ ] batch size labeled paper-unspecified.
-- [ ] Hammer RMA is not supervised GT.
+- [x] Adam.
+- [x] learning rate `1e-4`.
+- [x] 100 epochs.
+- [x] 1000 synthetic training pairs.
+- [x] default 20 dB complex AWGN.
+- [x] phase uniform on `[0,2*pi)`.
+- [x] RMIST averaged L2/RMSE-style reconstruction loss.
+- [x] batch size labeled paper-unspecified.
+- [x] Hammer RMA is not supervised GT.
