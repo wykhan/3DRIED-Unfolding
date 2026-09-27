@@ -325,7 +325,7 @@ Monte Carlo trials: 50
 
 Keep this separate from smaller smoke tests.
 
-# 12. M7-R — Hammer inference (UNLOCKED — INFERENCE ONLY)
+# 12. M7-R — Hammer inference (TECHNICAL PASS / REAL-DATA SUCCESS — REVIEW PENDING)
 
 ```text
 Hammer raw

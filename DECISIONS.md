@@ -367,3 +367,16 @@ commit the procedural dataset or local checkpoints.
 - Use the accepted M6 best-validation parameters and exact fixed SR=0.5 mask.
 - Training, fine-tuning, domain adaptation, calibration learning, optimizers,
   and learned-parameter changes remain prohibited.
+
+## D032 — M7-R physical mask mapping and outcome interpretation
+
+**Status:** FIXED — 3DRIED SYSTEM ADAPTATION
+
+- Intersect the exact accepted 512×512 M6 mask with the centered 200×407
+  physical aperture; the effective real-data SR is `40682/81400 =
+  0.4997788698`.
+- Compare all methods with one common peak and the accepted 500 mm ROI.
+- Classify the real-data outcome as SUCCESS because the Hammer remains
+  recognizable with no catastrophic sim-to-real failure.
+- Do not claim a learned improvement: RMIST50 is nearly identical to RMA50
+  and Ini-ISTA50 on the unmodified real-data amplitude scale.

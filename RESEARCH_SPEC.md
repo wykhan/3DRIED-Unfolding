@@ -21,8 +21,8 @@ The completed foundation establishes:
 5. strict RM-kernel ISTA Eq. (16)-(19).
 
 RMIST-Net Eq. (20)-(26) and M6-R strict synthetic training Eq. (27)-(31) are
-independently reviewed PASS. M7-R Eq. (32) real Hammer inference is explicitly
-authorized for inference/evaluation only.
+independently reviewed PASS. M7-R Eq. (32) real Hammer inference is technically
+PASS with a recognizable real-data result and awaits independent review.
 
 Novelty is not an objective of this baseline stage.
 
@@ -251,7 +251,9 @@ The baseline is considered successful when:
    without using Hammer RMA as supervised ground truth.
 
 M0-M2 are human-reviewed. M3-R through M6-R are independently reviewed and
-accepted. M7-R real Hammer inference is unlocked for inference/evaluation only.
+accepted. M7-R real Hammer inference is technically PASS / real-data SUCCESS
+and awaits independent review; no learned improvement over the sparse
+baselines is claimed.
 
 ---
 

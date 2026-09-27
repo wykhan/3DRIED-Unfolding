@@ -1,0 +1,140 @@
+{
+  "all_outputs_finite": true,
+  "command": "/home/superws/anaconda3/bin/python3 scripts/run_rmist_hammer.py --config configs/rmist_hammer_inference.yaml",
+  "environment": [
+    "Python: 3.11.4",
+    "Platform: Linux-6.8.0-138-generic-x86_64-with-glibc2.35",
+    "NumPy: 1.23.5",
+    "PyTorch: 2.2.2+cu121",
+    "CUDA runtime: 12.1",
+    "CUDA available: True",
+    "GPUs: ['NVIDIA GeForce RTX 4090', 'NVIDIA GeForce RTX 4090']"
+  ],
+  "ground_truth_metrics_computed": false,
+  "mask": {
+    "definition": "Mask_eff = Mask_M6 * centered physical-support mask",
+    "effective_observed_samples": 40682,
+    "effective_physical_sampling_rate": 0.49977886977886976,
+    "full_grid_realized_sampling_rate": 0.4999198913574219,
+    "full_grid_sha256_uint8": "43f423a8eef01c1efa632b9945cf0f4146dc065d94cee001a3cca6f1b7374de2",
+    "full_grid_shape": [
+      512,
+      512
+    ],
+    "physical_shape_zx": [
+      200,
+      407
+    ],
+    "physical_support_samples": 81400,
+    "seed": 20260928,
+    "target_sampling_rate": 0.5
+  },
+  "matlab_range_bins": [
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24
+  ],
+  "method": "strict RMIST Eq. (32) range-slice inference",
+  "method_comparison_diagnostics": {
+    "classification": "non-GT method-to-method complex relative difference",
+    "ini_ista50_vs_rmist50": 1.1364280680936645e-06,
+    "rma50_vs_ini_ista50": 4.178154697220826e-11,
+    "rma50_vs_rmist50": 1.136429091275204e-06
+  },
+  "model": {
+    "best_epoch": 99,
+    "checkpoint_exists": true,
+    "checkpoint_sha256": "4b1925f2a6d361a848a81b7e70a2dedc2dc3e520726a29b2ac92a6de999c26ce",
+    "model_source": "results/m6_rmist_training/checkpoints/best_validation.pt",
+    "parameter_match": true,
+    "source_kind": "local accepted best-validation checkpoint"
+  },
+  "observed_sample_consistency": {
+    "ini_ista50": {
+      "max": 0.13533301651477814,
+      "mean": 0.08498903277974862,
+      "min": 0.06126713380217552,
+      "std": 0.024541871207837535
+    },
+    "rma50": {
+      "max": 0.13533301651477814,
+      "mean": 0.08498903220662704,
+      "min": 0.06126713380217552,
+      "std": 0.02454187048576951
+    },
+    "rmist50": {
+      "max": 0.1353328973054886,
+      "mean": 0.08498895254272681,
+      "min": 0.061267074197530746,
+      "std": 0.02454184912958233
+    }
+  },
+  "observed_sample_consistency_aggregate_definition": "arithmetic mean/std/min/max of the per-slice E_obs values",
+  "preflight": {
+    "all_outputs_finite": true,
+    "effective_physical_sampling_rate": 0.49977886977886976,
+    "mask_hash": "43f423a8eef01c1efa632b9945cf0f4146dc065d94cee001a3cca6f1b7374de2",
+    "matlab_range_bin": 17,
+    "observed_residual": {
+      "ini_ista50": 0.06126713380217552,
+      "rma50": 0.06126713380217552,
+      "rmist50": 0.061267074197530746
+    },
+    "range_m": 0.6143103952815643,
+    "rx_index_matlab": 1,
+    "rx_index_python": 0,
+    "status": "PASS"
+  },
+  "qualitative_assessment": "Hammer head and handle remain recognizable and continuous at the accepted range and orientation, with no catastrophic sim-to-real failure; trained RMIST is nevertheless nearly indistinguishable from the two sparse baselines and does not demonstrate a material learned improvement.",
+  "range_m": [
+    0.4060693594570925,
+    0.44771756662198686,
+    0.4893657737868813,
+    0.5310139809517757,
+    0.5726621881166699,
+    0.6143103952815643,
+    0.6559586024464586,
+    0.6976068096113531,
+    0.7392550167762475,
+    0.7809032239411418,
+    0.8225514311060361,
+    0.8641996382709305,
+    0.905847845435825
+  ],
+  "raw_selected_shape": [
+    200,
+    407,
+    256
+  ],
+  "real_data_outcome": "SUCCESS",
+  "runtime_seconds": 22.167802799027413,
+  "rx_index_matlab": 1,
+  "rx_index_python": 0,
+  "technical_pipeline": "PASS",
+  "training_or_parameter_updates_performed": false,
+  "visualization": {
+    "dynamic_range_db": 40.0,
+    "normalization": "one common ROI peak across all four methods",
+    "point_cloud_threshold_db": -18.0,
+    "representative_matlab_bins": [
+      16,
+      17,
+      18
+    ]
+  },
+  "volume_shape": [
+    13,
+    512,
+    512
+  ]
+}

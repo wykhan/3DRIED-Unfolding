@@ -1,0 +1,18 @@
+{
+  "definition": "Mask_eff = Mask_M6 * centered physical-support mask",
+  "effective_observed_samples": 40682,
+  "effective_physical_sampling_rate": 0.49977886977886976,
+  "full_grid_realized_sampling_rate": 0.4999198913574219,
+  "full_grid_sha256_uint8": "43f423a8eef01c1efa632b9945cf0f4146dc065d94cee001a3cca6f1b7374de2",
+  "full_grid_shape": [
+    512,
+    512
+  ],
+  "physical_shape_zx": [
+    200,
+    407
+  ],
+  "physical_support_samples": 81400,
+  "seed": 20260928,
+  "target_sampling_rate": 0.5
+}

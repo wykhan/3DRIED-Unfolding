@@ -10,7 +10,7 @@ M3-R PASS — independently reviewed
 M4-R PASS — independently reviewed
 M5-R PASS — independently reviewed
 M6-R PASS — independently reviewed with non-blocking observations
-M7-R UNLOCKED — real inference only
+M7-R TECHNICAL PASS / REAL-DATA SUCCESS — awaiting independent review
 
 Previous generic M3/M4:
 Historical only
@@ -21,10 +21,10 @@ Active work branch:
 `milestone/rmist-m7`
 
 Current task:
-Run strict Eq. (32) single-Rx Hammer slice-wise inference and evaluation.
+STOP after completed strict Eq. (32) Hammer inference; obtain independent review.
 
-M7-R is authorized for inference/evaluation only. Training, fine-tuning,
-adaptation, calibration learning, and learned-parameter changes remain prohibited.
+M7-R completed inference/evaluation only. Training, fine-tuning, adaptation,
+calibration learning, and learned-parameter changes remain prohibited.
 ```
 
 M3-R PASS (2026-09-27). Strict RMIST kernels reproduce M2 with complex
@@ -58,7 +58,14 @@ Independent review accepted M6-R with no blocking scientific issues. The
 NRMSE improvement (`0.6148313` to `0.5302653`) is a modest baseline result,
 not reproduction of the paper's exact tables. M6 ran under Python 3.11.4,
 PyTorch 2.2.2, and CUDA 12.1; all regressions pass. Best-checkpoint provenance
-is recorded for future inference-only use. M7-R remains locked.
+is recorded for future inference-only use.
+
+M7-R TECHNICAL PASS / REAL-DATA SUCCESS (2026-09-27). Strict Eq. (32)
+inference used Rx1, bins 12--24, the exact accepted M6 mask and epoch-99
+parameters, and independent range-dependent kernels. The Hammer remains
+recognizable at the accepted range/orientation, but trained RMIST is nearly
+identical to the sparse baselines and demonstrates no material learned
+improvement. All 31 tests pass. Stop for independent review.
 
 The remainder of this file is an immutable chronological history. Statements
 about then-current locks or objectives below are historical, not active

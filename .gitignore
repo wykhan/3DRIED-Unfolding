@@ -24,3 +24,12 @@ results/review/M6/*
 !results/review/M6/training_curves.png
 !results/review/M6/parameter_curves.png
 !results/review/M6/checkpoint_provenance.json
+!results/review/M7/
+results/review/M7/*
+!results/review/M7/summary_metrics.json
+!results/review/M7/checkpoint_provenance.json
+!results/review/M7/mask_summary.json
+!results/review/M7/per_slice_consistency.csv
+!results/review/M7/comparison_mip.png
+!results/review/M7/representative_slices.png
+!results/review/M7/parameter_values.json
