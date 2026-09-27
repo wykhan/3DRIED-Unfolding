@@ -1,0 +1,14 @@
+{
+  "binary": true,
+  "classification": "PAPER UNSPECIFIED IMPLEMENTATION CHOICE",
+  "fixed_for_training_and_validation": true,
+  "realized_sampling_rate": 0.4999198913574219,
+  "seed": 20260928,
+  "sha256_uint8": "43f423a8eef01c1efa632b9945cf0f4146dc065d94cee001a3cca6f1b7374de2",
+  "shape": [
+    512,
+    512
+  ],
+  "target_sampling_rate": 0.5,
+  "trainable": false
+}

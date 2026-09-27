@@ -1,0 +1,30 @@
+{
+  "amplitude_distribution": "Uniform(0.5, 1.0)",
+  "classification": "PAPER UNSPECIFIED IMPLEMENTATION CHOICE where noted",
+  "coordinate_distribution": "uniform without replacement",
+  "echo": "fixed_mask * accepted strict RM(alpha_gt) + circular complex AWGN",
+  "equations": "RMIST Eq. (28)-(31)",
+  "grid_shape": [
+    512,
+    512
+  ],
+  "hammer_rma_used_as_label": false,
+  "oracle": "100 unique discrete impulses; no blur PSF",
+  "paper_unspecified_choices": [
+    "validation_pairs=200 with disjoint seed",
+    "100 scatterers in every training oracle",
+    "amplitude Uniform(0.5,1.0)",
+    "one fixed SR=0.5 mask/model",
+    "random seeds",
+    "deterministic epoch shuffling"
+  ],
+  "phase_distribution": "Uniform(0, 2*pi)",
+  "range_m": 0.5,
+  "requested_snr_db": 20.0,
+  "scatterers_per_image": 100,
+  "seeds_disjoint": true,
+  "training_pairs": 1000,
+  "training_seed": 20261000,
+  "validation_pairs": 200,
+  "validation_seed": 20271000
+}

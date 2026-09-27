@@ -13,3 +13,14 @@ results/review/M5/*
 !results/review/M5/parameter_values.json
 !results/review/M5/phase_trace.json
 !results/review/M5/summary_metrics.json
+!results/review/M6/
+results/review/M6/*
+!results/review/M6/summary_metrics.json
+!results/review/M6/training_history.csv
+!results/review/M6/parameter_history.csv
+!results/review/M6/config_used.yaml
+!results/review/M6/dataset_spec.json
+!results/review/M6/mask_summary.json
+!results/review/M6/training_curves.png
+!results/review/M6/parameter_curves.png
+!results/review/M6/checkpoint_provenance.json
