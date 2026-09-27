@@ -20,8 +20,8 @@ The completed foundation establishes:
 4. strict RMIST `RM` / `RM_dagger` kernels;
 5. strict RM-kernel ISTA Eq. (16)-(19).
 
-The next planned scientific stage is RMIST-Net Eq. (20)-(26), but M5-R is
-locked until explicit human authorization.
+RMIST-Net Eq. (20)-(26) architecture validation is implemented and
+self-validated. It awaits independent review; M6-R training remains locked.
 
 Novelty is not an objective of this baseline stage.
 
@@ -250,7 +250,8 @@ The baseline is considered successful when:
    without using Hammer RMA as supervised ground truth.
 
 M0-M2 are human-reviewed. M3-R and M4-R are independently reviewed and
-accepted. M5-R, M6-R, and M7-R remain locked.
+accepted. M5-R is self-validated and awaiting independent review. M6-R and
+M7-R remain locked.
 
 ---
 

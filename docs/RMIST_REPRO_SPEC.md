@@ -255,7 +255,7 @@ Mask = 1
 
 Then add a separate 50% random-sampling experiment. Do not mix sparse sampling into initial M3-R debugging.
 
-# 9. M5-R — RMIST-Net (LOCKED)
+# 9. M5-R — RMIST-Net (EXTERNALLY REVIEWED PASS)
 
 When unlocked, implement:
 

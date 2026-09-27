@@ -1,0 +1,8 @@
+Strict RMIST-Net Eq. (20)-(26)
+phases: 9
+initialization: alpha0 = RM_dagger(S)
+phase: v=S-RM(alpha); r=alpha+tau_t*RM_dagger(v); alpha=F_st(r,theta_t)
+trainable tensors: tau[9], theta[9]
+trainable scalar count: 18
+internal representation: PyTorch complex (equivalent shared complex processing of separate real/imag paths)
+optimizer/training loop: none

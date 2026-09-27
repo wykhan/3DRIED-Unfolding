@@ -5,4 +5,11 @@ __pycache__/
 .venv/
 results/*
 !results/.gitkeep
-
+!results/review/
+results/review/*
+!results/review/M5/
+results/review/M5/*
+!results/review/M5/architecture.txt
+!results/review/M5/parameter_values.json
+!results/review/M5/phase_trace.json
+!results/review/M5/summary_metrics.json
