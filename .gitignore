@@ -43,3 +43,15 @@ results/review/M8/*
 !results/review/M8/scale_comparison.png
 !results/review/M8/phase_activity.png
 !results/review/M8/threshold_activity.png
+!results/review/M9/
+results/review/M9/*
+!results/review/M9/summary_metrics.json
+!results/review/M9/synthetic_reference_scales.json
+!results/review/M9/normalization_scales.csv
+!results/review/M9/phase_activity_by_method.csv
+!results/review/M9/observed_consistency.csv
+!results/review/M9/m2_reference_proxies.csv
+!results/review/M9/range_profile.csv
+!results/review/M9/comparison_mip.png
+!results/review/M9/representative_slices.png
+!results/review/M9/range_profile.png

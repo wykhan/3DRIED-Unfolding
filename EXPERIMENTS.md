@@ -614,3 +614,39 @@ Lightweight artifacts are under `results/review/M6/`. Best-validation and
 epoch-100 checkpoints remain local under ignored `results/m6_rmist_training/`.
 No full dataset was stored or committed, and no Hammer inference occurred.
 Stop for independent review; M7-R remains locked.
+
+## EXP-20260927-009 — M9 fixed scale-normalized RMIST feasibility
+
+**Milestone:** M9
+**Status:** PASS — AWAITING INDEPENDENT REVIEW
+**Outcome:** `NORMALIZATION_DEGRADES_REAL_RECONSTRUCTION`
+
+### Command and controls
+
+```bash
+PYTHONPATH=src python3 scripts/run_rmist_scale_normalized.py \
+  --config configs/rmist_scale_normalized.yaml
+```
+
+The inference-only run used the accepted epoch-99 M6 parameters, fixed M6
+mask, Rx1 Hammer preprocessing, and bins 12--24. It regenerated the fixed 32
+synthetic validation controls, then compared N0 with the four predetermined
+normalizations. No learned value was updated.
+
+### Results
+
+Synthetic alpha0 RMS/p95 and observed-measurement RMS medians were
+`0.01376872018135817`, `0.02026866101659833`, and
+`8.869680634409644e-06`. N1 used `2.8565e-9`; N2--N4 spanned
+`4.3283e-10--4.4081e-9`, `4.2207e-10--3.6096e-9`, and
+`3.1775e-10--2.9091e-9`. N1--N4 median final E_RMA was
+`0.8243--0.9161`, versus `1.1320e-6` raw.
+
+Dynamics were restored, but mean per-slice M2-reference cosine fell from
+`0.8913` raw to `0.6881`, `0.6778`, `0.5888`, and `0.5357`. Mean observed
+consistency rose from `0.0850` to `0.7348--0.9191`. Range-profile cosine fell
+from `0.99991` to `0.96585--0.91592`, although every dominant bin remained
+17. N1 was least degraded; no variant met the combined proxy-benefit gate.
+
+Evidence is under `results/review/M9/`. Large complex volumes remain ignored.
+Stop for independent review; do not retrain or design adaptive normalization.

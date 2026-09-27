@@ -6,80 +6,80 @@
 
 - [x] Branch is `milestone/rmist-m9`.
 - [x] Branch starts from accepted M8 main.
-- [ ] No training/fine-tuning occurs.
-- [ ] M6 best tau/theta remain unchanged.
-- [ ] M6 mask and M7 preprocessing remain unchanged.
-- [ ] Normalization variants are fixed before final comparison.
+- [x] No training/fine-tuning occurs.
+- [x] M6 best tau/theta remain unchanged.
+- [x] M6 mask and M7 preprocessing remain unchanged.
+- [x] Normalization variants are fixed before final comparison.
 
 ## Synthetic references
 
-- [ ] Uses accepted M6 validation generator.
-- [ ] Uses same deterministic 32-sample control as M8.
-- [ ] Synthetic alpha0 RMS reference regenerated.
-- [ ] Synthetic alpha0 p95 reference regenerated.
-- [ ] Synthetic observed-measurement RMS reference regenerated.
-- [ ] Regenerated alpha0 RMS matches M8 within tolerance.
+- [x] Uses accepted M6 validation generator.
+- [x] Uses same deterministic 32-sample control as M8.
+- [x] Synthetic alpha0 RMS reference regenerated.
+- [x] Synthetic alpha0 p95 reference regenerated.
+- [x] Synthetic observed-measurement RMS reference regenerated.
+- [x] Regenerated alpha0 RMS matches M8 within tolerance.
 
 ## Variants
 
-- [ ] N0 raw/unscaled RMIST.
-- [ ] N1 global alpha0-RMS matching.
-- [ ] N2 per-slice alpha0-RMS matching.
-- [ ] N3 per-slice alpha0-p95 matching.
-- [ ] N4 per-slice observed-measurement RMS matching.
-- [ ] Scale factors are finite and positive.
-- [ ] Scale factors recorded for every slice/method.
-- [ ] Output is de-normalized back to original amplitude units.
+- [x] N0 raw/unscaled RMIST.
+- [x] N1 global alpha0-RMS matching.
+- [x] N2 per-slice alpha0-RMS matching.
+- [x] N3 per-slice alpha0-p95 matching.
+- [x] N4 per-slice observed-measurement RMS matching.
+- [x] Scale factors are finite and positive.
+- [x] Scale factors recorded for every slice/method.
+- [x] Output is de-normalized back to original amplitude units.
 
 ## Phase dynamics
 
 For every method / slice:
 
-- [ ] `E_grad` reported.
-- [ ] `E_shrink` reported.
-- [ ] `E_update` reported.
-- [ ] final `E_RMA` reported.
-- [ ] N0 reproduces M8 inactivity.
-- [ ] Normalized variants checked for restored dynamics.
-- [ ] No NaN/Inf.
+- [x] `E_grad` reported.
+- [x] `E_shrink` reported.
+- [x] `E_update` reported.
+- [x] final `E_RMA` reported.
+- [x] N0 reproduces M8 inactivity.
+- [x] Normalized variants checked for restored dynamics.
+- [x] No NaN/Inf.
 
 ## Real-data diagnostics
 
-- [ ] Observed-sample consistency reported.
-- [ ] No GT-dependent NRMSE/PSNR/TBR claimed.
-- [ ] M2 is labeled a reference proxy, not GT.
-- [ ] Magnitude cosine similarity to M2 reported.
-- [ ] Normalized magnitude distance to M2 reported.
-- [ ] Per-slice and full-volume proxy results reported.
-- [ ] MIP proxy result reported.
+- [x] Observed-sample consistency reported.
+- [x] No GT-dependent NRMSE/PSNR/TBR claimed.
+- [x] M2 is labeled a reference proxy, not GT.
+- [x] Magnitude cosine similarity to M2 reported.
+- [x] Normalized magnitude distance to M2 reported.
+- [x] Per-slice and full-volume proxy results reported.
+- [x] MIP proxy result reported.
 
 ## Range-profile preservation
 
-- [ ] Per-slice energy profile computed for all methods.
-- [ ] Profile cosine similarity to M2 reported.
-- [ ] Dominant range bin reported.
-- [ ] Per-slice normalization checked for artificial range equalization.
+- [x] Per-slice energy profile computed for all methods.
+- [x] Profile cosine similarity to M2 reported.
+- [x] Dominant range bin reported.
+- [x] Per-slice normalization checked for artificial range equalization.
 
 ## Visual evidence
 
-- [ ] Common ROI.
-- [ ] Common dB normalization.
-- [ ] MIP comparison.
-- [ ] Bins 16/17/18 comparison.
-- [ ] Range-profile figure.
-- [ ] Hammer head assessed.
-- [ ] Handle continuity assessed.
-- [ ] Clutter/target loss assessed.
-- [ ] No superiority claim based only on stronger network activity.
+- [x] Common ROI.
+- [x] Common dB normalization.
+- [x] MIP comparison.
+- [x] Bins 16/17/18 comparison.
+- [x] Range-profile figure.
+- [x] Hammer head assessed.
+- [x] Handle continuity assessed.
+- [x] Clutter/target loss assessed.
+- [x] No superiority claim based only on stronger network activity.
 
 ## Regression / implementation
 
-- [ ] `c=1` wrapper reproduces ordinary RMIST.
-- [ ] Synthetic reference scale matches M8.
-- [ ] N0 reproduces accepted M7 result.
-- [ ] No optimizer/backward/train calls.
-- [ ] M3-M8 regression tests pass.
-- [ ] Working tree clean after commit.
+- [x] `c=1` wrapper reproduces ordinary RMIST.
+- [x] Synthetic reference scale matches M8.
+- [x] N0 reproduces accepted M7 result.
+- [x] No optimizer/backward/train calls.
+- [x] M3-M8 regression tests pass (40/40 full-suite tests).
+- [x] Working tree clean after commit.
 
 ## Outcome
 
@@ -88,7 +88,7 @@ Select exactly one:
 ```text
 [ ] NORMALIZATION_FEASIBLE_WITH_PROXY_BENEFIT
 [ ] DYNAMICS_RESTORED_BUT_IMAGE_BENEFIT_UNPROVEN
-[ ] NORMALIZATION_DEGRADES_REAL_RECONSTRUCTION
+[x] NORMALIZATION_DEGRADES_REAL_RECONSTRUCTION
 [ ] GLOBAL_AND_PER_SLICE_TRADEOFF_UNRESOLVED
 [ ] INCONCLUSIVE
 ```
@@ -96,7 +96,7 @@ Select exactly one:
 ## Verdict
 
 ```text
-[ ] PASS
+[x] PASS
 [ ] PASS WITH NON-BLOCKING ISSUES
 [ ] NEEDS FIX
 [ ] FAIL

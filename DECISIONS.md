@@ -447,3 +447,17 @@ commit the procedural dataset or local checkpoints.
 - M2 full-data RMA is a reference proxy, not ground truth or a tuning target.
 - No training, fine-tuning, adaptive learned scale estimator, arbitrary scale
   search, or learned-parameter modification is authorized.
+
+## D038 — M9 fixed evaluation criteria and result
+
+**Status:** FIXED — AWAITING INDEPENDENT REVIEW
+
+- Compute scale as `s_ref / (s_real + float64 epsilon)` without clipping.
+- Before viewing final comparisons, define material range degradation as a
+  cosine drop over `0.02` and catastrophic observed inconsistency as over
+  `2x` the N0 mean; require improvement across per-slice mean, full volume,
+  and x-z MIP M2-reference proxies for the combined benefit gate.
+- All N1--N4 variants restore dynamics, but none passes the combined proxy
+  gate. Record `NORMALIZATION_DEGRADES_REAL_RECONSTRUCTION`.
+- N1 is least degraded but is not validated for production use. No adaptive
+  scaling, training, or parameter changes are authorized.

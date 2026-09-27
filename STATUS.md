@@ -12,7 +12,7 @@ M5-R PASS — independently reviewed
 M6-R PASS — independently reviewed with non-blocking observations
 M7-R INDEPENDENTLY REVIEWED — TECHNICAL PASS WITH IMPORTANT SCIENTIFIC LIMITATION
 M8 INDEPENDENTLY REVIEWED PASS — SCALE_MISMATCH_SUPPORTED
-M9 SCALE-NORMALIZED INFERENCE FEASIBILITY — UNLOCKED
+M9 PASS — AWAITING INDEPENDENT REVIEW; NORMALIZATION DEGRADES REAL RECONSTRUCTION
 
 Previous generic M3/M4:
 Historical only
@@ -23,7 +23,7 @@ Active work branch:
 `milestone/rmist-m9`
 
 Current task:
-Evaluate the four fixed M9 normalization variants without training or parameter changes.
+M9 complete. Stop for independent review; no adaptive normalization or retraining authorized.
 
 M7-R is independently accepted as a technical PASS. Hammer remains recognizable
 and range/orientation are preserved. RMIST50 is numerically almost identical to
@@ -36,6 +36,15 @@ not establish improved Hammer image quality. M9 fixed-variant inference
 evaluation is authorized. Training, fine-tuning, adaptive learned scaling,
 and learned-parameter changes remain prohibited.
 ```
+
+M9 PASS (2026-09-27). The deterministic 32-sample references exactly
+reproduced M8 alpha0 RMS. N0 exactly reproduced the retained accepted M7
+volume. N1--N4 restored strong phase dynamics, but all four worsened the
+required combined M2-reference proxies, materially degraded range-profile
+similarity, and increased observed-sample inconsistency. The scientific
+classification is `NORMALIZATION_DEGRADES_REAL_RECONSTRUCTION`. Learned
+parameters remained unchanged and no training occurred. Stop for independent
+review.
 
 M3-R PASS (2026-09-27). Strict RMIST kernels reproduce M2 with complex
 relative difference `2.2378e-7`; reciprocal and full-domain round-trip tests

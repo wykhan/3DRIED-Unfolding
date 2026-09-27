@@ -1,0 +1,438 @@
+{
+  "all_scales_finite_positive": true,
+  "classification_reason": "Dynamics are restored, but all normalized variants fail the predeclared proxy-benefit gates and degrade real-data proxy evidence.",
+  "command": "/home/superws/anaconda3/bin/python3 scripts/run_rmist_scale_normalized.py --config configs/rmist_scale_normalized.yaml",
+  "environment": [
+    "Python: 3.11.4",
+    "Platform: Linux-6.8.0-138-generic-x86_64-with-glibc2.35",
+    "NumPy: 1.23.5",
+    "PyTorch: 2.2.2+cu121",
+    "CUDA runtime: 12.1",
+    "CUDA available: True",
+    "GPUs: ['NVIDIA GeForce RTX 4090', 'NVIDIA GeForce RTX 4090']"
+  ],
+  "hammer": {
+    "matlab_range_bins": [
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24
+    ],
+    "range_m": [
+      0.4060693594570925,
+      0.44771756662198686,
+      0.4893657737868813,
+      0.5310139809517757,
+      0.5726621881166699,
+      0.6143103952815643,
+      0.6559586024464586,
+      0.6976068096113531,
+      0.7392550167762475,
+      0.7809032239411418,
+      0.8225514311060361,
+      0.8641996382709305,
+      0.905847845435825
+    ],
+    "rx_index_matlab": 1,
+    "rx_index_python": 0
+  },
+  "inference_only": true,
+  "learned_parameters_unchanged": true,
+  "m2_reference_is_ground_truth": false,
+  "m2_reference_proxy_summary": {
+    "N0": {
+      "full_volume": {
+        "magnitude_cosine": 0.8735194225570327,
+        "normalized_magnitude_distance": 0.5029524379958099
+      },
+      "per_slice_mean": {
+        "magnitude_cosine": 0.8912518316192136,
+        "normalized_magnitude_distance": 0.4655984982440809
+      },
+      "xz_mip": {
+        "magnitude_cosine": 0.934894882796443,
+        "normalized_magnitude_distance": 0.36084655243900415
+      }
+    },
+    "N1": {
+      "full_volume": {
+        "magnitude_cosine": 0.8542955882551893,
+        "normalized_magnitude_distance": 0.5398229556897495
+      },
+      "per_slice_mean": {
+        "magnitude_cosine": 0.6881227590382919,
+        "normalized_magnitude_distance": 0.7537424359476105
+      },
+      "xz_mip": {
+        "magnitude_cosine": 0.9495694508499913,
+        "normalized_magnitude_distance": 0.31758636352969877
+      }
+    },
+    "N2": {
+      "full_volume": {
+        "magnitude_cosine": 0.8364907087835886,
+        "normalized_magnitude_distance": 0.5718553859437013
+      },
+      "per_slice_mean": {
+        "magnitude_cosine": 0.6777816299880066,
+        "normalized_magnitude_distance": 0.7830466430792491
+      },
+      "xz_mip": {
+        "magnitude_cosine": 0.9283501925038684,
+        "normalized_magnitude_distance": 0.3785493560848614
+      }
+    },
+    "N3": {
+      "full_volume": {
+        "magnitude_cosine": 0.8125526883217608,
+        "normalized_magnitude_distance": 0.6122863899814167
+      },
+      "per_slice_mean": {
+        "magnitude_cosine": 0.5887920113350458,
+        "normalized_magnitude_distance": 0.8828100870102713
+      },
+      "xz_mip": {
+        "magnitude_cosine": 0.905220922616596,
+        "normalized_magnitude_distance": 0.4353827681096343
+      }
+    },
+    "N4": {
+      "full_volume": {
+        "magnitude_cosine": 0.7819590707944206,
+        "normalized_magnitude_distance": 0.6603649433541702
+      },
+      "per_slice_mean": {
+        "magnitude_cosine": 0.5356860974258368,
+        "normalized_magnitude_distance": 0.9382397024402559
+      },
+      "xz_mip": {
+        "magnitude_cosine": 0.8793897422563578,
+        "normalized_magnitude_distance": 0.49114205224892343
+      }
+    },
+    "rma50": {
+      "full_volume": {
+        "magnitude_cosine": 0.8735194310922803,
+        "normalized_magnitude_distance": 0.5029524210255213
+      },
+      "per_slice_mean": {
+        "magnitude_cosine": 0.8912518424513447,
+        "normalized_magnitude_distance": 0.4655984746689982
+      },
+      "xz_mip": {
+        "magnitude_cosine": 0.9348948887655197,
+        "normalized_magnitude_distance": 0.36084653589713356
+      }
+    }
+  },
+  "mask": {
+    "definition": "Mask_eff = Mask_M6 * centered physical-support mask",
+    "effective_observed_samples": 40682,
+    "effective_physical_sampling_rate": 0.49977886977886976,
+    "full_grid_realized_sampling_rate": 0.4999198913574219,
+    "full_grid_sha256_uint8": "43f423a8eef01c1efa632b9945cf0f4146dc065d94cee001a3cca6f1b7374de2",
+    "full_grid_shape": [
+      512,
+      512
+    ],
+    "physical_shape_zx": [
+      200,
+      407
+    ],
+    "physical_support_samples": 81400,
+    "seed": 20260928,
+    "target_sampling_rate": 0.5
+  },
+  "model_provenance": {
+    "best_epoch": 99,
+    "checkpoint_exists": true,
+    "checkpoint_sha256": "4b1925f2a6d361a848a81b7e70a2dedc2dc3e520726a29b2ac92a6de999c26ce",
+    "model_source": "results/m6_rmist_training/checkpoints/best_validation.pt",
+    "parameter_match": true,
+    "source_kind": "local accepted best-validation checkpoint"
+  },
+  "n0_regression": {
+    "accepted_m7_allclose_pass": true,
+    "accepted_m7_local_volume_exists": true,
+    "max_relative_difference_from_ordinary": 0.0,
+    "ordinary_rmist_regression_pass": true,
+    "relative_difference_from_accepted_m7": 0.0
+  },
+  "observed_consistency": {
+    "N0": {
+      "all_finite": true,
+      "max": 0.1353328973054886,
+      "mean": 0.08498895254272681,
+      "median": 0.0718616247177124
+    },
+    "N1": {
+      "all_finite": true,
+      "max": 0.9854223132133484,
+      "mean": 0.7347883433103561,
+      "median": 0.8301153182983398
+    },
+    "N2": {
+      "all_finite": true,
+      "max": 0.9271275401115417,
+      "mean": 0.8460142199809735,
+      "median": 0.8312251567840576
+    },
+    "N3": {
+      "all_finite": true,
+      "max": 0.9670582413673401,
+      "mean": 0.8993381124276382,
+      "median": 0.9168558120727539
+    },
+    "N4": {
+      "all_finite": true,
+      "max": 0.9863173365592957,
+      "mean": 0.919064815227802,
+      "median": 0.921110987663269
+    },
+    "rma50": {
+      "all_finite": true,
+      "max": 0.13533301651477814,
+      "mean": 0.08498903220662704,
+      "median": 0.07186169177293777
+    }
+  },
+  "outcome_classification": "NORMALIZATION_DEGRADES_REAL_RECONSTRUCTION",
+  "phase_activity": {
+    "N0": {
+      "all_finite": true,
+      "dynamics_restored": false,
+      "final_E_RMA": {
+        "max": 1.1567400406420347e-06,
+        "median": 1.1320223620714387e-06
+      },
+      "max_E_grad": {
+        "max": 6.959952543184045e-07,
+        "median": 6.813195341237588e-07
+      },
+      "max_E_shrink": {
+        "max": 2.3796198345138464e-09,
+        "median": 1.075618483170615e-09
+      },
+      "max_E_update": {
+        "max": 6.963899750189739e-07,
+        "median": 6.817422786298266e-07
+      }
+    },
+    "N1": {
+      "all_finite": true,
+      "dynamics_restored": true,
+      "final_E_RMA": {
+        "max": 0.9828817844390869,
+        "median": 0.8243021965026855
+      },
+      "max_E_grad": {
+        "max": 17.124174118041992,
+        "median": 2.981969118118286
+      },
+      "max_E_shrink": {
+        "max": 0.9912398457527161,
+        "median": 0.8682189583778381
+      },
+      "max_E_update": {
+        "max": 0.9912398457527161,
+        "median": 0.8682189583778381
+      }
+    },
+    "N2": {
+      "all_finite": true,
+      "dynamics_restored": true,
+      "final_E_RMA": {
+        "max": 0.9291058778762817,
+        "median": 0.8260822892189026
+      },
+      "max_E_grad": {
+        "max": 8.013666152954102,
+        "median": 2.981969118118286
+      },
+      "max_E_shrink": {
+        "max": 0.9611375331878662,
+        "median": 0.8682189583778381
+      },
+      "max_E_update": {
+        "max": 0.9611375331878662,
+        "median": 0.8682189583778381
+      }
+    },
+    "N3": {
+      "all_finite": true,
+      "dynamics_restored": true,
+      "final_E_RMA": {
+        "max": 0.9673092365264893,
+        "median": 0.9117406010627747
+      },
+      "max_E_grad": {
+        "max": 14.36595630645752,
+        "median": 5.055294513702393
+      },
+      "max_E_shrink": {
+        "max": 0.9849447011947632,
+        "median": 0.9396102428436279
+      },
+      "max_E_update": {
+        "max": 0.9849447011947632,
+        "median": 0.9396101236343384
+      }
+    },
+    "N4": {
+      "all_finite": true,
+      "dynamics_restored": true,
+      "final_E_RMA": {
+        "max": 0.9851718544960022,
+        "median": 0.9160742163658142
+      },
+      "max_E_grad": {
+        "max": 25.02446746826172,
+        "median": 5.393239498138428
+      },
+      "max_E_shrink": {
+        "max": 0.994191586971283,
+        "median": 0.9429548382759094
+      },
+      "max_E_update": {
+        "max": 1.0993478298187256,
+        "median": 0.9429548382759094
+      }
+    }
+  },
+  "predeclared_materiality": {
+    "comparison_tolerance": 1e-06,
+    "maximum_observed_consistency_ratio": 2.0,
+    "maximum_range_profile_cosine_drop": 0.02
+  },
+  "proxy_benefit_criteria": {
+    "N1": {
+      "all_three_m2_proxy_cosines_improve": false,
+      "all_three_m2_proxy_distances_not_worse": false,
+      "dominant_range_is_bin17": true,
+      "dynamics_restored": true,
+      "observed_consistency_not_catastrophic": false,
+      "proxy_benefit_without_visual_gate": false,
+      "range_profile_not_materially_degraded": false,
+      "visual_target_destruction_check": "No complete target destruction: the hammer head and handle remain recognizable, but normalized variants suppress substantial slice content and do not establish an image-quality benefit."
+    },
+    "N2": {
+      "all_three_m2_proxy_cosines_improve": false,
+      "all_three_m2_proxy_distances_not_worse": false,
+      "dominant_range_is_bin17": true,
+      "dynamics_restored": true,
+      "observed_consistency_not_catastrophic": false,
+      "proxy_benefit_without_visual_gate": false,
+      "range_profile_not_materially_degraded": false,
+      "visual_target_destruction_check": "No complete target destruction: the hammer head and handle remain recognizable, but normalized variants suppress substantial slice content and do not establish an image-quality benefit."
+    },
+    "N3": {
+      "all_three_m2_proxy_cosines_improve": false,
+      "all_three_m2_proxy_distances_not_worse": false,
+      "dominant_range_is_bin17": true,
+      "dynamics_restored": true,
+      "observed_consistency_not_catastrophic": false,
+      "proxy_benefit_without_visual_gate": false,
+      "range_profile_not_materially_degraded": false,
+      "visual_target_destruction_check": "No complete target destruction: the hammer head and handle remain recognizable, but normalized variants suppress substantial slice content and do not establish an image-quality benefit."
+    },
+    "N4": {
+      "all_three_m2_proxy_cosines_improve": false,
+      "all_three_m2_proxy_distances_not_worse": false,
+      "dominant_range_is_bin17": true,
+      "dynamics_restored": true,
+      "observed_consistency_not_catastrophic": false,
+      "proxy_benefit_without_visual_gate": false,
+      "range_profile_not_materially_degraded": false,
+      "visual_target_destruction_check": "No complete target destruction: the hammer head and handle remain recognizable, but normalized variants suppress substantial slice content and do not establish an image-quality benefit."
+    }
+  },
+  "range_profile_summary": {
+    "N0": {
+      "cosine_to_m2": 0.9999116063117981,
+      "dominant_matlab_bin": 17
+    },
+    "N1": {
+      "cosine_to_m2": 0.9658476114273071,
+      "dominant_matlab_bin": 17
+    },
+    "N2": {
+      "cosine_to_m2": 0.9504103064537048,
+      "dominant_matlab_bin": 17
+    },
+    "N3": {
+      "cosine_to_m2": 0.924649178981781,
+      "dominant_matlab_bin": 17
+    },
+    "N4": {
+      "cosine_to_m2": 0.9159188866615295,
+      "dominant_matlab_bin": 17
+    },
+    "m2_full_rma": {
+      "cosine_to_m2": 1.0,
+      "dominant_matlab_bin": 17
+    },
+    "rma50": {
+      "cosine_to_m2": 0.9999116659164429,
+      "dominant_matlab_bin": 17
+    }
+  },
+  "runtime_seconds": 24.88434753427282,
+  "scale_factors": {
+    "N0": {
+      "max": 1.0,
+      "median": 1.0,
+      "min": 1.0
+    },
+    "N1": {
+      "max": 2.8565447401313424e-09,
+      "median": 2.8565447401313424e-09,
+      "min": 2.8565447401313424e-09
+    },
+    "N2": {
+      "max": 4.408131501160491e-09,
+      "median": 2.8565447401313424e-09,
+      "min": 4.328300204319825e-10
+    },
+    "N3": {
+      "max": 3.609564466966089e-09,
+      "median": 2.0916260549676254e-09,
+      "min": 4.220691216933137e-10
+    },
+    "N4": {
+      "max": 2.9090641947239037e-09,
+      "median": 2.0507803297572596e-09,
+      "min": 3.1774657332127433e-10
+    }
+  },
+  "status": "COMPLETE_PENDING_INDEPENDENT_REVIEW",
+  "synthetic_references": {
+    "absolute_difference_from_m8": 0.0,
+    "accepted_m8_alpha0_rms": 0.01376872018135817,
+    "alpha0_p95_median": 0.02026866101659833,
+    "alpha0_rms_median": 0.01376872018135817,
+    "m8_regression_pass": true,
+    "m8_regression_tolerance": 1e-10,
+    "observed_measurement_rms_median": 8.869680634409644e-06,
+    "sample_count": 32
+  },
+  "training_or_parameter_updates_performed": false,
+  "visualization": {
+    "common_peak": 1168139648.0,
+    "dynamic_range_db": 40.0,
+    "policy": "same ROI, orientation, bins, and one common peak across all seven methods",
+    "representative_bins": [
+      16,
+      17,
+      18
+    ]
+  }
+}
