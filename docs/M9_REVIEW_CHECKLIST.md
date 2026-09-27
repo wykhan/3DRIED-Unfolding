@@ -102,4 +102,6 @@ Select exactly one:
 [ ] FAIL
 ```
 
-After M9, STOP for independent review.
+External review: **PASS — independently reviewed**. Scientific outcome remains `NORMALIZATION_DEGRADES_REAL_RECONSTRUCTION` under the tested proxy framework. M2 is not ground truth. No production normalization is accepted.
+
+After M9, the milestone is closed.
