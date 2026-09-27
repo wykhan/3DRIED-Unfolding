@@ -107,106 +107,28 @@ Do not hard-code unverified dimensions or distances.
 
 ---
 
-## 6. Planned forward operator
+## RMIST reproduction basis
 
-After M2 is reviewed, the intended forward operator for each range slice is:
+All learning-related work from M3-R onward follows `docs/RMIST_REPRO_SPEC.md`.
 
-\[
-A_r(x)
-=
-M \odot
-\mathcal F^{-1}_{2D}
-\left[
-\mathcal F_{2D}(x)
-\odot
-e^{-j k_y y_r}
-\right]
-\]
+The strict baseline is RMIST, not the previous generic ISTA-unfolding design:
 
-where:
+- RM forward kernel with `1/ky`;
+- RM_dagger inverse kernel with `ky`;
+- Eq. (19) RM-kernel ISTA;
+- Eq. (20) phase-wise `tau_t`, `theta_t`;
+- 9 phases;
+- synthetic RM-generated training echoes;
+- 1000 training pairs;
+- default 20 dB AWGN;
+- Adam, lr=1e-4;
+- tau init=1e-4;
+- theta init=1e-3;
+- 100 epochs;
+- RMIST reconstruction loss.
 
-- \(x\) is the complex scattering image of one range slice;
-- \(M\) is the physical aperture-support mask;
-- \(k_y\) is determined by system geometry;
-- \(y_r\) is the range coordinate of the slice.
+For 3DRIED, the propagation sign is mapped so `RM_dagger` reproduces the validated M2 RMA. This is a system-coordinate adaptation, not an algorithm change.
 
-The corresponding adjoint is intended to be:
-
-\[
-A_r^H(y)
-=
-\mathcal F^{-1}_{2D}
-\left[
-\mathcal F_{2D}(M\odot y)
-\odot
-e^{+j k_y y_r}
-\right].
-\]
-
-This operator is planned but is NOT authorized for implementation until M2 review is completed.
-
----
-
-## 7. Planned mathematical validation
-
-Before any learning model is trained, the operator must pass the adjoint test:
-
-\[
-e_{\rm adj}
-=
-\frac{
-|\langle Ax,y\rangle-\langle x,A^Hy\rangle|
-}{
-\max(|\langle Ax,y\rangle|,10^{-12})
-}.
-\]
-
-Required:
-
-\[
-e_{\rm adj}<10^{-5}.
-\]
-
-A second validation will require the adjoint reconstruction to be consistent with the established conventional RMA baseline.
-
----
-
-## 8. Planned Kernel-ISTA baseline
-
-After operator validation, solve:
-
-\[
-\hat x
-=
-\arg\min_x
-\frac12\|y-Ax\|_2^2
-+
-\lambda\|x\|_1.
-\]
-
-Iteration:
-
-\[
-x_{t+1}
-=
-\mathcal S_{\theta}
-\left[
-x_t+\tau A^H(y-Ax_t)
-\right]
-\]
-
-with complex soft threshold:
-
-\[
-\mathcal S_{\theta}(z)
-=
-\frac{z}{|z|+\epsilon}
-\max(|z|-\theta,0).
-\]
-
-Kernel-ISTA must first be validated on synthetic sparse targets.
-
----
 
 ## 9. Planned ISTA-Unfolding baseline
 

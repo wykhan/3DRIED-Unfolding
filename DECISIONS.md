@@ -192,3 +192,57 @@ opposite the supplied 2-D JPEG under the bundled RMA coordinate labels. Do
 not silently flip x: the MATLAB scan ordering and offsets are reproduced as
 written, and the absolute aperture direction is not independently calibrated.
 Human review is required before M3 fixes an operator coordinate convention.
+
+
+
+## D017 — RMIST paper becomes algorithmic source of truth
+
+**Status:** FIXED
+
+From M3-R onward, the baseline is a method-level reproduction of RMIST-Net.
+Do not substitute generic ISTA unfolding.
+
+## D018 — RMIST RM / RM_dagger semantics
+
+**Status:** FIXED
+
+Preserve RMIST reciprocal amplitude kernels:
+
+- forward `RM`: `1/ky`;
+- inverse `RM_dagger`: `ky`.
+
+`RM_dagger` is the inverse RM kernel used by RMIST and must not be replaced by a Hilbert adjoint.
+
+## D019 — 3DRIED sign adaptation
+
+**Status:** FIXED — SYSTEM ADAPTATION
+
+M2 validates inverse phase `ky * exp(-j*r*ky)`.
+Therefore the mapped RMIST pair is:
+
+- `Phi_dagger = ky * exp(-j*r*ky)`
+- `Phi = (1/ky) * exp(+j*r*ky)`
+
+## D020 — RMIST training hyperparameters
+
+**Status:** FIXED
+
+Strict baseline:
+
+- 9 phases;
+- Adam;
+- lr = 1e-4;
+- tau_t init = 1e-4;
+- theta_t init = 1e-3;
+- 100 epochs;
+- 1000 synthetic training pairs;
+- default 20 dB complex AWGN.
+
+Batch size is paper-unspecified and must be labeled as an implementation choice.
+
+## D021 — Previous generic M3/M4 branch
+
+**Status:** HISTORICAL / NOT ACCEPTED
+
+`milestone/m3-m4` remains as experimental history but is not the accepted learning-physics baseline and must not be merged into `main`.
+

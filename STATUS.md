@@ -2,14 +2,26 @@
 
 ## Current overall status
 
+```markdown
 M0 PASS — human reviewed
 M1 PASS — human reviewed
 M2 PASS — human reviewed
 
-Current authorized execution:
-M3 → M4 → EXTERNAL REVIEW
+Previous generic M3/M4:
+NOT ACCEPTED AS LEARNING PHYSICS BASIS
+Preserved on `milestone/m3-m4`
+Not merged to `main`
 
-M5 and later milestones are locked.
+Current branch:
+`milestone/rmist-m3-m4`
+
+Current authorized execution:
+M3-R → M4-R → EXTERNAL REVIEW
+
+M5-R and later milestones are locked.
+```
+
+Keep historical M0-M2 entries below.
 
 
 ## history below

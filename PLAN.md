@@ -5,13 +5,23 @@
 Current execution authorization:
 
 ```text
-UNLOCKED: M0, M1, M2
-UNLOCKED: M3, M4
-LOCKED:   M5, M6, M7
+COMPLETED + HUMAN APPROVED: M0, M1, M2
+HISTORICAL / NOT MERGED: previous generic M3-M4 branch
+UNLOCKED: M3-R, M4-R
+LOCKED: M5-R, M6-R, M7-R
 ```
 
-Codex must stop after M2 and request human review.
+Define milestones:
 
+```markdown
+M3-R — Strict RM / RM_dagger implementation
+M4-R — RM-kernel ISTA Eq. (16)-(19)
+EXTERNAL REVIEW
+M5-R — RMIST-Net Eq. (20)-(26)
+M6-R — synthetic training Eq. (27)-(31)
+EXTERNAL REVIEW
+M7-R — real Hammer slice-wise inference
+```
 ---
 
 # M0 — Repository Initialization

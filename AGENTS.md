@@ -16,15 +16,26 @@ Codex must not silently change the scientific problem, physical model, data inte
 
 ## 2. Current authorization scope
 
-The currently authorized autonomous scope is:
+M0-M2 are complete and human-reviewed.
 
-- M0: repository initialization
-- M1: Hammer dataset audit
-- M2: conventional RMA baseline reconstruction
+The previous generic `milestone/m3-m4` implementation was independently reviewed and is not the accepted physics basis for learning.
 
-After M2 passes, STOP and request human review.
+The currently authorized scope is:
 
-Do not begin M3 or later milestones until PLAN.md explicitly marks them as unlocked.
+- M3-R: strict RMIST RM / RM_dagger kernel reproduction
+- M4-R: strict RM-kernel ISTA reproduction
+
+Algorithmic source of truth:
+
+1. RMIST-Net paper;
+2. `docs/RMIST_REPRO_SPEC.md`;
+3. human-approved 3DRIED M0-M2 geometry and preprocessing.
+
+After M4-R, STOP and request independent review.
+
+M5-R and later work are locked.
+
+Codex must not replace RMIST's `RM` / `RM_dagger` inverse-kernel structure with a Hilbert-adjoint pair, FISTA, LISTA, Gamma-Net, Toe-LISTA, CNN proximal blocks, or another architecture.
 
 ---
 
@@ -199,6 +210,11 @@ Stop before doing any of the following:
 10. starting M3 or later before M2 review;
 11. running an experiment estimated to require more than 6 GPU-hours;
 12. using an undocumented assumption to resolve an ambiguous radar parameter.
+- changing the RMIST `1/ky` forward and `ky` inverse-kernel structure;
+- changing the RMIST 9-phase network structure;
+- changing RMIST-reported training hyperparameters;
+- substituting a mathematically different operator because it has better adjoint properties;
+- treating an unspecified paper parameter as if it were reported.
 
 ---
 

@@ -273,3 +273,15 @@ removed wraparound replicas while retaining the full saved complex volume.
 ### Next action
 
 STOP for human review. M3 remains locked.
+
+# RMIST reproduction series
+
+The experiments below belong to the strict RMIST reproduction baseline.
+Earlier generic M3/M4 experiments remain historical and are not acceptance evidence for M3-R/M4-R.
+```
+
+Use IDs such as:
+
+```text
+EXP-RMIST-M3-001
+EXP-RMIST-M4-001
