@@ -153,3 +153,18 @@ M7-R real inference remain closed.
 M6-R external review: **PASS WITH NON-BLOCKING ISSUES — independently
 reviewed**. Blocking scientific issues: **NONE**. M7-R is explicitly unlocked
 for inference/evaluation only.
+
+# M7-R independent review
+
+- [x] Eq. (32) real Hammer pipeline is technically accepted.
+- [x] Hammer remains recognizable under the accepted 50% sparse condition.
+- [x] Accepted range and orientation are preserved.
+- [x] RMIST50/RMA50 complex relative difference is about `1.1364e-6`.
+- [x] Observed-sample consistency is essentially identical across RMA50,
+  Ini-ISTA50, and RMIST50.
+- [x] Learned improvement on real Hammer is **NOT DEMONSTRATED**.
+- [x] No blocking implementation issue remains.
+- [x] M8 sim-to-real diagnostics remain locked.
+
+M7-R external review: **TECHNICAL PASS WITH IMPORTANT SCIENTIFIC LIMITATION —
+independently reviewed**. This is not a learned-superiority finding.

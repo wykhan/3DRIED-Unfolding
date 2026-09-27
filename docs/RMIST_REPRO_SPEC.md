@@ -325,7 +325,7 @@ Monte Carlo trials: 50
 
 Keep this separate from smaller smoke tests.
 
-# 12. M7-R — Hammer inference (TECHNICAL PASS / REAL-DATA SUCCESS — REVIEW PENDING)
+# 12. M7-R — Hammer inference (INDEPENDENTLY REVIEWED TECHNICAL PASS)
 
 ```text
 Hammer raw
@@ -339,6 +339,11 @@ Hammer raw
 ```
 
 Each slice uses its range-dependent RM/RM_dagger kernels. Hammer RMA must never become supervised GT.
+
+Independent review finding: the Hammer remains recognizable and the accepted
+range/orientation are preserved under the 50% sparse condition. RMIST50 is
+numerically almost identical to RMA50/Ini-ISTA50, so learned improvement on
+real Hammer is **not demonstrated**. M8 sim-to-real diagnostics remain locked.
 
 # 13. Deviation ledger
 

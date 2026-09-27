@@ -2,6 +2,10 @@
 
 # M7-R Real Hammer Inference Review
 
+Independent review verdict: **TECHNICAL PASS WITH IMPORTANT SCIENTIFIC
+LIMITATION**. The Hammer remains recognizable with preserved range/orientation,
+but learned improvement over RMA50/Ini-ISTA50 is **NOT DEMONSTRATED**.
+
 ## Governance
 
 - [x] Branch is `milestone/rmist-m7`.
@@ -87,4 +91,6 @@ Real-data outcome:
 
 ## Next-step gate
 
-After M7, STOP. Any domain adaptation/retraining/calibration work requires a new milestone and human authorization.
+M7-R is independently accepted. M8 sim-to-real diagnostics remain locked.
+Any diagnostics, domain adaptation, retraining, or calibration work requires a
+new milestone and explicit human authorization.

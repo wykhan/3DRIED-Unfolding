@@ -10,7 +10,8 @@ M3-R PASS — independently reviewed
 M4-R PASS — independently reviewed
 M5-R PASS — independently reviewed
 M6-R PASS — independently reviewed with non-blocking observations
-M7-R TECHNICAL PASS / REAL-DATA SUCCESS — awaiting independent review
+M7-R INDEPENDENTLY REVIEWED — TECHNICAL PASS WITH IMPORTANT SCIENTIFIC LIMITATION
+M8 SIM-TO-REAL DIAGNOSTIC — LOCKED
 
 Previous generic M3/M4:
 Historical only
@@ -21,10 +22,13 @@ Active work branch:
 `milestone/rmist-m7`
 
 Current task:
-STOP after completed strict Eq. (32) Hammer inference; obtain independent review.
+M7-R is accepted. Stop; M8 sim-to-real diagnostics remain locked.
 
-M7-R completed inference/evaluation only. Training, fine-tuning, adaptation,
-calibration learning, and learned-parameter changes remain prohibited.
+M7-R is independently accepted as a technical PASS. Hammer remains recognizable
+and range/orientation are preserved. RMIST50 is numerically almost identical to
+RMA50/Ini-ISTA50, so learned improvement on real Hammer is NOT DEMONSTRATED.
+M8 diagnostics, training, fine-tuning, adaptation, calibration learning, and
+learned-parameter changes remain prohibited.
 ```
 
 M3-R PASS (2026-09-27). Strict RMIST kernels reproduce M2 with complex
@@ -66,6 +70,13 @@ parameters, and independent range-dependent kernels. The Hammer remains
 recognizable at the accepted range/orientation, but trained RMIST is nearly
 identical to the sparse baselines and demonstrates no material learned
 improvement. All 31 tests pass. Stop for independent review.
+
+Independent review accepted M7-R as a technical PASS with an important
+scientific limitation. The Hammer is recognizable with preserved
+range/orientation, but RMIST50 differs from RMA50 by only about `1.1364e-6`
+in complex relative norm and observed-sample consistency is essentially
+identical across sparse methods. Learned real-data improvement is not
+demonstrated. M8 sim-to-real diagnostics remain locked.
 
 The remainder of this file is an immutable chronological history. Statements
 about then-current locks or objectives below are historical, not active

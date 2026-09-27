@@ -380,3 +380,18 @@ commit the procedural dataset or local checkpoints.
   recognizable with no catastrophic sim-to-real failure.
 - Do not claim a learned improvement: RMIST50 is nearly identical to RMA50
   and Ini-ISTA50 on the unmodified real-data amplitude scale.
+
+## D033 — M7-R independent review accepted
+
+**Status:** FIXED
+
+- Eq. (32) real Hammer inference pipeline is technically accepted.
+- The Hammer remains recognizable under the accepted 50% sparse condition,
+  with preserved range and orientation.
+- RMIST50 differs from RMA50 by only about `1.1364e-6` in complex relative norm.
+- Observed-sample consistency is essentially identical across RMA50,
+  Ini-ISTA50, and RMIST50.
+- Therefore real-data learned improvement is not demonstrated.
+- The next scientific question is diagnostic: determine why synthetic learned
+  gain collapses to an almost identity/RMA mapping on real data.
+- M8 sim-to-real diagnostics remain locked pending separate human authorization.
