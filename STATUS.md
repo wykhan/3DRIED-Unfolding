@@ -10,7 +10,8 @@ M3-R PASS — independently reviewed
 M4-R PASS — independently reviewed
 M5-R PASS — independently reviewed
 M6-R PASS — independently reviewed with non-blocking observations
-M7-R LOCKED
+M7-R INDEPENDENTLY REVIEWED — TECHNICAL PASS WITH IMPORTANT SCIENTIFIC LIMITATION
+M8 SIM-TO-REAL DIAGNOSTIC — LOCKED
 
 Previous generic M3/M4:
 Historical only
@@ -18,12 +19,16 @@ Preserved on `milestone/m3-m4`
 Not merged to `main`
 
 Active work branch:
-`milestone/rmist-m6`
+`milestone/rmist-m7`
 
 Current task:
-Record accepted M6-R review state and merge M6-R to `main`.
+M7-R is accepted. Stop; M8 sim-to-real diagnostics remain locked.
 
-M7-R remains locked. No real Hammer inference is authorized.
+M7-R is independently accepted as a technical PASS. Hammer remains recognizable
+and range/orientation are preserved. RMIST50 is numerically almost identical to
+RMA50/Ini-ISTA50, so learned improvement on real Hammer is NOT DEMONSTRATED.
+M8 diagnostics, training, fine-tuning, adaptation, calibration learning, and
+learned-parameter changes remain prohibited.
 ```
 
 M3-R PASS (2026-09-27). Strict RMIST kernels reproduce M2 with complex
@@ -57,7 +62,21 @@ Independent review accepted M6-R with no blocking scientific issues. The
 NRMSE improvement (`0.6148313` to `0.5302653`) is a modest baseline result,
 not reproduction of the paper's exact tables. M6 ran under Python 3.11.4,
 PyTorch 2.2.2, and CUDA 12.1; all regressions pass. Best-checkpoint provenance
-is recorded for future inference-only use. M7-R remains locked.
+is recorded for future inference-only use.
+
+M7-R TECHNICAL PASS / REAL-DATA SUCCESS (2026-09-27). Strict Eq. (32)
+inference used Rx1, bins 12--24, the exact accepted M6 mask and epoch-99
+parameters, and independent range-dependent kernels. The Hammer remains
+recognizable at the accepted range/orientation, but trained RMIST is nearly
+identical to the sparse baselines and demonstrates no material learned
+improvement. All 31 tests pass. Stop for independent review.
+
+Independent review accepted M7-R as a technical PASS with an important
+scientific limitation. The Hammer is recognizable with preserved
+range/orientation, but RMIST50 differs from RMA50 by only about `1.1364e-6`
+in complex relative norm and observed-sample consistency is essentially
+identical across sparse methods. Learned real-data improvement is not
+demonstrated. M8 sim-to-real diagnostics remain locked.
 
 The remainder of this file is an immutable chronological history. Statements
 about then-current locks or objectives below are historical, not active

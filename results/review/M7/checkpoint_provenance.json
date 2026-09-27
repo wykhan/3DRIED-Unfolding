@@ -1,0 +1,8 @@
+{
+  "best_epoch": 99,
+  "checkpoint_exists": true,
+  "checkpoint_sha256": "4b1925f2a6d361a848a81b7e70a2dedc2dc3e520726a29b2ac92a6de999c26ce",
+  "model_source": "results/m6_rmist_training/checkpoints/best_validation.pt",
+  "parameter_match": true,
+  "source_kind": "local accepted best-validation checkpoint"
+}

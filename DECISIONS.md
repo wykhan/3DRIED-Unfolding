@@ -357,3 +357,41 @@ commit the procedural dataset or local checkpoints.
   range-dependent RM kernels and must accurately disclose the fixed SR=0.5
   mask training condition.
 - M7-R remains locked pending separate human authorization.
+
+## D031 — M7-R real Hammer inference authorized
+
+**Status:** FIXED
+
+- M6-R is independently reviewed and accepted with no blocking scientific issues.
+- M7-R is unlocked for strict Eq. (32) real Hammer inference/evaluation only.
+- Use the accepted M6 best-validation parameters and exact fixed SR=0.5 mask.
+- Training, fine-tuning, domain adaptation, calibration learning, optimizers,
+  and learned-parameter changes remain prohibited.
+
+## D032 — M7-R physical mask mapping and outcome interpretation
+
+**Status:** FIXED — 3DRIED SYSTEM ADAPTATION
+
+- Intersect the exact accepted 512×512 M6 mask with the centered 200×407
+  physical aperture; the effective real-data SR is `40682/81400 =
+  0.4997788698`.
+- Compare all methods with one common peak and the accepted 500 mm ROI.
+- Classify the real-data outcome as SUCCESS because the Hammer remains
+  recognizable with no catastrophic sim-to-real failure.
+- Do not claim a learned improvement: RMIST50 is nearly identical to RMA50
+  and Ini-ISTA50 on the unmodified real-data amplitude scale.
+
+## D033 — M7-R independent review accepted
+
+**Status:** FIXED
+
+- Eq. (32) real Hammer inference pipeline is technically accepted.
+- The Hammer remains recognizable under the accepted 50% sparse condition,
+  with preserved range and orientation.
+- RMIST50 differs from RMA50 by only about `1.1364e-6` in complex relative norm.
+- Observed-sample consistency is essentially identical across RMA50,
+  Ini-ISTA50, and RMIST50.
+- Therefore real-data learned improvement is not demonstrated.
+- The next scientific question is diagnostic: determine why synthetic learned
+  gain collapses to an almost identity/RMA mapping on real data.
+- M8 sim-to-real diagnostics remain locked pending separate human authorization.

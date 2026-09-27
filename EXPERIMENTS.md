@@ -116,6 +116,88 @@ other metrics:
 
 # Initial planned experiments
 
+## EXP-20260927-007 — Strict M7-R Hammer inference
+
+**Milestone:** M7-R
+
+**Purpose:** Apply accepted M6 RMIST parameters slice-wise to real Hammer data.
+
+**Status:** TECHNICAL PASS / REAL-DATA SUCCESS — AWAITING REVIEW
+
+### Code
+
+```text
+branch: milestone/rmist-m7
+```
+
+### Environment
+
+```text
+GPU: NVIDIA GeForce RTX 4090
+Python: 3.11.4
+PyTorch: 2.2.2+cu121
+CUDA: 12.1
+```
+
+### Data
+
+```text
+dataset: 3DRIED Hammer
+path: /home/superws/dataset/3DRIED/Hammer/Hammer (1)
+Rx: MATLAB Rx1 / Python index 0
+raw selected shape: [200,407,256]
+output shape: [13,512,512]
+```
+
+### Command
+
+```bash
+PYTHONPATH=src python3 scripts/run_rmist_hammer.py --config configs/rmist_hammer_inference.yaml
+```
+
+### Outputs
+
+```text
+results/review/M7/
+results/m7_rmist_hammer/  # large ignored volumes and 3-D figure
+```
+
+### Quantitative results
+
+```text
+runtime: 22.17 s
+NaN/Inf: 0
+effective physical SR: 0.4997788698
+mean E_obs RMA50: 0.0849890322
+mean E_obs Ini-ISTA50: 0.0849890328
+mean E_obs RMIST50: 0.0849889525
+```
+
+### Qualitative result
+
+The head and continuous diagonal handle remain recognizable around bin 17
+(614.310 mm). Orientation matches accepted M2. RMIST50 is visually nearly
+identical to both sparse baselines.
+
+### Interpretation
+
+Eq. (32) is technically reproduced without catastrophic sim-to-real failure,
+but this model does not demonstrate a material learned improvement on Hammer.
+
+### Problems encountered
+
+None. The lack of meaningful separation from sparse baselines is reported as
+a non-blocking scientific limitation, not repaired through unauthorized adaptation.
+
+### Changes made
+
+Added inference-only implementation, configuration, tests, review artifacts,
+and milestone report. No learned values or raw data changed.
+
+### Next action
+
+STOP for independent review.
+
 ## EXP-M0-001 — Environment smoke test
 
 **Milestone:** M0
