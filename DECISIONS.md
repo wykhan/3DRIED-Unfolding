@@ -406,3 +406,19 @@ commit the procedural dataset or local checkpoints.
   added to the production pipeline.
 - No training, fine-tuning, production normalization, domain adaptation,
   optimizer, or learned-parameter update is authorized.
+
+## D035 — M8 diagnostic protocol and classification
+
+**Status:** FIXED — DIAGNOSTIC EVIDENCE ONLY
+
+- Use 32 deterministic accepted M6 validation samples and all 13 accepted M7
+  Hammer slices, with bin 17 as the primary phase trace.
+- External tracing must be output-identical to accepted `RMISTNet.forward()`.
+- Define `c_align` from median synthetic alpha0 RMS divided by Hammer bin-17
+  alpha0 RMS; it is `4.3283002043e-10` for this diagnostic.
+- The Hammer/synthetic alpha0 RMS ratio is `2.3104e9`, raw-scale threshold
+  activity is negligible, and counterfactual alignment restores
+  synthetic-order phase activity.
+- Classify the observed inactivity mechanism as `SCALE_MISMATCH_SUPPORTED`.
+- This does not select a production scale, establish improved Hammer image
+  quality, exclude broader distribution mismatch, or authorize any model fix.

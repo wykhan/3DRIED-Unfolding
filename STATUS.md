@@ -11,7 +11,7 @@ M4-R PASS — independently reviewed
 M5-R PASS — independently reviewed
 M6-R PASS — independently reviewed with non-blocking observations
 M7-R INDEPENDENTLY REVIEWED — TECHNICAL PASS WITH IMPORTANT SCIENTIFIC LIMITATION
-M8 SIM-TO-REAL DIAGNOSTIC — UNLOCKED, DIAGNOSTIC ONLY
+M8 PASS — SCALE_MISMATCH_SUPPORTED, awaiting independent review
 
 Previous generic M3/M4:
 Historical only
@@ -22,14 +22,16 @@ Active work branch:
 `milestone/rmist-m8`
 
 Current task:
-Diagnose why accepted M6 learned gain collapses on real Hammer without changing the model.
+STOP after completed M8 diagnosis; obtain independent review.
 
 M7-R is independently accepted as a technical PASS. Hammer remains recognizable
 and range/orientation are preserved. RMIST50 is numerically almost identical to
 RMA50/Ini-ISTA50, so learned improvement on real Hammer is NOT DEMONSTRATED.
-M8 tracing, scale statistics, and counterfactual input-scale sweeps are
-authorized. Training, fine-tuning, production normalization, domain
-adaptation, calibration learning, and learned-parameter changes remain prohibited.
+M8 tracing found a `2.3104e9` Hammer/synthetic alpha0 RMS ratio. At the raw
+scale, final movement from RMA is `1.1412e-6`; counterfactual RMS alignment
+raises it to `0.7152`. This supports `SCALE_MISMATCH_SUPPORTED`. Training,
+fine-tuning, production normalization, domain adaptation, calibration
+learning, learned-parameter changes, and M9 work remain prohibited.
 ```
 
 M3-R PASS (2026-09-27). Strict RMIST kernels reproduce M2 with complex
@@ -78,6 +80,13 @@ range/orientation, but RMIST50 differs from RMA50 by only about `1.1364e-6`
 in complex relative norm and observed-sample consistency is essentially
 identical across sparse methods. Learned real-data improvement is not
 demonstrated. M8 sim-to-real diagnostics remain locked.
+
+M8 PASS (2026-09-27). A non-invasive nine-phase trace matches ordinary RMIST
+output exactly and leaves parameters unchanged. The accepted 32-sample M6
+control has median alpha0 RMS `0.0137687`, while Hammer bin 17 has RMS
+`3.18109e7` (`2.3104e9` times larger). Unscaled Hammer shrinkage is effectively
+zero; counterfactual scale alignment restores synthetic-order phase activity.
+Classification: `SCALE_MISMATCH_SUPPORTED`. Stop for independent review.
 
 The remainder of this file is an immutable chronological history. Statements
 about then-current locks or objectives below are historical, not active

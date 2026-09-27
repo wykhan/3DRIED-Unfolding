@@ -9,7 +9,7 @@ COMPLETED + HUMAN APPROVED: M0, M1, M2
 COMPLETED + EXTERNALLY REVIEWED: M3-R (PASS), M4-R (PASS), M5-R (PASS), M6-R (PASS)
 HISTORICAL / NOT MERGED: previous generic M3-M4 branch
 COMPLETED + EXTERNALLY REVIEWED: M7-R — technical PASS with important scientific limitation
-UNLOCKED: M8 sim-to-real diagnostic only
+COMPLETED, AWAITING EXTERNAL REVIEW: M8 — SCALE_MISMATCH_SUPPORTED
 ```
 
 Define milestones:
@@ -327,7 +327,7 @@ question is the now-authorized M8 sim-to-real diagnostic.
 Status:
 
 ```text
-UNLOCKED — DIAGNOSTIC ONLY
+PASS — SCALE_MISMATCH_SUPPORTED — AWAITING INDEPENDENT REVIEW
 ```
 
 Quantify synthetic-versus-Hammer scale, threshold activity, residual/update
@@ -335,3 +335,8 @@ dynamics, cumulative movement from RMA, and a counterfactual input-scale
 sweep under `docs/M8_SIM2REAL_DIAGNOSTIC_SPEC.md`. No training, fine-tuning,
 production normalization, domain adaptation, optimizer, or parameter update
 is authorized.
+
+The fixed model is effectively inactive at the raw Hammer amplitude scale.
+Counterfactual scale alignment restores synthetic-order phase activity, which
+supports scale mismatch as the observed mechanism without authorizing a
+production normalization fix. Stop for independent review.
