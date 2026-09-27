@@ -9,7 +9,7 @@ M2 PASS — human reviewed
 M3-R PASS — independently reviewed
 M4-R PASS — independently reviewed
 M5-R PASS — independently reviewed
-M6-R LOCKED
+M6-R UNLOCKED — synthetic training only
 M7-R LOCKED
 
 Previous generic M3/M4:
@@ -18,13 +18,13 @@ Preserved on `milestone/m3-m4`
 Not merged to `main`
 
 Active work branch:
-`milestone/rmist-m5`
+`milestone/rmist-m6`
 
 Current task:
-Record accepted M5-R review state and merge M5-R to `main`.
+Implement and validate strict RMIST synthetic training Eq. (27)-(31), then
+stop for independent review.
 
-M6-R and M7-R remain locked. No training or real Hammer inference is
-authorized.
+M7-R remains locked. No real Hammer inference is authorized.
 ```
 
 M3-R PASS (2026-09-27). Strict RMIST kernels reproduce M2 with complex

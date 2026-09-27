@@ -4,9 +4,9 @@
 
 ## Governance
 
-- [ ] Branch is `milestone/rmist-m6`.
-- [ ] Branch starts from accepted M5 `main`.
-- [ ] M7-R remains locked.
+- [x] Branch is `milestone/rmist-m6`.
+- [x] Branch starts from accepted M5 `main`.
+- [x] M7-R remains locked.
 - [ ] No real Hammer inference performed.
 - [ ] Paper-unspecified choices are explicitly labeled.
 

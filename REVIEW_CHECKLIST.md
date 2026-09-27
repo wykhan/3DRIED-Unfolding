@@ -18,7 +18,7 @@ The RMIST-Net paper and `docs/RMIST_REPRO_SPEC.md` are authoritative. A mathemat
 - [x] All RMIST deviations are classified in `DECISIONS.md`.
 - [x] M3-R/M4-R accepted history is preserved.
 - [x] M5-R architecture is independently reviewed PASS.
-- [x] M6-R and M7-R remain locked.
+- [x] M6-R synthetic training is explicitly unlocked; M7-R remains locked.
 - [x] M5-R review gates are defined in `docs/M5_REVIEW_CHECKLIST.md`.
 
 # M3-R — RM / RM_dagger

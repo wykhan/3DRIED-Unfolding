@@ -8,7 +8,8 @@ Current execution authorization:
 COMPLETED + HUMAN APPROVED: M0, M1, M2
 COMPLETED + EXTERNALLY REVIEWED: M3-R (PASS), M4-R (PASS), M5-R (PASS)
 HISTORICAL / NOT MERGED: previous generic M3-M4 branch
-LOCKED: M6-R, M7-R
+UNLOCKED — SYNTHETIC TRAINING ONLY: M6-R
+LOCKED: M7-R
 ```
 
 Define milestones:
@@ -291,11 +292,11 @@ PASS only if:
 Status:
 
 ```text
-LOCKED
+UNLOCKED — SYNTHETIC TRAINING ONLY
 ```
 
-After M5-R is completed and authorized, reproduce the RMIST synthetic
-training protocol. Then stop for external review.
+Reproduce the RMIST synthetic training protocol in Eq. (27)-(31). Then stop
+for external review; M7-R remains locked.
 
 ---
 
