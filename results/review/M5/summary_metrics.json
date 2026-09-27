@@ -1,0 +1,78 @@
+{
+  "batch": {
+    "input_shape": [
+      2,
+      32,
+      32
+    ],
+    "output_shape": [
+      2,
+      32,
+      32
+    ],
+    "passed": true
+  },
+  "command": "scripts/run_rmist_net_validation.py --output results/review/M5",
+  "complex128": {
+    "alpha0_relative_difference": 0.0,
+    "finite": true,
+    "m4_to_m5_relative_difference": 1.21362588613636e-13
+  },
+  "complex64": {
+    "alpha0_relative_difference": 0.0,
+    "finite": true,
+    "m4_to_m5_relative_difference": 0.0
+  },
+  "cuda": {
+    "available": true,
+    "complex64_passed": true,
+    "device": "NVIDIA GeForce RTX 4090"
+  },
+  "environment": {
+    "cuda_runtime": "11.8",
+    "cwd": "/home/superws/2026_Projects/3DRIED-Unfolding",
+    "platform": "Linux-6.8.0-138-generic-x86_64-with-glibc2.17",
+    "python": "3.8.17",
+    "pytorch": "2.0.1+cu118"
+  },
+  "gradient": {
+    "optimizer_created": false,
+    "optimizer_step_taken": false,
+    "tau_all_nonzero": true,
+    "tau_finite": true,
+    "tau_values": [
+      3.780691623687744,
+      9.896145820617676,
+      16.238433837890625,
+      22.517459869384766,
+      28.721843719482422,
+      35.33494186401367,
+      41.4996452331543,
+      47.7430305480957,
+      54.127811431884766
+    ],
+    "test_operator": "strict RMISTKernel, deterministic complex64 input",
+    "theta_all_nonzero": true,
+    "theta_finite": true,
+    "theta_values": [
+      -6291.27978515625,
+      -6291.9091796875,
+      -6292.5390625,
+      -6293.16796875,
+      -6293.79736328125,
+      -6294.4267578125,
+      -6295.056640625,
+      -6295.68603515625,
+      -6296.31591796875
+    ]
+  },
+  "hammer_inference_started": false,
+  "m6_training_started": false,
+  "phases": 9,
+  "seed": 20260927,
+  "trainable_scalar_count": 18,
+  "trainable_tensor_names": [
+    "tau",
+    "theta"
+  ]
+}

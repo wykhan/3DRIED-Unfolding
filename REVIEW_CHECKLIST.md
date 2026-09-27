@@ -135,10 +135,10 @@ inference remain closed.
 
 # Future M5-R/M6-R fidelity
 
-- [ ] 9 phases.
-- [ ] Only `tau_t`, `theta_t` trainable.
-- [ ] `tau_t` init `1e-4`.
-- [ ] `theta_t` init `1e-3`.
+- [x] 9 phases.
+- [x] Only `tau_t`, `theta_t` trainable.
+- [x] `tau_t` init `1e-4`.
+- [x] `theta_t` init `1e-3`.
 - [ ] Adam.
 - [ ] learning rate `1e-4`.
 - [ ] 100 epochs.

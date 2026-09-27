@@ -8,7 +8,7 @@ Current execution authorization:
 COMPLETED + HUMAN APPROVED: M0, M1, M2
 COMPLETED + EXTERNALLY REVIEWED: M3-R (PASS), M4-R (PASS)
 HISTORICAL / NOT MERGED: previous generic M3-M4 branch
-UNLOCKED — ARCHITECTURE VALIDATION ONLY: M5-R
+SELF-VALIDATED PASS — AWAITING INDEPENDENT REVIEW: M5-R
 LOCKED: M6-R, M7-R
 ```
 
@@ -260,11 +260,12 @@ observations are retained in `REVIEW_CHECKLIST.md`.
 Status:
 
 ```text
-UNLOCKED — ARCHITECTURE VALIDATION ONLY
+SELF-VALIDATED PASS — AWAITING INDEPENDENT REVIEW
 ```
 
-Reproduce the 9-phase RMIST-Net with only phase-wise `tau_t` and `theta_t`
-trainable. Stop after M5-R for independent review.
+The 9-phase RMIST-Net with only phase-wise `tau_t` and `theta_t` trainable is
+implemented and passes the criteria below. Stop for independent review; M6-R
+remains locked.
 
 ## Acceptance criteria
 

@@ -363,3 +363,45 @@ non-blocking observations. The documented non-monotonic Ini-ISTA residual and
 weak 50% sampling diagnostic do not change Eq. (19) and do not block future
 M5-R architecture work. No new experiment was performed for this review-gate
 record. M5-R remains locked until explicit human authorization.
+
+## EXP-RMIST-M5-001 — Strict RMIST-Net architecture validation
+
+**Milestone:** M5-R
+**Purpose:** Validate the literal nine-phase RMIST Eq. (20)--(26)
+architecture without optimization or training.
+**Status:** PASS — AWAITING INDEPENDENT REVIEW
+
+### Code and environment
+
+Branch: `milestone/rmist-m5`. Python 3.8.17, PyTorch 2.0.1+cu118, CUDA
+11.8, NVIDIA GeForce RTX 4090. Deterministic seed: 20260927.
+
+### Command
+
+```bash
+PYTHONPATH=src /home/superws/anaconda3/envs/ComplexValue/bin/python3 \
+  scripts/run_rmist_net_validation.py --output results/review/M5
+
+PYTHONPATH=src /home/superws/anaconda3/envs/ComplexValue/bin/python3 \
+  -m unittest discover -s tests -v
+```
+
+### Results
+
+The model executes exactly nine phases and has exactly 18 trainable scalars:
+`tau[9]` initialized to `1e-4` and `theta[9]` initialized to `1e-3`.
+Initialization relative difference against direct `RM_dagger(S)` is zero.
+M4-to-M5 relative difference is `0.0` for complex64 and
+`1.21362588613636e-13` for complex128, below both blocking tolerances. All
+gradient entries are finite and nonzero under the strict RMIST kernel. Single,
+batch `[2,32,32]`, CPU complex64/complex128, and CUDA complex64 checks pass.
+The phase trace has exactly nine entries. The full repository suite passes
+22/22 tests.
+
+### Outputs and interpretation
+
+Lightweight evidence is in `results/review/M5/`. PyTorch complex internal
+representation is a paper-unspecified implementation choice recorded in
+D027. No optimizer was created, no optimizer step was taken, no training
+dataset was generated, and no real Hammer inference was performed. M5-R
+passes self-validation and stops for independent review; M6-R remains locked.

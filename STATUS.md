@@ -8,7 +8,7 @@ M1 PASS — human reviewed
 M2 PASS — human reviewed
 M3-R PASS — independently reviewed
 M4-R PASS — independently reviewed
-M5-R UNLOCKED — architecture validation only
+M5-R PASS — self-validated, awaiting independent review
 M6-R LOCKED
 M7-R LOCKED
 
@@ -21,8 +21,8 @@ Active work branch:
 `milestone/rmist-m5`
 
 Current task:
-Implement and validate strict 9-phase RMIST-Net Eq. (20)-(26).
-Stop after M5-R for independent review.
+STOP after strict 9-phase RMIST-Net Eq. (20)-(26) validation and obtain
+independent review.
 
 M6-R and M7-R remain locked. No training or real Hammer inference is
 authorized.
@@ -34,7 +34,16 @@ pass.
 
 M4-R PASS (2026-09-27). Strict Eq. (16)--(19) Ini-ISTA and separately tuned
 synthetic diagnostics were independently accepted with documented
-non-blocking observations. M5-R and all training remain locked.
+non-blocking observations. At M4-R completion, M5-R and all training were
+still locked.
+
+M5-R PASS (2026-09-27). The strict nine-phase Eq. (20)--(26) architecture has
+exactly 18 trainable scalars (`tau[9]`, `theta[9]`), exact `RM_dagger(S)`
+initialization, and literal complex shrinkage. M4-to-M5 relative differences
+are `0.0` (complex64) and `1.21362588613636e-13` (complex128). All 22
+repository tests pass, including CUDA, batch, representation, and all-phase
+gradient checks. No optimizer/training or Hammer inference was started. Stop
+for independent review; M6-R/M7-R remain locked.
 
 The remainder of this file is an immutable chronological history. Statements
 about then-current locks or objectives below are historical, not active
@@ -215,4 +224,14 @@ Command: `/home/superws/anaconda3/envs/ComplexValue/bin/python3 scripts/run_rmis
 Result: Ini-ISTA NRMSE `0.037414` noise-free and `0.045532` at 20 dB; separate tuned diagnostic NRMSE `0.010156` and `0.010271`; all finite.
 Evidence: `results/m4_rmist_ista/`, `docs/M4_RMIST_ISTA_REPORT.md`
 Next action: STOP for independent review; do not begin M5-R
+Human decision required: YES
+
+Timestamp: 2026-09-27 Asia/Shanghai
+Milestone: M5-R
+Task: Strict nine-phase RMIST-Net Eq. (20)--(26) architecture validation
+Status: PASS — AWAITING INDEPENDENT REVIEW
+Command: `PYTHONPATH=src /home/superws/anaconda3/envs/ComplexValue/bin/python3 scripts/run_rmist_net_validation.py --output results/review/M5`
+Result: Exact 18-scalar architecture; alpha0 difference 0; M4-to-M5 differences 0 (complex64) and 1.21362588613636e-13 (complex128); finite nonzero gradients in every phase; 22/22 tests pass.
+Evidence: `results/review/M5/`, `docs/M5_RMIST_NET_REPORT.md`
+Next action: STOP for independent review; do not begin M6-R.
 Human decision required: YES

@@ -302,3 +302,15 @@ Bernoulli sampling case is classified as an **EXPERIMENTAL EXTENSION**.
 - Strict RMIST Eq. (13)-(19) is the accepted physics and optimization baseline.
 - M5-R may be planned only after the accepted branch is merged and a human
   explicitly unlocks it.
+
+## D027 — M5-R complex representation and strict architecture
+
+**Status:** FIXED — PAPER UNSPECIFIED IMPLEMENTATION CHOICE
+
+Implement the paper's separate real/imaginary paths with mathematically
+equivalent PyTorch complex tensors internally. Provide exact conversion
+helpers for the conceptual `[..., 2, H, W]` representation. Each of the nine
+phases still uses the paper's complex RM/RM_dagger operations and one shared
+magnitude shrinkage scale for real and imaginary components. The only
+trainable tensors are independent `tau[9]` and `theta[9]`; no positivity
+reparameterization or learned operator is introduced.
