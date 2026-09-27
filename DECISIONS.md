@@ -246,3 +246,19 @@ Batch size is paper-unspecified and must be labeled as an implementation choice.
 
 `milestone/m3-m4` remains as experimental history but is not the accepted learning-physics baseline and must not be merged into `main`.
 
+## D022 — RMIST singular support and numerical precision
+
+**Status:** FIXED — PAPER UNSPECIFIED IMPLEMENTATION CHOICE
+
+Set both strict kernels to zero for non-propagating samples and for
+`ky <= 1e-12`. Form `ky` and kernel phase in float64 before casting to the
+requested complex dtype. This makes `1/ky` handling explicit and preserves
+M2 agreement without changing valid-support kernel semantics.
+
+## D023 — RMIST FFT normalization and physical padding
+
+**Status:** FIXED — SYSTEM ADAPTATION
+
+Use PyTorch's default `backward` FFT convention to reproduce M2/MATLAB, and
+center-pad the physical `[z=200,x=407]` single-Rx echo to `[512,512]` with
+`z=(156,156)` and `x=(52,53)`. This is the approved 3DRIED grid mapping.

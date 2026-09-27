@@ -8,41 +8,41 @@ The RMIST-Net paper and `docs/RMIST_REPRO_SPEC.md` are authoritative. A mathemat
 
 ## Repository / governance
 
-- [ ] Branch is `milestone/rmist-m3-m4`.
-- [ ] Branch descends from human-approved `main`.
+- [x] Branch is `milestone/rmist-m3-m4`.
+- [x] Branch descends from human-approved `main`.
 - [ ] Old `milestone/m3-m4` remains unmerged.
-- [ ] M0-M2 are unchanged except documentation references.
-- [ ] Rx1-only policy remains.
-- [ ] Raw 3DRIED data remain read-only/untracked.
-- [ ] `docs/RMIST_REPRO_SPEC.md` is present.
+- [x] M0-M2 are unchanged except documentation references.
+- [x] Rx1-only policy remains.
+- [x] Raw 3DRIED data remain read-only/untracked.
+- [x] `docs/RMIST_REPRO_SPEC.md` is present.
 - [ ] All RMIST deviations are classified in `DECISIONS.md`.
-- [ ] M5-R and later remain locked.
+- [x] M5-R and later remain locked.
 
 # M3-R — RM / RM_dagger
 
 ## Formula fidelity
 
-- [ ] Forward RM kernel contains `1/ky`.
-- [ ] Inverse `RM_dagger` contains `ky`.
-- [ ] Forward/inverse phase factors are reciprocal.
-- [ ] 3DRIED sign mapping is explicit.
-- [ ] Invalid/non-propagating spectral samples are masked.
-- [ ] Zero/near-zero `ky` division is handled explicitly.
-- [ ] Physical echo is padded into matrix RM domain.
-- [ ] No vectorized sensing matrix is introduced.
-- [ ] `RM_dagger` is not replaced by a Hilbert adjoint.
+- [x] Forward RM kernel contains `1/ky`.
+- [x] Inverse `RM_dagger` contains `ky`.
+- [x] Forward/inverse phase factors are reciprocal.
+- [x] 3DRIED sign mapping is explicit.
+- [x] Invalid/non-propagating spectral samples are masked.
+- [x] Zero/near-zero `ky` division is handled explicitly.
+- [x] Physical echo is padded into matrix RM domain.
+- [x] No vectorized sensing matrix is introduced.
+- [x] `RM_dagger` is not replaced by a Hilbert adjoint.
 
 ## Tests
 
-- [ ] Kernel-formula test passes.
-- [ ] Reciprocal-kernel product test passes on valid support.
-- [ ] `RM_dagger(Hammer)` reproduces M2 within target tolerance.
-- [ ] Synthetic full-domain `RM → RM_dagger` round trip passes.
-- [ ] Padding/cropping behavior is tested.
-- [ ] complex64 test passes.
-- [ ] complex128 reference test passes.
-- [ ] CUDA smoke test passes when available.
-- [ ] Adjoint identity is not used as M3-R acceptance evidence.
+- [x] Kernel-formula test passes.
+- [x] Reciprocal-kernel product test passes on valid support.
+- [x] `RM_dagger(Hammer)` reproduces M2 within target tolerance.
+- [x] Synthetic full-domain `RM → RM_dagger` round trip passes.
+- [x] Padding/cropping behavior is tested.
+- [x] complex64 test passes.
+- [x] complex128 reference test passes.
+- [x] CUDA smoke test passes when available.
+- [x] Adjoint identity is not used as M3-R acceptance evidence.
 
 ## Evidence
 
@@ -54,7 +54,7 @@ results/m3_rmist_kernel/
 Verdict:
 
 ```text
-[ ] PASS
+[x] PASS
 [ ] PASS WITH NON-BLOCKING ISSUES
 [ ] NEEDS FIX
 [ ] FAIL

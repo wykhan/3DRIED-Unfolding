@@ -21,6 +21,10 @@ M3-R → M4-R → EXTERNAL REVIEW
 M5-R and later milestones are locked.
 ```
 
+M3-R PASS (2026-09-27). Strict RMIST kernels reproduce M2 with complex
+relative difference `2.2378e-7`; reciprocal and full-domain round-trip tests
+pass. M4-R is now in progress. M5-R remains locked.
+
 Keep historical M0-M2 entries below.
 
 
@@ -179,3 +183,13 @@ Result: Recognizable complex Hammer volume, peak at 614.310 mm, 0 NaN/Inf, deter
 Evidence: `results/rma_hammer/`, `docs/M2_RMA_HAMMER_REPORT.md`
 Next action: STOP and obtain human review before M3
 Human decision required: YES
+
+Timestamp: 2026-09-27 Asia/Shanghai
+Milestone: M3-R
+Task: Strict RMIST RM / RM_dagger kernel reproduction and M2 validation
+Status: PASS
+Command: `/home/superws/anaconda3/envs/ComplexValue/bin/python3 scripts/run_rmist_kernel_validation.py --config configs/rmist_kernel.yaml`
+Result: Reciprocal max error `4.4755e-16`; complex64/128 round trips `4.1301e-7`/`7.2185e-16`; M2 difference `2.2378e-7`; CUDA passed.
+Evidence: `results/m3_rmist_kernel/`, `docs/M3_RMIST_KERNEL_REPORT.md`
+Next action: M4-R strict conventional RM-kernel ISTA
+Human decision required: NO

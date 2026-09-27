@@ -278,10 +278,39 @@ STOP for human review. M3 remains locked.
 
 The experiments below belong to the strict RMIST reproduction baseline.
 Earlier generic M3/M4 experiments remain historical and are not acceptance evidence for M3-R/M4-R.
+
+## EXP-RMIST-M3-001 — Strict RMIST kernel validation
+
+**Milestone:** M3-R
+**Purpose:** Validate RMIST Eqs. (13)--(15), physical padding, numerical
+support handling, full-domain inversion, and Hammer M2 consistency.
+**Status:** PASS
+
+### Code and environment
+
+Branch: `milestone/rmist-m3-m4`. Python 3.8.17, PyTorch 2.0.1+cu118,
+CUDA 11.8, two RTX 4090 GPUs. CPU was used for the reference metrics and
+one GPU for the CUDA smoke test.
+
+### Data and command
+
+Hammer `output_rawdata.mat`, MATLAB Rx1 / Python index 0 only. Corrected
+physical echo `[200,407,256]`; RM domain `[512,512]`.
+
+```bash
+/home/superws/anaconda3/envs/ComplexValue/bin/python3 scripts/run_rmist_kernel_validation.py --config configs/rmist_kernel.yaml
 ```
 
-Use IDs such as:
+### Results
 
-```text
-EXP-RMIST-M3-001
-EXP-RMIST-M4-001
+Output: `results/m3_rmist_kernel/`. Runtime: 13.49 s. Reciprocal max/RMS
+error: `4.4755e-16` / `1.1609e-16`. Synthetic full-domain relative error:
+`4.1301e-7` complex64 and `7.2185e-16` complex128. Hammer M2 complex
+relative difference: `2.2378e-7` (target `<1e-5`). Padding/crop and CUDA
+smoke checks passed. No NaN or Inf occurred.
+
+### Interpretation and next action
+
+PASS. The strict reciprocal RMIST pair is compatible with approved M2
+without changing its `1/ky` / `ky` structure. Proceed to M4-R conventional
+RM-kernel ISTA only.
