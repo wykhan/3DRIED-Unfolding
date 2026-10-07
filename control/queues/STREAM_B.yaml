@@ -1,0 +1,109 @@
+stream: baseline-library
+owner: worker-b
+goal: "Build a unified reproducible near-field learning-imaging baseline SDK on simulation + 3DRIED"
+policy:
+  auto_continue: true
+  stop_on_p0: true
+  ordinary_failures_retry: true
+
+tasks:
+  - id: B0
+    title: "Wang-series method/code inventory"
+    status: READY
+    priority: P0
+    depends_on: []
+    acceptance:
+      - "Build paper lineage and distinguish RMIST, LFIST, CSR-Net, Toe-LISTA and unrelated works."
+      - "Record equations, operator family, training protocol, public-code availability, and reproduction difficulty."
+    on_pass: B1
+
+  - id: B1
+    title: "Freeze unified API"
+    status: BLOCKED
+    priority: P0
+    depends_on: [B0]
+    acceptance:
+      - "Common input: geometry, range-focused slice/cube, mask, range."
+      - "Common output: complex image/volume + metrics/runtime."
+      - "No algorithm-specific hidden preprocessing."
+    on_pass: B2
+
+  - id: B2
+    title: "2-D BP baseline"
+    status: BLOCKED
+    priority: P1
+    depends_on: [B1]
+    acceptance:
+      - "Validated point-target simulation."
+      - "3DRIED representative-slice result."
+      - "Runtime and numerical sanity tests."
+    on_pass: B3
+
+  - id: B3
+    title: "2-D RMA / holography baseline"
+    status: BLOCKED
+    priority: P1
+    depends_on: [B1]
+    acceptance:
+      - "Matches accepted repository RMA conventions."
+      - "Simulation + 3DRIED."
+    on_pass: B4
+
+  - id: B4
+    title: "ISTA baseline"
+    status: BLOCKED
+    priority: P1
+    depends_on: [B3]
+    acceptance:
+      - "Unified mask/operator interface."
+      - "Convergence curve, runtime, reproducible parameters."
+    on_pass: B5
+
+  - id: B5
+    title: "FISTA / KFISTA baseline"
+    status: BLOCKED
+    priority: P1
+    depends_on: [B4]
+    acceptance:
+      - "Momentum implementation validated."
+      - "Fair comparison with ISTA under same data/operator."
+    on_pass: B6
+
+  - id: B6
+    title: "Formalize RMIST-Net baseline"
+    status: BLOCKED
+    priority: P1
+    depends_on: [B3]
+    acceptance:
+      - "Consolidate accepted M3-M9 code into stable API."
+      - "Document known sim-to-real limitations."
+    on_pass: B7
+
+  - id: B7
+    title: "Strict LFIST-Net reproduction"
+    status: BLOCKED
+    priority: P1
+    depends_on: [B5, B6]
+    acceptance:
+      - "Paper-aligned KFISTA/LFIST operators, momentum, soft-plus parameterization, loss and training protocol."
+      - "Simulation before 3DRIED."
+    on_pass: B8
+
+  - id: B8
+    title: "Unified simulation benchmark"
+    status: BLOCKED
+    priority: P1
+    depends_on: [B2, B3, B4, B5, B6, B7]
+    acceptance:
+      - "SR/SNR/runtime/memory/quality matrix generated reproducibly."
+    on_pass: B9
+
+  - id: B9
+    title: "Unified 3DRIED benchmark and SDK"
+    status: BLOCKED
+    priority: P1
+    depends_on: [B8]
+    acceptance:
+      - "Consistent visualization and no-reference/proxy metrics."
+      - "README examples and one-command configs."
+      - "Research SDK usable by Stream A."
