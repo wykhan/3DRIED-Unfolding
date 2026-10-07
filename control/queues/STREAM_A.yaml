@@ -1,0 +1,101 @@
+stream: learned-sensing
+owner: worker-a
+goal: "Joint sparse observation selection + learned reconstruction for a publishable 3DRIED SCI paper"
+policy:
+  auto_continue: true
+  stop_on_p0: true
+  ordinary_failures_retry: true
+
+tasks:
+  - id: A0
+    title: "Prior-art and novelty map"
+    status: READY
+    priority: P0
+    depends_on: []
+    deliverables:
+      - docs/learned_sensing/A0_PRIOR_ART.md
+      - docs/learned_sensing/A0_NOVELTY_MATRIX.md
+    acceptance:
+      - "Separate upstream computational imaging/MRI learnable sensing from near-field radar prior art."
+      - "Identify what is already done in learned masks, joint acquisition-reconstruction, differentiable top-K/STE/Gumbel methods."
+      - "Conclude a defensible novelty gap for 3DRIED/near-field mmWave."
+    on_pass: A1
+
+  - id: A1
+    title: "Freeze first-paper problem and metrics"
+    status: BLOCKED
+    priority: P0
+    depends_on: [A0]
+    deliverables:
+      - docs/learned_sensing/A1_PROBLEM_SPEC.md
+    acceptance:
+      - "Only 2-D aperture-position selection is learnable in paper v1."
+      - "Fixed budget K / SR is explicit."
+      - "Baselines and evaluation protocol are frozen."
+    on_pass: A2
+
+  - id: A2
+    title: "Sensing benchmark infrastructure"
+    status: BLOCKED
+    priority: P1
+    depends_on: [A1]
+    deliverables:
+      - "uniform/random/fixed-mask baselines"
+      - "nested SR protocol"
+      - "simulation + 3DRIED mask interface"
+    acceptance:
+      - "Same measurement budget and same reconstruction backbone for mask comparisons."
+      - "Multiple random seeds supported."
+    on_pass: A3
+
+  - id: A3
+    title: "Learnable-mask prototype with frozen reconstruction"
+    status: BLOCKED
+    priority: P1
+    depends_on: [A2]
+    acceptance:
+      - "Hard final K-sample mask."
+      - "Differentiable training surrogate documented."
+      - "Beats random-mask median on synthetic validation or records a valid negative result."
+    on_pass: A4
+
+  - id: A4
+    title: "Joint mask + reconstruction optimization"
+    status: BLOCKED
+    priority: P1
+    depends_on: [A3]
+    acceptance:
+      - "Joint optimization is compared against mask-only and reconstruction-only learning."
+      - "No hidden increase in measurement count."
+    on_pass: A5
+
+  - id: A5
+    title: "Simulation robustness suite"
+    status: BLOCKED
+    priority: P1
+    depends_on: [A4]
+    acceptance:
+      - "Multiple SRs, SNRs, scene sparsities, seeds."
+      - "Ablation separating sensing gain from reconstruction gain."
+    on_pass: A6
+
+  - id: A6
+    title: "3DRIED real-data evaluation"
+    status: BLOCKED
+    priority: P1
+    depends_on: [A5]
+    acceptance:
+      - "Use multiple 3DRIED objects where available, not Hammer only."
+      - "No GT-dependent real-data metric claims."
+      - "Report failure cases."
+    on_pass: A7
+
+  - id: A7
+    title: "Paper evidence package"
+    status: BLOCKED
+    priority: P1
+    depends_on: [A6]
+    acceptance:
+      - "Main figures/tables/ablations reproducible from scripts."
+      - "Claim-evidence matrix completed."
+      - "Draft method + experiments + limitations."
