@@ -15,6 +15,10 @@ dependencies = [
   "scipy>=1.9",
 ]
 
+[project.optional-dependencies]
+training = ["torch>=2.0"]
+test = ["pytest>=7", "torch>=2.0"]
+
 [tool.setuptools.packages.find]
 where = ["src"]
 

@@ -1,0 +1,8 @@
+python -m pytest -q: 46 passed, 3 skipped.
+Skips: 2 CUDA, 1 original external Hammer capture.
+HDF5 fixture is synthetic test data, not real Hammer acceptance.
+Full point acquisition matrix: 40 rows.
+Full reruns: 40 complex volume arrays identical.
+Metrics use float64 reductions; cosine bounded to [0,1].
+Preview figures from the same identical volumes in the figure-enabled verified run.
+Actual real data: BLOCKED_MISSING_DATA.

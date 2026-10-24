@@ -1,0 +1,91 @@
+{
+  "kind": "point_sim",
+  "model": "rm_range_slices",
+  "inverse_crime": true,
+  "synthetic_raw_fmcw": false,
+  "points": [
+    {
+      "matlab_bin": 15,
+      "x_m": -0.1,
+      "z_m": 0.05,
+      "amplitude": 1.0,
+      "phase_rad": 0.0,
+      "grid_x_m": -0.1005,
+      "grid_z_m": 0.05099999999999999,
+      "range_m": 0.5310139809517757,
+      "index_yzx": [
+        3,
+        221,
+        205
+      ]
+    },
+    {
+      "matlab_bin": 17,
+      "x_m": -0.05,
+      "z_m": 0.12,
+      "amplitude": 1.0,
+      "phase_rad": 0.4,
+      "grid_x_m": -0.0505,
+      "grid_z_m": 0.119,
+      "range_m": 0.6143103952815643,
+      "index_yzx": [
+        5,
+        255,
+        255
+      ]
+    },
+    {
+      "matlab_bin": 17,
+      "x_m": 0.03,
+      "z_m": 0.2,
+      "amplitude": 0.8,
+      "phase_rad": -0.6,
+      "grid_x_m": 0.0295,
+      "grid_z_m": 0.199,
+      "range_m": 0.6143103952815643,
+      "index_yzx": [
+        5,
+        295,
+        335
+      ]
+    },
+    {
+      "matlab_bin": 19,
+      "x_m": -0.13,
+      "z_m": 0.24,
+      "amplitude": 0.7,
+      "phase_rad": 1.2,
+      "grid_x_m": -0.1305,
+      "grid_z_m": 0.239,
+      "range_m": 0.6976068096113531,
+      "index_yzx": [
+        7,
+        315,
+        175
+      ]
+    },
+    {
+      "matlab_bin": 19,
+      "x_m": 0.05,
+      "z_m": 0.06,
+      "amplitude": 0.9,
+      "phase_rad": -1.0,
+      "grid_x_m": 0.0495,
+      "grid_z_m": 0.06099999999999999,
+      "range_m": 0.6976068096113531,
+      "index_yzx": [
+        7,
+        226,
+        355
+      ]
+    }
+  ],
+  "snr_db": null,
+  "shape": [
+    13,
+    200,
+    407
+  ],
+  "configuration_fingerprint": "043903c8833b99ab7e21bf31222f9435b4d19697872ebc44c3d70709bc878855",
+  "range_focused_echo_sha256": "aff35faf0a519c6ee56e5bc3fb7ffd6e92a41fb4f4fb46d0f6cf4424b5fe93fc"
+}

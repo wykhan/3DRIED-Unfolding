@@ -43,3 +43,11 @@ results/review/M8/*
 !results/review/M8/scale_comparison.png
 !results/review/M8/phase_activity.png
 !results/review/M8/threshold_activity.png
+!results/review/BASELINE/
+results/review/BASELINE/*
+!results/review/BASELINE/*.json
+!results/review/BASELINE/*.csv
+!results/review/BASELINE/*.yaml
+!results/review/BASELINE/*.jpg
+!results/review/BASELINE/*.txt
+!results/review/BASELINE/*.md

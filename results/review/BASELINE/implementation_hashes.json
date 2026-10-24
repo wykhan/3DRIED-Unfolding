@@ -1,0 +1,11 @@
+{
+  "src/three_dried/baseline/__init__.py": "6c662949e1d893bc94ccd656170d741dcdc80d653f8a13b50e7acfe59050f150",
+  "src/three_dried/baseline/config.py": "7b994ec487f69f98421c14e23bd1f60b5bfe9bfe1a01c45702d39f25feb8c911",
+  "src/three_dried/baseline/datasets.py": "ef9a45666c5c5335f53138b44c5718ef6a2811fd75c429ef6575f6dcffe694b0",
+  "src/three_dried/baseline/methods.py": "8f298230d8a025b6aa3cac432329e898ca5e34d73f67173d343d1401555b03a0",
+  "src/three_dried/baseline/metrics.py": "15519667be215dea68c14130272637418f2cef937e24a414ac4b4c78fa9a5ca1",
+  "src/three_dried/baseline/operators.py": "ff02945808fe2930ef7af0f21f11ec35dff07de819cd9fdc65ec472100264e75",
+  "src/three_dried/baseline/runner.py": "2626bbfc56d266a37c17d08cdcefef41c27646c382dcac0e3cdabc6024fffbe0",
+  "src/three_dried/baseline/sampling.py": "373fc65e785eff5ae947d0df74b2d5c9404ce3cca13daff091d92688f7fd6e0b",
+  "src/three_dried/baseline/visualization.py": "29f39620dfe1de27a067f596427f0d21941a1fb9e0b861ac023bbfb4235be390"
+}

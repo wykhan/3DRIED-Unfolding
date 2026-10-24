@@ -1,5 +1,19 @@
 # AGENTS.md
 
+## Baseline branch authorization — 2026-10-24
+
+On `baseline/3dried-imaging-suite`, the user's current request additionally
+authorizes BP/RMA/ISTA/CV-ISTA/RMIST, point simulation and real echoes, the four
+SRs 1.0/0.7/0.5/0.3, and explicit shared acquisition parameters. Read
+`BASELINE_SPEC.md`, `configs/baseline_3dried.yaml`, and
+`docs/BASELINE_PARAMETERS.md`. This is an additive baseline extension, not a
+replacement of the accepted strict RMIST operator or a new training milestone.
+The historical scope and locks below describe the reproduction mainline;
+they do not block the explicitly requested new baseline algorithms/masks.
+Keep single-Rx, original data read-only, accepted coordinates, and fixed RMIST
+weights. Report external-data/GPU absence honestly. Do not merge this branch
+or M9 into main as part of implementing this suite.
+
 ## 1. Project role
 
 This repository implements a reproducible learning-based imaging baseline for the 3DRIED dataset.

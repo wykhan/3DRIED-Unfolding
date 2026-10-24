@@ -12,6 +12,7 @@ DATA = Path("/home/superws/dataset/3DRIED/Hammer/Hammer (1)/output_rawdata.mat")
 
 
 class BaselineTests(unittest.TestCase):
+    @unittest.skipUnless(DATA.is_file(), "external Hammer capture is unavailable; real-data acceptance remains blocked")
     def test_dataset_is_readable_and_layout_matches_reference(self):
         result = inspect_raw_mat(DATA)
         self.assertEqual(result["dimensions"]["numFrames"], 82278)

@@ -1,0 +1,24 @@
+{
+  "status": "INCOMPLETE",
+  "datasets": {
+    "point_sim": {
+      "status": "COMPLETED",
+      "matrix_rows": 40
+    },
+    "real": {
+      "status": "BLOCKED_MISSING_DATA",
+      "reason": "3DRIED raw MAT unavailable: /home/superws/dataset/3DRIED/Hammer/Hammer (1)/output_rawdata.mat"
+    }
+  },
+  "rows": 40,
+  "profile": "full_3dried",
+  "configuration_fingerprint": "043903c8833b99ab7e21bf31222f9435b4d19697872ebc44c3d70709bc878855",
+  "limitations": [
+    "RM-generated point data are model-matched, not a full FMCW simulator.",
+    "BP is per-range narrowband spherical matched-filter BP; cross-model comparison with RM.",
+    "CV-ISTA definition is classical complex L1 with the true masked adjoint, pending user confirmation.",
+    "Accepted ISTA/RMIST preserve zero-filled full-domain residuals.",
+    "RMIST weights are fixed; all masks are new, with additional cross-SR/height OOD.",
+    "Real RMA reference is a proxy, never voxel GT. CPU runtime excludes loading/plotting."
+  ]
+}

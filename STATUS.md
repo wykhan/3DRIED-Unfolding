@@ -1,5 +1,18 @@
 # STATUS.md
 
+## 2026-10-24 — Independent baseline suite
+
+Branch: `baseline/3dried-imaging-suite`; source main `76ad526`.
+State: IMPLEMENTED / POINT_SIM_COMPLETED / REAL_BLOCKED_MISSING_DATA.
+Shared config: `configs/baseline_3dried.yaml`; exact definitions:
+`BASELINE_SPEC.md`; report: `docs/BASELINE_IMPLEMENTATION_REPORT.md`.
+Full-size point simulation: 40/40 matrix rows completed. Actual Hammer: not
+run because the raw MAT is unavailable in Work. 46 tests passed, 3 skipped
+(external capture and CUDA). CV-ISTA definition and convergence budget, BP
+slice approximation, inverse-crime point data and cross-mask/SR RMIST limits
+are explicit. No new training and no merge into main.
+
+
 ## Current overall status
 
 ```markdown

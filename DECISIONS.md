@@ -1,5 +1,26 @@
 # DECISIONS.md
 
+## 2026-10-24 — Baseline implementation choices
+
+- EXPERIMENTAL EXTENSION: separate suite and new user-authorized baseline branch.
+- SYSTEM ADAPTATION: audited 3DRIED parameters live in one shared YAML;
+  keep Rx1, M2 coordinates and range/spatial FFT conventions.
+- EXPERIMENTAL EXTENSION: exact-count nested masks on physical aperture;
+  add height-line sampling; do not claim M6 Bernoulli-mask hash parity.
+- PAPER UNSPECIFIED IMPLEMENTATION CHOICE: CV-ISTA temporarily means classical
+  complex-L1 masked proximal gradient, not an unspecified paper/network.
+  Safe spectral step and fixed 100-step budget are explicit; not convergence.
+- EXPERIMENTAL EXTENSION: scalar spherical slice BP with exact linear
+  convolution and fixed full-aperture sensitivity normalization; retain
+  cross-model limitations instead of claiming full FMCW BP.
+- EXPERIMENTAL EXTENSION: RM-forward point simulation with true aperture crop;
+  explicitly report inverse crime, preserve both point and bandlimited GT.
+- IMPLEMENTATION: NumPy fixed inference matches the accepted PyTorch RMIST;
+  restore exactly the 18 float32 scalars from Git, without training.
+- REPORTING: unavailable raw-data/CUDA tests are skipped explicitly;
+  real experiment acceptance remains blocked and returns exit code 2.
+
+
 This file records scientific and engineering decisions that should remain stable unless explicitly revised.
 
 ---

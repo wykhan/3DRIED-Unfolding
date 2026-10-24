@@ -1,5 +1,18 @@
 # EXPERIMENTS.md
 
+## 2026-10-24 — Unified imaging baseline
+
+Command: `python scripts/run_baseline_suite.py --no-figures --output-dir results/baseline_20261024_final`.
+The earlier `baseline_20261024_verified` run generated the saved figures from
+identical complex arrays.
+Configuration: `configs/baseline_3dried.yaml`; full 200×407 aperture,
+512×512 image grid, 13 bins, fixed M6 scalars. Five methods × four SRs ×
+two patterns: 40 point-simulation rows; real 40 rows BLOCKED_MISSING_DATA.
+CPU NumPy/SciPy; no GPU result claimed. Output summary intentionally says
+INCOMPLETE when real data is requested. See implementation report and
+`results/review/BASELINE/summary_metrics.csv`. Tests: 46 PASS, 3 skips.
+
+
 ## Purpose
 
 This file is the human-readable experiment ledger.

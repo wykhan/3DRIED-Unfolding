@@ -1,5 +1,18 @@
 # PLAN.md
 
+## 2026-10-24 — Baseline branch extension
+
+- [x] Create `baseline/3dried-imaging-suite` from accepted main.
+- [x] Explicit shared 3DRIED config and parameter document.
+- [x] Five methods and two data-source adapters.
+- [x] Two nested sampling patterns, 100/70/50/30%.
+- [x] Numerical contracts and CPU regression tests.
+- [x] Full acquisition-size point matrix and visualizations.
+- [ ] Actual Hammer run and RMA100 vs M2 verification (raw file absent).
+- [ ] User confirmation of intended CV-ISTA definition, if paper-specific.
+- [ ] Independent review of the new BP/CV-ISTA extension.
+
+
 ## Project state
 
 Current execution authorization:

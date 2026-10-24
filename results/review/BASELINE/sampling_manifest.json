@@ -1,0 +1,98 @@
+[
+  {
+    "dataset": "point_sim",
+    "pattern": "random_2d",
+    "seed": 20261024,
+    "requested_rate": 1.0,
+    "observed_positions": 81400,
+    "physical_positions": 81400,
+    "actual_rate": 1.0,
+    "observed_height_rows": 200,
+    "sha256_uint8": "bd414db90851f2abb8d67970f10de2bb731824c2c78d1522aec93f5c246c6598",
+    "shared_across_fast_time_and_ranges": true
+  },
+  {
+    "dataset": "point_sim",
+    "pattern": "random_2d",
+    "seed": 20261024,
+    "requested_rate": 0.7,
+    "observed_positions": 56980,
+    "physical_positions": 81400,
+    "actual_rate": 0.7,
+    "observed_height_rows": 200,
+    "sha256_uint8": "1840588244570ed6725259153e98b6bebb9e5eaa0d8a47bbb1e285fe5f974f10",
+    "shared_across_fast_time_and_ranges": true
+  },
+  {
+    "dataset": "point_sim",
+    "pattern": "random_2d",
+    "seed": 20261024,
+    "requested_rate": 0.5,
+    "observed_positions": 40700,
+    "physical_positions": 81400,
+    "actual_rate": 0.5,
+    "observed_height_rows": 200,
+    "sha256_uint8": "efada194f7b937b529d27a180ce37f611d4e3a55a854aeda34282be74d3cd85e",
+    "shared_across_fast_time_and_ranges": true
+  },
+  {
+    "dataset": "point_sim",
+    "pattern": "random_2d",
+    "seed": 20261024,
+    "requested_rate": 0.3,
+    "observed_positions": 24420,
+    "physical_positions": 81400,
+    "actual_rate": 0.3,
+    "observed_height_rows": 200,
+    "sha256_uint8": "248e06a1ff0fa42f690363f6baceb6eb9b4d40d84ae88265b45c1303b1d1d5e7",
+    "shared_across_fast_time_and_ranges": true
+  },
+  {
+    "dataset": "point_sim",
+    "pattern": "height_lines",
+    "seed": 20261024,
+    "requested_rate": 1.0,
+    "observed_positions": 81400,
+    "physical_positions": 81400,
+    "actual_rate": 1.0,
+    "observed_height_rows": 200,
+    "sha256_uint8": "bd414db90851f2abb8d67970f10de2bb731824c2c78d1522aec93f5c246c6598",
+    "shared_across_fast_time_and_ranges": true
+  },
+  {
+    "dataset": "point_sim",
+    "pattern": "height_lines",
+    "seed": 20261024,
+    "requested_rate": 0.7,
+    "observed_positions": 56980,
+    "physical_positions": 81400,
+    "actual_rate": 0.7,
+    "observed_height_rows": 140,
+    "sha256_uint8": "7707ac68602b4cfc41ca6b5e822310d9f079461c6b4bf4b0104787ef22816d91",
+    "shared_across_fast_time_and_ranges": true
+  },
+  {
+    "dataset": "point_sim",
+    "pattern": "height_lines",
+    "seed": 20261024,
+    "requested_rate": 0.5,
+    "observed_positions": 40700,
+    "physical_positions": 81400,
+    "actual_rate": 0.5,
+    "observed_height_rows": 100,
+    "sha256_uint8": "83e7df57f57fe8ab3290265afec96dd1a607a6bfe8b72fef004dc1be2e91c49a",
+    "shared_across_fast_time_and_ranges": true
+  },
+  {
+    "dataset": "point_sim",
+    "pattern": "height_lines",
+    "seed": 20261024,
+    "requested_rate": 0.3,
+    "observed_positions": 24420,
+    "physical_positions": 81400,
+    "actual_rate": 0.3,
+    "observed_height_rows": 60,
+    "sha256_uint8": "f796c0c6814493fc221940c755996256e10570555b1cc18c9e7186ff34179d91",
+    "shared_across_fast_time_and_ranges": true
+  }
+]
