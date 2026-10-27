@@ -66,3 +66,9 @@ results/review/ISTA_NET/*
 !results/review/ISTA_NET/hammer_h50_mip.png
 !results/review/ISTA_NET/points_h50_mip.png
 !results/review/ISTA_NET/training_curves.png
+!results/review/BP_FFT/
+results/review/BP_FFT/*
+!results/review/BP_FFT/*.json
+!results/review/BP_FFT/*.csv
+!results/review/BP_FFT/*.yaml
+!results/review/BP_FFT/*.txt

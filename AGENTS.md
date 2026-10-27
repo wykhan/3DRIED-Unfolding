@@ -1,5 +1,16 @@
 # AGENTS.md
 
+## BP acceleration authorization — 2026-10-27 (latest)
+
+The user explicitly retracts the literal unoptimized BP requirement and asks
+to adopt optimized BP with documented changes and measured 3DRIED slice
+timings. Exact FFT linear convolution, fixed-kernel caching and GPU execution
+are now authorized. Preserve the phase-only spherical sum when assessing
+acceleration; the legacy Green 1/R weight and sensitivity normalization are
+separate model/gain choices. Report the narrowband fixed-depth scope and do
+not promote it to validated full FMCW/Hammer range-migration BP.
+The no-acceleration statements below are retained as historical scope.
+
 ## Current user authorization — 2026-10-27
 
 The user explicitly supersedes the old suite's CV-ISTA display name and the

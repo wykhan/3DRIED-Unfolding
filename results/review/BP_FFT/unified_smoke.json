@@ -1,0 +1,33 @@
+{
+  "rows": [
+    {
+      "algorithm": "BP",
+      "dataset": "point_sim",
+      "scene": "single",
+      "rate": 0.2,
+      "pattern": "height_lines",
+      "mask_sha256": "e6ec630e983bd3baec9130b50fe8463acb03fd454ed3e7f0bffdd3c89d7510a1",
+      "status": "DIAGNOSTIC",
+      "reason": "CROSS_MODEL_PHASE_ONLY_GAIN",
+      "timing_note": "isolated run; check saved hardware record",
+      "bp_backend": "fft_cuda",
+      "bp_kernel_setup_included": false,
+      "runtime_median_seconds": 0.07013915850075136,
+      "runtime_repetitions": 2,
+      "runtime_warmup": 1,
+      "runtime_device": "cuda:0",
+      "runtime_preprocessing_included": false,
+      "runtime_samples_seconds": [
+        0.07118552199972328,
+        0.06909279500177945
+      ],
+      "observed_relative_residual": 1.0083304543396043
+    }
+  ],
+  "status_meaning": "PASS = completed finite computation with declared input/model checks; independent scientific review remains required",
+  "limitations": [
+    "RM point data are model matched; not raw FMCW validation",
+    "literal BP cannot be ranked from RM-generated points without model/gain validation",
+    "RMIST new-mask outputs are unvalidated; no M9 normalization used"
+  ]
+}

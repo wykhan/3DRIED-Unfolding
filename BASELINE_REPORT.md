@@ -1,5 +1,12 @@
 # Five-method baseline validation
 
+**BP follow-up:** The user subsequently authorized acceleration. The active
+entry now uses an exact FFT evaluation of the phase-only sum, with a literal
+reference option. Full-size single/five-point controls and measured timings
+are in [BP_ACCELERATION_REPORT.md](docs/BP_ACCELERATION_REPORT.md). Earlier
+literal-BP SKIPPED rows and matrix counts below remain the original run record;
+they have not been relabeled. Raw FMCW/Hammer BP acceptance is still open.
+
 Status: **DELIVERED PARTIAL MATRIX — INDEPENDENT REVIEW PENDING** on `baseline/ista-net-validation`.
 This report supersedes the old five-method display matrix, which contained
 both RM-kernel Ini-ISTA and a provisional CV-ISTA name. That old experiment

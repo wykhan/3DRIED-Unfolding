@@ -644,6 +644,25 @@ epoch-100 checkpoints remain local under ignored `results/m6_rmist_training/`.
 No full dataset was stored or committed, and no Hammer inference occurred.
 Stop for independent review; M7-R remains locked.
 
+## 2026-10-27 — authorized BP acceleration / single-slice controls
+
+After the user retracts mandatory unoptimized BP, preserve the phase-only
+spherical sum while accelerating it by exact linear FFT convolution,
+kernel-spectrum caching and CUDA. Command in tmux 3dried / ComplexValue:
+`OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 python scripts/benchmark_bp_slice.py --output results/bp_fft_slice_20261027/run`.
+Independent analytic single/five-point echoes use the full 200x407 aperture
+and 512x512 output, depth 0.6143103952815643 m, 78.8 GHz, height masks at
+100/70/50/20%, seed 20261024. All eight controls have zero grid localization
+error; direct-sum spot relative error <=1.476e-12. Complex128 CPU/CUDA relative
+error <=8.70e-16. Two warmups/ten repeats, one CPU FFT worker: CPU uncached
+203.84--206.59 ms, cached 111.29--113.42 ms; RTX 4090 cached with transfers
+2.036--2.125 ms, device-resident 1.385--1.388 ms. Kernel setup separately
+127.46 ms CPU /79.67 ms GPU, excluding GPU context creation. All 68 tests pass.
+Unified-entry 20% CUDA full-volume smoke completes as cross-model DIAGNOSTIC.
+Saved configs, masks, targets, phases, timing samples, provenance and logs:
+`results/bp_fft_slice_20261027/`; lightweight evidence: `results/review/BP_FFT/`.
+No Hammer run, RMIST change, raw-data modification or full FMCW BP claim.
+
 ## 2026-10-27 — completed matrix and diagnostics
 
 Four height-rate models each completed 20 epochs. Independent test NMSE at 100/70/50/30% is 0.01287696/0.01270838/0.01336434/0.01483224. Five entry-point runs produced 100 rows (54 completed, 46 SKIPPED), with two warmups/five repeats and preprocessing excluded from times. Lightweight configs/seeds/hashes/metrics are in results/review/ISTA_NET; volumes/weights remain ignored. BP local controls use full aperture and literal loops; full-FOV budget calls return no partial image. A validation-only 20000-step ISTA diagnostic confirms underconvergence at 200. Hammer50 residual: ISTA-Net 1.57259, RMA 0.05518. No tuning or M9 normalization follows this observation. BASELINE_REPORT.md contains exact commands and limitations.

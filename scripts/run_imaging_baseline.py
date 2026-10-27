@@ -21,6 +21,7 @@ from three_dried.baseline.methods import rm_iteration, load_rmist_parameters
 from three_dried.baseline.sampling import nested_masks, mask_record
 from three_dried.baseline.validation_metrics import complex_nmse, point_localization, sidelobes_single_point, timed_reconstruction
 from three_dried.imaging.basic_bp import direct_slice_bp
+from three_dried.imaging.fft_bp import FFTSliceBP, TorchFFTSliceBP
 from three_dried.imaging.sar_operator import classical_ista
 from three_dried.models.ista_net import ISTANet
 from three_dried.simulation.ista_net_data import make_operators
@@ -70,12 +71,17 @@ def main():
     p.add_argument('--checkpoint-index',type=Path)
     p.add_argument('--output',type=Path,required=True)
     p.add_argument('--bp-seconds',type=float,default=5.)
+    p.add_argument('--bp-backend',choices=['fft_cpu','fft_cuda','literal'],default='fft_cpu',
+                   help='exact phase-only slice sum; FFT acceleration authorized 2026-10-27')
+    p.add_argument('--bp-workers',type=int,default=1)
     p.add_argument('--rmist-diagnostic',action='store_true')
     p.add_argument('--no-figures',action='store_true')
     p.add_argument('--warmup',type=int)
     p.add_argument('--repetitions',type=int)
     p.add_argument('--timing-note',default='isolated run; check saved hardware record')
     args=p.parse_args();settings=yaml.safe_load(args.config.read_text())
+    settings['bp_execution']={'backend':args.bp_backend,'cpu_fft_workers':args.bp_workers,
+                              'model':'fixed_depth_phase_only_spherical_sum','dtype':'complex128'}
     if args.warmup is not None:settings['evaluation']['warmup']=args.warmup
     if args.repetitions is not None:settings['evaluation']['repetitions']=args.repetitions
     if settings['evaluation']['warmup']<0 or settings['evaluation']['repetitions']<1:raise ValueError('invalid timing counts')
@@ -147,6 +153,15 @@ def main():
             if method=='RMIST-Net' and not args.rmist_diagnostic:
                 row['reason']='ACCEPTED_WEIGHTS_NOT_VALIDATED_ON_THIS_MASK';rows.append(row);continue
             params=load_rmist_parameters(ROOT/'results/review/M6/summary_metrics.json') if method=='RMIST-Net' else None
+            bp_ops={}
+            if method=='BP' and args.bp_backend!='literal':
+                for b,y in zip(cfg['imaging']['matlab_range_bins'],ranges_m(cfg)):
+                    bp_args=((cfg['imaging']['n_fft_space'],)*2,cfg['aperture']['dx_m'],
+                             cfg['aperture']['dz_m'],float(y),cfg['radar']['center_frequency_hz'])
+                    bp_ops[b]=(FFTSliceBP(*bp_args,workers=args.bp_workers) if args.bp_backend=='fft_cpu'
+                               else TorchFFTSliceBP(*bp_args,device=device))
+                row['bp_backend']=args.bp_backend
+                row['bp_kernel_setup_included']=False
             def reconstruct():
                 images=[]
                 with torch.no_grad():
@@ -156,16 +171,19 @@ def main():
                         elif method=='ISTA':image=classical_ista(m,op,settings['evaluation']['ista_iterations'],settings['evaluation']['ista_lambda_relative'])[0][0].cpu().numpy()
                         elif method=='RMA':image=numpy_ops[b].inverse(physical_measurements[b])
                         elif method=='RMIST-Net':image=rm_iteration(physical_measurements[b],numpy_ops[b],*params)
+                        elif method=='BP' and args.bp_backend!='literal':
+                            image=bp_ops[b](physical_measurements[b])
+                            if isinstance(image,torch.Tensor):image=image.cpu().numpy()
                         else:
                             x,z=coordinates(cfg);zs,xs=support_slices(cfg)
                             image=direct_slice_bp(echo[i],x[xs],z[zs],x,z,float(y),cfg['radar']['center_frequency_hz'],physical,args.bp_seconds)
                         images.append(image)
                 return np.stack(images)
             try:
-                if method=='BP':
+                if method=='BP' and args.bp_backend=='literal':
                     image=reconstruct();timing={'runtime_note':'literal BP; CPU; no acceleration; no completed repeated benchmark'}
                 else:
-                    timing_device=device if method in ['ISTA','ISTA-Net'] else 'cpu'
+                    timing_device=device if method in ['ISTA','ISTA-Net'] or (method=='BP' and args.bp_backend=='fft_cuda') else 'cpu'
                     image,timing=timed_reconstruction(reconstruct,timing_device,settings['evaluation']['warmup'],settings['evaluation']['repetitions'])
             except TimeoutError as exc:
                 row['reason']='LITERAL_BP_BUDGET_EXCEEDED';row['detail']=str(exc);rows.append(row);continue

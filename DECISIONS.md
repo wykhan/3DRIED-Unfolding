@@ -459,6 +459,22 @@ commit the procedural dataset or local checkpoints.
 - This does not select a production scale, establish improved Hammer image
   quality, exclude broader distribution mismatch, or authorize any model fix.
 
+## D037 — BP acceleration authorized, preserving the phase-only slice sum
+
+**Status:** AUTHORIZED BY USER — 2026-10-27
+
+- The user retracts the prior unoptimized-BP requirement and requests an
+  optimized implementation with changes and full 3DRIED slice speed reported.
+- Use exact linear FFT convolution, fixed-kernel spectrum caching and GPU
+  execution without adding 1/R weighting, sensitivity normalization or
+  lower-precision phase evaluation. Keep the literal sum as a test reference.
+- The active unified default is cached CPU FFT; CUDA and literal options
+  remain explicit. Legacy Green-weighted BP remains historical and unchanged.
+- Full-size narrowband single/five-point controls use 100/70/50/20% height
+  masks. This does not change the earlier four-rate learned-model matrix.
+- Warm timings, kernel setup and host/device transfers are distinguished.
+  Full raw FMCW/Hammer range-migration BP remains a separate acceptance gate.
+
 ## D036 — M8 independent review accepted
 
 **Status:** FIXED

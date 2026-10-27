@@ -1,4 +1,12 @@
-# Authorized five-method extension — 2026-10-27
+# BP acceleration follow-up — 2026-10-27
+
+- [x] User authorizes acceleration in place of mandatory literal loops.
+- [x] Exact phase-only FFT BP, cached CPU/CUDA backends and direct-sum tests.
+- [x] Full 512x512 slice timings and single/five-point controls at 100/70/50/20% height sampling.
+- [x] Unified entry-point integration and 68 passing regression tests.
+- [ ] Raw FMCW/Hammer range-migration BP acceptance remains open.
+
+# Authorized five-method extension — 2026-10-27 (prior experiment record)
 
 - [x] Audit branch, metadata, accepted weights and M8/M9.
 - [x] Literal phase-only BP interface and local analytic controls.

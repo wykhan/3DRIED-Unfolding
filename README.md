@@ -1,6 +1,6 @@
 # Current five-method baseline
 
-The active extension uses basic unoptimized BP, RMA, true-adjoint ISTA, original ISTA-Net and frozen RMIST-Net. Read [BASELINE_REPORT.md](BASELINE_REPORT.md) and [BASELINE_REVIEW.md](BASELINE_REVIEW.md) for trained models, the unified entry point, negative real-data findings and SKIPPED conditions. The earlier FFT-BP/CV-ISTA runner below is historical and is not the active five-method roster.
+The active extension uses phase-only BP, RMA, true-adjoint ISTA, original ISTA-Net and frozen RMIST-Net. BP now defaults to an exact FFT evaluation of the spherical phase sum; `--bp-backend literal` retains the slow reference and `--bp-backend fft_cuda` selects the GPU. See [BP acceleration and slice timings](docs/BP_ACCELERATION_REPORT.md). Read [BASELINE_REPORT.md](BASELINE_REPORT.md) and [BASELINE_REVIEW.md](BASELINE_REVIEW.md) for trained models, negative real-data findings and SKIPPED conditions. The earlier Green-weighted FFT-BP/CV-ISTA runner below remains historical.
 
 # 3DRIED imaging baseline suite
 

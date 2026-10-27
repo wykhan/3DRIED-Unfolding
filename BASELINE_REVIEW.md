@@ -1,5 +1,14 @@
 # Baseline review record
 
+**Latest BP follow-up:** The user authorizes FFT acceleration, caching and
+GPU execution. The earlier literal-only requirement below is superseded.
+Five new regression tests (68 total PASS), full-size direct-sum spot checks
+and CPU/CUDA comparisons support numerical equivalence for fixed-depth
+phase-only BP. Eight one/five-point controls at 100/70/50/20% complete.
+Review [BP_ACCELERATION_REPORT.md](docs/BP_ACCELERATION_REPORT.md) for timing
+boundaries and remaining raw-FMCW/Hammer limitations. Legacy Green weighting
+and sensitivity normalization are not used by the new accelerated operator.
+
 Status: **SELF-REVIEW COMPLETE FOR DECLARED PARTIAL MATRIX; INDEPENDENT REVIEW PENDING.**
 
 ## Inherited evidence
@@ -33,9 +42,10 @@ summation. Later tests and experiment evidence are recorded after execution.
 3. The global spectral Lipschitz bound is conservative. A finite 200-step
    ISTA comparison is not a convergence certificate; objective/iteration
    limitations must accompany any performance statement.
-4. Literal BP must retain direct loops. Its runtime budget and model/gain
-   limitations must not be hidden by reporting partial images or substituting
-   the legacy FFT-convolution BP.
+4. The literal BP reference retains direct loops. The now-authorized FFT
+   backend must agree with its complex sum, preserve linear-convolution
+   boundaries and disclose its fixed-depth narrowband scope. Partial images
+   and legacy Green-weighted results cannot substitute for these checks.
 5. M6 RMIST weights were trained with a different fixed Bernoulli mask. New
    exact-count height-line and random-2D masks are unvalidated even at 50%.
 6. Never use Hammer images as labels, rescale on Hammer to optimize metrics,

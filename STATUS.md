@@ -1,4 +1,8 @@
-# Current extension status — 2026-10-27
+# BP acceleration follow-up — 2026-10-27
+
+The user retracts mandatory unoptimized BP. Exact phase-only linear FFT convolution and fixed-kernel CPU/CUDA caches are implemented and integrated; 68 tests PASS. Eight independent narrowband single/five-point controls at 100/70/50/20% height sampling use the full 200x407 aperture and 512x512 image lattice, with zero grid localization error. CPU cached timings are 111--114 ms/slice; RTX 4090 cached timings including echo upload/image download are 2.04--2.13 ms/slice, complex128, two warmups/ten repeats, excluding kernel setup and preprocessing. See docs/BP_ACCELERATION_REPORT.md. Full FMCW/Hammer BP remains unvalidated. Previous matrix SKIPPED entries below describe the earlier literal implementation and are not overwritten.
+
+# Earlier extension status — 2026-10-27
 
 Independent branch `baseline/ista-net-validation`: original complex SAR ISTA-Net implemented; four height-rate models trained/tested; 63 tests pass. Declared matrix: 100 rows, 54 completed and 46 SKIPPED. Simulated point accuracy improves over untrained models; learned Hammer improvement is NOT DEMONSTRATED. Literal BP full-FOV and new-mask RMIST remain SKIPPED. See BASELINE_REPORT.md and BASELINE_REVIEW.md for evidence and commands. Independent review pending; no main merge.
 

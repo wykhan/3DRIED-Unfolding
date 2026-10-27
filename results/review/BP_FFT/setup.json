@@ -1,0 +1,21 @@
+{
+  "cpu_kernel_setup_seconds": 0.12745872500090627,
+  "gpu_kernel_setup_seconds_excluding_cuda_context": 0.07966674099952797,
+  "fft_shape": [
+    1536,
+    1536
+  ],
+  "physical_shape": [
+    200,
+    407
+  ],
+  "image_shape": [
+    512,
+    512
+  ],
+  "depth_m": 0.6143103952815643,
+  "cached_timing_excludes": "kernel setup, range preprocessing, file IO and plots",
+  "cpu_uncached_timing_includes": "kernel generation, kernel FFT, echo FFT, multiply, inverse FFT, crop",
+  "gpu_host_timing_includes": "host to device echo transfer, reconstruction, device to host image transfer",
+  "gpu_resident_timing_includes": "device reconstruction only, synchronized wall time"
+}

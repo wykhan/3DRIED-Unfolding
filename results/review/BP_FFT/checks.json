@@ -1,0 +1,158 @@
+[
+  {
+    "scene": "single",
+    "rate": 1.0,
+    "direct_spot_relative_error": 1.4754857010375155e-12,
+    "direct_spot_max_error_per_observation": 1.475485586954448e-12,
+    "spots": 3,
+    "localization_mean_m": 0.0,
+    "localization_max_m": 0.0,
+    "localization_status": "MEASURED_TOP_K_PEAKS",
+    "point_count": 1,
+    "resolution_note": "top-K peak assignment; no claim of a universal resolution limit",
+    "x_pslr_db": -12.95906240740193,
+    "x_islr_db": -9.07065077099505,
+    "x_mainlobe_bounds": [
+      252,
+      258
+    ],
+    "x_sidelobe_status": "MEASURED_NEAREST_LOCAL_MINIMA",
+    "z_pslr_db": -17.613590690289296,
+    "z_islr_db": -12.411863807739396,
+    "z_mainlobe_bounds": [
+      252,
+      258
+    ],
+    "z_sidelobe_status": "MEASURED_NEAREST_LOCAL_MINIMA"
+  },
+  {
+    "scene": "single",
+    "rate": 0.7,
+    "direct_spot_relative_error": 8.277870067097526e-13,
+    "direct_spot_max_error_per_observation": 8.277865762656262e-13,
+    "spots": 3,
+    "localization_mean_m": 0.0,
+    "localization_max_m": 0.0,
+    "localization_status": "MEASURED_TOP_K_PEAKS",
+    "point_count": 1,
+    "resolution_note": "top-K peak assignment; no claim of a universal resolution limit",
+    "x_pslr_db": -12.958577309446715,
+    "x_islr_db": -9.06403140459365,
+    "x_mainlobe_bounds": [
+      252,
+      258
+    ],
+    "x_sidelobe_status": "MEASURED_NEAREST_LOCAL_MINIMA",
+    "z_pslr_db": -15.785328263259048,
+    "z_islr_db": -5.327369833182864,
+    "z_mainlobe_bounds": [
+      252,
+      258
+    ],
+    "z_sidelobe_status": "MEASURED_NEAREST_LOCAL_MINIMA"
+  },
+  {
+    "scene": "single",
+    "rate": 0.5,
+    "direct_spot_relative_error": 2.466464404393271e-13,
+    "direct_spot_max_error_per_observation": 2.466448040156876e-13,
+    "spots": 3,
+    "localization_mean_m": 0.0,
+    "localization_max_m": 0.0,
+    "localization_status": "MEASURED_TOP_K_PEAKS",
+    "point_count": 1,
+    "resolution_note": "top-K peak assignment; no claim of a universal resolution limit",
+    "x_pslr_db": -12.968680368280783,
+    "x_islr_db": -9.058722595895626,
+    "x_mainlobe_bounds": [
+      252,
+      258
+    ],
+    "x_sidelobe_status": "MEASURED_NEAREST_LOCAL_MINIMA",
+    "z_pslr_db": -14.195323790781,
+    "z_islr_db": -2.1457060272397364,
+    "z_mainlobe_bounds": [
+      252,
+      258
+    ],
+    "z_sidelobe_status": "MEASURED_NEAREST_LOCAL_MINIMA"
+  },
+  {
+    "scene": "single",
+    "rate": 0.2,
+    "direct_spot_relative_error": 3.419751308645472e-13,
+    "direct_spot_max_error_per_observation": 3.419699492818858e-13,
+    "spots": 3,
+    "localization_mean_m": 0.0,
+    "localization_max_m": 0.0,
+    "localization_status": "MEASURED_TOP_K_PEAKS",
+    "point_count": 1,
+    "resolution_note": "top-K peak assignment; no claim of a universal resolution limit",
+    "x_pslr_db": -12.954126356070025,
+    "x_islr_db": -9.066722275139952,
+    "x_mainlobe_bounds": [
+      252,
+      258
+    ],
+    "x_sidelobe_status": "MEASURED_NEAREST_LOCAL_MINIMA",
+    "z_pslr_db": -11.047873354806857,
+    "z_islr_db": 3.5192173332916137,
+    "z_mainlobe_bounds": [
+      252,
+      258
+    ],
+    "z_sidelobe_status": "MEASURED_NEAREST_LOCAL_MINIMA"
+  },
+  {
+    "scene": "five",
+    "rate": 1.0,
+    "direct_spot_relative_error": 6.410451139977932e-15,
+    "direct_spot_max_error_per_observation": 7.604051365261604e-15,
+    "spots": 7,
+    "localization_mean_m": 0.0,
+    "localization_max_m": 0.0,
+    "localization_status": "MEASURED_TOP_K_PEAKS",
+    "point_count": 5,
+    "resolution_note": "top-K peak assignment; no claim of a universal resolution limit",
+    "pslr_islr_status": "SKIPPED_MULTIPLE_TARGETS"
+  },
+  {
+    "scene": "five",
+    "rate": 0.7,
+    "direct_spot_relative_error": 7.759825355396237e-15,
+    "direct_spot_max_error_per_observation": 8.875594884092775e-15,
+    "spots": 7,
+    "localization_mean_m": 0.0,
+    "localization_max_m": 0.0,
+    "localization_status": "MEASURED_TOP_K_PEAKS",
+    "point_count": 5,
+    "resolution_note": "top-K peak assignment; no claim of a universal resolution limit",
+    "pslr_islr_status": "SKIPPED_MULTIPLE_TARGETS"
+  },
+  {
+    "scene": "five",
+    "rate": 0.5,
+    "direct_spot_relative_error": 6.290248745143092e-15,
+    "direct_spot_max_error_per_observation": 7.869073674605304e-15,
+    "spots": 7,
+    "localization_mean_m": 0.0,
+    "localization_max_m": 0.0,
+    "localization_status": "MEASURED_TOP_K_PEAKS",
+    "point_count": 5,
+    "resolution_note": "top-K peak assignment; no claim of a universal resolution limit",
+    "pslr_islr_status": "SKIPPED_MULTIPLE_TARGETS"
+  },
+  {
+    "scene": "five",
+    "rate": 0.2,
+    "direct_spot_relative_error": 7.40111499431746e-15,
+    "direct_spot_max_error_per_observation": 1.1850919000188099e-14,
+    "spots": 7,
+    "localization_mean_m": 0.0,
+    "localization_max_m": 0.0,
+    "localization_status": "MEASURED_TOP_K_PEAKS",
+    "point_count": 5,
+    "resolution_note": "top-K peak assignment; no claim of a universal resolution limit",
+    "pslr_islr_status": "SKIPPED_MULTIPLE_TARGETS"
+  }
+]
