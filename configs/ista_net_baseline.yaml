@@ -1,0 +1,38 @@
+schema_version: 1
+acquisition_config: configs/baseline_3dried.yaml
+seed: 20261027
+device: cuda:0
+sampling:
+  rate: 0.5
+  pattern: height_lines
+  training_policy: separate_model_per_rate_and_pattern
+model:
+  phases: 9
+  features: 32
+  theta_init: 0.01
+  initialization: identity_perturbed
+  initializer: adjoint
+  operator_scaling: constant_rms_spectral_gain_one_for_A_and_y
+dataset:
+  split_counts: {train: 128, validation: 32, test: 32}
+  split_seeds: {train: 20261027, validation: 20271027, test: 20281027}
+  points_min: 1
+  points_max: 6
+  roi_x_m: [-0.20, 0.15]
+  roi_z_m: [-0.10, 0.30]
+  snr_db: 20.0
+training:
+  optimizer: Adam
+  learning_rate: 0.0001
+  epochs: 20
+  batch_size: 1
+  symmetry_weight: 0.01
+  shuffle_seed: 20261028
+  max_gpu_hours: 1.0
+  selection: minimum_validation_complex_nmse
+evaluation:
+  ista_iterations: 200
+  ista_lambda_relative: 0.01
+  warmup: 2
+  repetitions: 5
+  preprocessing_included: false

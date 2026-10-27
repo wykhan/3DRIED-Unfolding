@@ -1,0 +1,90 @@
+[
+  {
+    "scene": "single",
+    "rate": 1.0,
+    "observations": 81400,
+    "seconds_single_diagnostic": 4.5913756989994,
+    "timing_note": "CPU direct loops, no warmup/repetitions; diagnostic cost only",
+    "scope": "single-frequency phase-only analytic forward; full acquired aperture, local 9x9 candidate grid; not full-FOV FMCW",
+    "location_error_m": 0.0,
+    "coherent_center_relative_error": 8.183462097974127e-21,
+    "status": "PASS"
+  },
+  {
+    "scene": "single",
+    "rate": 0.7,
+    "observations": 56980,
+    "seconds_single_diagnostic": 2.9081788120001875,
+    "timing_note": "CPU direct loops, no warmup/repetitions; diagnostic cost only",
+    "scope": "single-frequency phase-only analytic forward; full acquired aperture, local 9x9 candidate grid; not full-FOV FMCW",
+    "location_error_m": 0.0,
+    "coherent_center_relative_error": 6.3324409091466454e-21,
+    "status": "PASS"
+  },
+  {
+    "scene": "single",
+    "rate": 0.5,
+    "observations": 40700,
+    "seconds_single_diagnostic": 2.070206452999628,
+    "timing_note": "CPU direct loops, no warmup/repetitions; diagnostic cost only",
+    "scope": "single-frequency phase-only analytic forward; full acquired aperture, local 9x9 candidate grid; not full-FOV FMCW",
+    "location_error_m": 0.0,
+    "coherent_center_relative_error": 2.727820699324709e-21,
+    "status": "PASS"
+  },
+  {
+    "scene": "single",
+    "rate": 0.3,
+    "observations": 24420,
+    "seconds_single_diagnostic": 1.2364278149998427,
+    "timing_note": "CPU direct loops, no warmup/repetitions; diagnostic cost only",
+    "scope": "single-frequency phase-only analytic forward; full acquired aperture, local 9x9 candidate grid; not full-FOV FMCW",
+    "location_error_m": 0.0,
+    "coherent_center_relative_error": 1.1365919580519621e-21,
+    "status": "PASS"
+  },
+  {
+    "scene": "two_points",
+    "rate": 1.0,
+    "observations": 81400,
+    "seconds_single_diagnostic": 4.161297442000432,
+    "timing_note": "CPU direct loops, no warmup/repetitions; diagnostic cost only",
+    "scope": "single-frequency phase-only analytic forward; full acquired aperture, local 9x9 candidate grid; not full-FOV FMCW",
+    "two_point_valley_to_weaker_peak": 0.012996838350015206,
+    "resolved_under_3db_valley": true,
+    "status": "COMPLETED_DIAGNOSTIC"
+  },
+  {
+    "scene": "two_points",
+    "rate": 0.7,
+    "observations": 56980,
+    "seconds_single_diagnostic": 2.921405037999648,
+    "timing_note": "CPU direct loops, no warmup/repetitions; diagnostic cost only",
+    "scope": "single-frequency phase-only analytic forward; full acquired aperture, local 9x9 candidate grid; not full-FOV FMCW",
+    "two_point_valley_to_weaker_peak": 0.012989275511742811,
+    "resolved_under_3db_valley": true,
+    "status": "COMPLETED_DIAGNOSTIC"
+  },
+  {
+    "scene": "two_points",
+    "rate": 0.5,
+    "observations": 40700,
+    "seconds_single_diagnostic": 2.082151997999972,
+    "timing_note": "CPU direct loops, no warmup/repetitions; diagnostic cost only",
+    "scope": "single-frequency phase-only analytic forward; full acquired aperture, local 9x9 candidate grid; not full-FOV FMCW",
+    "two_point_valley_to_weaker_peak": 0.011454662167403512,
+    "resolved_under_3db_valley": true,
+    "status": "COMPLETED_DIAGNOSTIC"
+  },
+  {
+    "scene": "two_points",
+    "rate": 0.3,
+    "observations": 24420,
+    "seconds_single_diagnostic": 1.2728062870010035,
+    "timing_note": "CPU direct loops, no warmup/repetitions; diagnostic cost only",
+    "scope": "single-frequency phase-only analytic forward; full acquired aperture, local 9x9 candidate grid; not full-FOV FMCW",
+    "two_point_valley_to_weaker_peak": 0.013511565490051718,
+    "resolved_under_3db_valley": true,
+    "status": "COMPLETED_DIAGNOSTIC"
+  }
+]

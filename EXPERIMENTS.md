@@ -1,5 +1,21 @@
 # EXPERIMENTS.md
 
+## 2026-10-27 — original ISTA-Net baseline extension
+
+Branch: `baseline/ista-net-validation`. Environment: `tmux 3dried`,
+ComplexValue Python 3.8.17, PyTorch 2.0.1+cu118, RTX 4090.
+New+legacy unit suite: 61 tests PASS; later additions recorded separately.
+Command: `CUBLAS_WORKSPACE_CONFIG=:4096:8 python scripts/train_ista_net.py --config configs/ista_net_baseline.yaml --rate 0.5 --output results/ista_net_h50_v2`.
+Fixed protocol: 128/32/32 disjoint full-size RM point scenes, 20 dB AWGN,
+20 epochs, Adam 1e-4, batch one, 9 phases / 32 features, height-row mask.
+50% completed in about 186 s, best validation epoch 18, validation Complex
+NMSE 0.01049538, independent test 0.01336434; conservative 200-step ISTA
+0.93952807 is a fixed-budget comparator, not a converged optimum.
+Checkpoint SHA-256 6707938295db9da6cd83bad983c79f7c109d08cfa1aea15301b076c73f5b1ec5.
+Initial invocation failed before training on relative-path provenance handling;
+the corrected rerun uses a fresh immutable output directory and retains logs.
+Other rates use the same fixed training protocol, separately trained weights.
+
 ## 2026-10-24 — Unified imaging baseline
 
 Command: `python scripts/run_baseline_suite.py --no-figures --output-dir results/baseline_20261024_final`.
@@ -627,3 +643,7 @@ Lightweight artifacts are under `results/review/M6/`. Best-validation and
 epoch-100 checkpoints remain local under ignored `results/m6_rmist_training/`.
 No full dataset was stored or committed, and no Hammer inference occurred.
 Stop for independent review; M7-R remains locked.
+
+## 2026-10-27 — completed matrix and diagnostics
+
+Four height-rate models each completed 20 epochs. Independent test NMSE at 100/70/50/30% is 0.01287696/0.01270838/0.01336434/0.01483224. Five entry-point runs produced 100 rows (54 completed, 46 SKIPPED), with two warmups/five repeats and preprocessing excluded from times. Lightweight configs/seeds/hashes/metrics are in results/review/ISTA_NET; volumes/weights remain ignored. BP local controls use full aperture and literal loops; full-FOV budget calls return no partial image. A validation-only 20000-step ISTA diagnostic confirms underconvergence at 200. Hammer50 residual: ISTA-Net 1.57259, RMA 0.05518. No tuning or M9 normalization follows this observation. BASELINE_REPORT.md contains exact commands and limitations.

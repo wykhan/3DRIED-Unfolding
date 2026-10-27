@@ -1,0 +1,50 @@
+[
+  {
+    "dataset": "point_sim",
+    "algorithm": "RMA",
+    "mask_equal": true,
+    "observations": 81400,
+    "complex_relative_difference": 0.0,
+    "status": "PASS"
+  },
+  {
+    "dataset": "point_sim",
+    "algorithm": "ISTA",
+    "mask_equal": true,
+    "observations": 81400,
+    "complex_relative_difference": 0.0,
+    "status": "PASS"
+  },
+  {
+    "dataset": "point_sim",
+    "algorithm": "ISTA_Net",
+    "mask_equal": true,
+    "observations": 81400,
+    "complex_relative_difference": 0.0,
+    "status": "PASS"
+  },
+  {
+    "dataset": "hammer",
+    "algorithm": "RMA",
+    "mask_equal": true,
+    "observations": 81400,
+    "complex_relative_difference": 0.0,
+    "status": "PASS"
+  },
+  {
+    "dataset": "hammer",
+    "algorithm": "ISTA",
+    "mask_equal": true,
+    "observations": 81400,
+    "complex_relative_difference": 0.0,
+    "status": "PASS"
+  },
+  {
+    "dataset": "hammer",
+    "algorithm": "ISTA_Net",
+    "mask_equal": true,
+    "observations": 81400,
+    "complex_relative_difference": 0.0,
+    "status": "PASS"
+  }
+]

@@ -1,3 +1,16 @@
+# Authorized five-method extension — 2026-10-27
+
+- [x] Audit branch, metadata, accepted weights and M8/M9.
+- [x] Literal phase-only BP interface and local analytic controls.
+- [x] True A/A^H ISTA and original ISTA-Net topology, gradients and symmetry.
+- [x] Disjoint splits; separately train 100/70/50/30% height models.
+- [x] Unified point/Hammer inference, two mask families, shared scales and repeated timings.
+- [x] Record unsupported-condition SKIPPED states and negative sim-to-real findings.
+- [ ] Independent scientific review.
+- [ ] Full-FOV/raw-data BP acceptance, after physical validation and a bounded long CPU run.
+
+Technical completion requires formula/adjoint/phase tests, identical observations, validated weight provenance and correct metrics. It does not imply learned superiority. Historical milestone gates below are preserved.
+
 # PLAN.md
 
 ## 2026-10-24 — Baseline branch extension

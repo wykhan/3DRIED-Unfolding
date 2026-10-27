@@ -51,3 +51,14 @@ results/review/BASELINE/*
 !results/review/BASELINE/*.jpg
 !results/review/BASELINE/*.txt
 !results/review/BASELINE/*.md
+!results/review/M9/
+results/review/M9/*
+!results/review/M9/*.json
+!results/review/M9/*.csv
+!results/review/M9/*.png
+!results/review/ISTA_NET/
+results/review/ISTA_NET/*
+!results/review/ISTA_NET/*.json
+!results/review/ISTA_NET/*.csv
+!results/review/ISTA_NET/*.yaml
+!results/review/ISTA_NET/*.txt

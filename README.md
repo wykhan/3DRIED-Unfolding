@@ -1,3 +1,7 @@
+# Current five-method baseline
+
+The active extension uses basic unoptimized BP, RMA, true-adjoint ISTA, original ISTA-Net and frozen RMIST-Net. Read [BASELINE_REPORT.md](BASELINE_REPORT.md) and [BASELINE_REVIEW.md](BASELINE_REVIEW.md) for trained models, the unified entry point, negative real-data findings and SKIPPED conditions. The earlier FFT-BP/CV-ISTA runner below is historical and is not the active five-method roster.
+
 # 3DRIED imaging baseline suite
 
 Independent branch `baseline/3dried-imaging-suite`: BP, RMA, ISTA, CV-ISTA and

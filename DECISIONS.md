@@ -1,5 +1,20 @@
 # DECISIONS.md
 
+## 2026-10-27 — five-method extension decisions
+
+- User fixes BP to literal geometric phase-only summation, with basic distance
+  sampling/interpolation as needed; no FFT-convolution or other BP acceleration.
+- The current generic ISTA uses the true measured adjoint. Historical strict
+  RMIST RM_dagger updates are retained independently and are not relabeled A^H.
+- Original ISTA-Net uses real/imag channels and original four-convolution phase
+  topology with symmetry loss. Fixed spectral-unit scaling, adjoint initializer,
+  and perturbed signed-identity transform initialization are explicit new SAR
+  choices. They are not attributed to the original authors or RMIST.
+- First training policy is one model per sampling rate and mask family;
+  validation-only checkpoint selection, then an independent test split.
+- Preserve raw Hammer scale and M8/M9 negative normalization evidence. Do not
+  tune preprocessing, weights or thresholds on Hammer.
+
 ## 2026-10-24 — Baseline implementation choices
 
 - EXPERIMENTAL EXTENSION: separate suite and new user-authorized baseline branch.

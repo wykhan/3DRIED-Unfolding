@@ -1,0 +1,12 @@
+{
+  "local_commit_before_bundle": "94c8eeec00cb02820b31203dda146cce3b6d833c",
+  "training_weights": "local ignored results, not Git",
+  "large_arrays": "local ignored results, not Git",
+  "new_mask_rmist": "SKIPPED; frozen M6 mask condition differs",
+  "hammer_ground_truth": false,
+  "BP_full_FOV": "SKIPPED; literal-loop budget and unresolved raw-phase/range convention; no accelerated replacement",
+  "primary_pattern": "height_lines",
+  "extension_pattern": "random_2d",
+  "expected_test_suite": "63 passed; full CUDA and real raw-data availability",
+  "full_matrix_status": "technically reproducible partial matrix; independent scientific review pending"
+}

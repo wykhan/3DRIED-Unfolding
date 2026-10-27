@@ -1,0 +1,87 @@
+test_exact_nested_counts_and_height_structure (test_baseline_suite.AcquisitionAndSamplingTests) ... ok
+test_padding_is_not_acquired_data (test_baseline_suite.AcquisitionAndSamplingTests) ... ok
+test_shared_configuration_matches_accepted_hammer (test_baseline_suite.AcquisitionAndSamplingTests) ... ok
+test_reference_cosine_stays_in_range_with_complex64_volume (test_baseline_suite.MetricPrecisionTests) ... ok
+test_bp_focal_response_for_independent_spherical_point (test_baseline_suite.NumericalTests) ... ok
+test_cv_ista_complex_phase_equivariance (test_baseline_suite.NumericalTests) ... ok
+test_cv_ista_objective_nonincreasing (test_baseline_suite.NumericalTests) ... ok
+test_fft_bp_matches_direct_geometric_sum (test_baseline_suite.NumericalTests) ... ok
+test_masked_forward_adjoint_inner_product (test_baseline_suite.NumericalTests) ... ok
+test_numpy_rmist_matches_accepted_torch_model (test_baseline_suite.NumericalTests) ... ok
+test_point_scene_uses_physical_aperture_and_exact_gt (test_baseline_suite.NumericalTests) ... ok
+test_rma_matches_accepted_implementation (test_baseline_suite.NumericalTests) ... ok
+test_all_methods_use_fixture_echo_and_never_report_real_gt_metrics (test_baseline_suite.RealLoaderIntegrationTests) ... point_sim: random_2d SR=100%: 5 methods complete
+point_sim: random_2d SR=70%: 5 methods complete
+point_sim: random_2d SR=50%: 5 methods complete
+point_sim: random_2d SR=30%: 5 methods complete
+point_sim: height_lines SR=100%: 5 methods complete
+point_sim: height_lines SR=70%: 5 methods complete
+point_sim: height_lines SR=50%: 5 methods complete
+point_sim: height_lines SR=30%: 5 methods complete
+real: random_2d SR=100%: 5 methods complete
+real: random_2d SR=70%: 5 methods complete
+real: random_2d SR=50%: 5 methods complete
+real: random_2d SR=30%: 5 methods complete
+real: height_lines SR=100%: 5 methods complete
+real: height_lines SR=70%: 5 methods complete
+real: height_lines SR=50%: 5 methods complete
+real: height_lines SR=30%: 5 methods complete
+/home/superws/.codex/worktrees/ista-net-validation/3DRIED-Unfolding/tests/test_baseline_suite.py:170: ResourceWarning: unclosed file <_io.TextIOWrapper name='/tmp/tmp5abhk6ww/out/summary_metrics.csv' mode='r' encoding='UTF-8'>
+  rows=list(csv.DictReader((Path(temp)/'out/summary_metrics.csv').open()))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+ok
+test_matrix_and_missing_real_data_are_reported_separately (test_baseline_suite.RunnerTests) ... ok
+test_basic_range_bp_preserves_complex_interpolation (test_ista_net_baseline.ISTANetBaselineTests) ... ok
+test_ista_uses_monotonic_measured_objective (test_ista_net_baseline.ISTANetBaselineTests) ... ok
+test_literal_bp_phase_compensation_coherently_sums (test_ista_net_baseline.ISTANetBaselineTests) ... ok
+test_measured_adjoint_and_gradient_complex128 (test_ista_net_baseline.ISTANetBaselineTests) ... ok
+test_metrics_do_not_align_phase_or_hide_missing_targets (test_ista_net_baseline.ISTANetBaselineTests) ... ok
+test_network_shape_complex_phase_and_all_phase_backpropagation (test_ista_net_baseline.ISTANetBaselineTests) ... ok
+test_physical_scaling_does_not_change_forward (test_ista_net_baseline.ISTANetBaselineTests) ... ok
+test_procedural_split_hashes_are_disjoint_and_repeatable (test_ista_net_baseline.ISTANetBaselineTests) ... ok
+test_short_single_scene_training_reduces_reconstruction_loss (test_ista_net_baseline.ISTANetBaselineTests) ... ok
+test_accepted_mask_hash_and_physical_rate (test_rmist_hammer.TestRMISTHammerInference) ... ok
+test_m7_script_contains_no_optimizer_or_training_call (test_rmist_hammer.TestRMISTHammerInference) ... ok
+test_observed_consistency_is_zero_for_exact_echo (test_rmist_hammer.TestRMISTHammerInference) ... ok
+test_physical_support_is_centered_and_exact (test_rmist_hammer.TestRMISTHammerInference) ... ok
+test_complex_threshold_magnitude_and_phase (test_rmist_ista.RMISTISTATests) ... ok
+test_one_iteration_is_literal_eq19 (test_rmist_ista.RMISTISTATests) ... ok
+test_reported_initialization_mode_runs_nine_iterations (test_rmist_ista.RMISTISTATests) ... ok
+test_synthetic_helpers_are_complex_and_reproducible (test_rmist_ista.RMISTISTATests) ... ok
+test_cuda_smoke (test_rmist_kernel.RMISTKernelTests) ... ok
+test_exact_3dried_kernel_formulas (test_rmist_kernel.RMISTKernelTests) ... ok
+test_full_domain_round_trip_complex64_and_complex128 (test_rmist_kernel.RMISTKernelTests) ... ok
+test_m2_numpy_formula_equivalence_complex64 (test_rmist_kernel.RMISTKernelTests) ... ok
+test_nonpropagating_and_zero_ky_are_explicitly_zero (test_rmist_kernel.RMISTKernelTests) ... ok
+test_physical_padding_and_crop (test_rmist_kernel.RMISTKernelTests) ... ok
+test_reciprocal_product_on_valid_support (test_rmist_kernel.RMISTKernelTests) ... ok
+test_alpha0_is_exact_rm_dagger (test_rmist_net.RMISTNetTests) ... ok
+test_complex_two_channel_round_trip (test_rmist_net.RMISTNetTests) ... ok
+test_cuda_complex64 (test_rmist_net.RMISTNetTests) ... ok
+test_gradient_reaches_every_phase_without_optimizer (test_rmist_net.RMISTNetTests) ... ok
+test_m4_to_m5_regression_complex64_and_complex128 (test_rmist_net.RMISTNetTests) ... ok
+test_one_phase_is_literal_eq20 (test_rmist_net.RMISTNetTests) ... ok
+test_parameter_structure_and_initialization (test_rmist_net.RMISTNetTests) ... ok
+test_single_batch_cpu_and_trace (test_rmist_net.RMISTNetTests) ... ok
+test_execution_path_contains_no_training_calls (test_rmist_normalization.TestRMISTNormalization) ... ok
+test_linear_rm_dagger_normalize_denormalize (test_rmist_normalization.TestRMISTNormalization) ... ok
+test_proxy_identities (test_rmist_normalization.TestRMISTNormalization) ... ok
+test_scale_validation (test_rmist_normalization.TestRMISTNormalization) ... ok
+test_unit_scale_exactly_reproduces_ordinary_rmist (test_rmist_normalization.TestRMISTNormalization) ... ok
+test_execution_path_has_no_update_calls (test_rmist_sim2real_diagnostic.TestRMISTSim2RealDiagnostic) ... ok
+test_magnitude_statistics_reproduce_toy_values (test_rmist_sim2real_diagnostic.TestRMISTSim2RealDiagnostic) ... ok
+test_phase_decomposition_and_metrics_are_consistent (test_rmist_sim2real_diagnostic.TestRMISTSim2RealDiagnostic) ... ok
+test_traced_forward_matches_ordinary_output_and_preserves_parameters (test_rmist_sim2real_diagnostic.TestRMISTSim2RealDiagnostic) ... ok
+test_cached_operator_exactly_matches_accepted_operator (test_rmist_training.RMISTTrainingTests) ... ok
+test_dataset_is_deterministic_complex_and_has_exact_snr (test_rmist_training.RMISTTrainingTests) ... ok
+test_eq27_is_mean_per_sample_complex_l2_norm (test_rmist_training.RMISTTrainingTests) ... ok
+test_fixed_mask_is_binary_and_deterministic (test_rmist_training.RMISTTrainingTests) ... ok
+test_metrics_are_evaluation_only_and_finite (test_rmist_training.RMISTTrainingTests) ... ok
+test_dataset_is_readable_and_layout_matches_reference (test_smoke.BaselineTests) ... ok
+test_reference_bin_17_range (test_smoke.BaselineTests) ... ok
+test_rma_slice_is_complex_finite (test_smoke.BaselineTests) ... ok
+
+----------------------------------------------------------------------
+Ran 63 tests in 3.353s
+
+OK

@@ -1,0 +1,6 @@
+{
+  "1.0": "results/ista_net_height_1.0/best.pt",
+  "0.7": "results/ista_net_height_0.7/best.pt",
+  "0.5": "results/ista_net_h50_v2/best.pt",
+  "0.3": "results/ista_net_height_0.3/best.pt"
+}

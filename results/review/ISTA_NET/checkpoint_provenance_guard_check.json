@@ -1,0 +1,50 @@
+{
+  "rows": [
+    {
+      "algorithm": "ISTA-Net",
+      "dataset": "point_sim",
+      "scene": "multi",
+      "rate": 0.5,
+      "pattern": "height_lines",
+      "mask_sha256": "83e7df57f57fe8ab3290265afec96dd1a607a6bfe8b72fef004dc1be2e91c49a",
+      "status": "PASS",
+      "reason": null,
+      "timing_note": "provenance-check-only",
+      "checkpoint_sha256": "6707938295db9da6cd83bad983c79f7c109d08cfa1aea15301b076c73f5b1ec5",
+      "generalization": "independent fixed point control",
+      "runtime_median_seconds": 0.3521568889991613,
+      "runtime_repetitions": 1,
+      "runtime_warmup": 0,
+      "runtime_device": "cuda:0",
+      "runtime_preprocessing_included": false,
+      "runtime_samples_seconds": [
+        0.3521568889991613
+      ],
+      "complex_nmse": 0.015809979362175857,
+      "localization_mean_m": 0.0,
+      "localization_max_m": 0.0,
+      "localization_status": "MEASURED_TOP_K_PEAKS",
+      "point_count": 5,
+      "resolution_note": "top-K peak assignment; no claim of a universal resolution limit",
+      "pslr_islr_status": "SKIPPED_MULTIPLE_TARGETS",
+      "observed_relative_residual": 0.14551840592462625
+    },
+    {
+      "algorithm": "ISTA-Net",
+      "dataset": "point_sim",
+      "scene": "multi",
+      "rate": 0.7,
+      "pattern": "height_lines",
+      "mask_sha256": "7707ac68602b4cfc41ca6b5e822310d9f079461c6b4bf4b0104787ef22816d91",
+      "status": "SKIPPED",
+      "reason": "CHECKPOINT_RATE_OR_PATTERN_MISMATCH",
+      "timing_note": "provenance-check-only"
+    }
+  ],
+  "status_meaning": "PASS = completed finite computation with declared input/model checks; independent scientific review remains required",
+  "limitations": [
+    "RM point data are model matched; not raw FMCW validation",
+    "literal BP cannot be ranked from RM-generated points without model/gain validation",
+    "RMIST new-mask outputs are unvalidated; no M9 normalization used"
+  ]
+}

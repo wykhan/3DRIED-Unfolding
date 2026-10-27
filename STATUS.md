@@ -1,3 +1,9 @@
+# Current extension status — 2026-10-27
+
+Independent branch `baseline/ista-net-validation`: original complex SAR ISTA-Net implemented; four height-rate models trained/tested; 63 tests pass. Declared matrix: 100 rows, 54 completed and 46 SKIPPED. Simulated point accuracy improves over untrained models; learned Hammer improvement is NOT DEMONSTRATED. Literal BP full-FOV and new-mask RMIST remain SKIPPED. See BASELINE_REPORT.md and BASELINE_REVIEW.md for evidence and commands. Independent review pending; no main merge.
+
+Earlier status below is preserved as history.
+
 # STATUS.md
 
 ## 2026-10-24 — Independent baseline suite

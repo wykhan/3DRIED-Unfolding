@@ -1,0 +1,37 @@
+{
+  "comparison_single_height": {
+    "relative_path": "results/comparison_single_height",
+    "status_counts": {
+      "PASS": 12,
+      "SKIPPED": 8
+    }
+  },
+  "comparison_point_sim_height": {
+    "relative_path": "results/comparison_point_sim_height",
+    "status_counts": {
+      "PASS": 12,
+      "SKIPPED": 8
+    }
+  },
+  "comparison_hammer_height": {
+    "relative_path": "results/comparison_hammer_height",
+    "status_counts": {
+      "PASS": 12,
+      "SKIPPED": 8
+    }
+  },
+  "comparison_point_sim_random2d": {
+    "relative_path": "results/comparison_point_sim_random2d",
+    "status_counts": {
+      "PASS": 9,
+      "SKIPPED": 11
+    }
+  },
+  "comparison_hammer_random2d": {
+    "relative_path": "results/comparison_hammer_random2d",
+    "status_counts": {
+      "PASS": 9,
+      "SKIPPED": 11
+    }
+  }
+}

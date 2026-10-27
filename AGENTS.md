@@ -1,5 +1,19 @@
 # AGENTS.md
 
+## Current user authorization — 2026-10-27
+
+The user explicitly supersedes the old suite's CV-ISTA display name and the
+old no-training lock for a new independent ISTA-Net baseline. The five methods
+are literal unoptimized phase-only BP, reference RMA, true-A/A^H ISTA,
+original ISTA-Net (not plus), and frozen accepted RMIST-Net. Train ISTA-Net
+first at 50% height-row sampling with disjoint train/validation/test scenes.
+No BP FFT-convolution acceleration, adaptive weighting, or image enhancement.
+Necessary range sampling/interpolation and correctness checks remain required.
+Keep strict RMIST RM/RM_dagger and weights unchanged; M8/M9 do not establish a
+beneficial Hammer normalization. Unverified rows must be SKIPPED or explicitly
+diagnostic. Do not merge main or overwrite other worktrees. The historical
+authorization below is retained as history, not a veto on this user request.
+
 ## Baseline branch authorization — 2026-10-24
 
 On `baseline/3dried-imaging-suite`, the user's current request additionally
