@@ -459,6 +459,26 @@ commit the procedural dataset or local checkpoints.
 - This does not select a production scale, establish improved Hammer image
   quality, exclude broader distribution mismatch, or authorize any model fix.
 
+## D038 — Full FMCW range-migration BP and exact lattice caching
+
+**Status:** AUTHORIZED BY USER — 2026-10-27
+
+- Formal BP must query each aperture's complex range profile at each pixel's
+  actual slant range, then compensate the declared FMCW phase and accumulate.
+- Separate canonical positive-beat IF simulation from the accepted legacy
+  RM slice model. Declare ADC-first-sample frequency, native FFT range axis,
+  profile centering, delay and quadratic phase explicitly. Do not guess the
+  corresponding Hammer hardware phase convention or change legacy labels.
+- Prefer an exact FP64 relative-offset cache for the verified regular
+  3DRIED lattice. It retains the full migrated range queries and matches
+  general FP64 BP within 1.44e-13 on full images. Keep the general fused CUDA
+  kernel for non-lattice geometry and mixed precision only as a tested option.
+- Record BP-core, preprocessing/transfers and cache construction separately;
+  no single-frequency speed, full distance matrix or multi-GPU estimate
+  substitutes for measured full-size single-slice timing.
+- The old narrowband path requires explicit diagnostic selection. The
+  general unified entry skips unsupported full-FMCW input conditions.
+
 ## D037 — BP acceleration authorized, preserving the phase-only slice sum
 
 **Status:** AUTHORIZED BY USER — 2026-10-27

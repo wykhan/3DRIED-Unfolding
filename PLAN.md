@@ -1,4 +1,14 @@
-# BP acceleration follow-up — 2026-10-27
+# Full FMCW BP assessment — 2026-10-27
+
+- [x] Declare positive-beat raw IF, ADC timing and carrier/RVP phase convention.
+- [x] Actual slant-range interpolation and fused CUDA implementation.
+- [x] Verify general and exact regular-lattice cached FP64 variants.
+- [x] Full 512x512 single/five-point controls at 100/70/50/20%.
+- [x] Separate kernel/pipeline/setup timing and 77 passing regression tests.
+- [x] Isolate old narrowband controls from formal BP selection.
+- [ ] Hammer ADC/mixer/absolute-range calibration and real BP acceptance.
+
+# BP acceleration follow-up — 2026-10-27 (single-frequency control)
 
 - [x] User authorizes acceleration in place of mandatory literal loops.
 - [x] Exact phase-only FFT BP, cached CPU/CUDA backends and direct-sum tests.

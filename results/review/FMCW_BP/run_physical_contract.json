@@ -1,0 +1,25 @@
+{
+  "physical_aperture_shape": [
+    200,
+    407
+  ],
+  "image_shape": [
+    512,
+    512
+  ],
+  "adc_samples": 256,
+  "n_fft": 2048,
+  "depth_m": 0.6143103952815643,
+  "first_adc_frequency_hz": 77000000000.0,
+  "effective_center_frequency_hz": 78792522500.0,
+  "accepted_legacy_rma_frequency_hz": 78800000000.0,
+  "one_way_range_bin_m": 0.005206025895611797,
+  "physical_range_resolution_m": 0.041648207164894376,
+  "full_contributions": 21338521600,
+  "distance_matrix_float32_gib": 79.4921875,
+  "cached_objects": "range-compressed profiles and coordinate vectors; no pixel-by-aperture distance/phase matrix",
+  "kernel_timing_excludes": "compilation, coordinate setup, range preprocessing, profile compaction and file IO",
+  "host_image_timing_includes": "BP and output download; input profiles already on GPU",
+  "pipeline_timing_includes": "raw ADC upload, padded range FFT, centering, BP and output download; no disk IO or synthetic echo generation",
+  "real_hammer_status": "NOT_RUN_UNVERIFIED_MIXER_AND_ADC_PHASE_CONVENTION"
+}

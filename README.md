@@ -1,6 +1,6 @@
 # Current five-method baseline
 
-The active extension uses phase-only BP, RMA, true-adjoint ISTA, original ISTA-Net and frozen RMIST-Net. BP now defaults to an exact FFT evaluation of the spherical phase sum; `--bp-backend literal` retains the slow reference and `--bp-backend fft_cuda` selects the GPU. See [BP acceleration and slice timings](docs/BP_ACCELERATION_REPORT.md). Read [BASELINE_REPORT.md](BASELINE_REPORT.md) and [BASELINE_REVIEW.md](BASELINE_REVIEW.md) for trained models, negative real-data findings and SKIPPED conditions. The earlier Green-weighted FFT-BP/CV-ISTA runner below remains historical.
+The active extension uses full FMCW range-migration BP, RMA, true-adjoint ISTA, original ISTA-Net and frozen RMIST-Net. Full-size FMCW simulation and CUDA BP are evaluated by `scripts/benchmark_fmcw_bp.py`; see [FMCW BP assessment](docs/FMCW_BP_ASSESSMENT.md). The RM-slice unified entry explicitly skips full FMCW BP until suitable raw inputs/phase validation are available. The previous single-frequency BP is accessible only through `--bp-model narrowband_diagnostic`, with `--bp-backend fft_cpu`, `fft_cuda` or `literal`; its [old slice timings](docs/BP_ACCELERATION_REPORT.md) are not wideband results. Read [BASELINE_REPORT.md](BASELINE_REPORT.md) and [BASELINE_REVIEW.md](BASELINE_REVIEW.md) for learned models, negative real-data findings and SKIPPED conditions. The earlier Green-weighted FFT-BP/CV-ISTA runner below remains historical.
 
 # 3DRIED imaging baseline suite
 

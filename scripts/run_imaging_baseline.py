@@ -73,6 +73,8 @@ def main():
     p.add_argument('--bp-seconds',type=float,default=5.)
     p.add_argument('--bp-backend',choices=['fft_cpu','fft_cuda','literal'],default='fft_cpu',
                    help='exact phase-only slice sum; FFT acceleration authorized 2026-10-27')
+    p.add_argument('--bp-model',choices=['full_fmcw','narrowband_diagnostic'],default='full_fmcw',
+                   help='full FMCW is required for BP; the old slice path needs explicit diagnostic selection')
     p.add_argument('--bp-workers',type=int,default=1)
     p.add_argument('--rmist-diagnostic',action='store_true')
     p.add_argument('--no-figures',action='store_true')
@@ -80,7 +82,7 @@ def main():
     p.add_argument('--repetitions',type=int)
     p.add_argument('--timing-note',default='isolated run; check saved hardware record')
     args=p.parse_args();settings=yaml.safe_load(args.config.read_text())
-    settings['bp_execution']={'backend':args.bp_backend,'cpu_fft_workers':args.bp_workers,
+    settings['bp_execution']={'backend':args.bp_backend,'model_selection':args.bp_model,'cpu_fft_workers':args.bp_workers,
                               'model':'fixed_depth_phase_only_spherical_sum','dtype':'complex128'}
     if args.warmup is not None:settings['evaluation']['warmup']=args.warmup
     if args.repetitions is not None:settings['evaluation']['repetitions']=args.repetitions
@@ -118,6 +120,11 @@ def main():
         volumes={}
         for method in args.algorithm:
             row={'algorithm':method,'dataset':args.dataset,'scene':args.scene if gt is not None else None,'rate':rate,'pattern':args.pattern,'mask_sha256':record['sha256_uint8'],'status':'SKIPPED','reason':None,'timing_note':args.timing_note}
+            if method=='BP' and args.bp_model=='full_fmcw':
+                row['reason']=('FMCW_HAMMER_PHASE_CALIBRATION_NOT_VALIDATED' if args.dataset=='hammer'
+                               else 'RM_SLICE_INPUT_IS_NOT_RAW_FMCW_USE_BENCHMARK_FMCW_BP')
+                row['detail']='Full FMCW synthetic entry: scripts/benchmark_fmcw_bp.py; narrowband controls require --bp-model narrowband_diagnostic'
+                rows.append(row);continue
             checkpoint=args.checkpoint or (Path(index[str(rate)]) if str(rate) in index else None)
             net=None
             if method=='ISTA-Net':

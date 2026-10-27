@@ -1,5 +1,16 @@
 # Five-method baseline validation
 
+**Latest BP scope:** The user selects full FMCW range-migration BP. The new
+raw-IF simulation and fused CUDA implementation query range profiles by
+actual slant range. Exact FP64 relative-offset caching gives 0.374--0.405 s
+per full 512x512 slice, or 0.448 s including ADC upload/range processing and
+output download (warmed, setup excluded). See
+[FMCW_BP_ASSESSMENT.md](docs/FMCW_BP_ASSESSMENT.md). All 77 tests pass.
+Hammer mixer/ADC phase calibration remains open; no real-data BP acceptance
+is claimed. Earlier single-frequency times and SKIPPED rows below remain
+historical controls. The unified RM-slice input cannot silently replace full
+FMCW; old narrowband execution requires an explicit diagnostic option.
+
 **BP follow-up:** The user subsequently authorized acceleration. The active
 entry now uses an exact FFT evaluation of the phase-only sum, with a literal
 reference option. Full-size single/five-point controls and measured timings

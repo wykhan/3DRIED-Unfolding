@@ -1,4 +1,19 @@
-# BP acceleration follow-up — 2026-10-27
+# Full FMCW BP assessment — 2026-10-27
+
+The user requires full FMCW range-migration BP. Implemented separate raw-IF
+simulation, centered complex range profiles, actual-slant-range interpolation,
+carrier/RVP compensation and fused CUDA BP. Exact FP64 regular-lattice cache
+retains the same sum and runs full 512x512 slices at 100% in 0.374--0.405 s;
+one warmed pipeline measurement including ADC upload/range FFT/image download
+is 0.448 s, excluding 44--64 ms cache setup and compilation/context startup.
+Eight single/five-point controls at 100/70/50/20% PASS with zero grid
+localization error. Cached/full FP64 relative image difference <=1.44e-13;
+all 77 tests PASS. Hammer phase/calibration acceptance remains NOT_RUN.
+The RM-slice unified entry skips full FMCW BP instead of silently invoking
+the old narrowband control. See docs/FMCW_BP_ASSESSMENT.md. Earlier timing
+records below remain unchanged and are not wideband performance claims.
+
+# BP acceleration follow-up — 2026-10-27 (single-frequency control)
 
 The user retracts mandatory unoptimized BP. Exact phase-only linear FFT convolution and fixed-kernel CPU/CUDA caches are implemented and integrated; 68 tests PASS. Eight independent narrowband single/five-point controls at 100/70/50/20% height sampling use the full 200x407 aperture and 512x512 image lattice, with zero grid localization error. CPU cached timings are 111--114 ms/slice; RTX 4090 cached timings including echo upload/image download are 2.04--2.13 ms/slice, complex128, two warmups/ten repeats, excluding kernel setup and preprocessing. See docs/BP_ACCELERATION_REPORT.md. Full FMCW/Hammer BP remains unvalidated. Previous matrix SKIPPED entries below describe the earlier literal implementation and are not overwritten.
 

@@ -1,5 +1,17 @@
 # AGENTS.md
 
+## Full FMCW BP authorization — 2026-10-27 (latest)
+
+The user explicitly chooses complete FMCW range-migration BP for 3DRIED and
+requests a fresh optimization and single-slice performance assessment.
+Implement and validate a separate range-profile/interpolation BP, including
+the declared dechirp/FFT phase convention, then benchmark the full physical
+aperture and 512x512 output. GPU parallelism, kernel fusion, bounded caching
+and precision experiments with numerical evidence are authorized. Do not
+reuse the single-frequency FFT timing as a wideband result. Keep legacy
+operators/coordinates and frozen RMIST unchanged; unresolved Hammer phase
+or range calibration remains an explicit gate for real-data acceptance.
+
 ## BP acceleration authorization — 2026-10-27 (latest)
 
 The user explicitly retracts the literal unoptimized BP requirement and asks

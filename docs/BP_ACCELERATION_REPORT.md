@@ -1,5 +1,11 @@
 # Exact phase-only BP acceleration: 3DRIED single-slice benchmark
 
+**Scope clarification:** The formal BP baseline now requires full FMCW
+range-migration processing; see [FMCW_BP_ASSESSMENT.md](FMCW_BP_ASSESSMENT.md).
+This document remains a single-frequency numerical/performance control.
+Its 2.1 ms timing is not a full FMCW result. Reproducing its unified-entry
+controls now requires `--bp-model narrowband_diagnostic` explicitly.
+
 Date: 2026-10-27, Asia/Shanghai. Branch: `baseline/ista-net-validation`.
 The user explicitly replaces the mandatory unoptimized-BP requirement with
 an optimized BP baseline. RMIST, its weights and the SAR learning operators
@@ -126,7 +132,7 @@ OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 \
 # Unified operator interface; these RM-generated inputs are cross-model
 # diagnostics, not the independent spherical-wave controls above.
 python scripts/run_imaging_baseline.py --algorithm BP --dataset point_sim \
-  --rates 1.0 0.7 0.5 0.2 --bp-backend fft_cuda --output results/bp_fft_unified
+  --rates 1.0 0.7 0.5 0.2 --bp-model narrowband_diagnostic --bp-backend fft_cuda --output results/bp_fft_unified
 ```
 
 `--bp-backend fft_cpu` is the active default. `--bp-backend literal` retains

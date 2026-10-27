@@ -1,0 +1,7 @@
+{
+  "status": "PASS",
+  "conditions": 8,
+  "all_mixed_eligible": true,
+  "gpu_peak_allocated_bytes": 11018993664,
+  "scope": "full-size physical FMCW simulation and migrated BP; Hammer phase/calibration NOT validated"
+}

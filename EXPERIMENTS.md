@@ -644,6 +644,27 @@ epoch-100 checkpoints remain local under ignored `results/m6_rmist_training/`.
 No full dataset was stored or committed, and no Hammer inference occurred.
 Stop for independent review; M7-R remains locked.
 
+## 2026-10-27 — full FMCW BP assessment and exact offset caching
+
+Explicit user scope: full FMCW range-migration BP at the 3DRIED single-slice
+size. Existing tmux 3dried / ComplexValue, RTX 4090 GPU0. Commands:
+`OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 python scripts/benchmark_fmcw_bp.py --output results/fmcw_bp_assessment_20261027/run`
+and `python scripts/benchmark_fmcw_bp_cache.py --reference results/fmcw_bp_assessment_20261027/run --output results/fmcw_bp_assessment_20261027/cache`.
+Positive-beat 256-ADC IF, 2048-point centered range FFT, actual-slant-range
+complex interpolation and carrier/quadratic phase; one/five complex targets
+at depth 0.6143103952815643 m. Full aperture 200x407, full output 512x512;
+height masks 100/70/50/20%, seed 20261024. Eight controls PASS, zero grid
+localization errors. General FP64 BP core: 2.405/1.683/1.202/0.481 s. Mixed:
+1.419/.993/.710/.284 s, image relative error <=6.87e-5. Exact FP64 offset cache
+core: .374--.405/.293--.294/.211--.212/.0818--.0823 s, full-image relative
+error <=1.44e-13 against uncached FP64. Cached full-aperture pipeline with ADC
+upload/range FFT/download: .448 s; cache construction 44--64 ms separately.
+Two warmups/five repeats, CUDA synchronized; compilation/context/disk IO
+excluded. All 77 regressions PASS. The original general-run source snapshots
+are archived; the cache follow-up has separate source hashes. Raw-data
+calibration/real Hammer BP remains NOT_RUN. No RMIST parameters or legacy
+operators changed. Evidence: results/review/FMCW_BP and docs/FMCW_BP_ASSESSMENT.md.
+
 ## 2026-10-27 — authorized BP acceleration / single-slice controls
 
 After the user retracts mandatory unoptimized BP, preserve the phase-only

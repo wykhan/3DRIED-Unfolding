@@ -1,5 +1,16 @@
 # Baseline review record
 
+**Full FMCW BP follow-up:** Now authorized by the user. 77 regression tests
+PASS; eight full-size FMCW single/five-point controls at 100/70/50/20% have
+zero grid localization error. FP64 CUDA/NumPy spot error <=5.27e-14;
+cached/full FP64 whole-image error <=1.44e-13. Exact regular-lattice caching
+retains migrated range sampling, giving 0.374--0.405 s for the full slice
+core, with a warmed 0.448 s ADC-upload/range-FFT/BP/download measurement.
+Review the declared positive-beat IF, FFT centering, interpolation and RVP
+phase in docs/FMCW_BP_ASSESSMENT.md. This is physical simulation, not Hammer
+hardware-phase/calibration acceptance. The legacy narrowband entry requires
+explicit diagnostic selection and cannot substitute for full FMCW BP.
+
 **Latest BP follow-up:** The user authorizes FFT acceleration, caching and
 GPU execution. The earlier literal-only requirement below is superseded.
 Five new regression tests (68 total PASS), full-size direct-sum spot checks
