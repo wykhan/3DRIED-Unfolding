@@ -1,4 +1,18 @@
-# Full FMCW BP assessment — 2026-10-27
+# BP review corrections — 2026-10-27
+
+All five independent-review requests against 60f4472 are implemented and
+tested. Server: 85 PASS/0 SKIPPED; two GPUs, three modes and non-default
+streams verified. Independent raw-ADC reference: 60 CPU/general-CUDA cases,
+30 cached lattice cases; off-lattice cached queries explicitly inapplicable.
+FP64 implementation error <=7.52e-13; default 8x interpolation max relative
+L2 error vs ADC is 0.00611 on this matrix (no phase/gain fitting). New full
+timings and live environments are saved; cached core 0.376--0.394 s at full
+aperture, warmed declared pipeline 0.454 s. Eight historical cache regressions
+PASS at <=1.44e-13. Protected raw/weight/source/config hashes unchanged.
+See docs/FMCW_BP_REVIEW_FIXES.md. Await independent re-review; no Ready or
+merge, and no Hammer phase/range acceptance.
+
+# Full FMCW BP assessment — 2026-10-27 (pre-review record)
 
 The user requires full FMCW range-migration BP. Implemented separate raw-IF
 simulation, centered complex range profiles, actual-slant-range interpolation,

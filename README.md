@@ -1,5 +1,10 @@
 # Current five-method baseline
 
+The five BP review corrections against 60f4472 are implemented and tested;
+see [review fixes and evidence](docs/FMCW_BP_REVIEW_FIXES.md). Draft PR #2
+awaits another independent review. Hammer hardware phase/range mapping is
+not accepted.
+
 The active extension uses full FMCW range-migration BP, RMA, true-adjoint ISTA, original ISTA-Net and frozen RMIST-Net. Full-size FMCW simulation and CUDA BP are evaluated by `scripts/benchmark_fmcw_bp.py`; see [FMCW BP assessment](docs/FMCW_BP_ASSESSMENT.md). The RM-slice unified entry explicitly skips full FMCW BP until suitable raw inputs/phase validation are available. The previous single-frequency BP is accessible only through `--bp-model narrowband_diagnostic`, with `--bp-backend fft_cpu`, `fft_cuda` or `literal`; its [old slice timings](docs/BP_ACCELERATION_REPORT.md) are not wideband results. Read [BASELINE_REPORT.md](BASELINE_REPORT.md) and [BASELINE_REVIEW.md](BASELINE_REVIEW.md) for learned models, negative real-data findings and SKIPPED conditions. The earlier Green-weighted FFT-BP/CV-ISTA runner below remains historical.
 
 # 3DRIED imaging baseline suite

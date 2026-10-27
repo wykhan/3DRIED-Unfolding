@@ -1,5 +1,12 @@
 # Five-method baseline validation
 
+**Review repairs:** Five requested BP fixes against 60f4472 are implemented
+and server-tested (85 PASS, 0 SKIPPED). Independent ADC checks separate
+interpolation from CUDA implementation error. Repeated cached full-aperture
+BP is 0.376--0.394 s/core slice, 0.454 s for the declared warmed pipeline.
+See [review fix evidence](docs/FMCW_BP_REVIEW_FIXES.md). Historical numbers
+below are preserved; this is not Hammer acceptance or independent re-review.
+
 **Latest BP scope:** The user selects full FMCW range-migration BP. The new
 raw-IF simulation and fused CUDA implementation query range profiles by
 actual slant range. Exact FP64 relative-offset caching gives 0.374--0.405 s

@@ -1,5 +1,13 @@
 # Full FMCW range-migration BP: optimization and slice assessment
 
+**Review update:** Independent review of 60f4472 requested five correctness
+and provenance repairs. These are implemented with 85 passing tests, an
+independent ADC reference and fresh timing/environment records; see
+[FMCW_BP_REVIEW_FIXES.md](FMCW_BP_REVIEW_FIXES.md). The numbers below remain
+the original pre-review experiment record, including the old cache
+environment-copy defect described in the update. They are not relabeled as
+measurements of the repaired revision. Independent re-review is pending.
+
 Date: 2026-10-27 (Asia/Shanghai). The user explicitly selects full FMCW
 range-migration BP for the 3DRIED baseline. Single-frequency FFT BP remains
 a numerical control and its 2.1 ms timing is not used for the full method.

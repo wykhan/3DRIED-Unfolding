@@ -1,0 +1,22 @@
+acquisition_config: configs/baseline_3dried.yaml
+reviewed_commit: 60f447263128d576b24589b77ee5dd2f62f62bf0
+model: declared_positive_beat_stop_and_go_fmcw
+first_adc_frequency_hz: 77000000000.0
+device: cuda:0
+seed: 20261027
+aperture_x_indices: [-80, -40, 0, 40, 80]
+aperture_z_indices: [-50, -25, 0, 25, 50]
+query_x_indices: [-40, -20, 0, 20, 40]
+query_z_indices: [-20, -10, 0, 10, 20]
+depths_m: [0.43, 0.61431, 0.83]
+oversampling: [1, 2, 4, 8, 16]
+points:
+  - {x_m: 0.00137, y_m: 0.43, z_m: -0.00243, rho_real: 0.7, rho_imag: 0.3}
+  - {x_m: -0.02317, y_m: 0.61431, z_m: 0.01141, rho_real: -0.4, rho_imag: 0.8}
+  - {x_m: 0.03723, y_m: 0.83, z_m: -0.03183, rho_real: 0.6, rho_imag: -0.5}
+limits:
+  double_implementation_relative: 0.00000000001
+  mixed_implementation_relative: 0.001
+  phase_reference_minimum_fraction_of_known_signal_bound: 0.05
+# No gain/phase fit. Interpolation error uses the centered finite-ADC
+# linear-interpolation curvature bound pi^2*(1-1/N_ADC^2)/(24*oversampling^2).

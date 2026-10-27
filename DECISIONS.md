@@ -459,6 +459,23 @@ commit the procedural dataset or local checkpoints.
 - This does not select a production scale, establish improved Hammer image
   quality, exclude broader distribution mismatch, or authorize any model fix.
 
+## D039 — Independent BP review: contracts, closed endpoints and ADC oracle
+
+**Status:** REVIEW REQUEST IMPLEMENTED — INDEPENDENT RE-REVIEW PENDING
+
+- All modes require profile range length exactly equal to constructor n_fft;
+  launch/current-stream lookup belongs to the operator's CUDA context.
+- Native range axis uses closed endpoints with exact last-sample inclusion;
+  out-of-range contributions are zero, with no wrap or extrapolation.
+- Runtime environment must be captured from the current invocation. Preserve
+  historical reference metadata separately, never copy it as current state.
+- Treat direct raw-ADC matched summation as an independent no-FFT oracle.
+  Report interpolation, implementation and total complex errors separately;
+  no phase/gain fit. Preserve 1/2/4/8/16x results and keep default 8x.
+- Timing-path changes require new measurements. Retain original 60f4472
+  records and hashes. PR stays draft pending external re-review; Hammer
+  hardware phase/range mapping, RMIST and accepted data remain untouched.
+
 ## D038 — Full FMCW range-migration BP and exact lattice caching
 
 **Status:** AUTHORIZED BY USER — 2026-10-27

@@ -78,3 +78,9 @@ results/review/FMCW_BP/*
 !results/review/FMCW_BP/*.csv
 !results/review/FMCW_BP/*.yaml
 !results/review/FMCW_BP/*.txt
+!results/review/FMCW_BP_REVIEW/
+results/review/FMCW_BP_REVIEW/*
+!results/review/FMCW_BP_REVIEW/public_summary.json
+!results/review/FMCW_BP_REVIEW/public_source_hashes.json
+!results/review/FMCW_BP_REVIEW/public_environment.json
+!results/review/FMCW_BP_REVIEW/public_tests.txt

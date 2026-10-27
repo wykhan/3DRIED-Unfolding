@@ -31,8 +31,10 @@ __global__ void bp_kernel(const double2* __restrict__ profiles,
         else distance = sqrt(double(square));
         double tau = 2.0*double(distance)/c0 + delay;
         double index = slope*tau*double(n_fft)/fs;
-        int lo = int(floor(index));
-        if (lo < 0 || lo >= n_range-1) continue;
+        // Closed range axis: include the exact last sample; zero outside.
+        // Comparing before conversion also rejects NaN/Inf without casting.
+        if (!(index >= 0.0 && index <= double(n_range-1))) continue;
+        int lo = min(int(floor(index)),n_range-2);
         double fraction = index - lo;
         double2 q0 = profiles[(long long)lo*n_aperture+a];
         double2 q1 = profiles[(long long)(lo+1)*n_aperture+a];

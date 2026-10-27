@@ -1,5 +1,15 @@
 # Baseline review record
 
+**Independent BP review repairs (base 60f4472):** All five requested items
+are implemented: FFT-length rejection, operator-device launch context,
+closed distance endpoints, live cache-run environment capture, independent
+ADC matching with off-grid/multi-depth/oversampling checks. Server suite:
+85 PASS, 0 SKIPPED; both GPUs and all three modes tested. New performance
+and historical cache regressions complete. See
+[FMCW_BP_REVIEW_FIXES.md](docs/FMCW_BP_REVIEW_FIXES.md) and
+`results/review/FMCW_BP_REVIEW/`. Await independent re-review; draft retained.
+Hammer mixer/ADC/delay/absolute-distance acceptance remains open.
+
 **Full FMCW BP follow-up:** Now authorized by the user. 77 regression tests
 PASS; eight full-size FMCW single/five-point controls at 100/70/50/20% have
 zero grid localization error. FP64 CUDA/NumPy spot error <=5.27e-14;

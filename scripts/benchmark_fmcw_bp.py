@@ -5,7 +5,6 @@ import csv
 import hashlib
 import json
 from pathlib import Path
-import platform
 import shlex
 import subprocess
 import sys
@@ -18,6 +17,7 @@ import torch
 import yaml
 from three_dried.baseline.config import load_config,coordinates,ranges_m,support_slices
 from three_dried.baseline.sampling import nested_masks,mask_record
+from three_dried.baseline.runtime_environment import capture_runtime_environment
 from three_dried.baseline.validation_metrics import point_localization,sidelobes_single_point
 from three_dried.imaging.fmcw_bp import synthetic_if,range_profiles,reference_bp,FusedFMCWBP,C0
 
@@ -48,13 +48,11 @@ def main():
     (out/'settings_used.yaml').write_text(yaml.safe_dump(settings,sort_keys=False))
     (out/'acquisition_used.yaml').write_text(yaml.safe_dump({k:v for k,v in cfg.items() if not k.startswith('_')},sort_keys=False))
     device=settings['timing']['device'];torch.cuda.set_device(torch.device(device));torch.set_num_threads(1)
-    status=subprocess.check_output(['nvidia-smi','--query-gpu=name,utilization.gpu,memory.used','--format=csv,noheader'],text=True)
-    cpu=next(line.split(':',1)[1].strip() for line in Path('/proc/cpuinfo').read_text().splitlines() if line.startswith('model name'))
-    write(out/'environment.json',dict(python=sys.version,numpy=np.__version__,torch=torch.__version__,
-        platform=platform.platform(),cpu=cpu,gpu=torch.cuda.get_device_name(device),gpu_status=status,
-        nvcc=subprocess.check_output(['/usr/local/cuda/bin/nvcc','--version'],text=True),
-        precision_note='double: all geometry/phase/interpolation/accumulation FP64; mixed: geometry and sincos FP32, interpolation/accumulation FP64, complex128 storage'))
+    environment=capture_runtime_environment(device)
+    environment['precision_note']='double: geometry/phase/interpolation/accumulation FP64; mixed: geometry and sincos FP32, interpolation/accumulation FP64, complex128 storage'
+    write(out/'environment.json',environment)
     sources=['src/three_dried/imaging/fmcw_bp.py','src/three_dried/imaging/fmcw_bp_kernel.cu',
+             'src/three_dried/baseline/runtime_environment.py',
              'scripts/benchmark_fmcw_bp.py','configs/fmcw_bp_benchmark.yaml']
     write(out/'provenance.json',dict(parent_commit=subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),
           sources_sha256={p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sources}))

@@ -1,0 +1,86 @@
+{
+  "tests": {
+    "captured_at_utc": "2026-10-27T14:35:35.409495+00:00",
+    "environment_source": "live_process_and_hardware",
+    "python": "3.8.17 (default, Jul  5 2023, 21:04:15) \n[GCC 11.2.0]",
+    "numpy": "1.23.5",
+    "torch": "2.0.1+cu118",
+    "platform": "Linux-6.8.0-138-generic-x86_64-with-glibc2.17",
+    "cpu": "Intel(R) Xeon(R) Gold 5317 CPU @ 3.00GHz",
+    "device": "cuda:0",
+    "cuda_runtime": "11.8",
+    "cuda_device_count": 2,
+    "gpu": "NVIDIA GeForce RTX 4090",
+    "gpu_capability": [
+      8,
+      9
+    ],
+    "driver_versions": [
+      "550.144.03"
+    ],
+    "nvcc_version_output": "nvcc: NVIDIA (R) Cuda compiler driver\nCopyright (c) 2005-2024 NVIDIA Corporation\nBuilt on Thu_Mar_28_02:18:24_PDT_2024\nCuda compilation tools, release 12.4, V12.4.131\nBuild cuda_12.4.r12.4/compiler.34097967_0\n"
+  },
+  "adc_validation_v2": {
+    "captured_at_utc": "2026-10-27T14:35:44.305301+00:00",
+    "environment_source": "live_process_and_hardware",
+    "python": "3.8.17 (default, Jul  5 2023, 21:04:15) \n[GCC 11.2.0]",
+    "numpy": "1.23.5",
+    "torch": "2.0.1+cu118",
+    "platform": "Linux-6.8.0-138-generic-x86_64-with-glibc2.17",
+    "cpu": "Intel(R) Xeon(R) Gold 5317 CPU @ 3.00GHz",
+    "device": "cuda:0",
+    "cuda_runtime": "11.8",
+    "cuda_device_count": 2,
+    "gpu": "NVIDIA GeForce RTX 4090",
+    "gpu_capability": [
+      8,
+      9
+    ],
+    "driver_versions": [
+      "550.144.03"
+    ],
+    "nvcc_version_output": "nvcc: NVIDIA (R) Cuda compiler driver\nCopyright (c) 2005-2024 NVIDIA Corporation\nBuilt on Thu_Mar_28_02:18:24_PDT_2024\nCuda compilation tools, release 12.4, V12.4.131\nBuild cuda_12.4.r12.4/compiler.34097967_0\n"
+  },
+  "full_size": {
+    "captured_at_utc": "2026-10-27T14:35:47.302282+00:00",
+    "environment_source": "live_process_and_hardware",
+    "python": "3.8.17 (default, Jul  5 2023, 21:04:15) \n[GCC 11.2.0]",
+    "numpy": "1.23.5",
+    "torch": "2.0.1+cu118",
+    "platform": "Linux-6.8.0-138-generic-x86_64-with-glibc2.17",
+    "cpu": "Intel(R) Xeon(R) Gold 5317 CPU @ 3.00GHz",
+    "device": "cuda:0",
+    "cuda_runtime": "11.8",
+    "cuda_device_count": 2,
+    "gpu": "NVIDIA GeForce RTX 4090",
+    "gpu_capability": [
+      8,
+      9
+    ],
+    "driver_versions": [
+      "550.144.03"
+    ],
+    "nvcc_version_output": "nvcc: NVIDIA (R) Cuda compiler driver\nCopyright (c) 2005-2024 NVIDIA Corporation\nBuilt on Thu_Mar_28_02:18:24_PDT_2024\nCuda compilation tools, release 12.4, V12.4.131\nBuild cuda_12.4.r12.4/compiler.34097967_0\n"
+  },
+  "cache": {
+    "captured_at_utc": "2026-10-27T14:39:13.607080+00:00",
+    "environment_source": "live_process_and_hardware",
+    "python": "3.8.17 (default, Jul  5 2023, 21:04:15) \n[GCC 11.2.0]",
+    "numpy": "1.23.5",
+    "torch": "2.0.1+cu118",
+    "platform": "Linux-6.8.0-138-generic-x86_64-with-glibc2.17",
+    "cpu": "Intel(R) Xeon(R) Gold 5317 CPU @ 3.00GHz",
+    "device": "cuda:0",
+    "cuda_runtime": "11.8",
+    "cuda_device_count": 2,
+    "gpu": "NVIDIA GeForce RTX 4090",
+    "gpu_capability": [
+      8,
+      9
+    ],
+    "driver_versions": [
+      "550.144.03"
+    ],
+    "nvcc_version_output": "nvcc: NVIDIA (R) Cuda compiler driver\nCopyright (c) 2005-2024 NVIDIA Corporation\nBuilt on Thu_Mar_28_02:18:24_PDT_2024\nCuda compilation tools, release 12.4, V12.4.131\nBuild cuda_12.4.r12.4/compiler.34097967_0\n"
+  }
+}

@@ -644,6 +644,25 @@ epoch-100 checkpoints remain local under ignored `results/m6_rmist_training/`.
 No full dataset was stored or committed, and no Hammer inference occurred.
 Stop for independent review; M7-R remains locked.
 
+## 2026-10-27 — independent BP review corrections against 60f4472
+
+Review items 1--5 implemented. Exact commands and sequential stop-on-failure
+runner are retained under `results/fmcw_bp_review_20261027/`. Final full suite
+85 PASS, 0 FAIL/ERROR/SKIPPED; cross-device owner/current 0/1 and 1/0,
+non-default streams, double/mixed/cache tested. Closed range endpoints and
+wrong FFT lengths tested. Independent direct ADC matrix: 60 CPU/CUDA cases,
+30 cached lattice cases, 30 off-lattice cache exclusions. No gain/phase fit.
+FP64 CUDA vs interpolated CPU max error 7.516e-13; 8x interpolation vs ADC
+max relative L2 0.006105. The lower-oversampling errors remain recorded.
+Fresh environments have independent capture IDs. Repeated complete BP and
+cache timing: full-aperture cached core .376--.394 s, declared warmed
+ADC-upload/FFT/BP/download pipeline .454 s, 2 warmups/5 repeats. Cache setup
+54.7--85.4 ms separately. All eight new and historical cache comparisons
+<=1.436e-13. Original records at 60f4472 retained, including the acknowledged
+old cache environment-copy defect. Raw data, accepted weights/configs and
+RMIST sources verified unchanged. Evidence: results/review/FMCW_BP_REVIEW;
+report: docs/FMCW_BP_REVIEW_FIXES.md. Await independent re-review, draft kept.
+
 ## 2026-10-27 — full FMCW BP assessment and exact offset caching
 
 Explicit user scope: full FMCW range-migration BP at the 3DRIED single-slice

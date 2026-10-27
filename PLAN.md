@@ -1,4 +1,15 @@
-# Full FMCW BP assessment — 2026-10-27
+# Independent BP review corrections — 2026-10-27
+
+- [x] Reject profile FFT length mismatches in all modes.
+- [x] Launch in operator device context; test both GPUs and non-default streams.
+- [x] Unify closed range endpoints across CPU/general CUDA/cache.
+- [x] Collect cache hardware/software environment live.
+- [x] Independent ADC matching, off-grid/multi-depth/oversampling errors.
+- [x] 85 tests PASS/0 SKIPPED, repeated full-size timing and historical cache regression.
+- [ ] Independent re-review; PR remains draft, no merge or Ready action.
+- [ ] Hammer mixer/ADC/delay/absolute-distance acceptance remains open.
+
+# Full FMCW BP assessment — 2026-10-27 (pre-review record)
 
 - [x] Declare positive-beat raw IF, ADC timing and carrier/RVP phase convention.
 - [x] Actual slant-range interpolation and fused CUDA implementation.

@@ -53,8 +53,14 @@ def range_profiles(raw, fs_hz, slope_hz_s, n_fft):
 
 def reference_bp(profiles, aperture_xz, pixels_xz, depth_m, fs_hz, slope_hz_s,
                  f_ref_hz, n_fft, delay_s=0.0):
-    """Float64 NumPy range-interpolating reference; per-pixel aperture sum."""
+    """Float64 interpolation reference, closed [0,n_fft-1], zero outside.
+
+    The exact final sample is included using the final interval at weight
+    one. No extrapolation, wraparound or tolerance-based clamping is used.
+    """
     profiles = np.asarray(profiles)
+    if profiles.ndim!=2 or profiles.shape[0]!=n_fft or n_fft<2:
+        raise ValueError('profile range length must equal n_fft >= 2')
     aperture = np.asarray(aperture_xz,dtype=np.float64)
     result = np.zeros(len(pixels_xz),np.complex128)
     indices = np.arange(len(aperture))
@@ -62,8 +68,9 @@ def reference_bp(profiles, aperture_xz, pixels_xz, depth_m, fs_hz, slope_hz_s,
         distance = np.sqrt((x-aperture[:,0])**2+depth_m**2+(z-aperture[:,1])**2)
         tau = 2*distance/C0+delay_s
         query = slope_hz_s*tau*n_fft/fs_hz
-        lo = np.floor(query).astype(np.int64)
-        valid = (lo>=0)&(lo<profiles.shape[0]-1)
+        valid = np.isfinite(query)&(query>=0)&(query<=n_fft-1)
+        lo = np.floor(np.where(valid,query,0)).astype(np.int64)
+        lo = np.minimum(lo,n_fft-2)
         a = indices[valid];k = lo[valid];fraction = query[valid]-k
         sample = profiles[k,a]+fraction*(profiles[k+1,a]-profiles[k,a])
         phase = 2*np.pi*f_ref_hz*tau[valid]-np.pi*slope_hz_s*tau[valid]**2
@@ -99,7 +106,11 @@ class FusedFMCWBP:
                  f_ref_hz, n_fft, delay_s, build_dir, device='cuda:0'):
         self.device = torch.device(device)
         if self.device.type != 'cuda':raise ValueError('CUDA device required')
+        if isinstance(n_fft,bool) or int(n_fft)!=n_fft or n_fft<2:
+            raise ValueError('n_fft must be an integer >= 2')
+        self.n_fft=int(n_fft)
         with torch.cuda.device(self.device):
+            self.device=torch.device('cuda',torch.cuda.current_device())
             path,self.compile_command = compile_kernel(build_dir,self.device)
         self.library = ctypes.CDLL(str(path))
         self.library.launch_fmcw_bp.argtypes = ([ctypes.c_void_p]*6+[ctypes.c_int]*3+
@@ -119,18 +130,24 @@ class FusedFMCWBP:
         if profiles.device != self.device or profiles.dtype != torch.complex128 or not profiles.is_contiguous():
             raise ValueError('contiguous complex128 range profiles on the selected device required')
         if profiles.ndim!=2 or profiles.shape[1]!=len(self.ax):raise ValueError('aperture shape mismatch')
-        output = torch.empty(len(self.px),device=self.device,dtype=torch.complex128)
-        stream = torch.cuda.current_stream(self.device).cuda_stream
-        if precision=='cached_double':
-            if not hasattr(self,'lookup'):raise ValueError('prepare_lattice_cache must be called first')
-            code=self.library.launch_lattice_bp(profiles.data_ptr(),self.aperture_indices.data_ptr(),
-                self.pixel_indices.data_ptr(),self.lookup.data_ptr(),output.data_ptr(),
-                len(self.ax),profiles.shape[0],len(self.px),self.lookup.shape[1],*self.lookup_shift,stream)
-        else:
-            code = self.library.launch_fmcw_bp(profiles.data_ptr(),self.ax.data_ptr(),self.az.data_ptr(),
-                self.px.data_ptr(),self.pz.data_ptr(),output.data_ptr(),len(self.ax),profiles.shape[0],len(self.px),
-                *self.parameters,int(precision=='mixed'),stream)
-        if code:raise RuntimeError(self.library.fmcw_bp_cuda_error(code).decode())
+        if profiles.shape[0]!=self.n_fft:
+            raise ValueError('profile range length %s does not match operator n_fft=%s' %
+                             (profiles.shape[0],self.n_fft))
+        # The CUDA runtime launch and stream belong to the operator's device,
+        # even when another CUDA device is current on entry. Restore it on exit.
+        with torch.cuda.device(self.device):
+            output = torch.empty(len(self.px),device=self.device,dtype=torch.complex128)
+            stream = torch.cuda.current_stream(self.device).cuda_stream
+            if precision=='cached_double':
+                if not hasattr(self,'lookup'):raise ValueError('prepare_lattice_cache must be called first')
+                code=self.library.launch_lattice_bp(profiles.data_ptr(),self.aperture_indices.data_ptr(),
+                    self.pixel_indices.data_ptr(),self.lookup.data_ptr(),output.data_ptr(),
+                    len(self.ax),profiles.shape[0],len(self.px),self.lookup.shape[1],*self.lookup_shift,stream)
+            else:
+                code = self.library.launch_fmcw_bp(profiles.data_ptr(),self.ax.data_ptr(),self.az.data_ptr(),
+                    self.px.data_ptr(),self.pz.data_ptr(),output.data_ptr(),len(self.ax),profiles.shape[0],len(self.px),
+                    *self.parameters,int(precision=='mixed'),stream)
+            if code:raise RuntimeError(self.library.fmcw_bp_cuda_error(code).decode())
         return output
 
     def prepare_lattice_cache(self,dx_m,dz_m):
@@ -156,9 +173,13 @@ class FusedFMCWBP:
         dz=np.arange(-half[1],half[1]+1)*dz_m
         depth,delay,fs,slope,fref,nfft,c0=self.parameters
         distance=np.sqrt(dx[None,:]**2+dz[:,None]**2+depth**2)
-        tau=2*distance/c0+delay;query=slope*tau*nfft/fs;lo=np.floor(query)
+        tau=2*distance/c0+delay;query=slope*tau*nfft/fs
+        valid=np.isfinite(query)&(query>=0)&(query<=nfft-1)
+        lo=np.minimum(np.floor(np.where(valid,query,0)),nfft-2)
+        fraction=np.where(valid,query-lo,0)
+        lo=np.where(valid,lo,-1)
         phase=2*np.pi*fref*tau-np.pi*slope*tau*tau
-        table=np.stack([lo,query-lo,np.cos(phase),np.sin(phase)],axis=-1)
+        table=np.stack([lo,fraction,np.cos(phase),np.sin(phase)],axis=-1)
         self.lookup=torch.as_tensor(table,device=self.device)
         self.aperture_indices=torch.as_tensor(a,device=self.device)
         self.pixel_indices=torch.as_tensor(p,device=self.device)
