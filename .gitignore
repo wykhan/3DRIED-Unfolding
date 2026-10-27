@@ -62,3 +62,7 @@ results/review/ISTA_NET/*
 !results/review/ISTA_NET/*.csv
 !results/review/ISTA_NET/*.yaml
 !results/review/ISTA_NET/*.txt
+!results/review/ISTA_NET/basic_bp_point_controls.png
+!results/review/ISTA_NET/hammer_h50_mip.png
+!results/review/ISTA_NET/points_h50_mip.png
+!results/review/ISTA_NET/training_curves.png

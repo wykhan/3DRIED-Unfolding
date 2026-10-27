@@ -227,7 +227,6 @@ python scripts/collect_baseline_evidence.py
 Weights and complex volumes remain local ignored artifacts. `main` and the
 original M9 checkout are unchanged; no automatic merge is performed.
 
-The four newly generated review figures remain local until explicit approval
-for public image publication. The public review commit contains code, configs
-and aggregate metrics, without these new images or intermediate local commits
-that contained them. Historical already-public M9 evidence is preserved.
+Four selected review figures (training curves, basic BP point controls,
+50% synthetic points and 50% Hammer) are included in the public review bundle.
+Raw data, model weights and complex volumes remain local ignored artifacts.
