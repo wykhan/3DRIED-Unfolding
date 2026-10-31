@@ -1,0 +1,42 @@
+[
+  {
+    "scene": "single",
+    "rate": 1.0,
+    "relative_to_full_double": 1.1845419354003182e-13
+  },
+  {
+    "scene": "single",
+    "rate": 0.7,
+    "relative_to_full_double": 1.2439326125358374e-13
+  },
+  {
+    "scene": "single",
+    "rate": 0.5,
+    "relative_to_full_double": 1.29183919052109e-13
+  },
+  {
+    "scene": "single",
+    "rate": 0.2,
+    "relative_to_full_double": 1.4357212848968538e-13
+  },
+  {
+    "scene": "five",
+    "rate": 1.0,
+    "relative_to_full_double": 1.1580637861705586e-13
+  },
+  {
+    "scene": "five",
+    "rate": 0.7,
+    "relative_to_full_double": 1.2335611968710483e-13
+  },
+  {
+    "scene": "five",
+    "rate": 0.5,
+    "relative_to_full_double": 1.2884583570958816e-13
+  },
+  {
+    "scene": "five",
+    "rate": 0.2,
+    "relative_to_full_double": 1.4219887574971379e-13
+  }
+]

@@ -1,5 +1,20 @@
 # DECISIONS.md
 
+## 2026-10-27 — five-method extension decisions
+
+- User fixes BP to literal geometric phase-only summation, with basic distance
+  sampling/interpolation as needed; no FFT-convolution or other BP acceleration.
+- The current generic ISTA uses the true measured adjoint. Historical strict
+  RMIST RM_dagger updates are retained independently and are not relabeled A^H.
+- Original ISTA-Net uses real/imag channels and original four-convolution phase
+  topology with symmetry loss. Fixed spectral-unit scaling, adjoint initializer,
+  and perturbed signed-identity transform initialization are explicit new SAR
+  choices. They are not attributed to the original authors or RMIST.
+- First training policy is one model per sampling rate and mask family;
+  validation-only checkpoint selection, then an independent test split.
+- Preserve raw Hammer scale and M8/M9 negative normalization evidence. Do not
+  tune preprocessing, weights or thresholds on Hammer.
+
 ## 2026-10-24 — Baseline implementation choices
 
 - EXPERIMENTAL EXTENSION: separate suite and new user-authorized baseline branch.
@@ -443,6 +458,59 @@ commit the procedural dataset or local checkpoints.
 - Classify the observed inactivity mechanism as `SCALE_MISMATCH_SUPPORTED`.
 - This does not select a production scale, establish improved Hammer image
   quality, exclude broader distribution mismatch, or authorize any model fix.
+
+## D039 — Independent BP review: contracts, closed endpoints and ADC oracle
+
+**Status:** REVIEW REQUEST IMPLEMENTED — INDEPENDENT RE-REVIEW PENDING
+
+- All modes require profile range length exactly equal to constructor n_fft;
+  launch/current-stream lookup belongs to the operator's CUDA context.
+- Native range axis uses closed endpoints with exact last-sample inclusion;
+  out-of-range contributions are zero, with no wrap or extrapolation.
+- Runtime environment must be captured from the current invocation. Preserve
+  historical reference metadata separately, never copy it as current state.
+- Treat direct raw-ADC matched summation as an independent no-FFT oracle.
+  Report interpolation, implementation and total complex errors separately;
+  no phase/gain fit. Preserve 1/2/4/8/16x results and keep default 8x.
+- Timing-path changes require new measurements. Retain original 60f4472
+  records and hashes. PR stays draft pending external re-review; Hammer
+  hardware phase/range mapping, RMIST and accepted data remain untouched.
+
+## D038 — Full FMCW range-migration BP and exact lattice caching
+
+**Status:** AUTHORIZED BY USER — 2026-10-27
+
+- Formal BP must query each aperture's complex range profile at each pixel's
+  actual slant range, then compensate the declared FMCW phase and accumulate.
+- Separate canonical positive-beat IF simulation from the accepted legacy
+  RM slice model. Declare ADC-first-sample frequency, native FFT range axis,
+  profile centering, delay and quadratic phase explicitly. Do not guess the
+  corresponding Hammer hardware phase convention or change legacy labels.
+- Prefer an exact FP64 relative-offset cache for the verified regular
+  3DRIED lattice. It retains the full migrated range queries and matches
+  general FP64 BP within 1.44e-13 on full images. Keep the general fused CUDA
+  kernel for non-lattice geometry and mixed precision only as a tested option.
+- Record BP-core, preprocessing/transfers and cache construction separately;
+  no single-frequency speed, full distance matrix or multi-GPU estimate
+  substitutes for measured full-size single-slice timing.
+- The old narrowband path requires explicit diagnostic selection. The
+  general unified entry skips unsupported full-FMCW input conditions.
+
+## D037 — BP acceleration authorized, preserving the phase-only slice sum
+
+**Status:** AUTHORIZED BY USER — 2026-10-27
+
+- The user retracts the prior unoptimized-BP requirement and requests an
+  optimized implementation with changes and full 3DRIED slice speed reported.
+- Use exact linear FFT convolution, fixed-kernel spectrum caching and GPU
+  execution without adding 1/R weighting, sensitivity normalization or
+  lower-precision phase evaluation. Keep the literal sum as a test reference.
+- The active unified default is cached CPU FFT; CUDA and literal options
+  remain explicit. Legacy Green-weighted BP remains historical and unchanged.
+- Full-size narrowband single/five-point controls use 100/70/50/20% height
+  masks. This does not change the earlier four-rate learned-model matrix.
+- Warm timings, kernel setup and host/device transfers are distinguished.
+  Full raw FMCW/Hammer range-migration BP remains a separate acceptance gate.
 
 ## D036 — M8 independent review accepted
 

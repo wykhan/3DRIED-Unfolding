@@ -1,0 +1,6 @@
+{
+  "status": "PASS",
+  "conditions": 8,
+  "maximum_complex_relative_error": 1.4357212848968538e-13,
+  "scope": "exact regular-lattice cache; full FMCW distance queries retained"
+}

@@ -1,0 +1,9 @@
+{
+  "sources_sha256": {
+    "src/three_dried/imaging/fmcw_bp.py": "070529705aac856d79dc3e79d119e98d32e0885d1699aea780696059b5c4777a",
+    "src/three_dried/imaging/fmcw_bp_kernel.cu": "682296bab019f0b0a45a5efddc4a3e5759ba1287992dd619dbd06746efb76c6c",
+    "scripts/benchmark_fmcw_bp_cache.py": "9c30208a02ec56cf824cfd8bfb7bd9162c6ead130ba6f2b802ef3e7bab469e9b"
+  },
+  "reference_directory": "/home/superws/.codex/worktrees/ista-net-validation/3DRIED-Unfolding/results/fmcw_bp_assessment_20261027/run",
+  "reference_images_sha256": "5b7cb5f86a77a057f777b7dce4cd890e8eb9834dfaf0647dd4baebcbb02c8e39"
+}

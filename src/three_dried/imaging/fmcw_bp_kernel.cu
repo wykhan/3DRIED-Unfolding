@@ -1,0 +1,138 @@
+// Fused range-migration BP. Each pixel owns one block; aperture terms are
+// distributed over its threads and reduced without global atomics.
+// No fast-math flag, distance-table approximation or aperture decimation.
+#include <cuda_runtime.h>
+#include <type_traits>
+
+template<bool Mixed>
+__global__ void bp_kernel(const double2* __restrict__ profiles,
+                         const double* __restrict__ aperture_x,
+                         const double* __restrict__ aperture_z,
+                         const double* __restrict__ pixels_x,
+                         const double* __restrict__ pixels_z,
+                         double2* __restrict__ output,
+                         int n_aperture, int n_range, int n_pixels,
+                         double depth, double delay, double fs,
+                         double slope, double frequency_reference,
+                         int n_fft, double c0) {
+    using Real = typename std::conditional<Mixed, float, double>::type;
+    int pixel = blockIdx.x;
+    if (pixel >= n_pixels) return;
+    Real x = Real(pixels_x[pixel]);
+    Real z = Real(pixels_z[pixel]);
+    Real y = Real(depth);
+    double real_sum = 0.0, imag_sum = 0.0;
+    for (int a = threadIdx.x; a < n_aperture; a += blockDim.x) {
+        Real dx = x - Real(aperture_x[a]);
+        Real dz = z - Real(aperture_z[a]);
+        Real square = dx*dx + dz*dz + y*y;
+        Real distance;
+        if (Mixed) distance = sqrtf(float(square));
+        else distance = sqrt(double(square));
+        double tau = 2.0*double(distance)/c0 + delay;
+        double index = slope*tau*double(n_fft)/fs;
+        // Closed range axis: include the exact last sample; zero outside.
+        // Comparing before conversion also rejects NaN/Inf without casting.
+        if (!(index >= 0.0 && index <= double(n_range-1))) continue;
+        int lo = min(int(floor(index)),n_range-2);
+        double fraction = index - lo;
+        double2 q0 = profiles[(long long)lo*n_aperture+a];
+        double2 q1 = profiles[(long long)(lo+1)*n_aperture+a];
+        double qr = q0.x + fraction*(q1.x-q0.x);
+        double qi = q0.y + fraction*(q1.y-q0.y);
+        // Positive-beat dechirp convention; centered range profile. The
+        // quadratic phase is retained instead of assuming RVP is absent.
+        double phase = 6.2831853071795864769*frequency_reference*tau
+                     - 3.1415926535897932385*slope*tau*tau;
+        double s, co;
+        if (Mixed) {
+            float sf, cf;
+            sincosf(float(phase), &sf, &cf);
+            s = double(sf); co = double(cf);
+        } else sincos(phase, &s, &co);
+        real_sum += qr*co + qi*s;
+        imag_sum += qi*co - qr*s;
+    }
+    __shared__ double real_partial[128];
+    __shared__ double imag_partial[128];
+    real_partial[threadIdx.x] = real_sum;
+    imag_partial[threadIdx.x] = imag_sum;
+    __syncthreads();
+    for (int stride = blockDim.x/2; stride > 0; stride /= 2) {
+        if (threadIdx.x < stride) {
+            real_partial[threadIdx.x] += real_partial[threadIdx.x+stride];
+            imag_partial[threadIdx.x] += imag_partial[threadIdx.x+stride];
+        }
+        __syncthreads();
+    }
+    if (threadIdx.x == 0) output[pixel] = make_double2(real_partial[0], imag_partial[0]);
+}
+
+extern "C" int launch_fmcw_bp(const void* profiles, const void* ax, const void* az,
+                              const void* px, const void* pz, void* output,
+                              int na, int nr, int np, double depth, double delay,
+                              double fs, double slope, double fref, int nfft,
+                              double c0, int mixed, void* stream) {
+    if (mixed)
+        bp_kernel<true><<<np,128,0,(cudaStream_t)stream>>>(
+            (const double2*)profiles,(const double*)ax,(const double*)az,
+            (const double*)px,(const double*)pz,(double2*)output,
+            na,nr,np,depth,delay,fs,slope,fref,nfft,c0);
+    else
+        bp_kernel<false><<<np,128,0,(cudaStream_t)stream>>>(
+            (const double2*)profiles,(const double*)ax,(const double*)az,
+            (const double*)px,(const double*)pz,(double2*)output,
+            na,nr,np,depth,delay,fs,slope,fref,nfft,c0);
+    return int(cudaGetLastError());
+}
+
+extern "C" const char* fmcw_bp_cuda_error(int code) {
+    return cudaGetErrorString((cudaError_t)code);
+}
+
+// Regular-lattice variant: the exact FP64 interpolation index and phase
+// depend only on the relative spatial index. Each aperture still supplies
+// its own range profile; range migration is not discarded.
+__global__ void bp_lattice_kernel(const double2* __restrict__ profiles,
+                                 const int2* __restrict__ aperture,
+                                 const int2* __restrict__ pixels,
+                                 const double4* __restrict__ lookup,
+                                 double2* __restrict__ output,
+                                 int na,int nr,int np,int width,int shift_x,int shift_z) {
+    int pixel=blockIdx.x;
+    if(pixel>=np)return;
+    int2 p=pixels[pixel];
+    double re=0.0,im=0.0;
+    for(int a=threadIdx.x;a<na;a+=blockDim.x) {
+        int2 q=aperture[a];
+        double4 entry=lookup[(long long)(p.y-q.y+shift_z)*width+p.x-q.x+shift_x];
+        int lo=int(entry.x);
+        if(lo<0||lo>=nr-1)continue;
+        double2 q0=profiles[(long long)lo*na+a];
+        double2 q1=profiles[(long long)(lo+1)*na+a];
+        double qr=q0.x+entry.y*(q1.x-q0.x);
+        double qi=q0.y+entry.y*(q1.y-q0.y);
+        re+=qr*entry.z+qi*entry.w;
+        im+=qi*entry.z-qr*entry.w;
+    }
+    __shared__ double rr[128],ii[128];
+    rr[threadIdx.x]=re;ii[threadIdx.x]=im;
+    __syncthreads();
+    for(int stride=blockDim.x/2;stride>0;stride/=2) {
+        if(threadIdx.x<stride) {
+            rr[threadIdx.x]+=rr[threadIdx.x+stride];
+            ii[threadIdx.x]+=ii[threadIdx.x+stride];
+        }
+        __syncthreads();
+    }
+    if(threadIdx.x==0)output[pixel]=make_double2(rr[0],ii[0]);
+}
+
+extern "C" int launch_lattice_bp(const void* profiles,const void* aperture,const void* pixels,
+                                 const void* lookup,void* output,
+                                 int na,int nr,int np,int width,int shift_x,int shift_z,void* stream) {
+    bp_lattice_kernel<<<np,128,0,(cudaStream_t)stream>>>((const double2*)profiles,
+        (const int2*)aperture,(const int2*)pixels,(const double4*)lookup,(double2*)output,
+        na,nr,np,width,shift_x,shift_z);
+    return int(cudaGetLastError());
+}

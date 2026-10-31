@@ -1,0 +1,11 @@
+{
+  "pattern": "height_lines",
+  "seed": 20261024,
+  "requested_rate": 0.7,
+  "observed_positions": 56980,
+  "physical_positions": 81400,
+  "actual_rate": 0.7,
+  "observed_height_rows": 140,
+  "sha256_uint8": "7707ac68602b4cfc41ca6b5e822310d9f079461c6b4bf4b0104787ef22816d91",
+  "shared_across_fast_time_and_ranges": true
+}

@@ -1,0 +1,8 @@
+{
+  "python": "3.8.17 (default, Jul  5 2023, 21:04:15) \n[GCC 11.2.0]",
+  "torch": "2.0.1+cu118",
+  "platform": "Linux-6.8.0-138-generic-x86_64-with-glibc2.17",
+  "cpu_model": "Intel(R) Xeon(R) Gold 5317 CPU @ 3.00GHz",
+  "gpu": "NVIDIA GeForce RTX 4090",
+  "timing_excludes": "loading, range FFT, operator/model construction, file I/O, plotting"
+}

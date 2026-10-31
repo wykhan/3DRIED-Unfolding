@@ -1,0 +1,9 @@
+{
+  "commit": "da853ab058687bf89bd630f89fea7bb4c1a055ca",
+  "implementation_sha256": {
+    "src/three_dried/imaging/fft_bp.py": "493e40ccb8cb9b50eede558b1c233535c2c5f96d6130e83feb59f7bca59493cf",
+    "src/three_dried/imaging/basic_bp.py": "da4c79053889f396883f88f2ece355291e18e5a2ca2383f97a296a3f6be2fbbe",
+    "scripts/benchmark_bp_slice.py": "e7c384624061f12d4d698ffaec49f10bc2441a7284a1826b66efda27418c08a4",
+    "configs/bp_fft_slice.yaml": "c27e1de9a029df4d3244c0a5fbdab1dde75678050360bc6291b518e277ccc7de"
+  }
+}

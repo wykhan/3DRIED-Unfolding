@@ -1,5 +1,21 @@
 # EXPERIMENTS.md
 
+## 2026-10-27 — original ISTA-Net baseline extension
+
+Branch: `baseline/ista-net-validation`. Environment: `tmux 3dried`,
+ComplexValue Python 3.8.17, PyTorch 2.0.1+cu118, RTX 4090.
+New+legacy unit suite: 61 tests PASS; later additions recorded separately.
+Command: `CUBLAS_WORKSPACE_CONFIG=:4096:8 python scripts/train_ista_net.py --config configs/ista_net_baseline.yaml --rate 0.5 --output results/ista_net_h50_v2`.
+Fixed protocol: 128/32/32 disjoint full-size RM point scenes, 20 dB AWGN,
+20 epochs, Adam 1e-4, batch one, 9 phases / 32 features, height-row mask.
+50% completed in about 186 s, best validation epoch 18, validation Complex
+NMSE 0.01049538, independent test 0.01336434; conservative 200-step ISTA
+0.93952807 is a fixed-budget comparator, not a converged optimum.
+Checkpoint SHA-256 6707938295db9da6cd83bad983c79f7c109d08cfa1aea15301b076c73f5b1ec5.
+Initial invocation failed before training on relative-path provenance handling;
+the corrected rerun uses a fresh immutable output directory and retains logs.
+Other rates use the same fixed training protocol, separately trained weights.
+
 ## 2026-10-24 — Unified imaging baseline
 
 Command: `python scripts/run_baseline_suite.py --no-figures --output-dir results/baseline_20261024_final`.
@@ -627,3 +643,66 @@ Lightweight artifacts are under `results/review/M6/`. Best-validation and
 epoch-100 checkpoints remain local under ignored `results/m6_rmist_training/`.
 No full dataset was stored or committed, and no Hammer inference occurred.
 Stop for independent review; M7-R remains locked.
+
+## 2026-10-27 — independent BP review corrections against 60f4472
+
+Review items 1--5 implemented. Exact commands and sequential stop-on-failure
+runner are retained under `results/fmcw_bp_review_20261027/`. Final full suite
+85 PASS, 0 FAIL/ERROR/SKIPPED; cross-device owner/current 0/1 and 1/0,
+non-default streams, double/mixed/cache tested. Closed range endpoints and
+wrong FFT lengths tested. Independent direct ADC matrix: 60 CPU/CUDA cases,
+30 cached lattice cases, 30 off-lattice cache exclusions. No gain/phase fit.
+FP64 CUDA vs interpolated CPU max error 7.516e-13; 8x interpolation vs ADC
+max relative L2 0.006105. The lower-oversampling errors remain recorded.
+Fresh environments have independent capture IDs. Repeated complete BP and
+cache timing: full-aperture cached core .376--.394 s, declared warmed
+ADC-upload/FFT/BP/download pipeline .454 s, 2 warmups/5 repeats. Cache setup
+54.7--85.4 ms separately. All eight new and historical cache comparisons
+<=1.436e-13. Original records at 60f4472 retained, including the acknowledged
+old cache environment-copy defect. Raw data, accepted weights/configs and
+RMIST sources verified unchanged. Evidence: results/review/FMCW_BP_REVIEW;
+report: docs/FMCW_BP_REVIEW_FIXES.md. Await independent re-review, draft kept.
+
+## 2026-10-27 — full FMCW BP assessment and exact offset caching
+
+Explicit user scope: full FMCW range-migration BP at the 3DRIED single-slice
+size. Existing tmux 3dried / ComplexValue, RTX 4090 GPU0. Commands:
+`OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 python scripts/benchmark_fmcw_bp.py --output results/fmcw_bp_assessment_20261027/run`
+and `python scripts/benchmark_fmcw_bp_cache.py --reference results/fmcw_bp_assessment_20261027/run --output results/fmcw_bp_assessment_20261027/cache`.
+Positive-beat 256-ADC IF, 2048-point centered range FFT, actual-slant-range
+complex interpolation and carrier/quadratic phase; one/five complex targets
+at depth 0.6143103952815643 m. Full aperture 200x407, full output 512x512;
+height masks 100/70/50/20%, seed 20261024. Eight controls PASS, zero grid
+localization errors. General FP64 BP core: 2.405/1.683/1.202/0.481 s. Mixed:
+1.419/.993/.710/.284 s, image relative error <=6.87e-5. Exact FP64 offset cache
+core: .374--.405/.293--.294/.211--.212/.0818--.0823 s, full-image relative
+error <=1.44e-13 against uncached FP64. Cached full-aperture pipeline with ADC
+upload/range FFT/download: .448 s; cache construction 44--64 ms separately.
+Two warmups/five repeats, CUDA synchronized; compilation/context/disk IO
+excluded. All 77 regressions PASS. The original general-run source snapshots
+are archived; the cache follow-up has separate source hashes. Raw-data
+calibration/real Hammer BP remains NOT_RUN. No RMIST parameters or legacy
+operators changed. Evidence: results/review/FMCW_BP and docs/FMCW_BP_ASSESSMENT.md.
+
+## 2026-10-27 — authorized BP acceleration / single-slice controls
+
+After the user retracts mandatory unoptimized BP, preserve the phase-only
+spherical sum while accelerating it by exact linear FFT convolution,
+kernel-spectrum caching and CUDA. Command in tmux 3dried / ComplexValue:
+`OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 python scripts/benchmark_bp_slice.py --output results/bp_fft_slice_20261027/run`.
+Independent analytic single/five-point echoes use the full 200x407 aperture
+and 512x512 output, depth 0.6143103952815643 m, 78.8 GHz, height masks at
+100/70/50/20%, seed 20261024. All eight controls have zero grid localization
+error; direct-sum spot relative error <=1.476e-12. Complex128 CPU/CUDA relative
+error <=8.70e-16. Two warmups/ten repeats, one CPU FFT worker: CPU uncached
+203.84--206.59 ms, cached 111.29--113.42 ms; RTX 4090 cached with transfers
+2.036--2.125 ms, device-resident 1.385--1.388 ms. Kernel setup separately
+127.46 ms CPU /79.67 ms GPU, excluding GPU context creation. All 68 tests pass.
+Unified-entry 20% CUDA full-volume smoke completes as cross-model DIAGNOSTIC.
+Saved configs, masks, targets, phases, timing samples, provenance and logs:
+`results/bp_fft_slice_20261027/`; lightweight evidence: `results/review/BP_FFT/`.
+No Hammer run, RMIST change, raw-data modification or full FMCW BP claim.
+
+## 2026-10-27 — completed matrix and diagnostics
+
+Four height-rate models each completed 20 epochs. Independent test NMSE at 100/70/50/30% is 0.01287696/0.01270838/0.01336434/0.01483224. Five entry-point runs produced 100 rows (54 completed, 46 SKIPPED), with two warmups/five repeats and preprocessing excluded from times. Lightweight configs/seeds/hashes/metrics are in results/review/ISTA_NET; volumes/weights remain ignored. BP local controls use full aperture and literal loops; full-FOV budget calls return no partial image. A validation-only 20000-step ISTA diagnostic confirms underconvergence at 200. Hammer50 residual: ISTA-Net 1.57259, RMA 0.05518. No tuning or M9 normalization follows this observation. BASELINE_REPORT.md contains exact commands and limitations.

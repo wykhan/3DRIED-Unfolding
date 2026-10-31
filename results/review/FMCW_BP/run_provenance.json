@@ -1,0 +1,9 @@
+{
+  "parent_commit": "d63adf3bad2541f8584240e3bd1c16ad22af7ad2",
+  "sources_sha256": {
+    "src/three_dried/imaging/fmcw_bp.py": "3e3a81e79122f8d2b36605098541113df346276ee488ee9c631d0379c50a5559",
+    "src/three_dried/imaging/fmcw_bp_kernel.cu": "7ec465b59f57af022361d7558a6b6f02e9bbc43b054ab2c33d56a7b33340a2bc",
+    "scripts/benchmark_fmcw_bp.py": "35c5e0bac656a42f5b1305e35e87858e0426d467317744bdbb9b7f5ac5b0abbc",
+    "configs/fmcw_bp_benchmark.yaml": "96c53577ab0a64b61a6bda23bf89ec021d75ed93dc153d1d55f0af3be4c59c74"
+  }
+}

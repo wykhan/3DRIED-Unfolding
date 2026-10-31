@@ -1,0 +1,14 @@
+{
+  "python": "3.8.17 (default, Jul  5 2023, 21:04:15) \n[GCC 11.2.0]",
+  "numpy": "1.23.5",
+  "scipy": "1.10.1",
+  "torch": "2.0.1+cu118",
+  "platform": "Linux-6.8.0-138-generic-x86_64-with-glibc2.17",
+  "cpu_model": "Intel(R) Xeon(R) Gold 5317 CPU @ 3.00GHz",
+  "gpu": "NVIDIA GeForce RTX 4090",
+  "cuda": "11.8",
+  "fft_norm": "backward",
+  "dtype": "complex128",
+  "cpu_fft_workers": 1,
+  "gpu_status": "NVIDIA GeForce RTX 4090, 0 %, 15 MiB\nNVIDIA GeForce RTX 4090, 4 %, 185 MiB\n"
+}

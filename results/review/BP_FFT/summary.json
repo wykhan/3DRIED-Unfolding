@@ -1,0 +1,7 @@
+{
+  "status": "PASS",
+  "conditions": 8,
+  "timing_rows": 32,
+  "all_locations_on_grid": true,
+  "scope": "analytic single-frequency fixed-depth control; full 3DRIED aperture and image lattice; not raw FMCW/Hammer acceptance"
+}

@@ -1,3 +1,45 @@
+# Independent BP review corrections — 2026-10-27
+
+- [x] Reject profile FFT length mismatches in all modes.
+- [x] Launch in operator device context; test both GPUs and non-default streams.
+- [x] Unify closed range endpoints across CPU/general CUDA/cache.
+- [x] Collect cache hardware/software environment live.
+- [x] Independent ADC matching, off-grid/multi-depth/oversampling errors.
+- [x] 85 tests PASS/0 SKIPPED, repeated full-size timing and historical cache regression.
+- [ ] Independent re-review; PR remains draft, no merge or Ready action.
+- [ ] Hammer mixer/ADC/delay/absolute-distance acceptance remains open.
+
+# Full FMCW BP assessment — 2026-10-27 (pre-review record)
+
+- [x] Declare positive-beat raw IF, ADC timing and carrier/RVP phase convention.
+- [x] Actual slant-range interpolation and fused CUDA implementation.
+- [x] Verify general and exact regular-lattice cached FP64 variants.
+- [x] Full 512x512 single/five-point controls at 100/70/50/20%.
+- [x] Separate kernel/pipeline/setup timing and 77 passing regression tests.
+- [x] Isolate old narrowband controls from formal BP selection.
+- [ ] Hammer ADC/mixer/absolute-range calibration and real BP acceptance.
+
+# BP acceleration follow-up — 2026-10-27 (single-frequency control)
+
+- [x] User authorizes acceleration in place of mandatory literal loops.
+- [x] Exact phase-only FFT BP, cached CPU/CUDA backends and direct-sum tests.
+- [x] Full 512x512 slice timings and single/five-point controls at 100/70/50/20% height sampling.
+- [x] Unified entry-point integration and 68 passing regression tests.
+- [ ] Raw FMCW/Hammer range-migration BP acceptance remains open.
+
+# Authorized five-method extension — 2026-10-27 (prior experiment record)
+
+- [x] Audit branch, metadata, accepted weights and M8/M9.
+- [x] Literal phase-only BP interface and local analytic controls.
+- [x] True A/A^H ISTA and original ISTA-Net topology, gradients and symmetry.
+- [x] Disjoint splits; separately train 100/70/50/30% height models.
+- [x] Unified point/Hammer inference, two mask families, shared scales and repeated timings.
+- [x] Record unsupported-condition SKIPPED states and negative sim-to-real findings.
+- [ ] Independent scientific review.
+- [ ] Full-FOV/raw-data BP acceptance, after physical validation and a bounded long CPU run.
+
+Technical completion requires formula/adjoint/phase tests, identical observations, validated weight provenance and correct metrics. It does not imply learned superiority. Historical milestone gates below are preserved.
+
 # PLAN.md
 
 ## 2026-10-24 — Baseline branch extension

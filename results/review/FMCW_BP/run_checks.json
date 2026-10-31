@@ -1,0 +1,294 @@
+[
+  {
+    "scene": "single",
+    "rate": 1.0,
+    "cpu_spot_relative_error": 5.2618470166990114e-14,
+    "localization_mean_m": 0.0,
+    "localization_max_m": 0.0,
+    "localization_status": "MEASURED_TOP_K_PEAKS",
+    "point_count": 1,
+    "resolution_note": "top-K peak assignment; no claim of a universal resolution limit",
+    "x_pslr_db": -12.975215156412643,
+    "x_islr_db": -9.21634741620143,
+    "x_mainlobe_bounds": [
+      252,
+      258
+    ],
+    "x_sidelobe_status": "MEASURED_NEAREST_LOCAL_MINIMA",
+    "z_pslr_db": -17.65339203805816,
+    "z_islr_db": -12.711034037689535,
+    "z_mainlobe_bounds": [
+      252,
+      258
+    ],
+    "z_sidelobe_status": "MEASURED_NEAREST_LOCAL_MINIMA",
+    "coherent_peak_relative_error": 0.004264194323135721,
+    "mixed_relative_error": 6.293328336904206e-05,
+    "mixed_eligible": true,
+    "mixed_localization": {
+      "localization_mean_m": 0.0,
+      "localization_max_m": 0.0,
+      "localization_status": "MEASURED_TOP_K_PEAKS",
+      "point_count": 1,
+      "resolution_note": "top-K peak assignment; no claim of a universal resolution limit"
+    },
+    "mixed_sidelobes": {
+      "x_pslr_db": -12.975217057311063,
+      "x_islr_db": -9.216353822112476,
+      "x_mainlobe_bounds": [
+        252,
+        258
+      ],
+      "x_sidelobe_status": "MEASURED_NEAREST_LOCAL_MINIMA",
+      "z_pslr_db": -17.653399058813473,
+      "z_islr_db": -12.711045814977627,
+      "z_mainlobe_bounds": [
+        252,
+        258
+      ],
+      "z_sidelobe_status": "MEASURED_NEAREST_LOCAL_MINIMA"
+    }
+  },
+  {
+    "scene": "single",
+    "rate": 0.7,
+    "cpu_spot_relative_error": 4.9885601927921254e-14,
+    "localization_mean_m": 0.0,
+    "localization_max_m": 0.0,
+    "localization_status": "MEASURED_TOP_K_PEAKS",
+    "point_count": 1,
+    "resolution_note": "top-K peak assignment; no claim of a universal resolution limit",
+    "x_pslr_db": -12.974939289123546,
+    "x_islr_db": -9.211065067951154,
+    "x_mainlobe_bounds": [
+      252,
+      258
+    ],
+    "x_sidelobe_status": "MEASURED_NEAREST_LOCAL_MINIMA",
+    "z_pslr_db": -15.822258809578962,
+    "z_islr_db": -6.4857613435574475,
+    "z_mainlobe_bounds": [
+      252,
+      258
+    ],
+    "z_sidelobe_status": "MEASURED_NEAREST_LOCAL_MINIMA",
+    "coherent_peak_relative_error": 0.004260884764759398,
+    "mixed_relative_error": 6.45455172391081e-05,
+    "mixed_eligible": true,
+    "mixed_localization": {
+      "localization_mean_m": 0.0,
+      "localization_max_m": 0.0,
+      "localization_status": "MEASURED_TOP_K_PEAKS",
+      "point_count": 1,
+      "resolution_note": "top-K peak assignment; no claim of a universal resolution limit"
+    },
+    "mixed_sidelobes": {
+      "x_pslr_db": -12.974941100907198,
+      "x_islr_db": -9.211071220059111,
+      "x_mainlobe_bounds": [
+        252,
+        258
+      ],
+      "x_sidelobe_status": "MEASURED_NEAREST_LOCAL_MINIMA",
+      "z_pslr_db": -15.822262772505706,
+      "z_islr_db": -6.485761680335229,
+      "z_mainlobe_bounds": [
+        252,
+        258
+      ],
+      "z_sidelobe_status": "MEASURED_NEAREST_LOCAL_MINIMA"
+    }
+  },
+  {
+    "scene": "single",
+    "rate": 0.5,
+    "cpu_spot_relative_error": 4.937205669977818e-14,
+    "localization_mean_m": 0.0,
+    "localization_max_m": 0.0,
+    "localization_status": "MEASURED_TOP_K_PEAKS",
+    "point_count": 1,
+    "resolution_note": "top-K peak assignment; no claim of a universal resolution limit",
+    "x_pslr_db": -12.985363499397767,
+    "x_islr_db": -9.205980071077677,
+    "x_mainlobe_bounds": [
+      252,
+      258
+    ],
+    "x_sidelobe_status": "MEASURED_NEAREST_LOCAL_MINIMA",
+    "z_pslr_db": -14.230080952870468,
+    "z_islr_db": -3.2750190337463856,
+    "z_mainlobe_bounds": [
+      252,
+      258
+    ],
+    "z_sidelobe_status": "MEASURED_NEAREST_LOCAL_MINIMA",
+    "coherent_peak_relative_error": 0.0042543595121224435,
+    "mixed_relative_error": 6.553980170743026e-05,
+    "mixed_eligible": true,
+    "mixed_localization": {
+      "localization_mean_m": 0.0,
+      "localization_max_m": 0.0,
+      "localization_status": "MEASURED_TOP_K_PEAKS",
+      "point_count": 1,
+      "resolution_note": "top-K peak assignment; no claim of a universal resolution limit"
+    },
+    "mixed_sidelobes": {
+      "x_pslr_db": -12.985364601588845,
+      "x_islr_db": -9.20598577424861,
+      "x_mainlobe_bounds": [
+        252,
+        258
+      ],
+      "x_sidelobe_status": "MEASURED_NEAREST_LOCAL_MINIMA",
+      "z_pslr_db": -14.230085231904127,
+      "z_islr_db": -3.2750178294465697,
+      "z_mainlobe_bounds": [
+        252,
+        258
+      ],
+      "z_sidelobe_status": "MEASURED_NEAREST_LOCAL_MINIMA"
+    }
+  },
+  {
+    "scene": "single",
+    "rate": 0.2,
+    "cpu_spot_relative_error": 4.4946607641027544e-14,
+    "localization_mean_m": 0.0,
+    "localization_max_m": 0.0,
+    "localization_status": "MEASURED_TOP_K_PEAKS",
+    "point_count": 1,
+    "resolution_note": "top-K peak assignment; no claim of a universal resolution limit",
+    "x_pslr_db": -12.969960097374322,
+    "x_islr_db": -9.214450807720587,
+    "x_mainlobe_bounds": [
+      252,
+      258
+    ],
+    "x_sidelobe_status": "MEASURED_NEAREST_LOCAL_MINIMA",
+    "z_pslr_db": -11.44244709076002,
+    "z_islr_db": 2.241021139238164,
+    "z_mainlobe_bounds": [
+      252,
+      258
+    ],
+    "z_sidelobe_status": "MEASURED_NEAREST_LOCAL_MINIMA",
+    "coherent_peak_relative_error": 0.004273825843213598,
+    "mixed_relative_error": 6.865724443847587e-05,
+    "mixed_eligible": true,
+    "mixed_localization": {
+      "localization_mean_m": 0.0,
+      "localization_max_m": 0.0,
+      "localization_status": "MEASURED_TOP_K_PEAKS",
+      "point_count": 1,
+      "resolution_note": "top-K peak assignment; no claim of a universal resolution limit"
+    },
+    "mixed_sidelobes": {
+      "x_pslr_db": -12.969959119607317,
+      "x_islr_db": -9.214455595741434,
+      "x_mainlobe_bounds": [
+        252,
+        258
+      ],
+      "x_sidelobe_status": "MEASURED_NEAREST_LOCAL_MINIMA",
+      "z_pslr_db": -11.442436271083526,
+      "z_islr_db": 2.2410215705819345,
+      "z_mainlobe_bounds": [
+        252,
+        258
+      ],
+      "z_sidelobe_status": "MEASURED_NEAREST_LOCAL_MINIMA"
+    }
+  },
+  {
+    "scene": "five",
+    "rate": 1.0,
+    "cpu_spot_relative_error": 5.1547016048403766e-14,
+    "localization_mean_m": 0.0,
+    "localization_max_m": 0.0,
+    "localization_status": "MEASURED_TOP_K_PEAKS",
+    "point_count": 5,
+    "resolution_note": "top-K peak assignment; no claim of a universal resolution limit",
+    "pslr_islr_status": "SKIPPED_MULTIPLE_TARGETS",
+    "mixed_relative_error": 6.164011818544095e-05,
+    "mixed_eligible": true,
+    "mixed_localization": {
+      "localization_mean_m": 0.0,
+      "localization_max_m": 0.0,
+      "localization_status": "MEASURED_TOP_K_PEAKS",
+      "point_count": 5,
+      "resolution_note": "top-K peak assignment; no claim of a universal resolution limit"
+    },
+    "mixed_sidelobes": {
+      "pslr_islr_status": "SKIPPED_MULTIPLE_TARGETS"
+    }
+  },
+  {
+    "scene": "five",
+    "rate": 0.7,
+    "cpu_spot_relative_error": 5.0944785495276965e-14,
+    "localization_mean_m": 0.0,
+    "localization_max_m": 0.0,
+    "localization_status": "MEASURED_TOP_K_PEAKS",
+    "point_count": 5,
+    "resolution_note": "top-K peak assignment; no claim of a universal resolution limit",
+    "pslr_islr_status": "SKIPPED_MULTIPLE_TARGETS",
+    "mixed_relative_error": 6.331203729974732e-05,
+    "mixed_eligible": true,
+    "mixed_localization": {
+      "localization_mean_m": 0.0,
+      "localization_max_m": 0.0,
+      "localization_status": "MEASURED_TOP_K_PEAKS",
+      "point_count": 5,
+      "resolution_note": "top-K peak assignment; no claim of a universal resolution limit"
+    },
+    "mixed_sidelobes": {
+      "pslr_islr_status": "SKIPPED_MULTIPLE_TARGETS"
+    }
+  },
+  {
+    "scene": "five",
+    "rate": 0.5,
+    "cpu_spot_relative_error": 5.082005250450639e-14,
+    "localization_mean_m": 0.0,
+    "localization_max_m": 0.0,
+    "localization_status": "MEASURED_TOP_K_PEAKS",
+    "point_count": 5,
+    "resolution_note": "top-K peak assignment; no claim of a universal resolution limit",
+    "pslr_islr_status": "SKIPPED_MULTIPLE_TARGETS",
+    "mixed_relative_error": 6.478524272065206e-05,
+    "mixed_eligible": true,
+    "mixed_localization": {
+      "localization_mean_m": 0.0,
+      "localization_max_m": 0.0,
+      "localization_status": "MEASURED_TOP_K_PEAKS",
+      "point_count": 5,
+      "resolution_note": "top-K peak assignment; no claim of a universal resolution limit"
+    },
+    "mixed_sidelobes": {
+      "pslr_islr_status": "SKIPPED_MULTIPLE_TARGETS"
+    }
+  },
+  {
+    "scene": "five",
+    "rate": 0.2,
+    "cpu_spot_relative_error": 5.15748339083004e-14,
+    "localization_mean_m": 0.0,
+    "localization_max_m": 0.0,
+    "localization_status": "MEASURED_TOP_K_PEAKS",
+    "point_count": 5,
+    "resolution_note": "top-K peak assignment; no claim of a universal resolution limit",
+    "pslr_islr_status": "SKIPPED_MULTIPLE_TARGETS",
+    "mixed_relative_error": 6.772353229827641e-05,
+    "mixed_eligible": true,
+    "mixed_localization": {
+      "localization_mean_m": 0.0,
+      "localization_max_m": 0.0,
+      "localization_status": "MEASURED_TOP_K_PEAKS",
+      "point_count": 5,
+      "resolution_note": "top-K peak assignment; no claim of a universal resolution limit"
+    },
+    "mixed_sidelobes": {
+      "pslr_islr_status": "SKIPPED_MULTIPLE_TARGETS"
+    }
+  }
+]

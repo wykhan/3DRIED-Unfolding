@@ -1,5 +1,42 @@
 # AGENTS.md
 
+## Full FMCW BP authorization — 2026-10-27 (latest)
+
+The user explicitly chooses complete FMCW range-migration BP for 3DRIED and
+requests a fresh optimization and single-slice performance assessment.
+Implement and validate a separate range-profile/interpolation BP, including
+the declared dechirp/FFT phase convention, then benchmark the full physical
+aperture and 512x512 output. GPU parallelism, kernel fusion, bounded caching
+and precision experiments with numerical evidence are authorized. Do not
+reuse the single-frequency FFT timing as a wideband result. Keep legacy
+operators/coordinates and frozen RMIST unchanged; unresolved Hammer phase
+or range calibration remains an explicit gate for real-data acceptance.
+
+## BP acceleration authorization — 2026-10-27 (latest)
+
+The user explicitly retracts the literal unoptimized BP requirement and asks
+to adopt optimized BP with documented changes and measured 3DRIED slice
+timings. Exact FFT linear convolution, fixed-kernel caching and GPU execution
+are now authorized. Preserve the phase-only spherical sum when assessing
+acceleration; the legacy Green 1/R weight and sensitivity normalization are
+separate model/gain choices. Report the narrowband fixed-depth scope and do
+not promote it to validated full FMCW/Hammer range-migration BP.
+The no-acceleration statements below are retained as historical scope.
+
+## Current user authorization — 2026-10-27
+
+The user explicitly supersedes the old suite's CV-ISTA display name and the
+old no-training lock for a new independent ISTA-Net baseline. The five methods
+are literal unoptimized phase-only BP, reference RMA, true-A/A^H ISTA,
+original ISTA-Net (not plus), and frozen accepted RMIST-Net. Train ISTA-Net
+first at 50% height-row sampling with disjoint train/validation/test scenes.
+No BP FFT-convolution acceleration, adaptive weighting, or image enhancement.
+Necessary range sampling/interpolation and correctness checks remain required.
+Keep strict RMIST RM/RM_dagger and weights unchanged; M8/M9 do not establish a
+beneficial Hammer normalization. Unverified rows must be SKIPPED or explicitly
+diagnostic. Do not merge main or overwrite other worktrees. The historical
+authorization below is retained as history, not a veto on this user request.
+
 ## Baseline branch authorization — 2026-10-24
 
 On `baseline/3dried-imaging-suite`, the user's current request additionally

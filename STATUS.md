@@ -1,3 +1,42 @@
+# BP review corrections — 2026-10-27
+
+All five independent-review requests against 60f4472 are implemented and
+tested. Server: 85 PASS/0 SKIPPED; two GPUs, three modes and non-default
+streams verified. Independent raw-ADC reference: 60 CPU/general-CUDA cases,
+30 cached lattice cases; off-lattice cached queries explicitly inapplicable.
+FP64 implementation error <=7.52e-13; default 8x interpolation max relative
+L2 error vs ADC is 0.00611 on this matrix (no phase/gain fitting). New full
+timings and live environments are saved; cached core 0.376--0.394 s at full
+aperture, warmed declared pipeline 0.454 s. Eight historical cache regressions
+PASS at <=1.44e-13. Protected raw/weight/source/config hashes unchanged.
+See docs/FMCW_BP_REVIEW_FIXES.md. Await independent re-review; no Ready or
+merge, and no Hammer phase/range acceptance.
+
+# Full FMCW BP assessment — 2026-10-27 (pre-review record)
+
+The user requires full FMCW range-migration BP. Implemented separate raw-IF
+simulation, centered complex range profiles, actual-slant-range interpolation,
+carrier/RVP compensation and fused CUDA BP. Exact FP64 regular-lattice cache
+retains the same sum and runs full 512x512 slices at 100% in 0.374--0.405 s;
+one warmed pipeline measurement including ADC upload/range FFT/image download
+is 0.448 s, excluding 44--64 ms cache setup and compilation/context startup.
+Eight single/five-point controls at 100/70/50/20% PASS with zero grid
+localization error. Cached/full FP64 relative image difference <=1.44e-13;
+all 77 tests PASS. Hammer phase/calibration acceptance remains NOT_RUN.
+The RM-slice unified entry skips full FMCW BP instead of silently invoking
+the old narrowband control. See docs/FMCW_BP_ASSESSMENT.md. Earlier timing
+records below remain unchanged and are not wideband performance claims.
+
+# BP acceleration follow-up — 2026-10-27 (single-frequency control)
+
+The user retracts mandatory unoptimized BP. Exact phase-only linear FFT convolution and fixed-kernel CPU/CUDA caches are implemented and integrated; 68 tests PASS. Eight independent narrowband single/five-point controls at 100/70/50/20% height sampling use the full 200x407 aperture and 512x512 image lattice, with zero grid localization error. CPU cached timings are 111--114 ms/slice; RTX 4090 cached timings including echo upload/image download are 2.04--2.13 ms/slice, complex128, two warmups/ten repeats, excluding kernel setup and preprocessing. See docs/BP_ACCELERATION_REPORT.md. Full FMCW/Hammer BP remains unvalidated. Previous matrix SKIPPED entries below describe the earlier literal implementation and are not overwritten.
+
+# Earlier extension status — 2026-10-27
+
+Independent branch `baseline/ista-net-validation`: original complex SAR ISTA-Net implemented; four height-rate models trained/tested; 63 tests pass. Declared matrix: 100 rows, 54 completed and 46 SKIPPED. Simulated point accuracy improves over untrained models; learned Hammer improvement is NOT DEMONSTRATED. Literal BP full-FOV and new-mask RMIST remain SKIPPED. See BASELINE_REPORT.md and BASELINE_REVIEW.md for evidence and commands. Independent review pending; no main merge.
+
+Earlier status below is preserved as history.
+
 # STATUS.md
 
 ## 2026-10-24 — Independent baseline suite

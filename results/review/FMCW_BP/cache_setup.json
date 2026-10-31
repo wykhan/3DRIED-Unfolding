@@ -1,0 +1,50 @@
+[
+  {
+    "scene": "single",
+    "rate": 1.0,
+    "cache_bytes": 20909088,
+    "cache_setup_seconds": 0.06409609500042279
+  },
+  {
+    "scene": "single",
+    "rate": 0.7,
+    "cache_bytes": 20909088,
+    "cache_setup_seconds": 0.0508265879980172
+  },
+  {
+    "scene": "single",
+    "rate": 0.5,
+    "cache_bytes": 20909088,
+    "cache_setup_seconds": 0.04401587900065351
+  },
+  {
+    "scene": "single",
+    "rate": 0.2,
+    "cache_bytes": 20909088,
+    "cache_setup_seconds": 0.050154903998191
+  },
+  {
+    "scene": "five",
+    "rate": 1.0,
+    "cache_bytes": 20909088,
+    "cache_setup_seconds": 0.05406370499986224
+  },
+  {
+    "scene": "five",
+    "rate": 0.7,
+    "cache_bytes": 20909088,
+    "cache_setup_seconds": 0.05196823499863967
+  },
+  {
+    "scene": "five",
+    "rate": 0.5,
+    "cache_bytes": 20909088,
+    "cache_setup_seconds": 0.05120909699689946
+  },
+  {
+    "scene": "five",
+    "rate": 0.2,
+    "cache_bytes": 20909088,
+    "cache_setup_seconds": 0.05114057700120611
+  }
+]

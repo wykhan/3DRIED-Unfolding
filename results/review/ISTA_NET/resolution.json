@@ -1,0 +1,434 @@
+[
+  {
+    "rate": 1.0,
+    "method": "RMA",
+    "separation_x_m": 0.002,
+    "resolved_under_fixed_criterion": true,
+    "valley_to_weaker_peak": 0.2647301599324501,
+    "criterion": "two distinct local peaks within one grid cell of GT and >=3 dB amplitude valley",
+    "scope": "two equal-phase, equal-amplitude noiseless points at bin17; fixed control, not a universal resolution limit"
+  },
+  {
+    "rate": 1.0,
+    "method": "ISTA",
+    "separation_x_m": 0.002,
+    "resolved_under_fixed_criterion": true,
+    "valley_to_weaker_peak": 0.49831676483154297,
+    "criterion": "two distinct local peaks within one grid cell of GT and >=3 dB amplitude valley",
+    "scope": "two equal-phase, equal-amplitude noiseless points at bin17; fixed control, not a universal resolution limit"
+  },
+  {
+    "rate": 1.0,
+    "method": "ISTA-Net",
+    "separation_x_m": 0.002,
+    "resolved_under_fixed_criterion": true,
+    "valley_to_weaker_peak": 0.39606723189353943,
+    "criterion": "two distinct local peaks within one grid cell of GT and >=3 dB amplitude valley",
+    "scope": "two equal-phase, equal-amplitude noiseless points at bin17; fixed control, not a universal resolution limit"
+  },
+  {
+    "rate": 1.0,
+    "method": "RMA",
+    "separation_x_m": 0.004,
+    "resolved_under_fixed_criterion": true,
+    "valley_to_weaker_peak": 0.16137410339887356,
+    "criterion": "two distinct local peaks within one grid cell of GT and >=3 dB amplitude valley",
+    "scope": "two equal-phase, equal-amplitude noiseless points at bin17; fixed control, not a universal resolution limit"
+  },
+  {
+    "rate": 1.0,
+    "method": "ISTA",
+    "separation_x_m": 0.004,
+    "resolved_under_fixed_criterion": true,
+    "valley_to_weaker_peak": 0.37411415576934814,
+    "criterion": "two distinct local peaks within one grid cell of GT and >=3 dB amplitude valley",
+    "scope": "two equal-phase, equal-amplitude noiseless points at bin17; fixed control, not a universal resolution limit"
+  },
+  {
+    "rate": 1.0,
+    "method": "ISTA-Net",
+    "separation_x_m": 0.004,
+    "resolved_under_fixed_criterion": true,
+    "valley_to_weaker_peak": 0.0020315859001129866,
+    "criterion": "two distinct local peaks within one grid cell of GT and >=3 dB amplitude valley",
+    "scope": "two equal-phase, equal-amplitude noiseless points at bin17; fixed control, not a universal resolution limit"
+  },
+  {
+    "rate": 1.0,
+    "method": "RMA",
+    "separation_x_m": 0.008,
+    "resolved_under_fixed_criterion": true,
+    "valley_to_weaker_peak": 0.015672464042488277,
+    "criterion": "two distinct local peaks within one grid cell of GT and >=3 dB amplitude valley",
+    "scope": "two equal-phase, equal-amplitude noiseless points at bin17; fixed control, not a universal resolution limit"
+  },
+  {
+    "rate": 1.0,
+    "method": "ISTA",
+    "separation_x_m": 0.008,
+    "resolved_under_fixed_criterion": true,
+    "valley_to_weaker_peak": 0.29237300157546997,
+    "criterion": "two distinct local peaks within one grid cell of GT and >=3 dB amplitude valley",
+    "scope": "two equal-phase, equal-amplitude noiseless points at bin17; fixed control, not a universal resolution limit"
+  },
+  {
+    "rate": 1.0,
+    "method": "ISTA-Net",
+    "separation_x_m": 0.008,
+    "resolved_under_fixed_criterion": true,
+    "valley_to_weaker_peak": 0.0008080097613856196,
+    "criterion": "two distinct local peaks within one grid cell of GT and >=3 dB amplitude valley",
+    "scope": "two equal-phase, equal-amplitude noiseless points at bin17; fixed control, not a universal resolution limit"
+  },
+  {
+    "rate": 1.0,
+    "method": "RMA",
+    "separation_x_m": 0.016,
+    "resolved_under_fixed_criterion": true,
+    "valley_to_weaker_peak": 0.03255854913299113,
+    "criterion": "two distinct local peaks within one grid cell of GT and >=3 dB amplitude valley",
+    "scope": "two equal-phase, equal-amplitude noiseless points at bin17; fixed control, not a universal resolution limit"
+  },
+  {
+    "rate": 1.0,
+    "method": "ISTA",
+    "separation_x_m": 0.016,
+    "resolved_under_fixed_criterion": true,
+    "valley_to_weaker_peak": 0.005374405067414045,
+    "criterion": "two distinct local peaks within one grid cell of GT and >=3 dB amplitude valley",
+    "scope": "two equal-phase, equal-amplitude noiseless points at bin17; fixed control, not a universal resolution limit"
+  },
+  {
+    "rate": 1.0,
+    "method": "ISTA-Net",
+    "separation_x_m": 0.016,
+    "resolved_under_fixed_criterion": true,
+    "valley_to_weaker_peak": 0.00038324782508425415,
+    "criterion": "two distinct local peaks within one grid cell of GT and >=3 dB amplitude valley",
+    "scope": "two equal-phase, equal-amplitude noiseless points at bin17; fixed control, not a universal resolution limit"
+  },
+  {
+    "rate": 0.7,
+    "method": "RMA",
+    "separation_x_m": 0.002,
+    "resolved_under_fixed_criterion": true,
+    "valley_to_weaker_peak": 0.2614509159999615,
+    "criterion": "two distinct local peaks within one grid cell of GT and >=3 dB amplitude valley",
+    "scope": "two equal-phase, equal-amplitude noiseless points at bin17; fixed control, not a universal resolution limit"
+  },
+  {
+    "rate": 0.7,
+    "method": "ISTA",
+    "separation_x_m": 0.002,
+    "resolved_under_fixed_criterion": true,
+    "valley_to_weaker_peak": 0.5156585574150085,
+    "criterion": "two distinct local peaks within one grid cell of GT and >=3 dB amplitude valley",
+    "scope": "two equal-phase, equal-amplitude noiseless points at bin17; fixed control, not a universal resolution limit"
+  },
+  {
+    "rate": 0.7,
+    "method": "ISTA-Net",
+    "separation_x_m": 0.002,
+    "resolved_under_fixed_criterion": true,
+    "valley_to_weaker_peak": 0.346762478351593,
+    "criterion": "two distinct local peaks within one grid cell of GT and >=3 dB amplitude valley",
+    "scope": "two equal-phase, equal-amplitude noiseless points at bin17; fixed control, not a universal resolution limit"
+  },
+  {
+    "rate": 0.7,
+    "method": "RMA",
+    "separation_x_m": 0.004,
+    "resolved_under_fixed_criterion": true,
+    "valley_to_weaker_peak": 0.16266849783191425,
+    "criterion": "two distinct local peaks within one grid cell of GT and >=3 dB amplitude valley",
+    "scope": "two equal-phase, equal-amplitude noiseless points at bin17; fixed control, not a universal resolution limit"
+  },
+  {
+    "rate": 0.7,
+    "method": "ISTA",
+    "separation_x_m": 0.004,
+    "resolved_under_fixed_criterion": true,
+    "valley_to_weaker_peak": 0.3972143232822418,
+    "criterion": "two distinct local peaks within one grid cell of GT and >=3 dB amplitude valley",
+    "scope": "two equal-phase, equal-amplitude noiseless points at bin17; fixed control, not a universal resolution limit"
+  },
+  {
+    "rate": 0.7,
+    "method": "ISTA-Net",
+    "separation_x_m": 0.004,
+    "resolved_under_fixed_criterion": true,
+    "valley_to_weaker_peak": 0.0023008238058537245,
+    "criterion": "two distinct local peaks within one grid cell of GT and >=3 dB amplitude valley",
+    "scope": "two equal-phase, equal-amplitude noiseless points at bin17; fixed control, not a universal resolution limit"
+  },
+  {
+    "rate": 0.7,
+    "method": "RMA",
+    "separation_x_m": 0.008,
+    "resolved_under_fixed_criterion": true,
+    "valley_to_weaker_peak": 0.01723609412655201,
+    "criterion": "two distinct local peaks within one grid cell of GT and >=3 dB amplitude valley",
+    "scope": "two equal-phase, equal-amplitude noiseless points at bin17; fixed control, not a universal resolution limit"
+  },
+  {
+    "rate": 0.7,
+    "method": "ISTA",
+    "separation_x_m": 0.008,
+    "resolved_under_fixed_criterion": true,
+    "valley_to_weaker_peak": 0.31692764163017273,
+    "criterion": "two distinct local peaks within one grid cell of GT and >=3 dB amplitude valley",
+    "scope": "two equal-phase, equal-amplitude noiseless points at bin17; fixed control, not a universal resolution limit"
+  },
+  {
+    "rate": 0.7,
+    "method": "ISTA-Net",
+    "separation_x_m": 0.008,
+    "resolved_under_fixed_criterion": true,
+    "valley_to_weaker_peak": 0.0005292990827001631,
+    "criterion": "two distinct local peaks within one grid cell of GT and >=3 dB amplitude valley",
+    "scope": "two equal-phase, equal-amplitude noiseless points at bin17; fixed control, not a universal resolution limit"
+  },
+  {
+    "rate": 0.7,
+    "method": "RMA",
+    "separation_x_m": 0.016,
+    "resolved_under_fixed_criterion": true,
+    "valley_to_weaker_peak": 0.03227136148060669,
+    "criterion": "two distinct local peaks within one grid cell of GT and >=3 dB amplitude valley",
+    "scope": "two equal-phase, equal-amplitude noiseless points at bin17; fixed control, not a universal resolution limit"
+  },
+  {
+    "rate": 0.7,
+    "method": "ISTA",
+    "separation_x_m": 0.016,
+    "resolved_under_fixed_criterion": true,
+    "valley_to_weaker_peak": 0.0060094320215284824,
+    "criterion": "two distinct local peaks within one grid cell of GT and >=3 dB amplitude valley",
+    "scope": "two equal-phase, equal-amplitude noiseless points at bin17; fixed control, not a universal resolution limit"
+  },
+  {
+    "rate": 0.7,
+    "method": "ISTA-Net",
+    "separation_x_m": 0.016,
+    "resolved_under_fixed_criterion": true,
+    "valley_to_weaker_peak": 0.00013515785394702107,
+    "criterion": "two distinct local peaks within one grid cell of GT and >=3 dB amplitude valley",
+    "scope": "two equal-phase, equal-amplitude noiseless points at bin17; fixed control, not a universal resolution limit"
+  },
+  {
+    "rate": 0.5,
+    "method": "RMA",
+    "separation_x_m": 0.002,
+    "resolved_under_fixed_criterion": true,
+    "valley_to_weaker_peak": 0.26396850231276997,
+    "criterion": "two distinct local peaks within one grid cell of GT and >=3 dB amplitude valley",
+    "scope": "two equal-phase, equal-amplitude noiseless points at bin17; fixed control, not a universal resolution limit"
+  },
+  {
+    "rate": 0.5,
+    "method": "ISTA",
+    "separation_x_m": 0.002,
+    "resolved_under_fixed_criterion": true,
+    "valley_to_weaker_peak": 0.5269517302513123,
+    "criterion": "two distinct local peaks within one grid cell of GT and >=3 dB amplitude valley",
+    "scope": "two equal-phase, equal-amplitude noiseless points at bin17; fixed control, not a universal resolution limit"
+  },
+  {
+    "rate": 0.5,
+    "method": "ISTA-Net",
+    "separation_x_m": 0.002,
+    "resolved_under_fixed_criterion": true,
+    "valley_to_weaker_peak": 0.3587765395641327,
+    "criterion": "two distinct local peaks within one grid cell of GT and >=3 dB amplitude valley",
+    "scope": "two equal-phase, equal-amplitude noiseless points at bin17; fixed control, not a universal resolution limit"
+  },
+  {
+    "rate": 0.5,
+    "method": "RMA",
+    "separation_x_m": 0.004,
+    "resolved_under_fixed_criterion": true,
+    "valley_to_weaker_peak": 0.16019045273508675,
+    "criterion": "two distinct local peaks within one grid cell of GT and >=3 dB amplitude valley",
+    "scope": "two equal-phase, equal-amplitude noiseless points at bin17; fixed control, not a universal resolution limit"
+  },
+  {
+    "rate": 0.5,
+    "method": "ISTA",
+    "separation_x_m": 0.004,
+    "resolved_under_fixed_criterion": true,
+    "valley_to_weaker_peak": 0.41245588660240173,
+    "criterion": "two distinct local peaks within one grid cell of GT and >=3 dB amplitude valley",
+    "scope": "two equal-phase, equal-amplitude noiseless points at bin17; fixed control, not a universal resolution limit"
+  },
+  {
+    "rate": 0.5,
+    "method": "ISTA-Net",
+    "separation_x_m": 0.004,
+    "resolved_under_fixed_criterion": true,
+    "valley_to_weaker_peak": 0.002163531258702278,
+    "criterion": "two distinct local peaks within one grid cell of GT and >=3 dB amplitude valley",
+    "scope": "two equal-phase, equal-amplitude noiseless points at bin17; fixed control, not a universal resolution limit"
+  },
+  {
+    "rate": 0.5,
+    "method": "RMA",
+    "separation_x_m": 0.008,
+    "resolved_under_fixed_criterion": true,
+    "valley_to_weaker_peak": 0.015823611316814746,
+    "criterion": "two distinct local peaks within one grid cell of GT and >=3 dB amplitude valley",
+    "scope": "two equal-phase, equal-amplitude noiseless points at bin17; fixed control, not a universal resolution limit"
+  },
+  {
+    "rate": 0.5,
+    "method": "ISTA",
+    "separation_x_m": 0.008,
+    "resolved_under_fixed_criterion": true,
+    "valley_to_weaker_peak": 0.3355935513973236,
+    "criterion": "two distinct local peaks within one grid cell of GT and >=3 dB amplitude valley",
+    "scope": "two equal-phase, equal-amplitude noiseless points at bin17; fixed control, not a universal resolution limit"
+  },
+  {
+    "rate": 0.5,
+    "method": "ISTA-Net",
+    "separation_x_m": 0.008,
+    "resolved_under_fixed_criterion": true,
+    "valley_to_weaker_peak": 0.0011422160314396024,
+    "criterion": "two distinct local peaks within one grid cell of GT and >=3 dB amplitude valley",
+    "scope": "two equal-phase, equal-amplitude noiseless points at bin17; fixed control, not a universal resolution limit"
+  },
+  {
+    "rate": 0.5,
+    "method": "RMA",
+    "separation_x_m": 0.016,
+    "resolved_under_fixed_criterion": true,
+    "valley_to_weaker_peak": 0.03171577400835828,
+    "criterion": "two distinct local peaks within one grid cell of GT and >=3 dB amplitude valley",
+    "scope": "two equal-phase, equal-amplitude noiseless points at bin17; fixed control, not a universal resolution limit"
+  },
+  {
+    "rate": 0.5,
+    "method": "ISTA",
+    "separation_x_m": 0.016,
+    "resolved_under_fixed_criterion": true,
+    "valley_to_weaker_peak": 0.020881962031126022,
+    "criterion": "two distinct local peaks within one grid cell of GT and >=3 dB amplitude valley",
+    "scope": "two equal-phase, equal-amplitude noiseless points at bin17; fixed control, not a universal resolution limit"
+  },
+  {
+    "rate": 0.5,
+    "method": "ISTA-Net",
+    "separation_x_m": 0.016,
+    "resolved_under_fixed_criterion": true,
+    "valley_to_weaker_peak": 0.0008482409757561982,
+    "criterion": "two distinct local peaks within one grid cell of GT and >=3 dB amplitude valley",
+    "scope": "two equal-phase, equal-amplitude noiseless points at bin17; fixed control, not a universal resolution limit"
+  },
+  {
+    "rate": 0.3,
+    "method": "RMA",
+    "separation_x_m": 0.002,
+    "resolved_under_fixed_criterion": true,
+    "valley_to_weaker_peak": 0.27015604962665246,
+    "criterion": "two distinct local peaks within one grid cell of GT and >=3 dB amplitude valley",
+    "scope": "two equal-phase, equal-amplitude noiseless points at bin17; fixed control, not a universal resolution limit"
+  },
+  {
+    "rate": 0.3,
+    "method": "ISTA",
+    "separation_x_m": 0.002,
+    "resolved_under_fixed_criterion": true,
+    "valley_to_weaker_peak": 0.5479267835617065,
+    "criterion": "two distinct local peaks within one grid cell of GT and >=3 dB amplitude valley",
+    "scope": "two equal-phase, equal-amplitude noiseless points at bin17; fixed control, not a universal resolution limit"
+  },
+  {
+    "rate": 0.3,
+    "method": "ISTA-Net",
+    "separation_x_m": 0.002,
+    "resolved_under_fixed_criterion": true,
+    "valley_to_weaker_peak": 0.57134610414505,
+    "criterion": "two distinct local peaks within one grid cell of GT and >=3 dB amplitude valley",
+    "scope": "two equal-phase, equal-amplitude noiseless points at bin17; fixed control, not a universal resolution limit"
+  },
+  {
+    "rate": 0.3,
+    "method": "RMA",
+    "separation_x_m": 0.004,
+    "resolved_under_fixed_criterion": true,
+    "valley_to_weaker_peak": 0.1583026344036794,
+    "criterion": "two distinct local peaks within one grid cell of GT and >=3 dB amplitude valley",
+    "scope": "two equal-phase, equal-amplitude noiseless points at bin17; fixed control, not a universal resolution limit"
+  },
+  {
+    "rate": 0.3,
+    "method": "ISTA",
+    "separation_x_m": 0.004,
+    "resolved_under_fixed_criterion": true,
+    "valley_to_weaker_peak": 0.4413798153400421,
+    "criterion": "two distinct local peaks within one grid cell of GT and >=3 dB amplitude valley",
+    "scope": "two equal-phase, equal-amplitude noiseless points at bin17; fixed control, not a universal resolution limit"
+  },
+  {
+    "rate": 0.3,
+    "method": "ISTA-Net",
+    "separation_x_m": 0.004,
+    "resolved_under_fixed_criterion": true,
+    "valley_to_weaker_peak": 0.0037670270539820194,
+    "criterion": "two distinct local peaks within one grid cell of GT and >=3 dB amplitude valley",
+    "scope": "two equal-phase, equal-amplitude noiseless points at bin17; fixed control, not a universal resolution limit"
+  },
+  {
+    "rate": 0.3,
+    "method": "RMA",
+    "separation_x_m": 0.008,
+    "resolved_under_fixed_criterion": true,
+    "valley_to_weaker_peak": 0.011828269630059408,
+    "criterion": "two distinct local peaks within one grid cell of GT and >=3 dB amplitude valley",
+    "scope": "two equal-phase, equal-amplitude noiseless points at bin17; fixed control, not a universal resolution limit"
+  },
+  {
+    "rate": 0.3,
+    "method": "ISTA",
+    "separation_x_m": 0.008,
+    "resolved_under_fixed_criterion": true,
+    "valley_to_weaker_peak": 0.3696495294570923,
+    "criterion": "two distinct local peaks within one grid cell of GT and >=3 dB amplitude valley",
+    "scope": "two equal-phase, equal-amplitude noiseless points at bin17; fixed control, not a universal resolution limit"
+  },
+  {
+    "rate": 0.3,
+    "method": "ISTA-Net",
+    "separation_x_m": 0.008,
+    "resolved_under_fixed_criterion": true,
+    "valley_to_weaker_peak": 0.0028898257296532393,
+    "criterion": "two distinct local peaks within one grid cell of GT and >=3 dB amplitude valley",
+    "scope": "two equal-phase, equal-amplitude noiseless points at bin17; fixed control, not a universal resolution limit"
+  },
+  {
+    "rate": 0.3,
+    "method": "RMA",
+    "separation_x_m": 0.016,
+    "resolved_under_fixed_criterion": true,
+    "valley_to_weaker_peak": 0.033364464598611386,
+    "criterion": "two distinct local peaks within one grid cell of GT and >=3 dB amplitude valley",
+    "scope": "two equal-phase, equal-amplitude noiseless points at bin17; fixed control, not a universal resolution limit"
+  },
+  {
+    "rate": 0.3,
+    "method": "ISTA",
+    "separation_x_m": 0.016,
+    "resolved_under_fixed_criterion": true,
+    "valley_to_weaker_peak": 0.05014694482088089,
+    "criterion": "two distinct local peaks within one grid cell of GT and >=3 dB amplitude valley",
+    "scope": "two equal-phase, equal-amplitude noiseless points at bin17; fixed control, not a universal resolution limit"
+  },
+  {
+    "rate": 0.3,
+    "method": "ISTA-Net",
+    "separation_x_m": 0.016,
+    "resolved_under_fixed_criterion": true,
+    "valley_to_weaker_peak": 0.0009199611959047616,
+    "criterion": "two distinct local peaks within one grid cell of GT and >=3 dB amplitude valley",
+    "scope": "two equal-phase, equal-amplitude noiseless points at bin17; fixed control, not a universal resolution limit"
+  }
+]

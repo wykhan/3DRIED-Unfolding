@@ -1,0 +1,96 @@
+{
+  "reviewed_commit": "60f447263128d576b24589b77ee5dd2f62f62bf0",
+  "status": "IMPLEMENTED_TESTED_AWAITING_INDEPENDENT_REVIEW",
+  "requests": {
+    "1": "IMPLEMENTED_TESTED",
+    "2": "IMPLEMENTED_TESTED",
+    "3": "IMPLEMENTED_TESTED",
+    "4": "IMPLEMENTED_TESTED",
+    "5": "IMPLEMENTED_TESTED"
+  },
+  "tests": {
+    "status": "PASS",
+    "tests_run": 85,
+    "passed": 85,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "skip_reasons": []
+  },
+  "independent_adc": {
+    "status": "PASS",
+    "cases": 60,
+    "cpu_cases": 60,
+    "cuda_cases": 60,
+    "skipped_cuda_cases": 0,
+    "cached_cases": 30,
+    "cached_skipped_off_lattice_cases": 30,
+    "maximum_double_implementation_relative": 7.515629661173529e-13,
+    "maximum_cached_implementation_relative": 3.0975333837325693e-13,
+    "maximum_mixed_implementation_relative": 0.00026608972615971846,
+    "scope": "declared positive-beat simulation; independent ADC reference; Hammer not accepted"
+  },
+  "interpolation_by_oversampling": [
+    {
+      "factor": 1,
+      "interpolation_relative_l2": 0.3473051911690622,
+      "interpolation_max_complex_error_over_known_signal_bound": 0.2792947251044708,
+      "amplitude_max_absolute_error_over_known_signal_bound": 0.27929472510447084,
+      "phase_max_error_rad": 0.7626686598842114
+    },
+    {
+      "factor": 2,
+      "interpolation_relative_l2": 0.12360072318245398,
+      "interpolation_max_complex_error_over_known_signal_bound": 0.08723470997788298,
+      "amplitude_max_absolute_error_over_known_signal_bound": 0.08723470997788307,
+      "phase_max_error_rad": 0.13272227913397394
+    },
+    {
+      "factor": 4,
+      "interpolation_relative_l2": 0.03609578222173603,
+      "interpolation_max_complex_error_over_known_signal_bound": 0.018479801440265804,
+      "amplitude_max_absolute_error_over_known_signal_bound": 0.018479801440266015,
+      "phase_max_error_rad": 0.03245907505144493
+    },
+    {
+      "factor": 8,
+      "interpolation_relative_l2": 0.006105014732553829,
+      "interpolation_max_complex_error_over_known_signal_bound": 0.004953801007887239,
+      "amplitude_max_absolute_error_over_known_signal_bound": 0.004953801007887135,
+      "phase_max_error_rad": 0.008118840467489265
+    },
+    {
+      "factor": 16,
+      "interpolation_relative_l2": 0.0021437482572600917,
+      "interpolation_max_complex_error_over_known_signal_bound": 0.0011295420548205497,
+      "amplitude_max_absolute_error_over_known_signal_bound": 0.0011295420548206358,
+      "phase_max_error_rad": 0.0013720870727100026
+    }
+  ],
+  "full_size": {
+    "status": "PASS",
+    "conditions": 8,
+    "all_mixed_eligible": true,
+    "gpu_peak_allocated_bytes": 11018993664,
+    "scope": "full-size physical FMCW simulation and migrated BP; Hammer phase/calibration NOT validated"
+  },
+  "cache_regression": {
+    "status": "PASS",
+    "conditions": 8,
+    "maximum_complex_relative_error": 1.4357212848968538e-13,
+    "maximum_historical_relative_error": 1.4357212848968538e-13,
+    "scope": "exact regular-lattice cache; full FMCW distance queries retained"
+  },
+  "environments_captured_separately": true,
+  "hammer_phase_range_acceptance": "NOT_ACCEPTED",
+  "pr_must_remain_draft": true,
+  "historical_result_files_preserved": true,
+  "data_scope": "synthetic simulation aggregates only; no Hammer reconstruction data",
+  "full_records_retained_on_server": true,
+  "public_metadata_policy": "hostnames, process IDs, GPU UUIDs, capture IDs and absolute paths excluded",
+  "pipeline_median_seconds": {
+    "double": 2.5432756200025324,
+    "mixed": 1.5575945569980831,
+    "cached_double": 0.45400287799930084
+  }
+}
